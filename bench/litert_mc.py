@@ -16,6 +16,7 @@ ap.add_argument("--shard", type=int, default=0)
 ap.add_argument("--nshards", type=int, default=1)
 ap.add_argument("--limit", type=int, default=0)
 ap.add_argument("--threads", type=int, default=0)
+ap.add_argument("--act", default="", help="activation data type: fp32 | fp16 | int16 | int8 (default: runtime default)")
 ap.add_argument("--out", required=True)
 a = ap.parse_args()
 
@@ -26,8 +27,12 @@ if a.limit:
 
 t0 = time.time()
 backend = lm.Backend.CPU(thread_count=a.threads) if a.threads else lm.Backend.CPU()
-eng = lm.Engine(a.model, backend=backend, max_num_tokens=2048, cache_dir=os.path.abspath(".lrtcache"))
-print("engine ready in %.0fs; %d prompts in shard %d/%d" % (time.time() - t0, len(rows), a.shard, a.nshards), flush=True)
+os.makedirs(".lrtcache", exist_ok=True)
+kw = {}
+if a.act:
+    kw["activation_data_type"] = lm.ActivationDataType.from_str(a.act)
+eng = lm.Engine(a.model, backend=backend, max_num_tokens=2048, cache_dir=os.path.abspath(".lrtcache"), **kw)
+print("engine ready in %.0fs (act=%s); %d prompts in shard %d/%d" % (time.time() - t0, a.act or "default", len(rows), a.shard, a.nshards), flush=True)
 greedy = lm.SamplerConfig(top_k=1, top_p=1.0, temperature=0.0)
 
 

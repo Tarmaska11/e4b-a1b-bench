@@ -17,6 +17,9 @@ on:
       nshards:
         description: number of shards
         default: "8"
+      act:
+        description: activation data type (fp32, fp16, int16, int8; empty = runtime default)
+        default: ""
 jobs:
   eval:
     runs-on: ubuntu-latest
@@ -43,10 +46,12 @@ jobs:
           ls -la model.litertlm
       - name: answer
         if: ${{ matrix.shard < fromJSON(inputs.nshards) }}
+        env:
+          ACT: ${{ inputs.act }}
         run: |
           python bench/litert_mc.py --model model.litertlm --data data/bench_gmmlu.jsonl \
             --shard ${{ matrix.shard }} --nshards ${{ inputs.nshards }} --limit ${{ inputs.limit }} \
-            --out out_${{ inputs.tag }}_${{ matrix.shard }}.jsonl
+            ${ACT:+--act "$ACT"} --out out_${{ inputs.tag }}_${{ matrix.shard }}.jsonl
       - uses: actions/upload-artifact@v4
         if: ${{ always() && matrix.shard < fromJSON(inputs.nshards) }}
         with:
