@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Answer one shard of the MC prompts with a llama.cpp server (greedy, no thinking, 8 tokens max)."""
+"""Answer one shard of the MC prompts with a llama.cpp server (greedy, no thinking, 24 tokens max)."""
 import argparse
 import json
 import os
@@ -48,7 +48,7 @@ print("server up in %.0fs; %d prompts" % (time.time() - t0, len(rows)), flush=Tr
 with open(a.out, "w", encoding="utf-8") as out:
     for i, r in enumerate(rows):
         body = {"messages": [{"role": "user", "content": r["prompt"]}], "temperature": 0, "top_k": 1,
-                "max_tokens": 8, "chat_template_kwargs": {"enable_thinking": False}}
+                "max_tokens": 24, "chat_template_kwargs": {"enable_thinking": False}}
         t = time.time()
         try:
             resp = call("/v1/chat/completions", body)

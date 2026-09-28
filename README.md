@@ -2,7 +2,7 @@
 
 Independent multiple-choice benchmark of **Gemma 4 E4B** builds on the same question set, English and
 Russian: 570 questions from Cohere's Global-MMLU (10 per MMLU subject, fixed seed) and the SAME 570 in
-Russian (1 140 prompts, `data/bench_gmmlu.jsonl`). No-think chat, one-letter answers, greedy.
+Russian (1 140 prompts, `data/bench_gmmlu.jsonl`). No-think chat, greedy, replies capped at 24 tokens (enough for "The correct answer is B"), parsed by one shared parser.
 
 `.github/workflows/gguf-mc.yml` runs any GGUF of the model through a CPU llama.cpp server in 8 parallel
 shards and uploads each shard's replies as an artifact. It is one of several harnesses answering the
