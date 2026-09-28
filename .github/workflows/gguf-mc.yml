@@ -1,0 +1,47 @@
+name: gguf-mc
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: Hugging Face model repo
+        required: true
+        default: unsloth/gemma-4-E4B-it-GGUF
+      file:
+        description: GGUF file in that repo
+        required: true
+        default: gemma-4-E4B-it-Q4_K_M.gguf
+      tag:
+        description: result tag
+        required: true
+        default: q4km
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - name: llama.cpp (CPU, prebuilt)
+        run: |
+          curl -sSL -o llama.tar.gz https://github.com/ggml-org/llama.cpp/releases/download/b11235/llama-b11235-bin-ubuntu-x64.tar.gz
+          mkdir llama && tar -xzf llama.tar.gz -C llama
+          find llama -name 'llama-server' -type f
+      - name: model
+        run: |
+          curl -sSL -o model.gguf "https://huggingface.co/${{ inputs.repo }}/resolve/main/${{ inputs.file }}"
+          ls -la model.gguf
+      - name: evaluate shard
+        run: |
+          SRV=$(find llama -name 'llama-server' -type f | head -1)
+          python3 bench/llamacpp_mc.py --server "$SRV" --model model.gguf --data data/bench_gmmlu.jsonl \
+            --shard ${{ matrix.shard }} --nshards 8 --out out_${{ inputs.tag }}_${{ matrix.shard }}.jsonl
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mc-${{ inputs.tag }}-${{ matrix.shard }}
+          path: |
+            out_*.jsonl
+            server_*.log
