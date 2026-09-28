@@ -1,0 +1,54 @@
+name: litert-mc
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: Hugging Face model repo
+        default: litert-community/gemma-4-E4B-it-litert-lm
+      file:
+        description: .litertlm file in that repo
+        default: gemma-4-E4B-it.litertlm
+      tag:
+        description: result tag
+        default: litert_cpu
+      limit:
+        description: prompts per shard (0 = all)
+        default: "0"
+      nshards:
+        description: number of shards
+        default: "8"
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: runtime
+        if: ${{ matrix.shard < fromJSON(inputs.nshards) }}
+        run: |
+          pip install -q litert-lm-api==0.17.1
+          python -c "import litert_lm; print('litert_lm ok')"
+          nproc; free -g
+      - name: model
+        if: ${{ matrix.shard < fromJSON(inputs.nshards) }}
+        run: |
+          curl -sSL -o model.litertlm "https://huggingface.co/${{ inputs.repo }}/resolve/main/${{ inputs.file }}"
+          ls -la model.litertlm
+      - name: answer
+        if: ${{ matrix.shard < fromJSON(inputs.nshards) }}
+        run: |
+          python bench/litert_mc.py --model model.litertlm --data data/bench_gmmlu.jsonl \
+            --shard ${{ matrix.shard }} --nshards ${{ inputs.nshards }} --limit ${{ inputs.limit }} \
+            --out out_${{ inputs.tag }}_${{ matrix.shard }}.jsonl
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && matrix.shard < fromJSON(inputs.nshards) }}
+        with:
+          name: mc-${{ inputs.tag }}-${{ matrix.shard }}
+          path: out_*.jsonl
