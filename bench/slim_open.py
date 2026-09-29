@@ -30,14 +30,14 @@ def trial(label, path):
     os.makedirs(cache, exist_ok=True)
     t0 = time.time()
     try:
-        eng = lm.Engine(path, backend=lm.Backend.CPU(), max_num_tokens=512, cache_dir=cache)
+        eng = lm.Engine(path, backend=lm.Backend.CPU(), max_num_tokens=2048, cache_dir=cache)   # 2048: the 1024-position prefill must fit the KV (512 failed in DYNAMIC_UPDATE_SLICE)
     except Exception as e:
         print("%s: ENGINE CREATE FAILED after %.0f s: %s" % (label, time.time() - t0, e), flush=True)
         return
     print("%s: engine created in %.0f s" % (label, time.time() - t0), flush=True)
     try:
         conv = eng.create_conversation(sampler_config=lm.SamplerConfig(top_k=1, top_p=1.0, temperature=0.0),
-                                       max_output_tokens=12)
+                                       max_output_tokens=24)
         reply = text_of(conv.send_message("Say exactly the following sentence and nothing else: the ferry leaves at six"))
         print("%s: REPLY %r" % (label, reply), flush=True)
     except Exception as e:
