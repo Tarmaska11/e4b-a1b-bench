@@ -1,0 +1,26 @@
+name: slim-open
+on:
+  workflow_dispatch:
+jobs:
+  open:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: runtime
+        run: |
+          pip install -q litert-lm-api==0.17.1 flatbuffers
+          python -c "import litert_lm; print('litert_lm ok')"
+          df -h / | tail -1
+      - name: Google's public gemma-4-E4B-it.litertlm
+        run: |
+          curl -sSL -o model.litertlm "https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm/resolve/main/gemma-4-E4B-it.litertlm"
+          ls -la model.litertlm
+      - name: slim it (drop tf_lite_embedder + audio; kept sections verified by md5)
+        run: |
+          cd bench && python litertlm_slim.py ../model.litertlm ../slim.litertlm && python litertlm_splice.py list ../slim.litertlm
+      - name: open both with Google's runtime
+        run: python bench/slim_open.py model.litertlm slim.litertlm
