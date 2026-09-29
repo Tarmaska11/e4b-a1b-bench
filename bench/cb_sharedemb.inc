@@ -41,7 +41,13 @@ struct Fb {
     const uint16_t o = U16(static_cast<uint64_t>(vt) + fo);
     return o != 0 ? t + o : 0;
   }
-  // Follows the uoffset stored at pos; 0 when out of range.
+  // The root table: its uoffset is stored AT position 0, which Deref reserves for "absent".
+  uint64_t Root() const {
+    if (!Ok(0, 8)) return 0;
+    const uint64_t r = U32(0);
+    return Ok(r, 4) ? r : 0;
+  }
+  // Follows the uoffset stored at pos (pos 0 = absent field); 0 when out of range.
   uint64_t Deref(uint64_t pos) const {
     if (pos == 0 || !Ok(pos, 4)) return 0;
     const uint64_t r = pos + U32(pos);
@@ -69,7 +75,7 @@ struct Head {
 // all-zero zero points. False (with *why) when there is none, or when two different tables tie.
 inline bool FindInt2Head(const uint8_t* base, uint64_t size, Head* out, const char** why) {
   const Fb fb{base, size};
-  const uint64_t model = fb.Deref(0);
+  const uint64_t model = fb.Root();
   uint64_t nsg = 0, sg0 = 0, nbuf = 0, buf0 = 0;
   if (model == 0 || !fb.Vec(model, 2, &nsg, &sg0) || !fb.Vec(model, 4, &nbuf, &buf0)) {
     *why = "not a TFLite flatbuffer";
