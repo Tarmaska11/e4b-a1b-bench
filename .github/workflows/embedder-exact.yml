@@ -1,0 +1,22 @@
+name: embedder-exact
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: runtime
+        run: |
+          pip install -q ai-edge-litert tflite==2.18.0 numpy
+          python -c "import ai_edge_litert; print('ai_edge_litert ok')"
+      - name: embedder section (bytes 4734976..175655559 of Google's public gemma-4-E4B-it.litertlm)
+        run: |
+          curl -sSL -r 4734976-175655559 -o embedder.tflite \
+            "https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm/resolve/main/gemma-4-E4B-it.litertlm"
+          ls -la embedder.tflite
+      - name: compare
+        run: python bench/embedder_exact.py embedder.tflite
