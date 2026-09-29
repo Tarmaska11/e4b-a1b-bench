@@ -1,0 +1,29 @@
+name: sharedemb-exact
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: runtime
+        run: pip install -q ai-edge-litert numpy
+      - name: build the C ABI around cb_sharedemb.inc (the file the engine patch compiles)
+        run: |
+          md5sum bench/cb_sharedemb.inc
+          g++ -O2 -std=c++17 -Wall -Wextra -Werror -shared -fPIC -o libsharedemb.so bench/sharedemb_lib.cc
+      - name: two sections of Google's public gemma-4-E4B-it.litertlm
+        run: |
+          U="https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm/resolve/main/gemma-4-E4B-it.litertlm"
+          curl -sSLI "$U" | grep -i -E "^(content-length|x-linked-size|etag|x-linked-etag):" || true
+          curl -sSL -r 4734976-175655559 -o embedder.tflite "$U"
+          curl -sSL -r 1354334208-3614377583 -o main.tflite "$U"
+          ls -la *.tflite
+          test "$(stat -c %s embedder.tflite)" = 170920584
+          test "$(stat -c %s main.tflite)" = 2260043376
+      - name: compare every row
+        run: python bench/sharedemb_exact.py embedder.tflite main.tflite ./libsharedemb.so
