@@ -1,0 +1,9 @@
+system                       lang      n     acc          95% CI  letter
+e4b-q4km                     en      570   68.1%   64.1- 71.8%   97.5%
+e4b-q4km                     ru      570   65.1%   61.1- 68.9%  100.0%
+bonsai2-9b-q2                en      570   71.1%   67.2- 74.6%   98.6%
+bonsai2-9b-q2                ru      570   63.0%   58.9- 66.8%  100.0%
+
+paired vs e4b-q4km (same questions):
+  bonsai2-9b-q2                en   n= 570   +3.0 pts  (wins 76 / losses 59, sign-test p=0.168)
+  bonsai2-9b-q2                ru   n= 570   -2.1 pts  (wins 75 / losses 87, sign-test p=0.388)
