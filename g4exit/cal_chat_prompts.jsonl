@@ -1,0 +1,48 @@
+{"id": "cen01", "lang": "en", "prompt": "What is the best way to learn to touch type as an adult?"}
+{"id": "cen02", "lang": "en", "prompt": "Explain how a bicycle stays upright when it is moving."}
+{"id": "cen03", "lang": "en", "prompt": "I can't decide between getting a dog or a cat. Help me think it through."}
+{"id": "cen04", "lang": "en", "prompt": "Write a short letter to my future self, to be opened in ten years."}
+{"id": "cen05", "lang": "en", "prompt": "How does the stock market work, in plain language?"}
+{"id": "cen06", "lang": "en", "prompt": "Give me a simple recipe for tomato soup and tell me what can go wrong."}
+{"id": "cen07", "lang": "en", "prompt": "Why do leaves change colour in autumn?"}
+{"id": "cen08", "lang": "en", "prompt": "My younger brother is being bullied at school. What should I say to him?"}
+{"id": "cen09", "lang": "en", "prompt": "Explain what an API is to someone who has never programmed."}
+{"id": "cen10", "lang": "en", "prompt": "Describe the life of a medieval blacksmith in a small town."}
+{"id": "cen11", "lang": "en", "prompt": "What are black holes, and how do we know they exist?"}
+{"id": "cen12", "lang": "en", "prompt": "I have twenty minutes a day. Design a home workout with no equipment."}
+{"id": "cen13", "lang": "en", "prompt": "Write a JavaScript function that removes duplicates from an array and explain how it works."}
+{"id": "cen14", "lang": "en", "prompt": "Tell me a funny story about a robot that is terrible at cooking."}
+{"id": "cen15", "lang": "en", "prompt": "What caused the fall of the Roman Empire? Give the main theories."}
+{"id": "cen16", "lang": "en", "prompt": "How should I prepare for a long flight so that I arrive rested?"}
+{"id": "cen17", "lang": "en", "prompt": "Explain photosynthesis step by step."}
+{"id": "cen18", "lang": "en", "prompt": "I feel stuck in my career. What questions should I ask myself?"}
+{"id": "cen19", "lang": "en", "prompt": "What is the difference between weather and climate?"}
+{"id": "cen20", "lang": "en", "prompt": "Recommend three classic novels and say why each is worth reading."}
+{"id": "cen21", "lang": "en", "prompt": "How do noise-cancelling headphones work?"}
+{"id": "cen22", "lang": "en", "prompt": "Help me write a polite message declining a wedding invitation."}
+{"id": "cen23", "lang": "en", "prompt": "What is inflation and why does it matter to ordinary people?"}
+{"id": "cen24", "lang": "en", "prompt": "Describe a walk through a forest early in the morning."}
+{"id": "cru01", "lang": "ru", "prompt": "Как взрослому человеку лучше всего научиться печатать вслепую?"}
+{"id": "cru02", "lang": "ru", "prompt": "Объясни, почему велосипед не падает, когда едет."}
+{"id": "cru03", "lang": "ru", "prompt": "Не могу выбрать, кого завести: собаку или кошку. Помоги разобраться."}
+{"id": "cru04", "lang": "ru", "prompt": "Напиши короткое письмо мне самой в будущее, которое я открою через десять лет."}
+{"id": "cru05", "lang": "ru", "prompt": "Как устроена фондовая биржа? Объясни простым языком."}
+{"id": "cru06", "lang": "ru", "prompt": "Дай простой рецепт борща и расскажи, какие ошибки чаще всего допускают."}
+{"id": "cru07", "lang": "ru", "prompt": "Почему осенью листья меняют цвет?"}
+{"id": "cru08", "lang": "ru", "prompt": "Младшего брата обижают в школе. Что мне ему сказать?"}
+{"id": "cru09", "lang": "ru", "prompt": "Объясни, что такое API, человеку, который никогда не программировал."}
+{"id": "cru10", "lang": "ru", "prompt": "Опиши жизнь кузнеца в небольшом средневековом городе."}
+{"id": "cru11", "lang": "ru", "prompt": "Что такое чёрные дыры и откуда мы знаем, что они существуют?"}
+{"id": "cru12", "lang": "ru", "prompt": "У меня есть двадцать минут в день. Составь домашнюю тренировку без инвентаря."}
+{"id": "cru13", "lang": "ru", "prompt": "Напиши функцию на JavaScript, которая удаляет дубликаты из массива, и объясни, как она работает."}
+{"id": "cru14", "lang": "ru", "prompt": "Расскажи смешную историю про робота, который ужасно готовит."}
+{"id": "cru15", "lang": "ru", "prompt": "Почему распалась Римская империя? Приведи основные версии."}
+{"id": "cru16", "lang": "ru", "prompt": "Как подготовиться к долгому перелёту, чтобы прилететь отдохнувшей?"}
+{"id": "cru17", "lang": "ru", "prompt": "Объясни по шагам, как происходит фотосинтез."}
+{"id": "cru18", "lang": "ru", "prompt": "Кажется, я застряла в карьере. Какие вопросы стоит себе задать?"}
+{"id": "cru19", "lang": "ru", "prompt": "Чем погода отличается от климата?"}
+{"id": "cru20", "lang": "ru", "prompt": "Посоветуй три классических русских романа и объясни, чем хорош каждый."}
+{"id": "cru21", "lang": "ru", "prompt": "Как работают наушники с шумоподавлением?"}
+{"id": "cru22", "lang": "ru", "prompt": "Помоги написать вежливое сообщение с отказом от приглашения на свадьбу."}
+{"id": "cru23", "lang": "ru", "prompt": "Что такое инфляция и почему она важна для обычных людей?"}
+{"id": "cru24", "lang": "ru", "prompt": "Опиши прогулку по лесу ранним утром."}

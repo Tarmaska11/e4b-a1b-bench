@@ -28,6 +28,7 @@ ap.add_argument("--bench", default="data/bench_gmmlu.jsonl")
 ap.add_argument("--chat", default="g4exit/chat_prompts.jsonl")
 ap.add_argument("--out", required=True)
 ap.add_argument("--limit", type=int, default=0, help="smoke: keep only this many records of each kind")
+ap.add_argument("--armset", default="e0")
 a = ap.parse_args()
 
 os.makedirs(a.out, exist_ok=True)
@@ -130,7 +131,7 @@ bench_recs = [prefix + r["prompt"] + suffix for r in bench]
 
 
 # ---------------------------------------------------------------- dumps
-def dump(name, recs, layers, last, skip=None, ffn=None, desc=""):
+def dump(name, recs, layers, last, skip=None, ffn=None, desc="", xenv=None):
     if not recs:
         return None
     for x in recs:
@@ -144,6 +145,7 @@ def dump(name, recs, layers, last, skip=None, ffn=None, desc=""):
         e["G4_SKIP"] = skip
     if ffn:
         e["G4_FFN"] = ffn
+    e.update(xenv or {})
     t = time.time()
     with open(os.path.join(a.out, name + ".log"), "w") as lg:
         rc = subprocess.call([a.g4dump, "-m", a.model, "-f", rf, "--no-escape", "--no-repack", "-c", "2048", "-b", "2048",
@@ -190,11 +192,25 @@ else:
             ("f_g0_25", None, "g:0:42:0.25", "GATE-ONLY selector, keep 25 %, all layers"),
             ("f_G0_02", None, "G:0:42:0.02", "GATE-ONLY selector, drop <= 2 % of gate-score mass, all layers"),
             ("f_g_mix", None, "g:0:24:0.5,g:24:42:0.25", "GATE-ONLY selector, 50 % in layers 0-23, 25 % in 24-41")]
-    if a.limit:
-        ARMS.append(("f_ctrl", None, "k:0:42:1.0", "control: sparse code path with every neuron kept (must equal full)"))
-    for name, spec, ffn, desc in ARMS:
-        arms.append(dump("chat_" + name, chat_recs, [41], False, spec, ffn, desc))
-        arms.append(dump("bench_" + name, bench_recs, [41], True, spec, ffn, desc))
+    ARMS = [x + (None,) for x in ARMS]
+    if a.armset == "e3":
+        PA = "c:0:9:0.25,c:9:14:0.5,c:41:42:0.5"
+        PB = "c:0:9:0.125,c:9:14:0.25,c:14:24:0.5,c:24:42:0.25"
+        PC = "c:0:9:0.125,c:9:24:0.25,c:24:42:0.125"
+        ARMS = [("pA", None, PA, "profile A (at the Q4 noise floor): 25 % in layers 0-8, 50 % in 9-13 and 41, dense 14-40; gate-cal + bypass", None),
+                ("pB", None, PB, "profile B: 12.5 % in 0-8, 25 % in 9-13, 50 % in 14-23, 25 % in 24-41; gate-cal + bypass", None),
+                ("pB_nobyp", None, PB, "profile B WITHOUT the bypass", {"G4_NOBYP": "1"}),
+                ("pC", None, PC, "profile C: 12.5 % in 0-8, 25 % in 9-23, 12.5 % in 24-41; gate-cal + bypass", None),
+                ("c50", None, "c:0:42:0.5", "gate-cal + bypass, 50 % everywhere", None),
+                ("c25", None, "c:0:42:0.25", "gate-cal + bypass, 25 % everywhere", None),
+                ("early125", None, "c:0:9:0.125", "only layers 0-8 sparse (12.5 %), gate-cal + bypass", None),
+                ("top25", None, "c:24:42:0.25", "only the stateless layers 24-41 sparse (25 %), gate-cal + bypass", None),
+                ("top125", None, "c:24:42:0.125", "only the stateless layers 24-41 sparse (12.5 %), gate-cal + bypass", None)]
+    if a.limit and a.armset == "e0":
+        ARMS.append(("f_ctrl", None, "k:0:42:1.0", "control: sparse code path with every neuron kept (must equal full)", None))
+    for name, spec, ffn, desc, xenv in ARMS:
+        arms.append(dump("chat_" + name, chat_recs, [41], False, spec, ffn, desc, xenv))
+        arms.append(dump("bench_" + name, bench_recs, [41], True, spec, ffn, desc, xenv))
 meta["arms"] = arms
 json.dump(meta, open(os.path.join(a.out, "meta.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 log("done")

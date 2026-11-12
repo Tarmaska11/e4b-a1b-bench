@@ -30,6 +30,10 @@ struct g4ffn_layer {
     const ggml_tensor * up   = nullptr;
     std::vector<float>  norm;  // ||W_down[:, j]||
     std::vector<float>  unorm; // ||W_up[j, :]||
+    std::vector<float>  c;     // mode 'c': calibrated selection weight  rms(u_j) * ||W_down[:, j]||
+    std::vector<float>  A1t;   // bypass, [r][d]:  z = A1t x
+    std::vector<float>  A2;    // bypass, [r][d]:  y += A2^T z
+    int                 r     = 0;
     char                mode  = 0;
     float               val   = 1.0f;
     long long           kept  = 0;
@@ -47,6 +51,54 @@ static void g4ffn_report() {
             fprintf(stderr, "G4FFN_STAT il=%d kept=%lld total=%lld\n", (int) i, g4ffn.layers[i].kept, g4ffn.layers[i].total);
         }
     }
+}
+
+// calibration file written by g4exit/calib.py:
+//   int32 magic 'G4C1', n, d, r, nf; float32 fr[nf]; float32 c[n]; then per fraction: f16 A1[d][r], f16 A2[r][d]
+static void g4_load_cal(g4ffn_layer & L, int il) {
+    const char * dir = getenv("G4_CAL");
+    GGML_ASSERT(dir && "mode c needs G4_CAL=<directory with cal_LNN.bin>");
+    char path[1024];
+    snprintf(path, sizeof(path), "%s/cal_L%02d.bin", dir, il);
+    FILE * f = fopen(path, "rb");
+    if (!f) {
+        fprintf(stderr, "G4_FFN: cannot open %s\n", path);
+        GGML_ABORT("calibration file missing");
+    }
+    int32_t h[5];
+    GGML_ASSERT(fread(h, sizeof(int32_t), 5, f) == 5 && h[0] == 0x31433447);
+    const int n = h[1], d = h[2], r = h[3], nf = h[4];
+    std::vector<float> fr(nf);
+    GGML_ASSERT(fread(fr.data(), sizeof(float), nf, f) == (size_t) nf);
+    L.c.resize(n);
+    GGML_ASSERT(fread(L.c.data(), sizeof(float), n, f) == (size_t) n);
+    int best = 0;
+    for (int i = 1; i < nf; ++i) {
+        if (fabsf(fr[i] - L.val) < fabsf(fr[best] - L.val)) {
+            best = i;
+        }
+    }
+    const bool nobyp = getenv("G4_NOBYP") != nullptr;
+    if (!nobyp && r > 0) {
+        GGML_ASSERT(fabsf(fr[best] - L.val) < 1e-4f && "no bypass was fitted for this fraction");
+        fseek(f, (long) ((size_t) best * 2 * (size_t) d * r * sizeof(uint16_t)), SEEK_CUR);
+        std::vector<uint16_t> buf((size_t) d * r);
+        GGML_ASSERT(fread(buf.data(), sizeof(uint16_t), buf.size(), f) == buf.size());
+        L.A1t.resize((size_t) r * d);
+        for (int i = 0; i < d; ++i) {
+            for (int k = 0; k < r; ++k) {
+                L.A1t[(size_t) k * d + i] = ggml_fp16_to_fp32((ggml_fp16_t) buf[(size_t) i * r + k]);
+            }
+        }
+        GGML_ASSERT(fread(buf.data(), sizeof(uint16_t), buf.size(), f) == buf.size());
+        L.A2.resize((size_t) r * d);
+        for (size_t i = 0; i < buf.size(); ++i) {
+            L.A2[i] = ggml_fp16_to_fp32((ggml_fp16_t) buf[i]);
+        }
+        L.r = r;
+    }
+    fclose(f);
+    fprintf(stderr, "G4_FFN layer %d: calibration loaded, fraction %g, bypass rank %d\n", il, L.val, L.r);
 }
 
 static bool g4ffn_on(int il, int n_layer, const ggml_tensor * down, const ggml_tensor * up) {
@@ -75,6 +127,11 @@ static bool g4ffn_on(int il, int n_layer, const ggml_tensor * down, const ggml_t
                 fprintf(stderr, "G4_FFN mode=%c layers %d..%d value %g\n", m, from, to - 1, v);
             }
             p = q + 1;
+        }
+        for (int l = 0; l < n_layer; ++l) {
+            if (g4ffn.layers[l].mode == 'c') {
+                g4_load_cal(g4ffn.layers[l], l);
+            }
         }
         if (any) {
             atexit(g4ffn_report);
@@ -105,7 +162,8 @@ static void g4_row(const ggml_tensor * w, int64_t r, float * buf) {
 // dst = h with part of the neurons zeroed. a = h = gelu(gate x) * (up x), b = gelu(gate x); both [n_ff, n_tokens] F32
 //   k / t : scored by the true contribution norm |h_j| * ||down_j||       (needs gate AND up: an oracle)
 //   g / G : scored by |gelu(g_j)| * ||up_j|| * ||down_j||                 (needs the gate projection only)
-//   k, g  : keep the top `val` fraction;  t, G : drop the lowest scores while their sum stays <= val * total
+//   c     : scored by |gelu(g_j)| * c_j, c_j from the calibration file    (gate only)
+//   k, g, c : keep the top `val` fraction;  t, G : drop the lowest scores while their sum stays <= val * total
 static void g4ffn_op(ggml_tensor * dst, const ggml_tensor * a, const ggml_tensor * b, int ith, int nth, void * ud) {
     (void) nth;
     if (ith != 0) {
@@ -137,16 +195,18 @@ static void g4ffn_op(ggml_tensor * dst, const ggml_tensor * a, const ggml_tensor
             L.unorm[j] = (float) sqrt(u);
             GGML_ASSERT(std::isfinite(L.norm[j]) && std::isfinite(L.unorm[j]) && "weight norms not finite: run with --no-repack");
         }
+        GGML_ASSERT(L.mode != 'c' || (int64_t) L.c.size() == n);
     }
     const bool by_gate = L.mode == 'g' || L.mode == 'G';
-    const bool top_k   = L.mode == 'k' || L.mode == 'g';
+    const bool by_cal  = L.mode == 'c';
+    const bool top_k   = L.mode == 'k' || L.mode == 'g' || L.mode == 'c';
     std::vector<float> sc(n), tmp(n);
     for (int64_t t = 0; t < nt; ++t) {
         const float * h  = (const float *) a->data + t * n;
         const float * gg = (const float *) b->data + t * n;
         float *       o  = (float *) dst->data + t * n;
         for (int64_t j = 0; j < n; ++j) {
-            sc[j] = by_gate ? fabsf(gg[j]) * L.unorm[j] * L.norm[j] : fabsf(h[j]) * L.norm[j];
+            sc[j] = by_cal ? fabsf(gg[j]) * L.c[j] : by_gate ? fabsf(gg[j]) * L.unorm[j] * L.norm[j] : fabsf(h[j]) * L.norm[j];
         }
         tmp = sc;
         float cut; // keep neurons with score >= cut
@@ -177,6 +237,41 @@ static void g4ffn_op(ggml_tensor * dst, const ggml_tensor * a, const ggml_tensor
         }
         L.kept += kept;
         L.total += n;
+    }
+}
+
+// the linear bypass for what the dropped neurons would have added: dst = A2^T (A1t x), a = x [n_embd, n_tokens]
+static void g4byp_op(ggml_tensor * dst, const ggml_tensor * a, int ith, int nth, void * ud) {
+    (void) nth;
+    if (ith != 0) {
+        return;
+    }
+    const g4ffn_layer & L  = *(const g4ffn_layer *) ud;
+    const int64_t       d  = a->ne[0];
+    const int64_t       nt = a->ne[1];
+    const int           r  = L.r;
+    std::vector<float>  z(r);
+    for (int64_t t = 0; t < nt; ++t) {
+        const float * x = (const float *) a->data + t * d;
+        float *       y = (float *) dst->data + t * d;
+        for (int k = 0; k < r; ++k) {
+            const float * w = L.A1t.data() + (size_t) k * d;
+            float         s = 0.0f;
+            for (int64_t i = 0; i < d; ++i) {
+                s += w[i] * x[i];
+            }
+            z[k] = s;
+        }
+        for (int64_t i = 0; i < d; ++i) {
+            y[i] = 0.0f;
+        }
+        for (int k = 0; k < r; ++k) {
+            const float * w = L.A2.data() + (size_t) k * d;
+            const float   s = z[k];
+            for (int64_t i = 0; i < d; ++i) {
+                y[i] += s * w[i];
+            }
+        }
     }
 }
 
@@ -229,8 +324,12 @@ new = r'''            if (g4ffn_on(il, n_layer, model.layers[il].ffn_down, model
                 ggml_tensor * g4_up = build_lora_mm(model.layers[il].ffn_up, cur);
                 ggml_tensor * g4_gg = ggml_gelu(ctx0, build_lora_mm(model.layers[il].ffn_gate, cur));
                 ggml_tensor * g4_h  = ggml_mul(ctx0, g4_gg, g4_up);
+                ggml_tensor * g4_x = cur;
                 g4_h = ggml_map_custom2(ctx0, g4_h, g4_gg, g4ffn_op, 1, &g4ffn.layers[il]);
                 cur  = build_lora_mm(model.layers[il].ffn_down, g4_h);
+                if (g4ffn.layers[il].r > 0) {
+                    cur = ggml_add(ctx0, cur, ggml_map_custom1(ctx0, g4_x, g4byp_op, 1, &g4ffn.layers[il]));
+                }
             } else {
 ''' + "\n".join(("    " + l) if l else l for l in orig.split("\n")) + "            }\n"
 s = s[:a0] + new + s[a1:]
