@@ -1,0 +1,86 @@
+name: g4exit-e1
+# E1: new models on the 1 140-question harness (the gguf-mc protocol: llama-server, greedy, no thinking),
+# plus sampled EN/RU chat replies for reading. Starts when g4exit/RUN_E1 changes on a fable/** branch.
+on:
+  push:
+    branches: ['fable/**']
+    paths: ['g4exit/RUN_E1']
+permissions:
+  contents: write
+env:
+  LLAMA_TAG: b12317
+jobs:
+  mc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        model:
+          - { tag: bonsai2-4b-q2, repo: prism-ml/Ternary-Bonsai-2-4B-gguf, file: Ternary-Bonsai-2-4B-Q2_0.gguf }
+          - { tag: bonsai2-9b-q2, repo: prism-ml/Ternary-Bonsai-2-9B-gguf, file: Ternary-Bonsai-2-9B-Q2_0.gguf }
+          - { tag: qwen35-4b-q4km, repo: unsloth/Qwen3.5-4B-GGUF, file: Qwen3.5-4B-Q4_K_M.gguf }
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - name: llama.cpp (CPU, prebuilt) + model
+        run: |
+          set -e
+          curl -sSL -o llama.tar.gz https://github.com/ggml-org/llama.cpp/releases/download/$LLAMA_TAG/llama-$LLAMA_TAG-bin-ubuntu-x64.tar.gz
+          mkdir llama && tar -xzf llama.tar.gz -C llama
+          curl -sSL -o model.gguf "https://huggingface.co/${{ matrix.model.repo }}/resolve/main/${{ matrix.model.file }}"
+          ls -la model.gguf
+      - name: chat samples (EN + RU, for reading)
+        run: |
+          SRV=$(find llama -name 'llama-server' -type f | head -1)
+          python3 g4exit/chat_sample.py --server "$SRV" --model model.gguf --shard ${{ matrix.shard }} --nshards 4 \
+            --presence 1.5 --out chat_${{ matrix.model.tag }}_${{ matrix.shard }}.jsonl
+      - name: benchmark shard
+        run: |
+          SRV=$(find llama -name 'llama-server' -type f | head -1)
+          python3 bench/llamacpp_mc.py --server "$SRV" --model model.gguf --data data/bench_gmmlu.jsonl \
+            --shard ${{ matrix.shard }} --nshards 4 --out out_${{ matrix.model.tag }}_${{ matrix.shard }}.jsonl
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e1-${{ matrix.model.tag }}-${{ matrix.shard }}
+          path: |
+            out_*.jsonl
+            chat_*.jsonl
+            server_*.log
+          retention-days: 30
+
+  report:
+    needs: mc
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: e1-*
+          path: res
+          merge-multiple: true
+      - name: score and commit
+        run: |
+          set -e
+          D=g4exit/results/e1-${{ github.run_id }}
+          mkdir -p $D
+          ARGS="e4b-q4km=g4exit/ref/e4b_q4km.jsonl"
+          for t in bonsai2-4b-q2 bonsai2-9b-q2 qwen35-4b-q4km; do
+            if ls res/out_${t}_*.jsonl >/dev/null 2>&1; then
+              cat res/out_${t}_*.jsonl > $D/out_$t.jsonl
+              ARGS="$ARGS $t=$D/out_$t.jsonl"
+            fi
+            if ls res/chat_${t}_*.jsonl >/dev/null 2>&1; then cat res/chat_${t}_*.jsonl > $D/chat_$t.jsonl; fi
+          done
+          python3 bench/score_mc.py $ARGS --ref e4b-q4km | tee $D/score.txt
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add g4exit/results
+          git commit -m "E1 results, run ${{ github.run_id }}" || exit 0
+          for i in 1 2 3 4; do
+            git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break
+            sleep 7
+          done

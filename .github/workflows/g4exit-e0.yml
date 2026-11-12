@@ -1,0 +1,177 @@
+name: g4exit-e0
+# E0: exit-quality map of Gemma 4 E4B. Starts when g4exit/RUN_E0 changes on a fable/** branch.
+# Parallelism is capped (4 here + 3 in g4exit-e1 = 7 of the account's 20 slots).
+on:
+  push:
+    branches: ['fable/**']
+    paths: ['g4exit/RUN_E0']
+permissions:
+  contents: write
+env:
+  LLAMA_TAG: b11235
+  E4B_URL: https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/gemma-4-E4B-it-Q4_K_M.gguf
+  E2B_URL: https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/main/gemma-4-E2B-it-Q4_K_M.gguf
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: build g4dump (static, AVX2, no -march=native so every runner can use it)
+        run: |
+          set -e
+          git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
+          python3 g4exit/patch_gemma4.py src
+          mkdir src/examples/g4dump && cp g4exit/g4dump.cpp src/examples/g4dump/
+          sed -e 's/llama-eval-callback/g4dump/' -e 's/eval-callback.cpp/g4dump.cpp/' -e '/LLAMA_BUILD_TESTS/,$d' \
+              src/examples/eval-callback/CMakeLists.txt > src/examples/g4dump/CMakeLists.txt
+          cat src/examples/g4dump/CMakeLists.txt
+          echo 'add_subdirectory(g4dump)' >> src/examples/CMakeLists.txt
+          cmake -S src -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF \
+                -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TOOLS=OFF -DLLAMA_BUILD_EXAMPLES=ON \
+                -DGGML_NATIVE=OFF -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON
+          cmake --build build --target g4dump -j 4
+          mkdir bin && cp "$(find build -name g4dump -type f | head -1)" bin/g4dump && ls -la bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: g4dump-bin
+          path: bin
+          retention-days: 30
+      - name: prebuilt llama-server + model
+        run: |
+          set -e
+          curl -sSL -o llama.tar.gz https://github.com/ggml-org/llama.cpp/releases/download/$LLAMA_TAG/llama-$LLAMA_TAG-bin-ubuntu-x64.tar.gz
+          mkdir llama && tar -xzf llama.tar.gz -C llama
+          curl -sSL -o model.gguf "$E4B_URL" && ls -la model.gguf
+          pip install -q numpy gguf
+      - name: smoke collect (2 chat + 2 bench records, every arm)
+        run: |
+          SRV=$(find llama -name 'llama-server' -type f | head -1)
+          python3 g4exit/collect.py --server "$SRV" --g4dump bin/g4dump --model model.gguf --mode e4b \
+            --shard 0 --nshards 8 --limit 2 --out art/g4exit-e4b-0
+          cat art/g4exit-e4b-0/meta.json | head -c 3000
+          ls -la art/g4exit-e4b-0
+      - name: smoke analyze
+        run: python3 g4exit/analyze.py --art art --e4b model.gguf --out res && cat res/report.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: smoke-out
+          path: |
+            art
+            res
+          retention-days: 7
+
+  e4b:
+    needs: smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: g4dump-bin
+          path: bin
+      - name: tools + model
+        run: |
+          set -e
+          chmod +x bin/g4dump
+          curl -sSL -o llama.tar.gz https://github.com/ggml-org/llama.cpp/releases/download/$LLAMA_TAG/llama-$LLAMA_TAG-bin-ubuntu-x64.tar.gz
+          mkdir llama && tar -xzf llama.tar.gz -C llama
+          curl -sSL -o model.gguf "$E4B_URL" && ls -la model.gguf
+          pip install -q numpy
+      - name: collect
+        run: |
+          SRV=$(find llama -name 'llama-server' -type f | head -1)
+          python3 g4exit/collect.py --server "$SRV" --g4dump bin/g4dump --model model.gguf --mode e4b \
+            --shard ${{ matrix.shard }} --nshards 8 --out out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g4exit-e4b-${{ matrix.shard }}
+          path: out
+          retention-days: 30
+
+  e2b:
+    needs: [smoke, e4b]
+    if: ${{ always() && needs.smoke.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [0, 1]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: g4dump-bin
+          path: bin
+      - name: tools + model
+        run: |
+          set -e
+          chmod +x bin/g4dump
+          curl -sSL -o llama.tar.gz https://github.com/ggml-org/llama.cpp/releases/download/$LLAMA_TAG/llama-$LLAMA_TAG-bin-ubuntu-x64.tar.gz
+          mkdir llama && tar -xzf llama.tar.gz -C llama
+          curl -sSL -o model.gguf "$E2B_URL" && ls -la model.gguf
+          pip install -q numpy
+      - name: collect
+        run: |
+          SRV=$(find llama -name 'llama-server' -type f | head -1)
+          python3 g4exit/collect.py --server "$SRV" --g4dump bin/g4dump --model model.gguf --mode e2b \
+            --shard ${{ matrix.shard }} --nshards 2 --out out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g4exit-e2b-${{ matrix.shard }}
+          path: out
+          retention-days: 30
+
+  analyze:
+    needs: [smoke, e4b, e2b]
+    if: ${{ always() && needs.smoke.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: g4exit-e*
+          path: art
+      - name: models
+        run: |
+          set -e
+          ls art
+          curl -sSL -o e4b.gguf "$E4B_URL"
+          curl -sSL -o e2b.gguf "$E2B_URL"
+          pip install -q numpy gguf
+      - name: analyze
+        run: python3 g4exit/analyze.py --art art --e4b e4b.gguf --e2b e2b.gguf --out res
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g4exit-analysis
+          path: res
+          retention-days: 30
+      - name: commit the report to this branch
+        if: always()
+        run: |
+          set -e
+          D=g4exit/results/e0-${{ github.run_id }}
+          mkdir -p $D
+          cp res/report.md res/results.json $D/ || true
+          for d in art/g4exit-e4b-*; do cp $d/meta.json $D/meta_$(basename $d).json || true; done
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add g4exit/results
+          git commit -m "E0 results, run ${{ github.run_id }}" || exit 0
+          for i in 1 2 3 4; do
+            git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break
+            sleep 7
+          done

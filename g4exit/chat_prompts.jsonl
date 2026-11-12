@@ -1,0 +1,64 @@
+{"id": "en01", "lang": "en", "prompt": "I had a rough day at work and I just want to talk. My manager criticised me in front of everyone."}
+{"id": "en02", "lang": "en", "prompt": "Can you explain how a refrigerator actually keeps things cold? Keep it simple."}
+{"id": "en03", "lang": "en", "prompt": "Tell me a short bedtime story about a fox who is afraid of the dark."}
+{"id": "en04", "lang": "en", "prompt": "What should I cook tonight? I have eggs, rice, an onion and some frozen peas."}
+{"id": "en05", "lang": "en", "prompt": "I keep procrastinating on my thesis. Give me a realistic plan for the next week."}
+{"id": "en06", "lang": "en", "prompt": "Why is the sky blue during the day but red at sunset?"}
+{"id": "en07", "lang": "en", "prompt": "My friend forgot my birthday and I'm hurt. Should I tell her or let it go?"}
+{"id": "en08", "lang": "en", "prompt": "Write a Python function that checks whether a string is a palindrome, and explain it line by line."}
+{"id": "en09", "lang": "en", "prompt": "What is the difference between a virus and a bacterium?"}
+{"id": "en10", "lang": "en", "prompt": "I'm visiting Rome for three days. What should I not miss, and what is overrated?"}
+{"id": "en11", "lang": "en", "prompt": "Explain compound interest to a twelve-year-old."}
+{"id": "en12", "lang": "en", "prompt": "Good morning! I slept badly. Say something to cheer me up."}
+{"id": "en13", "lang": "en", "prompt": "How do vaccines train the immune system?"}
+{"id": "en14", "lang": "en", "prompt": "I want to start running but I get out of breath after two minutes. How do I begin?"}
+{"id": "en15", "lang": "en", "prompt": "What were the main causes of the First World War?"}
+{"id": "en16", "lang": "en", "prompt": "Describe your perfect rainy Sunday."}
+{"id": "en17", "lang": "en", "prompt": "My cat keeps waking me up at 5 am. What can I do?"}
+{"id": "en18", "lang": "en", "prompt": "Summarise the plot of Romeo and Juliet in five sentences."}
+{"id": "en19", "lang": "en", "prompt": "What is the difference between RAM and storage on a phone?"}
+{"id": "en20", "lang": "en", "prompt": "I'm nervous about a job interview tomorrow. Help me prepare for the question 'tell me about yourself'."}
+{"id": "en21", "lang": "en", "prompt": "Why do we dream? What does science say?"}
+{"id": "en22", "lang": "en", "prompt": "Give me three ideas for a cheap but thoughtful gift for my mother."}
+{"id": "en23", "lang": "en", "prompt": "How does a neural network learn? No formulas please."}
+{"id": "en24", "lang": "en", "prompt": "Write a short poem about the first snow."}
+{"id": "en25", "lang": "en", "prompt": "Is it better to rent or to buy a flat when you are 25? Give both sides."}
+{"id": "en26", "lang": "en", "prompt": "What happens to my body if I stop drinking coffee for a month?"}
+{"id": "en27", "lang": "en", "prompt": "Explain what DNA is and how it is copied when a cell divides."}
+{"id": "en28", "lang": "en", "prompt": "I feel lonely in a new city. How do adults actually make friends?"}
+{"id": "en29", "lang": "en", "prompt": "What is the capital of Australia, and why isn't it Sydney?"}
+{"id": "en30", "lang": "en", "prompt": "Teach me five useful phrases in Spanish for ordering food."}
+{"id": "en31", "lang": "en", "prompt": "My laptop gets very hot and shuts down. What could be wrong and what should I check first?"}
+{"id": "en32", "lang": "en", "prompt": "If you could travel anywhere in time for one day, where would you go and why?"}
+{"id": "ru01", "lang": "ru", "prompt": "У меня был тяжёлый день, начальник отчитал меня при всех. Просто хочу выговориться."}
+{"id": "ru02", "lang": "ru", "prompt": "Объясни простыми словами, как работает холодильник."}
+{"id": "ru03", "lang": "ru", "prompt": "Расскажи короткую сказку на ночь про лисёнка, который боялся темноты."}
+{"id": "ru04", "lang": "ru", "prompt": "Что приготовить на ужин? Есть яйца, рис, лук и замороженный горошек."}
+{"id": "ru05", "lang": "ru", "prompt": "Я всё время откладываю диплом. Составь реалистичный план на ближайшую неделю."}
+{"id": "ru06", "lang": "ru", "prompt": "Почему небо днём голубое, а на закате красное?"}
+{"id": "ru07", "lang": "ru", "prompt": "Подруга забыла про мой день рождения, и мне обидно. Сказать ей или промолчать?"}
+{"id": "ru08", "lang": "ru", "prompt": "Напиши функцию на Python, которая проверяет, является ли строка палиндромом, и объясни каждую строчку."}
+{"id": "ru09", "lang": "ru", "prompt": "Чем вирус отличается от бактерии?"}
+{"id": "ru10", "lang": "ru", "prompt": "Еду в Санкт-Петербург на три дня. Что обязательно посмотреть, а что переоценено?"}
+{"id": "ru11", "lang": "ru", "prompt": "Объясни двенадцатилетнему ребёнку, что такое сложные проценты."}
+{"id": "ru12", "lang": "ru", "prompt": "Доброе утро! Я плохо спала. Скажи что-нибудь, чтобы поднять настроение."}
+{"id": "ru13", "lang": "ru", "prompt": "Как прививки обучают иммунную систему?"}
+{"id": "ru14", "lang": "ru", "prompt": "Хочу начать бегать, но задыхаюсь уже через две минуты. С чего начать?"}
+{"id": "ru15", "lang": "ru", "prompt": "Каковы были главные причины Первой мировой войны?"}
+{"id": "ru16", "lang": "ru", "prompt": "Опиши своё идеальное дождливое воскресенье."}
+{"id": "ru17", "lang": "ru", "prompt": "Кот будит меня в пять утра каждый день. Что с этим делать?"}
+{"id": "ru18", "lang": "ru", "prompt": "Перескажи сюжет «Евгения Онегина» в пяти предложениях."}
+{"id": "ru19", "lang": "ru", "prompt": "Чем оперативная память в телефоне отличается от встроенной?"}
+{"id": "ru20", "lang": "ru", "prompt": "Завтра собеседование, я волнуюсь. Помоги подготовить ответ на вопрос «расскажите о себе»."}
+{"id": "ru21", "lang": "ru", "prompt": "Почему мы видим сны? Что об этом говорит наука?"}
+{"id": "ru22", "lang": "ru", "prompt": "Предложи три идеи недорогого, но душевного подарка маме."}
+{"id": "ru23", "lang": "ru", "prompt": "Как обучается нейросеть? Только без формул, пожалуйста."}
+{"id": "ru24", "lang": "ru", "prompt": "Напиши короткое стихотворение про первый снег."}
+{"id": "ru25", "lang": "ru", "prompt": "В двадцать пять лет лучше снимать квартиру или брать ипотеку? Приведи доводы за оба варианта."}
+{"id": "ru26", "lang": "ru", "prompt": "Что произойдёт с организмом, если месяц не пить кофе?"}
+{"id": "ru27", "lang": "ru", "prompt": "Объясни, что такое ДНК и как она копируется при делении клетки."}
+{"id": "ru28", "lang": "ru", "prompt": "Мне одиноко в новом городе. Как взрослые люди вообще заводят друзей?"}
+{"id": "ru29", "lang": "ru", "prompt": "Какая столица у Австралии и почему это не Сидней?"}
+{"id": "ru30", "lang": "ru", "prompt": "Научи меня пяти полезным фразам на английском, чтобы заказать еду в кафе."}
+{"id": "ru31", "lang": "ru", "prompt": "Ноутбук сильно греется и выключается. В чём может быть причина и что проверить в первую очередь?"}
+{"id": "ru32", "lang": "ru", "prompt": "Если бы ты могла на один день отправиться в любое время, куда бы ты отправилась и почему?"}

@@ -1,0 +1,56 @@
+name: g4exit-analyze
+# Re-run the E0 analysis on the artifacts of an earlier g4exit-e0 run. g4exit/ANALYZE holds that run id.
+on:
+  push:
+    branches: ['fable/**']
+    paths: ['g4exit/ANALYZE']
+permissions:
+  contents: write
+  actions: read
+env:
+  E4B_URL: https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/gemma-4-E4B-it-Q4_K_M.gguf
+  E2B_URL: https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/main/gemma-4-E2B-it-Q4_K_M.gguf
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - id: rid
+        run: echo "run=$(tr -d ' \n\r' < g4exit/ANALYZE)" >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: g4exit-e*
+          path: art
+          run-id: ${{ steps.rid.outputs.run }}
+          github-token: ${{ github.token }}
+      - name: models
+        run: |
+          set -e
+          ls art
+          curl -sSL -o e4b.gguf "$E4B_URL"
+          curl -sSL -o e2b.gguf "$E2B_URL"
+          pip install -q numpy gguf
+      - name: analyze
+        run: python3 g4exit/analyze.py --art art --e4b e4b.gguf --e2b e2b.gguf --out res
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g4exit-analysis
+          path: res
+          retention-days: 30
+      - name: commit the report to this branch
+        if: always()
+        run: |
+          set -e
+          D=g4exit/results/e0-${{ steps.rid.outputs.run }}-re${{ github.run_id }}
+          mkdir -p $D
+          cp res/report.md res/results.json $D/ || true
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add g4exit/results
+          git commit -m "E0 re-analysis of run ${{ steps.rid.outputs.run }}" || exit 0
+          for i in 1 2 3 4; do
+            git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break
+            sleep 7
+          done
