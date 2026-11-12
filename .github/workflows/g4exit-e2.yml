@@ -1,0 +1,59 @@
+name: g4exit-e2
+# E2: closed-form re-building of E4B's FFN (linear bypass, refit, regions). One runner. Starts when g4exit/RUN_E2 changes.
+on:
+  push:
+    branches: ['fable/**']
+    paths: ['g4exit/RUN_E2']
+permissions:
+  contents: write
+env:
+  LLAMA_TAG: b11235
+  E4B_URL: https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/gemma-4-E4B-it-Q4_K_M.gguf
+jobs:
+  e2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: build g4dump
+        run: |
+          set -e
+          git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
+          python3 g4exit/patch_gemma4.py src
+          mkdir src/examples/g4dump && cp g4exit/g4dump.cpp src/examples/g4dump/
+          sed -e 's/llama-eval-callback/g4dump/' -e 's/eval-callback.cpp/g4dump.cpp/' -e '/LLAMA_BUILD_TESTS/,$d'               src/examples/eval-callback/CMakeLists.txt > src/examples/g4dump/CMakeLists.txt
+          echo 'add_subdirectory(g4dump)' >> src/examples/CMakeLists.txt
+          cmake -S src -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF                 -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TOOLS=OFF -DLLAMA_BUILD_EXAMPLES=ON                 -DGGML_NATIVE=OFF -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON
+          cmake --build build --target g4dump -j 4
+          mkdir bin && cp "$(find build -name g4dump -type f | head -1)" bin/g4dump
+      - name: model
+        run: |
+          curl -sSL -o model.gguf "$E4B_URL" && ls -la model.gguf
+          pip install -q numpy gguf
+          free -g
+      - name: E2
+        run: python3 g4exit/e2_refit.py --g4dump bin/g4dump --model model.gguf --out e2_out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g4exit-e2
+          path: |
+            e2_out/report_e2.md
+            e2_out/results_e2.json
+            e2_out/dump.log
+          retention-days: 30
+      - name: commit the report
+        if: always()
+        run: |
+          set -e
+          D=g4exit/results/e2-${{ github.run_id }}
+          mkdir -p $D
+          cp e2_out/report_e2.md e2_out/results_e2.json $D/ || true
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add g4exit/results
+          git commit -m "E2 results, run ${{ github.run_id }}" || exit 0
+          for i in 1 2 3 4; do
+            git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break
+            sleep 7
+          done

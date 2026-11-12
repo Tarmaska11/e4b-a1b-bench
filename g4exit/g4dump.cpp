@@ -28,6 +28,7 @@
 #include <vector>
 
 struct g4cap {
+    std::vector<std::string>          names;   // tensor name prefixes; a tensor is "<name>-<layer>"
     std::vector<int>                  layers;
     bool                              last_only = false;
     int                               n_embd    = 0;
@@ -37,15 +38,20 @@ struct g4cap {
 
 static bool g4_cb(struct ggml_tensor * t, bool ask, void * ud) {
     g4cap * c = (g4cap *) ud;
-    if (strncmp(t->name, "l_out-", 6) != 0) {
-        return !ask;
+    int il = -1;
+    for (size_t ni = 0; ni < c->names.size(); ++ni) {
+        const std::string & p = c->names[ni];
+        if (strncmp(t->name, p.c_str(), p.size()) == 0 && t->name[p.size()] == '-') {
+            const int l = atoi(t->name + p.size() + 1);
+            if (std::find(c->layers.begin(), c->layers.end(), l) != c->layers.end()) {
+                il = (int) ni * 1000 + l; // slot id
+            }
+        }
     }
-    const int  il   = atoi(t->name + 6);
-    const bool want = std::find(c->layers.begin(), c->layers.end(), il) != c->layers.end();
     if (ask) {
-        return want;
+        return il >= 0;
     }
-    if (!want) {
+    if (il < 0) {
         return true;
     }
     if (t->type != GGML_TYPE_F32) {
@@ -104,6 +110,25 @@ int main(int argc, char ** argv) {
         }
     }
     cap.last_only = e_last && atoi(e_last) != 0;
+    {
+        const char * e_names = getenv("G4_NAMES");
+        std::string  s       = e_names ? e_names : "l_out";
+        size_t       p       = 0;
+        while (p < s.size()) {
+            size_t q = s.find(',', p);
+            if (q == std::string::npos) {
+                q = s.size();
+            }
+            cap.names.push_back(s.substr(p, q - p));
+            p = q + 1;
+        }
+    }
+    std::vector<int> slots; // output order: for each name, for each layer
+    for (size_t ni = 0; ni < cap.names.size(); ++ni) {
+        for (int l : cap.layers) {
+            slots.push_back((int) ni * 1000 + l);
+        }
+    }
 
     llama_backend_init();
     llama_numa_init(params.numa);
@@ -144,9 +169,9 @@ int main(int argc, char ** argv) {
     w32(fo, 0x31443447);
     w32(fo, n_embd_model);
     w32(fo, cap.last_only ? 1 : 0);
-    w32(fo, (int32_t) cap.layers.size());
-    for (int l : cap.layers) {
-        w32(fo, l);
+    w32(fo, (int32_t) slots.size());
+    for (int l : slots) {
+        w32(fo, l % 1000);
     }
 
     const int   n_batch = params.n_batch;
@@ -186,7 +211,7 @@ int main(int argc, char ** argv) {
         w32(fo, n_tok);
         w32(fo, n_vec);
         fwrite(tokens.data(), sizeof(int32_t), n_tok, fo);
-        for (int l : cap.layers) {
+        for (int l : slots) {
             auto it = cap.data.find(l);
             if (it == cap.data.end() || cap.ncols[l] != n_vec || (int) it->second.size() != n_vec * cap.n_embd) {
                 fprintf(stderr, "g4dump: layer %d not captured correctly on record %zu (cols %d, want %d)\n", l, r,

@@ -130,7 +130,7 @@ bench_recs = [prefix + r["prompt"] + suffix for r in bench]
 
 
 # ---------------------------------------------------------------- dumps
-def dump(name, recs, layers, last, skip=None):
+def dump(name, recs, layers, last, skip=None, ffn=None, desc=""):
     if not recs:
         return None
     for x in recs:
@@ -142,6 +142,8 @@ def dump(name, recs, layers, last, skip=None):
     e = dict(os.environ, G4_LAYERS=",".join(str(l) for l in layers), G4_OUT=ob, G4_LAST="1" if last else "0")
     if skip:
         e["G4_SKIP"] = skip
+    if ffn:
+        e["G4_FFN"] = ffn
     t = time.time()
     with open(os.path.join(a.out, name + ".log"), "w") as lg:
         rc = subprocess.call([a.g4dump, "-m", a.model, "-f", rf, "--no-escape", "-c", "2048", "-b", "2048",
@@ -150,7 +152,7 @@ def dump(name, recs, layers, last, skip=None):
     if rc != 0:
         log("DUMP FAILED %s rc=%d" % (name, rc))
         os.system("tail -5 %s" % os.path.join(a.out, name + ".log"))
-        return dict(name=name, rc=rc, s=round(dt))
+        return dict(name=name, rc=rc, s=round(dt), desc=desc)
     d = g4bin.parse_bin(ob)
     g4bin.save_npz(d, os.path.join(a.out, name + ".npz"))
     os.remove(ob)
@@ -158,8 +160,13 @@ def dump(name, recs, layers, last, skip=None):
     ntok = int(sum(len(x) for x in d["tokens"]))
     log("dump %-22s %4d recs %7d tok %5.0fs %6.1f tok/s skipped=%d" % (name, len(d["rec_idx"]), ntok, dt, ntok / max(dt, 1e-9),
                                                                     len(d["skipped"])))
+    import re
+    kept = {int(m.group(1)): [int(m.group(2)), int(m.group(3))] for m in
+            re.finditer(r"G4FFN_STAT il=(\d+) kept=(\d+) total=(\d+)", open(os.path.join(a.out, name + ".log"), errors="replace").read())}
+    if kept:
+        log("   FFN kept %.2f %% over %d layers" % (100.0 * sum(v[0] for v in kept.values()) / max(1, sum(v[1] for v in kept.values())), len(kept)))
     return dict(name=name, rc=0, s=round(dt), recs=len(d["rec_idx"]), tokens=ntok, skipped=d["skipped"], layers=layers,
-                skip=skip, last=last)
+                skip=skip, ffn=ffn, ffn_kept=kept, desc=desc, last=last)
 
 
 arms = []
@@ -169,13 +176,22 @@ else:
     FULL = [23, 26, 29, 32, 35, 38, 40, 41]
     arms.append(dump("chat_full", chat_recs, FULL, False))
     arms.append(dump("bench_full", bench_recs, FULL, True))
-    # (name, G4_SKIP, layer whose output is the final residual)
-    SKIPS = [("s24_40", "24:40", 41), ("s27_40", "27:40", 41), ("s30_40", "30:40", 41), ("s33_40", "33:40", 41),
-             ("s36_40", "36:40", 41), ("s30_41", "30:41", 41), ("s24_41", "24:41", 41), ("s30_38", "30:38", 41),
-             ("s25_29_30_42", "25:29,30:42", 29), ("s25_29_30_40", "25:29,30:40", 41)]
-    for name, spec, cap in SKIPS:
-        arms.append(dump("chat_" + name, chat_recs, [cap], False, spec))
-        arms.append(dump("bench_" + name, bench_recs, [cap], True, spec))
+    # (name, G4_SKIP, G4_FFN, description). Every arm reads the final residual (layer 41).
+    ARMS = [("s36_40", "36:40", None, "38 layers (drop 36-39)"),
+            ("s30_40", "30:40", None, "32 layers (drop 30-39)"),
+            ("s27_40", "27:40", None, "29 layers (drop 27-39)"),
+            ("s24_40", "24:40", None, "26 layers (drop 24-39)"),
+            ("f_k24_125", None, "k:24:42:0.125", "A1B top stack: oracle 12.5 % of FFN neurons in layers 24-41"),
+            ("f_k24_25", None, "k:24:42:0.25", "oracle 25 % of FFN neurons in layers 24-41"),
+            ("f_k30_125", None, "k:30:42:0.125", "oracle 12.5 % of FFN neurons in layers 30-41"),
+            ("f_k0_25", None, "k:0:42:0.25", "INSTRUMENT CHECK: oracle 25 %, all 42 layers (old result: about -4 points)"),
+            ("f_t0_02", None, "t:0:42:0.02", "bounded: drop <= 2 % of contribution mass, all layers"),
+            ("f_t24_05", None, "t:24:42:0.05", "bounded: drop <= 5 % of contribution mass, layers 24-41")]
+    if a.limit:
+        ARMS.append(("f_ctrl", None, "k:0:42:1.0", "control: sparse code path with every neuron kept (must equal full)"))
+    for name, spec, ffn, desc in ARMS:
+        arms.append(dump("chat_" + name, chat_recs, [41], False, spec, ffn, desc))
+        arms.append(dump("bench_" + name, bench_recs, [41], True, spec, ffn, desc))
 meta["arms"] = arms
 json.dump(meta, open(os.path.join(a.out, "meta.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 log("done")

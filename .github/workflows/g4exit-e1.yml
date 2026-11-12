@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 340
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 2
       matrix:
         model:
           # user, 2026-11-12: nothing below E4B's class, so no 4B models. Only the 9B is scored.
@@ -67,7 +67,7 @@ jobs:
           D=g4exit/results/e1-${{ github.run_id }}
           mkdir -p $D
           ARGS="e4b-q4km=g4exit/ref/e4b_q4km.jsonl"
-          for t in bonsai2-4b-q2 bonsai2-9b-q2 qwen35-4b-q4km; do
+          for t in bonsai2-9b-q2; do
             if ls res/out_${t}_*.jsonl >/dev/null 2>&1; then
               cat res/out_${t}_*.jsonl > $D/out_$t.jsonl
               ARGS="$ARGS $t=$D/out_$t.jsonl"

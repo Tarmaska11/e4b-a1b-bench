@@ -65,7 +65,7 @@ jobs:
   e4b:
     needs: smoke
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 355
     strategy:
       fail-fast: false
       max-parallel: 4

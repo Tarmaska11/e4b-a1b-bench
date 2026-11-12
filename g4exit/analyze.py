@@ -214,17 +214,25 @@ def bench_row(name, kept, vec):
 for l in FULL_LAYERS[:-1]:
     bench_row("exit%d (plain truncation)" % (l + 1), l + 1, Hb[:, LI[l], :])
 
-SKIPS = [("s36_40", 38), ("s33_40", 35), ("s30_38", 34), ("s30_40", 32), ("s30_41", 31), ("s27_40", 29),
-         ("s25_29_30_40", 28), ("s24_40", 26), ("s25_29_30_42", 26), ("s24_41", 25)]
+SKIPS = []
+for ar in meta0.get("arms") or []:
+    if not ar or not str(ar.get("name", "")).startswith("bench_") or ar["name"] == "bench_full":
+        continue
+    kd = ar.get("desc", "")
+    fk = ar.get("ffn_kept") or {}
+    if fk:
+        kd += " [measured: %.1f %% of neurons kept in %d layers]" % (
+            100.0 * sum(v[0] for v in fk.values()) / max(1, sum(v[1] for v in fk.values())), len(fk))
+    SKIPS.append((ar["name"][6:], kd))
 for name, kept in SKIPS:
     d, _ = load_bench(E4, name)
     if len(d) != len(keys):
-        rep("| %s | %d | missing (%d/%d records) | | | |" % (name, kept, len(d), len(keys)))
+        rep("| %s | %s | missing (%d/%d records) | | | |" % (name, kept, len(d), len(keys)))
         if not d:
             continue
     try:
         vec = np.stack([d[k][2][0] for k in keys])
-        bench_row("skip " + name, kept, vec)
+        bench_row(name, kept, vec)
     except Exception:  # noqa: BLE001
         traceback.print_exc()
 flush_out()
@@ -354,8 +362,8 @@ try:
     for name, kept in SKIPS:
         He = gather_arm(idx_all, name)
         if He is not None:
-            arms["skip " + name] = He
-            kept_of["skip " + name] = kept
+            arms[name] = He
+            kept_of[name] = kept
     say("token eval on", len(idx_all), "positions,", len(arms), "arms")
     TOK = token_eval(idx_all, arms)
     rep("")
