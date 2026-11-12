@@ -1,13 +1,61 @@
 name: g4s-android
-# Build the patched engine for the A54 (arm64, static, armv8.2 + dotprod + fp16). Starts when g4exit/RUN_ANDROID changes.
+# The real sparse-FFN engine: an x86 functional test on a runner, then the arm64 build for the A54
+# (static, armv8.2 + dotprod + fp16). Starts when g4exit/RUN_ANDROID changes.
 on:
   push:
     branches: ['fable/**']
     paths: ['g4exit/RUN_ANDROID']
 env:
   LLAMA_TAG: b12317
+  E4B_URL: https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/gemma-4-E4B-it-Q4_K_M.gguf
 jobs:
-  build:
+  x86test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: source + patch + build (x86)
+        run: |
+          set -e
+          git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
+          python3 g4exit/patch_gemma4.py src
+          python3 g4exit/patch_g4s.py src
+          cmake -S src -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF \
+                -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=ON -DGGML_OPENMP=OFF \
+                -DGGML_NATIVE=OFF -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON
+          cmake --build build --target llama-completion -j 4
+      - name: model
+        run: curl -sSL -o model.gguf "$E4B_URL" && ls -la model.gguf
+      - name: functional test
+        run: |
+          B=$(find build -name llama-completion -type f | head -1)
+          printf '<|turn>user\nExplain in three sentences why the sky is blue.<turn|>\n<|turn>model\n' > p.txt
+          mkdir -p cache
+          run() { # label, G4S value
+            G4S="$2" G4S_CACHE=$PWD/cache $B -m model.gguf -ngl 0 -t 4 -n 48 -c 2048 --no-warmup --no-repack --temp 0 --seed 1 \
+              -no-cnv --no-display-prompt -f p.txt > out_$1.txt 2> log_$1.txt || echo "RUN $1 FAILED"
+            echo "== $1 [$2]"; cat out_$1.txt; echo
+            grep -E "G4S_TOTAL|G4S layer 0:|eval time" log_$1.txt | tail -4
+          }
+          run dense ""
+          run all100 "g:0:42:1.0"
+          run all100_again "g:0:42:1.0"
+          run early25 "g:0:9:0.25"
+          run all50 "g:0:42:0.5"
+          run all25 "g:0:42:0.25"
+          echo "---- identical to dense?"
+          for a in all100 all100_again early25 all50 all25; do cmp -s out_dense.txt out_$a.txt && echo "$a: IDENTICAL" || echo "$a: differs"; done
+          tail -3 log_all100.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g4s-x86test
+          path: |
+            out_*.txt
+            log_*.txt
+          retention-days: 14
+
+  android:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -17,25 +65,24 @@ jobs:
           set -e
           git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
           python3 g4exit/patch_gemma4.py src
-          if [ -f g4exit/patch_g4s.py ]; then python3 g4exit/patch_g4s.py src; fi
+          python3 g4exit/patch_g4s.py src
       - name: build (NDK)
         run: |
           set -e
           NDK=${ANDROID_NDK_LATEST_HOME:-$ANDROID_NDK}
-          echo "NDK=$NDK"
           cmake -S src -B build -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake \
                 -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-29 -DCMAKE_BUILD_TYPE=Release \
                 -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_SERVER=OFF \
                 -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=ON -DGGML_OPENMP=OFF -DGGML_NATIVE=OFF \
                 -DCMAKE_C_FLAGS="-march=armv8.2-a+dotprod+fp16" -DCMAKE_CXX_FLAGS="-march=armv8.2-a+dotprod+fp16"
+          cmake --build build --target llama-completion -j 4
           mkdir out
-          for t in llama-bench llama-completion llama-cli; do
-            cmake --build build --target $t -j 4 && cp "$(find build -name $t -type f | head -1)" out/ || echo "target $t failed"
-          done
+          cp "$(find build -name llama-completion -type f | head -1)" out/
+          $NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip out/llama-completion
           ls -la out
-          file out/* || true
       - uses: actions/upload-artifact@v4
         with:
-          name: g4s-android
+          name: g4s-android-completion
           path: out
+          compression-level: 9
           retention-days: 30
