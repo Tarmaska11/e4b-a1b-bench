@@ -18,9 +18,8 @@ jobs:
       max-parallel: 3
       matrix:
         model:
-          - { tag: bonsai2-4b-q2, repo: prism-ml/Ternary-Bonsai-2-4B-gguf, file: Ternary-Bonsai-2-4B-Q2_0.gguf }
+          # user, 2026-11-12: nothing below E4B's class, so no 4B models. Only the 9B is scored.
           - { tag: bonsai2-9b-q2, repo: prism-ml/Ternary-Bonsai-2-9B-gguf, file: Ternary-Bonsai-2-9B-Q2_0.gguf }
-          - { tag: qwen35-4b-q4km, repo: unsloth/Qwen3.5-4B-GGUF, file: Qwen3.5-4B-Q4_K_M.gguf }
         shard: [0, 1, 2, 3]
     steps:
       - uses: actions/checkout@v4
