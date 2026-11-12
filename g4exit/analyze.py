@@ -187,7 +187,7 @@ rep("")
 rep("## 1. Benchmark (1 140 Global-MMLU, restricted A–D argmax at the last position)")
 rep("")
 rep("**Instrument check.** full model: EN %.1f (n=%d), RU %.1f (n=%d). Anchor through `gguf-mc`: 68.9 / 64.9."
-    % (100.0 * t_full["en"][0] / t_full["en"][1], t_full["en"][1], 100.0 * t_full["ru"][0] / t_full["ru"][1], t_full["ru"][1]))
+    % (100.0 * t_full["en"][0] / max(1, t_full["en"][1]), t_full["en"][1], 100.0 * t_full["ru"][0] / max(1, t_full["ru"][1]), t_full["ru"][1]))
 RES["bench"] = {"full": dict(acc=t_full)}
 rep("")
 rep("| arm | layers kept | EN | RU | ΔEN (p) | ΔRU (p) |")

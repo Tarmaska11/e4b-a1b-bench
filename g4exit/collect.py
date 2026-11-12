@@ -146,7 +146,7 @@ def dump(name, recs, layers, last, skip=None, ffn=None, desc=""):
         e["G4_FFN"] = ffn
     t = time.time()
     with open(os.path.join(a.out, name + ".log"), "w") as lg:
-        rc = subprocess.call([a.g4dump, "-m", a.model, "-f", rf, "--no-escape", "-c", "2048", "-b", "2048",
+        rc = subprocess.call([a.g4dump, "-m", a.model, "-f", rf, "--no-escape", "--no-repack", "-c", "2048", "-b", "2048",
                               "-t", str(NCPU), "-ngl", "0"], env=e, stdout=lg, stderr=subprocess.STDOUT)
     dt = time.time() - t
     if rc != 0:
@@ -179,14 +179,17 @@ else:
     # (name, G4_SKIP, G4_FFN, description). Every arm reads the final residual (layer 41).
     ARMS = [("s36_40", "36:40", None, "38 layers (drop 36-39)"),
             ("s30_40", "30:40", None, "32 layers (drop 30-39)"),
-            ("s27_40", "27:40", None, "29 layers (drop 27-39)"),
             ("s24_40", "24:40", None, "26 layers (drop 24-39)"),
-            ("f_k24_125", None, "k:24:42:0.125", "A1B top stack: oracle 12.5 % of FFN neurons in layers 24-41"),
-            ("f_k24_25", None, "k:24:42:0.25", "oracle 25 % of FFN neurons in layers 24-41"),
-            ("f_k30_125", None, "k:30:42:0.125", "oracle 12.5 % of FFN neurons in layers 30-41"),
             ("f_k0_25", None, "k:0:42:0.25", "INSTRUMENT CHECK: oracle 25 %, all 42 layers (old result: about -4 points)"),
-            ("f_t0_02", None, "t:0:42:0.02", "bounded: drop <= 2 % of contribution mass, all layers"),
-            ("f_t24_05", None, "t:24:42:0.05", "bounded: drop <= 5 % of contribution mass, layers 24-41")]
+            ("f_k0_50", None, "k:0:42:0.5", "oracle 50 % of FFN neurons, all layers"),
+            ("f_k24_125", None, "k:24:42:0.125", "oracle 12.5 % in the stateless layers 24-41"),
+            ("f_k24_25", None, "k:24:42:0.25", "oracle 25 % in the stateless layers 24-41"),
+            ("f_t0_02", None, "t:0:42:0.02", "oracle, bounded: drop <= 2 % of contribution mass, all layers"),
+            ("f_t0_005", None, "t:0:42:0.005", "oracle, bounded: drop <= 0.5 % of contribution mass, all layers"),
+            ("f_g0_50", None, "g:0:42:0.5", "GATE-ONLY selector, keep 50 %, all layers"),
+            ("f_g0_25", None, "g:0:42:0.25", "GATE-ONLY selector, keep 25 %, all layers"),
+            ("f_G0_02", None, "G:0:42:0.02", "GATE-ONLY selector, drop <= 2 % of gate-score mass, all layers"),
+            ("f_g_mix", None, "g:0:24:0.5,g:24:42:0.25", "GATE-ONLY selector, 50 % in layers 0-23, 25 % in 24-41")]
     if a.limit:
         ARMS.append(("f_ctrl", None, "k:0:42:1.0", "control: sparse code path with every neuron kept (must equal full)"))
     for name, spec, ffn, desc in ARMS:
