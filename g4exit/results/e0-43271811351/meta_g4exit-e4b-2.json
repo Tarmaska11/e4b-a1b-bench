@@ -1,0 +1,4285 @@
+{
+ "mode": "e4b",
+ "shard": 2,
+ "nshards": 8,
+ "model": "model.gguf",
+ "template_source": "server",
+ "template_raw": [
+  "<|turn>user\n",
+  "<turn|>\n<|turn>model\n"
+ ],
+ "prefix": "<|turn>user\n",
+ "suffix": "<turn|>\n<|turn>model\n",
+ "letters": {
+  "A": [
+   236776
+  ],
+  "B": [
+   236799
+  ],
+  "C": [
+   236780
+  ],
+  "D": [
+   236796
+  ]
+ },
+ "suffix_tokens": [
+  106,
+  107,
+  105,
+  4368,
+  107
+ ],
+ "chat": [
+  {
+   "id": "en03",
+   "lang": "en",
+   "prompt": "Tell me a short bedtime story about a fox who is afraid of the dark.",
+   "reply": "Once upon a time, nestled at the edge of a whispering wood, lived a little fox named Finn. Finn was a bright, russet-colored fox, with a tail as fluffy as a sunset cloud. He loved chasing butterflies in the warm afternoon sun, and he loved sniffing the sweet scent of wild berries.\n\nBut when the sun began to dip low, painting the sky in shades of bruised purple and soft orange, Finn started to feel a little wobble in his tummy. Finn was afraid of the dark.\n\nAs soon as the shadows stretched long and the stars began to prick the velvet sky, Finn would curl himself into a tight, trembling ball under the biggest fern leaf. The dark felt big, and quiet, and… unknown. He imagined rustling sounds were big, shadowy beasts,",
+   "gen_tokens": 160,
+   "gen_s": 17.6,
+   "n_prompt": 25
+  },
+  {
+   "id": "en11",
+   "lang": "en",
+   "prompt": "Explain compound interest to a twelve-year-old.",
+   "reply": "Imagine you have a little piggy bank, and you put some money in it. That money is called your **principal**.\n\nNow, when you put your money in the bank, the bank says, \"Thanks for letting us hold your money! We'll give you a little extra money as a reward for trusting us.\" That extra money is called **interest**.\n\n**Simple Interest vs. Compound Interest**\n\nLet's look at the difference between two ways the bank pays you:\n\n### 1. Simple Interest (The Basic Way)\n\nImagine you put in **\\$100**, and the bank agrees to give you **10% interest** each year.\n\n*   **Year 1:** You start with \\$100. The bank gives you 10",
+   "gen_tokens": 160,
+   "gen_s": 17.4,
+   "n_prompt": 20
+  },
+  {
+   "id": "en19",
+   "lang": "en",
+   "prompt": "What is the difference between RAM and storage on a phone?",
+   "reply": "The difference between RAM and storage on a phone is a fundamental concept in computing, and it's best explained using an analogy.\n\nHere is a detailed breakdown of each, followed by a clear analogy and a summary.\n\n---\n\n## 🧠 RAM (Random Access Memory)\n\n**What it is:** RAM is your phone's **short-term, working memory**. It is fast, temporary, and volatile.\n\n**How it works:** When you open an app (like Instagram or Chrome), the phone loads the necessary parts of that app from storage *into* the RAM. While the app is running, the RAM holds all the data it needs instantly—like the text you are typing, the image currently displayed, or the page you are scrolling through.\n\n**Key Characteristics:**",
+   "gen_tokens": 160,
+   "gen_s": 17.5,
+   "n_prompt": 21
+  },
+  {
+   "id": "en27",
+   "lang": "en",
+   "prompt": "Explain what DNA is and how it is copied when a cell divides.",
+   "reply": "## What is DNA?\n\n**DNA (Deoxyribonucleic Acid)** is the fundamental molecule that carries the genetic instructions for the development, functioning, and reproduction of all known organisms. In simpler terms, DNA is the **blueprint of life**.\n\nHere is a breakdown of its structure and function:\n\n### 1. Structure: The Double Helix\n\nDNA has a very specific and famous structure known as the **double helix**. Imagine a twisted ladder:\n\n* **The Sides (Backbone):** These are made up of alternating sugar molecules (deoxyribose) and phosphate groups. This forms the structural framework of the ladder.\n* **The Rungs (Bases):** These are the critical components that carry the genetic information. There are four types of nitrogenous bases:\n",
+   "gen_tokens": 160,
+   "gen_s": 17.1,
+   "n_prompt": 23
+  },
+  {
+   "id": "ru03",
+   "lang": "ru",
+   "prompt": "Расскажи короткую сказку на ночь про лисёнка, который боялся темноты.",
+   "reply": "## Лисёнок и Тёмная Ночь\n\nЖил-был маленький лисёнок по имени Рыжик. Он был очень любопытный и смелый днём, когда солнышко золотило траву и мир был полон ярких красок. Но как только садилось солнце и над лесом сгущалась бархатная, бархатная ночь, Рыжик начинал дрожать.\n\nОн боялся темноты.\n\nКогда другие звери тихонько укладывались в свои норы, Рыжик прятался под большим пнём. Тёмные тени казались ему огромными, а шелест листьев в ночи звучал как зловещий шёпот.\n\n— Ох, как же стра",
+   "gen_tokens": 160,
+   "gen_s": 17.9,
+   "n_prompt": 30
+  },
+  {
+   "id": "ru11",
+   "lang": "ru",
+   "prompt": "Объясни двенадцатилетнему ребёнку, что такое сложные проценты.",
+   "reply": "Привет! Давай я тебе объясню, что такое **сложные проценты**. Это звучит как что-то очень сложное, но на самом деле это очень крутая и понятная штука!\n\nПредставь, что у тебя есть волшебный друг — это **деньги** (или просто что-то, что растёт, например, семена, которые превращаются в деревья).\n\n### 🍎 Сначала — Простые Проценты (Простой рост)\n\nПредставь, что ты дал своему другу 100 рублей. Ты договорился, что он будет прибавлять тебе **10 рублей каждый год**.\n\n* **Год 1:** Ты дал ему 100 рублей. Он прибавил 10",
+   "gen_tokens": 160,
+   "gen_s": 17.4,
+   "n_prompt": 26
+  },
+  {
+   "id": "ru19",
+   "lang": "ru",
+   "prompt": "Чем оперативная память в телефоне отличается от встроенной?",
+   "reply": "Важно внести ясность в терминологию, так как в контексте современных смартфонов слова \"оперативная память\" и \"встроенная память\" относятся к **двум совершенно разным типам памяти** с разными функциями.\n\nВот подробное объяснение различий между ними:\n\n---\n\n## 1. Оперативная память (RAM – Random Access Memory)\n\n**Что это такое?**\nRAM — это **кратковременная, высокоскоростная рабочая память**. Она работает как \"рабочий стол\" компьютера или смартфона.\n\n**Как она работает?**\nКогда вы открываете приложение (например, браузер или игру), операционная система загружает необходимые данные и инструкции этого приложения в RAM. Пока приложение активно, оно хранит свои данные",
+   "gen_tokens": 160,
+   "gen_s": 17.5,
+   "n_prompt": 21
+  },
+  {
+   "id": "ru27",
+   "lang": "ru",
+   "prompt": "Объясни, что такое ДНК и как она копируется при делении клетки.",
+   "reply": "## Что такое ДНК?\n\n**ДНК (дезоксирибонуклеиновая кислота, от англ. Deoxyribonucleic Acid)** — это фундаментальный биохимический материал, который содержится в ядре (или в цитоплазме у прокариотов) практически всех живых организмов.\n\nПроще говоря, **ДНК является генетическим кодом жизни**. Она содержит всю информацию, необходимую для построения и функционирования организма.\n\n### Структура ДНК\n\nДНК имеет очень специфическую и узнаваемую форму — **двойную спираль**. Представьте себе очень длинную лестницу, у которой поручни скручены в спираль.\n\nЭта структура состоит из повторяющихся строительных блоков, называ",
+   "gen_tokens": 160,
+   "gen_s": 17.9,
+   "n_prompt": 28
+  }
+ ],
+ "bench": [
+  {
+   "id": "abstract_algebra/test/21",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "anatomy/test/120",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "anatomy/test/132",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "astronomy/test/112",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "business_ethics/test/76",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "clinical_knowledge/test/261",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "college_biology/test/1",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_biology/test/84",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_chemistry/test/98",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "college_computer_science/test/40",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "college_mathematics/test/62",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "college_medicine/test/78",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_medicine/test/62",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_physics/test/96",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "computer_security/test/30",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "conceptual_physics/test/133",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "econometrics/test/8",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "econometrics/test/101",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "electrical_engineering/test/27",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "elementary_mathematics/test/31",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "formal_logic/test/33",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "global_facts/test/5",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "global_facts/test/24",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_biology/test/177",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_chemistry/test/107",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_computer_science/test/40",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_european_history/test/132",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_european_history/test/161",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_geography/test/86",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_government_and_politics/test/136",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_macroeconomics/test/296",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_mathematics/test/228",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_mathematics/test/110",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_microeconomics/test/207",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_physics/test/31",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_psychology/test/286",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_statistics/test/8",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_statistics/test/157",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_us_history/test/146",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_world_history/test/113",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "human_aging/test/149",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "human_sexuality/test/57",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "human_sexuality/test/37",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "international_law/test/89",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "jurisprudence/test/72",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "logical_fallacies/test/108",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "machine_learning/test/38",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "machine_learning/test/100",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "management/test/84",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "marketing/test/58",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "medical_genetics/test/10",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "miscellaneous/test/228",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "miscellaneous/test/651",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "moral_disputes/test/268",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/60",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "nutrition/test/269",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "philosophy/test/308",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "philosophy/test/223",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "prehistory/test/32",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_accounting/test/157",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_law/test/147",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "professional_medicine/test/95",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "professional_medicine/test/96",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "professional_psychology/test/407",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "public_relations/test/18",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "security_studies/test/34",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "sociology/test/199",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "sociology/test/165",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "us_foreign_policy/test/26",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "virology/test/7",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "world_religions/test/155",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "abstract_algebra/test/99",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "abstract_algebra/test/89",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "anatomy/test/89",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "astronomy/test/74",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "business_ethics/test/19",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "clinical_knowledge/test/237",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "clinical_knowledge/test/95",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_biology/test/11",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_chemistry/test/11",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "college_computer_science/test/13",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_mathematics/test/26",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_mathematics/test/66",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_medicine/test/137",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "college_physics/test/55",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "computer_security/test/38",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "conceptual_physics/test/97",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "conceptual_physics/test/69",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "econometrics/test/29",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "electrical_engineering/test/74",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "elementary_mathematics/test/188",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "formal_logic/test/88",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "formal_logic/test/104",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "global_facts/test/63",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_biology/test/13",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_chemistry/test/131",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_computer_science/test/87",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_computer_science/test/88",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_european_history/test/42",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_geography/test/147",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_government_and_politics/test/151",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_macroeconomics/test/280",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_macroeconomics/test/318",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_mathematics/test/67",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_microeconomics/test/182",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_physics/test/43",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_psychology/test/355",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_psychology/test/344",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_statistics/test/94",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_us_history/test/69",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_world_history/test/95",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "human_aging/test/21",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "human_aging/test/101",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "human_sexuality/test/113",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "international_law/test/8",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "jurisprudence/test/67",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "logical_fallacies/test/37",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "logical_fallacies/test/96",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "machine_learning/test/55",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "management/test/22",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "marketing/test/104",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "medical_genetics/test/17",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "medical_genetics/test/72",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "miscellaneous/test/8",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "moral_disputes/test/281",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "moral_scenarios/test/343",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "nutrition/test/87",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "nutrition/test/223",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "philosophy/test/187",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "prehistory/test/321",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "professional_accounting/test/89",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "professional_law/test/646",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_law/test/159",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_medicine/test/245",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_psychology/test/280",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "public_relations/test/3",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "security_studies/test/110",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "security_studies/test/234",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "sociology/test/19",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "us_foreign_policy/test/8",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "virology/test/65",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "world_religions/test/59",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "world_religions/test/151",
+   "lang": "ru",
+   "gold": "C"
+  }
+ ],
+ "arms": [
+  {
+   "name": "chat_full",
+   "rc": 0,
+   "s": 62,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": false
+  },
+  {
+   "name": "bench_full",
+   "rc": 0,
+   "s": 737,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": true
+  },
+  {
+   "name": "chat_s36_40",
+   "rc": 0,
+   "s": 57,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "36:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "38 layers (drop 36-39)",
+   "last": false
+  },
+  {
+   "name": "bench_s36_40",
+   "rc": 0,
+   "s": 674,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "36:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "38 layers (drop 36-39)",
+   "last": true
+  },
+  {
+   "name": "chat_s30_40",
+   "rc": 0,
+   "s": 50,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "30:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "32 layers (drop 30-39)",
+   "last": false
+  },
+  {
+   "name": "bench_s30_40",
+   "rc": 0,
+   "s": 573,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "30:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "32 layers (drop 30-39)",
+   "last": true
+  },
+  {
+   "name": "chat_s24_40",
+   "rc": 0,
+   "s": 43,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "24:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "26 layers (drop 24-39)",
+   "last": false
+  },
+  {
+   "name": "bench_s24_40",
+   "rc": 0,
+   "s": 472,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "24:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "26 layers (drop 24-39)",
+   "last": true
+  },
+  {
+   "name": "chat_f_k0_25",
+   "rc": 0,
+   "s": 70,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:0:42:0.25",
+   "ffn_kept": {
+    "0": [
+     3773440,
+     15093760
+    ],
+    "1": [
+     3773440,
+     15093760
+    ],
+    "2": [
+     3773440,
+     15093760
+    ],
+    "3": [
+     3773440,
+     15093760
+    ],
+    "4": [
+     3773441,
+     15093760
+    ],
+    "5": [
+     3773440,
+     15093760
+    ],
+    "6": [
+     3773440,
+     15093760
+    ],
+    "7": [
+     3773440,
+     15093760
+    ],
+    "8": [
+     3773440,
+     15093760
+    ],
+    "9": [
+     3773440,
+     15093760
+    ],
+    "10": [
+     3773440,
+     15093760
+    ],
+    "11": [
+     3773440,
+     15093760
+    ],
+    "12": [
+     3773441,
+     15093760
+    ],
+    "13": [
+     3773440,
+     15093760
+    ],
+    "14": [
+     3773440,
+     15093760
+    ],
+    "15": [
+     3773441,
+     15093760
+    ],
+    "16": [
+     3773440,
+     15093760
+    ],
+    "17": [
+     3773440,
+     15093760
+    ],
+    "18": [
+     3773440,
+     15093760
+    ],
+    "19": [
+     3773440,
+     15093760
+    ],
+    "20": [
+     3773440,
+     15093760
+    ],
+    "21": [
+     3773441,
+     15093760
+    ],
+    "22": [
+     3773440,
+     15093760
+    ],
+    "23": [
+     3773440,
+     15093760
+    ],
+    "24": [
+     3773440,
+     15093760
+    ],
+    "25": [
+     3773440,
+     15093760
+    ],
+    "26": [
+     3773440,
+     15093760
+    ],
+    "27": [
+     3773440,
+     15093760
+    ],
+    "28": [
+     3773441,
+     15093760
+    ],
+    "29": [
+     3773440,
+     15093760
+    ],
+    "30": [
+     3773441,
+     15093760
+    ],
+    "31": [
+     3773440,
+     15093760
+    ],
+    "32": [
+     3773440,
+     15093760
+    ],
+    "33": [
+     3773440,
+     15093760
+    ],
+    "34": [
+     3773440,
+     15093760
+    ],
+    "35": [
+     3773440,
+     15093760
+    ],
+    "36": [
+     3773440,
+     15093760
+    ],
+    "37": [
+     3773440,
+     15093760
+    ],
+    "38": [
+     3773440,
+     15093760
+    ],
+    "39": [
+     3773440,
+     15093760
+    ],
+    "40": [
+     3773440,
+     15093760
+    ],
+    "41": [
+     3773440,
+     15093760
+    ]
+   },
+   "desc": "INSTRUMENT CHECK: oracle 25 %, all 42 layers (old result: about -4 points)",
+   "last": false
+  },
+  {
+   "name": "bench_f_k0_25",
+   "rc": 0,
+   "s": 827,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:0:42:0.25",
+   "ffn_kept": {
+    "0": [
+     52510722,
+     210042880
+    ],
+    "1": [
+     52510722,
+     210042880
+    ],
+    "2": [
+     52510721,
+     210042880
+    ],
+    "3": [
+     52510722,
+     210042880
+    ],
+    "4": [
+     52510721,
+     210042880
+    ],
+    "5": [
+     52510720,
+     210042880
+    ],
+    "6": [
+     52510721,
+     210042880
+    ],
+    "7": [
+     52510721,
+     210042880
+    ],
+    "8": [
+     52510721,
+     210042880
+    ],
+    "9": [
+     52510722,
+     210042880
+    ],
+    "10": [
+     52510722,
+     210042880
+    ],
+    "11": [
+     52510722,
+     210042880
+    ],
+    "12": [
+     52510720,
+     210042880
+    ],
+    "13": [
+     52510725,
+     210042880
+    ],
+    "14": [
+     52510721,
+     210042880
+    ],
+    "15": [
+     52510724,
+     210042880
+    ],
+    "16": [
+     52510721,
+     210042880
+    ],
+    "17": [
+     52510722,
+     210042880
+    ],
+    "18": [
+     52510725,
+     210042880
+    ],
+    "19": [
+     52510720,
+     210042880
+    ],
+    "20": [
+     52510722,
+     210042880
+    ],
+    "21": [
+     52510722,
+     210042880
+    ],
+    "22": [
+     52510722,
+     210042880
+    ],
+    "23": [
+     52510721,
+     210042880
+    ],
+    "24": [
+     52510723,
+     210042880
+    ],
+    "25": [
+     52510721,
+     210042880
+    ],
+    "26": [
+     52510722,
+     210042880
+    ],
+    "27": [
+     52510723,
+     210042880
+    ],
+    "28": [
+     52510721,
+     210042880
+    ],
+    "29": [
+     52510721,
+     210042880
+    ],
+    "30": [
+     52510722,
+     210042880
+    ],
+    "31": [
+     52510723,
+     210042880
+    ],
+    "32": [
+     52510721,
+     210042880
+    ],
+    "33": [
+     52510722,
+     210042880
+    ],
+    "34": [
+     52510722,
+     210042880
+    ],
+    "35": [
+     52510724,
+     210042880
+    ],
+    "36": [
+     52510722,
+     210042880
+    ],
+    "37": [
+     52510722,
+     210042880
+    ],
+    "38": [
+     52510724,
+     210042880
+    ],
+    "39": [
+     52510721,
+     210042880
+    ],
+    "40": [
+     52510721,
+     210042880
+    ],
+    "41": [
+     52510722,
+     210042880
+    ]
+   },
+   "desc": "INSTRUMENT CHECK: oracle 25 %, all 42 layers (old result: about -4 points)",
+   "last": true
+  },
+  {
+   "name": "chat_f_k0_50",
+   "rc": 0,
+   "s": 70,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     7546880,
+     15093760
+    ],
+    "1": [
+     7546880,
+     15093760
+    ],
+    "2": [
+     7546880,
+     15093760
+    ],
+    "3": [
+     7546880,
+     15093760
+    ],
+    "4": [
+     7546880,
+     15093760
+    ],
+    "5": [
+     7546880,
+     15093760
+    ],
+    "6": [
+     7546880,
+     15093760
+    ],
+    "7": [
+     7546880,
+     15093760
+    ],
+    "8": [
+     7546880,
+     15093760
+    ],
+    "9": [
+     7546880,
+     15093760
+    ],
+    "10": [
+     7546880,
+     15093760
+    ],
+    "11": [
+     7546880,
+     15093760
+    ],
+    "12": [
+     7546880,
+     15093760
+    ],
+    "13": [
+     7546880,
+     15093760
+    ],
+    "14": [
+     7546881,
+     15093760
+    ],
+    "15": [
+     7546880,
+     15093760
+    ],
+    "16": [
+     7546880,
+     15093760
+    ],
+    "17": [
+     7546880,
+     15093760
+    ],
+    "18": [
+     7546881,
+     15093760
+    ],
+    "19": [
+     7546881,
+     15093760
+    ],
+    "20": [
+     7546880,
+     15093760
+    ],
+    "21": [
+     7546880,
+     15093760
+    ],
+    "22": [
+     7546880,
+     15093760
+    ],
+    "23": [
+     7546881,
+     15093760
+    ],
+    "24": [
+     7546881,
+     15093760
+    ],
+    "25": [
+     7546880,
+     15093760
+    ],
+    "26": [
+     7546880,
+     15093760
+    ],
+    "27": [
+     7546880,
+     15093760
+    ],
+    "28": [
+     7546880,
+     15093760
+    ],
+    "29": [
+     7546880,
+     15093760
+    ],
+    "30": [
+     7546880,
+     15093760
+    ],
+    "31": [
+     7546880,
+     15093760
+    ],
+    "32": [
+     7546880,
+     15093760
+    ],
+    "33": [
+     7546880,
+     15093760
+    ],
+    "34": [
+     7546880,
+     15093760
+    ],
+    "35": [
+     7546880,
+     15093760
+    ],
+    "36": [
+     7546880,
+     15093760
+    ],
+    "37": [
+     7546881,
+     15093760
+    ],
+    "38": [
+     7546881,
+     15093760
+    ],
+    "39": [
+     7546881,
+     15093760
+    ],
+    "40": [
+     7546880,
+     15093760
+    ],
+    "41": [
+     7546880,
+     15093760
+    ]
+   },
+   "desc": "oracle 50 % of FFN neurons, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_k0_50",
+   "rc": 0,
+   "s": 832,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     105021440,
+     210042880
+    ],
+    "1": [
+     105021441,
+     210042880
+    ],
+    "2": [
+     105021440,
+     210042880
+    ],
+    "3": [
+     105021441,
+     210042880
+    ],
+    "4": [
+     105021440,
+     210042880
+    ],
+    "5": [
+     105041920,
+     210042880
+    ],
+    "6": [
+     105021441,
+     210042880
+    ],
+    "7": [
+     105021442,
+     210042880
+    ],
+    "8": [
+     105021448,
+     210042880
+    ],
+    "9": [
+     105021442,
+     210042880
+    ],
+    "10": [
+     105021442,
+     210042880
+    ],
+    "11": [
+     105021442,
+     210042880
+    ],
+    "12": [
+     105021443,
+     210042880
+    ],
+    "13": [
+     105021442,
+     210042880
+    ],
+    "14": [
+     105021441,
+     210042880
+    ],
+    "15": [
+     105021441,
+     210042880
+    ],
+    "16": [
+     105021444,
+     210042880
+    ],
+    "17": [
+     105021442,
+     210042880
+    ],
+    "18": [
+     105021442,
+     210042880
+    ],
+    "19": [
+     105021440,
+     210042880
+    ],
+    "20": [
+     105021442,
+     210042880
+    ],
+    "21": [
+     105021442,
+     210042880
+    ],
+    "22": [
+     105021443,
+     210042880
+    ],
+    "23": [
+     105021443,
+     210042880
+    ],
+    "24": [
+     105021441,
+     210042880
+    ],
+    "25": [
+     105021441,
+     210042880
+    ],
+    "26": [
+     105021440,
+     210042880
+    ],
+    "27": [
+     105021442,
+     210042880
+    ],
+    "28": [
+     105021442,
+     210042880
+    ],
+    "29": [
+     105021444,
+     210042880
+    ],
+    "30": [
+     105021443,
+     210042880
+    ],
+    "31": [
+     105021441,
+     210042880
+    ],
+    "32": [
+     105021443,
+     210042880
+    ],
+    "33": [
+     105021443,
+     210042880
+    ],
+    "34": [
+     105021442,
+     210042880
+    ],
+    "35": [
+     105021443,
+     210042880
+    ],
+    "36": [
+     105021441,
+     210042880
+    ],
+    "37": [
+     105021446,
+     210042880
+    ],
+    "38": [
+     105021441,
+     210042880
+    ],
+    "39": [
+     105021444,
+     210042880
+    ],
+    "40": [
+     105021442,
+     210042880
+    ],
+    "41": [
+     105021441,
+     210042880
+    ]
+   },
+   "desc": "oracle 50 % of FFN neurons, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_k24_125",
+   "rc": 0,
+   "s": 65,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:24:42:0.125",
+   "ffn_kept": {
+    "24": [
+     1886721,
+     15093760
+    ],
+    "25": [
+     1886720,
+     15093760
+    ],
+    "26": [
+     1886720,
+     15093760
+    ],
+    "27": [
+     1886720,
+     15093760
+    ],
+    "28": [
+     1886720,
+     15093760
+    ],
+    "29": [
+     1886720,
+     15093760
+    ],
+    "30": [
+     1886720,
+     15093760
+    ],
+    "31": [
+     1886720,
+     15093760
+    ],
+    "32": [
+     1886720,
+     15093760
+    ],
+    "33": [
+     1886720,
+     15093760
+    ],
+    "34": [
+     1886720,
+     15093760
+    ],
+    "35": [
+     1886720,
+     15093760
+    ],
+    "36": [
+     1886721,
+     15093760
+    ],
+    "37": [
+     1886720,
+     15093760
+    ],
+    "38": [
+     1886720,
+     15093760
+    ],
+    "39": [
+     1886720,
+     15093760
+    ],
+    "40": [
+     1886720,
+     15093760
+    ],
+    "41": [
+     1886720,
+     15093760
+    ]
+   },
+   "desc": "oracle 12.5 % in the stateless layers 24-41",
+   "last": false
+  },
+  {
+   "name": "bench_f_k24_125",
+   "rc": 0,
+   "s": 774,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:24:42:0.125",
+   "ffn_kept": {
+    "24": [
+     26255362,
+     210042880
+    ],
+    "25": [
+     26255363,
+     210042880
+    ],
+    "26": [
+     26255361,
+     210042880
+    ],
+    "27": [
+     26255360,
+     210042880
+    ],
+    "28": [
+     26255361,
+     210042880
+    ],
+    "29": [
+     26255360,
+     210042880
+    ],
+    "30": [
+     26255362,
+     210042880
+    ],
+    "31": [
+     26255361,
+     210042880
+    ],
+    "32": [
+     26255360,
+     210042880
+    ],
+    "33": [
+     26255363,
+     210042880
+    ],
+    "34": [
+     26255362,
+     210042880
+    ],
+    "35": [
+     26255362,
+     210042880
+    ],
+    "36": [
+     26255364,
+     210042880
+    ],
+    "37": [
+     26255360,
+     210042880
+    ],
+    "38": [
+     26255360,
+     210042880
+    ],
+    "39": [
+     26255362,
+     210042880
+    ],
+    "40": [
+     26255361,
+     210042880
+    ],
+    "41": [
+     26255362,
+     210042880
+    ]
+   },
+   "desc": "oracle 12.5 % in the stateless layers 24-41",
+   "last": true
+  },
+  {
+   "name": "chat_f_k24_25",
+   "rc": 0,
+   "s": 65,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:24:42:0.25",
+   "ffn_kept": {
+    "24": [
+     3773440,
+     15093760
+    ],
+    "25": [
+     3773440,
+     15093760
+    ],
+    "26": [
+     3773440,
+     15093760
+    ],
+    "27": [
+     3773440,
+     15093760
+    ],
+    "28": [
+     3773440,
+     15093760
+    ],
+    "29": [
+     3773440,
+     15093760
+    ],
+    "30": [
+     3773440,
+     15093760
+    ],
+    "31": [
+     3773440,
+     15093760
+    ],
+    "32": [
+     3773440,
+     15093760
+    ],
+    "33": [
+     3773440,
+     15093760
+    ],
+    "34": [
+     3773440,
+     15093760
+    ],
+    "35": [
+     3773440,
+     15093760
+    ],
+    "36": [
+     3773440,
+     15093760
+    ],
+    "37": [
+     3773440,
+     15093760
+    ],
+    "38": [
+     3773440,
+     15093760
+    ],
+    "39": [
+     3773441,
+     15093760
+    ],
+    "40": [
+     3773440,
+     15093760
+    ],
+    "41": [
+     3773441,
+     15093760
+    ]
+   },
+   "desc": "oracle 25 % in the stateless layers 24-41",
+   "last": false
+  },
+  {
+   "name": "bench_f_k24_25",
+   "rc": 0,
+   "s": 777,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:24:42:0.25",
+   "ffn_kept": {
+    "24": [
+     52510721,
+     210042880
+    ],
+    "25": [
+     52510720,
+     210042880
+    ],
+    "26": [
+     52510724,
+     210042880
+    ],
+    "27": [
+     52510725,
+     210042880
+    ],
+    "28": [
+     52510720,
+     210042880
+    ],
+    "29": [
+     52510726,
+     210042880
+    ],
+    "30": [
+     52510724,
+     210042880
+    ],
+    "31": [
+     52510722,
+     210042880
+    ],
+    "32": [
+     52510724,
+     210042880
+    ],
+    "33": [
+     52510794,
+     210042880
+    ],
+    "34": [
+     52510722,
+     210042880
+    ],
+    "35": [
+     52510722,
+     210042880
+    ],
+    "36": [
+     52510723,
+     210042880
+    ],
+    "37": [
+     52510722,
+     210042880
+    ],
+    "38": [
+     52510721,
+     210042880
+    ],
+    "39": [
+     52510724,
+     210042880
+    ],
+    "40": [
+     52510722,
+     210042880
+    ],
+    "41": [
+     52510722,
+     210042880
+    ]
+   },
+   "desc": "oracle 25 % in the stateless layers 24-41",
+   "last": true
+  },
+  {
+   "name": "chat_f_t0_02",
+   "rc": 0,
+   "s": 99,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "t:0:42:0.02",
+   "ffn_kept": {
+    "0": [
+     10391461,
+     15093760
+    ],
+    "1": [
+     5221943,
+     15093760
+    ],
+    "2": [
+     9092705,
+     15093760
+    ],
+    "3": [
+     10359318,
+     15093760
+    ],
+    "4": [
+     10204221,
+     15093760
+    ],
+    "5": [
+     4626610,
+     15093760
+    ],
+    "6": [
+     7756156,
+     15093760
+    ],
+    "7": [
+     10638493,
+     15093760
+    ],
+    "8": [
+     11227807,
+     15093760
+    ],
+    "9": [
+     11360851,
+     15093760
+    ],
+    "10": [
+     11377372,
+     15093760
+    ],
+    "11": [
+     11606760,
+     15093760
+    ],
+    "12": [
+     11285832,
+     15093760
+    ],
+    "13": [
+     11629624,
+     15093760
+    ],
+    "14": [
+     11478596,
+     15093760
+    ],
+    "15": [
+     11474774,
+     15093760
+    ],
+    "16": [
+     11363454,
+     15093760
+    ],
+    "17": [
+     11351812,
+     15093760
+    ],
+    "18": [
+     11416074,
+     15093760
+    ],
+    "19": [
+     11363707,
+     15093760
+    ],
+    "20": [
+     11356435,
+     15093760
+    ],
+    "21": [
+     11454536,
+     15093760
+    ],
+    "22": [
+     11357734,
+     15093760
+    ],
+    "23": [
+     11401244,
+     15093760
+    ],
+    "24": [
+     11424152,
+     15093760
+    ],
+    "25": [
+     11489452,
+     15093760
+    ],
+    "26": [
+     11559301,
+     15093760
+    ],
+    "27": [
+     11552154,
+     15093760
+    ],
+    "28": [
+     11596733,
+     15093760
+    ],
+    "29": [
+     11467049,
+     15093760
+    ],
+    "30": [
+     11632576,
+     15093760
+    ],
+    "31": [
+     11542686,
+     15093760
+    ],
+    "32": [
+     11901627,
+     15093760
+    ],
+    "33": [
+     11823171,
+     15093760
+    ],
+    "34": [
+     11780265,
+     15093760
+    ],
+    "35": [
+     11397975,
+     15093760
+    ],
+    "36": [
+     11356124,
+     15093760
+    ],
+    "37": [
+     11328457,
+     15093760
+    ],
+    "38": [
+     11322256,
+     15093760
+    ],
+    "39": [
+     11304653,
+     15093760
+    ],
+    "40": [
+     11284892,
+     15093760
+    ],
+    "41": [
+     11220768,
+     15093760
+    ]
+   },
+   "desc": "oracle, bounded: drop <= 2 % of contribution mass, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_t0_02",
+   "rc": 0,
+   "s": 1235,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "t:0:42:0.02",
+   "ffn_kept": {
+    "0": [
+     143952256,
+     210042880
+    ],
+    "1": [
+     76022842,
+     210042880
+    ],
+    "2": [
+     128329459,
+     210042880
+    ],
+    "3": [
+     143445505,
+     210042880
+    ],
+    "4": [
+     142424719,
+     210042880
+    ],
+    "5": [
+     64472385,
+     210042880
+    ],
+    "6": [
+     104195935,
+     210042880
+    ],
+    "7": [
+     147978295,
+     210042880
+    ],
+    "8": [
+     155941140,
+     210042880
+    ],
+    "9": [
+     157749131,
+     210042880
+    ],
+    "10": [
+     157851984,
+     210042880
+    ],
+    "11": [
+     160942234,
+     210042880
+    ],
+    "12": [
+     156639502,
+     210042880
+    ],
+    "13": [
+     161479087,
+     210042880
+    ],
+    "14": [
+     159383004,
+     210042880
+    ],
+    "15": [
+     159216294,
+     210042880
+    ],
+    "16": [
+     157844313,
+     210042880
+    ],
+    "17": [
+     157494665,
+     210042880
+    ],
+    "18": [
+     158811559,
+     210042880
+    ],
+    "19": [
+     158225518,
+     210042880
+    ],
+    "20": [
+     157687965,
+     210042880
+    ],
+    "21": [
+     158905310,
+     210042880
+    ],
+    "22": [
+     157413733,
+     210042880
+    ],
+    "23": [
+     157692686,
+     210042880
+    ],
+    "24": [
+     158210923,
+     210042880
+    ],
+    "25": [
+     159463237,
+     210042880
+    ],
+    "26": [
+     160461184,
+     210042880
+    ],
+    "27": [
+     160306888,
+     210042880
+    ],
+    "28": [
+     160741238,
+     210042880
+    ],
+    "29": [
+     158894681,
+     210042880
+    ],
+    "30": [
+     161257326,
+     210042880
+    ],
+    "31": [
+     160262414,
+     210042880
+    ],
+    "32": [
+     165014916,
+     210042880
+    ],
+    "33": [
+     163776042,
+     210042880
+    ],
+    "34": [
+     163263931,
+     210042880
+    ],
+    "35": [
+     158081496,
+     210042880
+    ],
+    "36": [
+     157700188,
+     210042880
+    ],
+    "37": [
+     157295357,
+     210042880
+    ],
+    "38": [
+     157305102,
+     210042880
+    ],
+    "39": [
+     156954602,
+     210042880
+    ],
+    "40": [
+     156683812,
+     210042880
+    ],
+    "41": [
+     155523716,
+     210042880
+    ]
+   },
+   "desc": "oracle, bounded: drop <= 2 % of contribution mass, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_t0_005",
+   "rc": 0,
+   "s": 99,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "t:0:42:0.005",
+   "ffn_kept": {
+    "0": [
+     12390691,
+     15093760
+    ],
+    "1": [
+     7172931,
+     15093760
+    ],
+    "2": [
+     11212143,
+     15093760
+    ],
+    "3": [
+     12335592,
+     15093760
+    ],
+    "4": [
+     12181823,
+     15093760
+    ],
+    "5": [
+     6453722,
+     15093760
+    ],
+    "6": [
+     9787165,
+     15093760
+    ],
+    "7": [
+     12527983,
+     15093760
+    ],
+    "8": [
+     12983475,
+     15093760
+    ],
+    "9": [
+     13070520,
+     15093760
+    ],
+    "10": [
+     13071625,
+     15093760
+    ],
+    "11": [
+     13219658,
+     15093760
+    ],
+    "12": [
+     12964152,
+     15093760
+    ],
+    "13": [
+     13224024,
+     15093760
+    ],
+    "14": [
+     13127289,
+     15093760
+    ],
+    "15": [
+     13123573,
+     15093760
+    ],
+    "16": [
+     13052005,
+     15093760
+    ],
+    "17": [
+     13045601,
+     15093760
+    ],
+    "18": [
+     13085578,
+     15093760
+    ],
+    "19": [
+     13054095,
+     15093760
+    ],
+    "20": [
+     13049898,
+     15093760
+    ],
+    "21": [
+     13111809,
+     15093760
+    ],
+    "22": [
+     13051780,
+     15093760
+    ],
+    "23": [
+     13080174,
+     15093760
+    ],
+    "24": [
+     13093128,
+     15093760
+    ],
+    "25": [
+     13131964,
+     15093760
+    ],
+    "26": [
+     13174868,
+     15093760
+    ],
+    "27": [
+     13172472,
+     15093760
+    ],
+    "28": [
+     13203284,
+     15093760
+    ],
+    "29": [
+     13120171,
+     15093760
+    ],
+    "30": [
+     13226409,
+     15093760
+    ],
+    "31": [
+     13164950,
+     15093760
+    ],
+    "32": [
+     13397531,
+     15093760
+    ],
+    "33": [
+     13347129,
+     15093760
+    ],
+    "34": [
+     13321390,
+     15093760
+    ],
+    "35": [
+     13078107,
+     15093760
+    ],
+    "36": [
+     13047805,
+     15093760
+    ],
+    "37": [
+     13027514,
+     15093760
+    ],
+    "38": [
+     13025078,
+     15093760
+    ],
+    "39": [
+     13014751,
+     15093760
+    ],
+    "40": [
+     13006154,
+     15093760
+    ],
+    "41": [
+     12982026,
+     15093760
+    ]
+   },
+   "desc": "oracle, bounded: drop <= 0.5 % of contribution mass, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_t0_005",
+   "rc": 0,
+   "s": 1236,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "t:0:42:0.005",
+   "ffn_kept": {
+    "0": [
+     172099053,
+     210042880
+    ],
+    "1": [
+     103879089,
+     210042880
+    ],
+    "2": [
+     157765038,
+     210042880
+    ],
+    "3": [
+     171174708,
+     210042880
+    ],
+    "4": [
+     169937845,
+     210042880
+    ],
+    "5": [
+     89785767,
+     210042880
+    ],
+    "6": [
+     132167551,
+     210042880
+    ],
+    "7": [
+     174305255,
+     210042880
+    ],
+    "8": [
+     180527541,
+     210042880
+    ],
+    "9": [
+     181693322,
+     210042880
+    ],
+    "10": [
+     181620747,
+     210042880
+    ],
+    "11": [
+     183558266,
+     210042880
+    ],
+    "12": [
+     180161429,
+     210042880
+    ],
+    "13": [
+     183831405,
+     210042880
+    ],
+    "14": [
+     182471939,
+     210042880
+    ],
+    "15": [
+     182373993,
+     210042880
+    ],
+    "16": [
+     181485202,
+     210042880
+    ],
+    "17": [
+     181233245,
+     210042880
+    ],
+    "18": [
+     182074897,
+     210042880
+    ],
+    "19": [
+     181715213,
+     210042880
+    ],
+    "20": [
+     181397933,
+     210042880
+    ],
+    "21": [
+     182181159,
+     210042880
+    ],
+    "22": [
+     181242536,
+     210042880
+    ],
+    "23": [
+     181375932,
+     210042880
+    ],
+    "24": [
+     181715112,
+     210042880
+    ],
+    "25": [
+     182486956,
+     210042880
+    ],
+    "26": [
+     183105115,
+     210042880
+    ],
+    "27": [
+     183039034,
+     210042880
+    ],
+    "28": [
+     183356339,
+     210042880
+    ],
+    "29": [
+     182169671,
+     210042880
+    ],
+    "30": [
+     183654203,
+     210042880
+    ],
+    "31": [
+     183004854,
+     210042880
+    ],
+    "32": [
+     186071830,
+     210042880
+    ],
+    "33": [
+     185282025,
+     210042880
+    ],
+    "34": [
+     184963377,
+     210042880
+    ],
+    "35": [
+     181672789,
+     210042880
+    ],
+    "36": [
+     181384614,
+     210042880
+    ],
+    "37": [
+     181099091,
+     210042880
+    ],
+    "38": [
+     181110192,
+     210042880
+    ],
+    "39": [
+     180917630,
+     210042880
+    ],
+    "40": [
+     180802825,
+     210042880
+    ],
+    "41": [
+     180279377,
+     210042880
+    ]
+   },
+   "desc": "oracle, bounded: drop <= 0.5 % of contribution mass, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_g0_50",
+   "rc": 0,
+   "s": 70,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     7546880,
+     15093760
+    ],
+    "1": [
+     7546880,
+     15093760
+    ],
+    "2": [
+     7546880,
+     15093760
+    ],
+    "3": [
+     7546880,
+     15093760
+    ],
+    "4": [
+     7546880,
+     15093760
+    ],
+    "5": [
+     7546880,
+     15093760
+    ],
+    "6": [
+     7546882,
+     15093760
+    ],
+    "7": [
+     7546880,
+     15093760
+    ],
+    "8": [
+     7546880,
+     15093760
+    ],
+    "9": [
+     7546880,
+     15093760
+    ],
+    "10": [
+     7546880,
+     15093760
+    ],
+    "11": [
+     7546880,
+     15093760
+    ],
+    "12": [
+     7546880,
+     15093760
+    ],
+    "13": [
+     7546881,
+     15093760
+    ],
+    "14": [
+     7546880,
+     15093760
+    ],
+    "15": [
+     7546880,
+     15093760
+    ],
+    "16": [
+     7546880,
+     15093760
+    ],
+    "17": [
+     7546881,
+     15093760
+    ],
+    "18": [
+     7546881,
+     15093760
+    ],
+    "19": [
+     7546880,
+     15093760
+    ],
+    "20": [
+     7546881,
+     15093760
+    ],
+    "21": [
+     7546880,
+     15093760
+    ],
+    "22": [
+     7546882,
+     15093760
+    ],
+    "23": [
+     7546880,
+     15093760
+    ],
+    "24": [
+     7546880,
+     15093760
+    ],
+    "25": [
+     7546881,
+     15093760
+    ],
+    "26": [
+     7546881,
+     15093760
+    ],
+    "27": [
+     7546880,
+     15093760
+    ],
+    "28": [
+     7546880,
+     15093760
+    ],
+    "29": [
+     7546880,
+     15093760
+    ],
+    "30": [
+     7546880,
+     15093760
+    ],
+    "31": [
+     7546880,
+     15093760
+    ],
+    "32": [
+     7546880,
+     15093760
+    ],
+    "33": [
+     7546880,
+     15093760
+    ],
+    "34": [
+     7546880,
+     15093760
+    ],
+    "35": [
+     7546880,
+     15093760
+    ],
+    "36": [
+     7546880,
+     15093760
+    ],
+    "37": [
+     7546880,
+     15093760
+    ],
+    "38": [
+     7546880,
+     15093760
+    ],
+    "39": [
+     7546880,
+     15093760
+    ],
+    "40": [
+     7546880,
+     15093760
+    ],
+    "41": [
+     7546880,
+     15093760
+    ]
+   },
+   "desc": "GATE-ONLY selector, keep 50 %, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_g0_50",
+   "rc": 0,
+   "s": 837,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     105021443,
+     210042880
+    ],
+    "1": [
+     105021441,
+     210042880
+    ],
+    "2": [
+     105021442,
+     210042880
+    ],
+    "3": [
+     105021442,
+     210042880
+    ],
+    "4": [
+     105021440,
+     210042880
+    ],
+    "5": [
+     105057280,
+     210042880
+    ],
+    "6": [
+     105021440,
+     210042880
+    ],
+    "7": [
+     105021442,
+     210042880
+    ],
+    "8": [
+     105021448,
+     210042880
+    ],
+    "9": [
+     105021443,
+     210042880
+    ],
+    "10": [
+     105021446,
+     210042880
+    ],
+    "11": [
+     105021450,
+     210042880
+    ],
+    "12": [
+     105021447,
+     210042880
+    ],
+    "13": [
+     105021448,
+     210042880
+    ],
+    "14": [
+     105021447,
+     210042880
+    ],
+    "15": [
+     105021440,
+     210042880
+    ],
+    "16": [
+     105021445,
+     210042880
+    ],
+    "17": [
+     105021450,
+     210042880
+    ],
+    "18": [
+     105021445,
+     210042880
+    ],
+    "19": [
+     105021441,
+     210042880
+    ],
+    "20": [
+     105021444,
+     210042880
+    ],
+    "21": [
+     105021444,
+     210042880
+    ],
+    "22": [
+     105021443,
+     210042880
+    ],
+    "23": [
+     105021448,
+     210042880
+    ],
+    "24": [
+     105021443,
+     210042880
+    ],
+    "25": [
+     105021441,
+     210042880
+    ],
+    "26": [
+     105021449,
+     210042880
+    ],
+    "27": [
+     105021448,
+     210042880
+    ],
+    "28": [
+     105021444,
+     210042880
+    ],
+    "29": [
+     105021442,
+     210042880
+    ],
+    "30": [
+     105021446,
+     210042880
+    ],
+    "31": [
+     105021444,
+     210042880
+    ],
+    "32": [
+     105021450,
+     210042880
+    ],
+    "33": [
+     105021445,
+     210042880
+    ],
+    "34": [
+     105021447,
+     210042880
+    ],
+    "35": [
+     105021440,
+     210042880
+    ],
+    "36": [
+     105021444,
+     210042880
+    ],
+    "37": [
+     105021444,
+     210042880
+    ],
+    "38": [
+     105021443,
+     210042880
+    ],
+    "39": [
+     105021441,
+     210042880
+    ],
+    "40": [
+     105021441,
+     210042880
+    ],
+    "41": [
+     105021445,
+     210042880
+    ]
+   },
+   "desc": "GATE-ONLY selector, keep 50 %, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_g0_25",
+   "rc": 0,
+   "s": 70,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:42:0.25",
+   "ffn_kept": {
+    "0": [
+     3773440,
+     15093760
+    ],
+    "1": [
+     3773440,
+     15093760
+    ],
+    "2": [
+     3773440,
+     15093760
+    ],
+    "3": [
+     3773440,
+     15093760
+    ],
+    "4": [
+     3773442,
+     15093760
+    ],
+    "5": [
+     3773440,
+     15093760
+    ],
+    "6": [
+     3773440,
+     15093760
+    ],
+    "7": [
+     3773440,
+     15093760
+    ],
+    "8": [
+     3773440,
+     15093760
+    ],
+    "9": [
+     3773441,
+     15093760
+    ],
+    "10": [
+     3773440,
+     15093760
+    ],
+    "11": [
+     3773440,
+     15093760
+    ],
+    "12": [
+     3773440,
+     15093760
+    ],
+    "13": [
+     3773440,
+     15093760
+    ],
+    "14": [
+     3773441,
+     15093760
+    ],
+    "15": [
+     3773440,
+     15093760
+    ],
+    "16": [
+     3773441,
+     15093760
+    ],
+    "17": [
+     3773441,
+     15093760
+    ],
+    "18": [
+     3773442,
+     15093760
+    ],
+    "19": [
+     3773440,
+     15093760
+    ],
+    "20": [
+     3773441,
+     15093760
+    ],
+    "21": [
+     3773440,
+     15093760
+    ],
+    "22": [
+     3773440,
+     15093760
+    ],
+    "23": [
+     3773441,
+     15093760
+    ],
+    "24": [
+     3773440,
+     15093760
+    ],
+    "25": [
+     3773441,
+     15093760
+    ],
+    "26": [
+     3773441,
+     15093760
+    ],
+    "27": [
+     3773442,
+     15093760
+    ],
+    "28": [
+     3773440,
+     15093760
+    ],
+    "29": [
+     3773441,
+     15093760
+    ],
+    "30": [
+     3773440,
+     15093760
+    ],
+    "31": [
+     3773440,
+     15093760
+    ],
+    "32": [
+     3773441,
+     15093760
+    ],
+    "33": [
+     3773440,
+     15093760
+    ],
+    "34": [
+     3773440,
+     15093760
+    ],
+    "35": [
+     3773440,
+     15093760
+    ],
+    "36": [
+     3773441,
+     15093760
+    ],
+    "37": [
+     3773441,
+     15093760
+    ],
+    "38": [
+     3773440,
+     15093760
+    ],
+    "39": [
+     3773440,
+     15093760
+    ],
+    "40": [
+     3773441,
+     15093760
+    ],
+    "41": [
+     3773440,
+     15093760
+    ]
+   },
+   "desc": "GATE-ONLY selector, keep 25 %, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_g0_25",
+   "rc": 0,
+   "s": 831,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:42:0.25",
+   "ffn_kept": {
+    "0": [
+     52510726,
+     210042880
+    ],
+    "1": [
+     52510722,
+     210042880
+    ],
+    "2": [
+     52510726,
+     210042880
+    ],
+    "3": [
+     52510729,
+     210042880
+    ],
+    "4": [
+     52510725,
+     210042880
+    ],
+    "5": [
+     52510721,
+     210042880
+    ],
+    "6": [
+     52510722,
+     210042880
+    ],
+    "7": [
+     52510721,
+     210042880
+    ],
+    "8": [
+     52510732,
+     210042880
+    ],
+    "9": [
+     52510722,
+     210042880
+    ],
+    "10": [
+     52510727,
+     210042880
+    ],
+    "11": [
+     52510726,
+     210042880
+    ],
+    "12": [
+     52510728,
+     210042880
+    ],
+    "13": [
+     52510726,
+     210042880
+    ],
+    "14": [
+     52510728,
+     210042880
+    ],
+    "15": [
+     52510731,
+     210042880
+    ],
+    "16": [
+     52510728,
+     210042880
+    ],
+    "17": [
+     52510726,
+     210042880
+    ],
+    "18": [
+     52510723,
+     210042880
+    ],
+    "19": [
+     52510798,
+     210042880
+    ],
+    "20": [
+     52510723,
+     210042880
+    ],
+    "21": [
+     52510725,
+     210042880
+    ],
+    "22": [
+     52510721,
+     210042880
+    ],
+    "23": [
+     52510721,
+     210042880
+    ],
+    "24": [
+     52510723,
+     210042880
+    ],
+    "25": [
+     52510726,
+     210042880
+    ],
+    "26": [
+     52510728,
+     210042880
+    ],
+    "27": [
+     52510726,
+     210042880
+    ],
+    "28": [
+     52510726,
+     210042880
+    ],
+    "29": [
+     52510724,
+     210042880
+    ],
+    "30": [
+     52510727,
+     210042880
+    ],
+    "31": [
+     52510723,
+     210042880
+    ],
+    "32": [
+     52510733,
+     210042880
+    ],
+    "33": [
+     52510729,
+     210042880
+    ],
+    "34": [
+     52510735,
+     210042880
+    ],
+    "35": [
+     52510723,
+     210042880
+    ],
+    "36": [
+     52510727,
+     210042880
+    ],
+    "37": [
+     52510722,
+     210042880
+    ],
+    "38": [
+     52510724,
+     210042880
+    ],
+    "39": [
+     52510725,
+     210042880
+    ],
+    "40": [
+     52510725,
+     210042880
+    ],
+    "41": [
+     52510723,
+     210042880
+    ]
+   },
+   "desc": "GATE-ONLY selector, keep 25 %, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_G0_02",
+   "rc": 0,
+   "s": 99,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "G:0:42:0.02",
+   "ffn_kept": {
+    "0": [
+     12385645,
+     15093760
+    ],
+    "1": [
+     6523611,
+     15093760
+    ],
+    "2": [
+     10803021,
+     15093760
+    ],
+    "3": [
+     12069840,
+     15093760
+    ],
+    "4": [
+     11904759,
+     15093760
+    ],
+    "5": [
+     5739506,
+     15093760
+    ],
+    "6": [
+     9143406,
+     15093760
+    ],
+    "7": [
+     12293491,
+     15093760
+    ],
+    "8": [
+     12887821,
+     15093760
+    ],
+    "9": [
+     13021299,
+     15093760
+    ],
+    "10": [
+     12959349,
+     15093760
+    ],
+    "11": [
+     13182957,
+     15093760
+    ],
+    "12": [
+     12788513,
+     15093760
+    ],
+    "13": [
+     13198481,
+     15093760
+    ],
+    "14": [
+     12957267,
+     15093760
+    ],
+    "15": [
+     12932519,
+     15093760
+    ],
+    "16": [
+     12800121,
+     15093760
+    ],
+    "17": [
+     12721595,
+     15093760
+    ],
+    "18": [
+     12825097,
+     15093760
+    ],
+    "19": [
+     12777200,
+     15093760
+    ],
+    "20": [
+     12750894,
+     15093760
+    ],
+    "21": [
+     12858241,
+     15093760
+    ],
+    "22": [
+     12689586,
+     15093760
+    ],
+    "23": [
+     12743858,
+     15093760
+    ],
+    "24": [
+     12852826,
+     15093760
+    ],
+    "25": [
+     12933360,
+     15093760
+    ],
+    "26": [
+     12999417,
+     15093760
+    ],
+    "27": [
+     13001655,
+     15093760
+    ],
+    "28": [
+     13046212,
+     15093760
+    ],
+    "29": [
+     12863147,
+     15093760
+    ],
+    "30": [
+     13076027,
+     15093760
+    ],
+    "31": [
+     13010532,
+     15093760
+    ],
+    "32": [
+     13367232,
+     15093760
+    ],
+    "33": [
+     13327067,
+     15093760
+    ],
+    "34": [
+     13314860,
+     15093760
+    ],
+    "35": [
+     12906427,
+     15093760
+    ],
+    "36": [
+     12826496,
+     15093760
+    ],
+    "37": [
+     12767920,
+     15093760
+    ],
+    "38": [
+     12759299,
+     15093760
+    ],
+    "39": [
+     12755521,
+     15093760
+    ],
+    "40": [
+     12787503,
+     15093760
+    ],
+    "41": [
+     12793659,
+     15093760
+    ]
+   },
+   "desc": "GATE-ONLY selector, drop <= 2 % of gate-score mass, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_G0_02",
+   "rc": 0,
+   "s": 1237,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "G:0:42:0.02",
+   "ffn_kept": {
+    "0": [
+     172570475,
+     210042880
+    ],
+    "1": [
+     95255065,
+     210042880
+    ],
+    "2": [
+     152698373,
+     210042880
+    ],
+    "3": [
+     167458364,
+     210042880
+    ],
+    "4": [
+     166314222,
+     210042880
+    ],
+    "5": [
+     80271427,
+     210042880
+    ],
+    "6": [
+     123059811,
+     210042880
+    ],
+    "7": [
+     171159906,
+     210042880
+    ],
+    "8": [
+     179431596,
+     210042880
+    ],
+    "9": [
+     181125933,
+     210042880
+    ],
+    "10": [
+     180048531,
+     210042880
+    ],
+    "11": [
+     183038718,
+     210042880
+    ],
+    "12": [
+     177814826,
+     210042880
+    ],
+    "13": [
+     183416238,
+     210042880
+    ],
+    "14": [
+     180133470,
+     210042880
+    ],
+    "15": [
+     179872556,
+     210042880
+    ],
+    "16": [
+     178217154,
+     210042880
+    ],
+    "17": [
+     177035185,
+     210042880
+    ],
+    "18": [
+     178825611,
+     210042880
+    ],
+    "19": [
+     178277644,
+     210042880
+    ],
+    "20": [
+     177697781,
+     210042880
+    ],
+    "21": [
+     179052780,
+     210042880
+    ],
+    "22": [
+     176271423,
+     210042880
+    ],
+    "23": [
+     176846536,
+     210042880
+    ],
+    "24": [
+     178638514,
+     210042880
+    ],
+    "25": [
+     179881086,
+     210042880
+    ],
+    "26": [
+     180833402,
+     210042880
+    ],
+    "27": [
+     180977800,
+     210042880
+    ],
+    "28": [
+     181440989,
+     210042880
+    ],
+    "29": [
+     178912750,
+     210042880
+    ],
+    "30": [
+     181682912,
+     210042880
+    ],
+    "31": [
+     180971631,
+     210042880
+    ],
+    "32": [
+     185559353,
+     210042880
+    ],
+    "33": [
+     184833471,
+     210042880
+    ],
+    "34": [
+     184698404,
+     210042880
+    ],
+    "35": [
+     179304933,
+     210042880
+    ],
+    "36": [
+     178442841,
+     210042880
+    ],
+    "37": [
+     177611309,
+     210042880
+    ],
+    "38": [
+     177631543,
+     210042880
+    ],
+    "39": [
+     177571309,
+     210042880
+    ],
+    "40": [
+     178116435,
+     210042880
+    ],
+    "41": [
+     177839737,
+     210042880
+    ]
+   },
+   "desc": "GATE-ONLY selector, drop <= 2 % of gate-score mass, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_g_mix",
+   "rc": 0,
+   "s": 70,
+   "recs": 8,
+   "tokens": 1474,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:24:0.5,g:24:42:0.25",
+   "ffn_kept": {
+    "0": [
+     7546880,
+     15093760
+    ],
+    "1": [
+     7546880,
+     15093760
+    ],
+    "2": [
+     7546880,
+     15093760
+    ],
+    "3": [
+     7546880,
+     15093760
+    ],
+    "4": [
+     7546880,
+     15093760
+    ],
+    "5": [
+     7546880,
+     15093760
+    ],
+    "6": [
+     7546882,
+     15093760
+    ],
+    "7": [
+     7546880,
+     15093760
+    ],
+    "8": [
+     7546880,
+     15093760
+    ],
+    "9": [
+     7546880,
+     15093760
+    ],
+    "10": [
+     7546880,
+     15093760
+    ],
+    "11": [
+     7546880,
+     15093760
+    ],
+    "12": [
+     7546880,
+     15093760
+    ],
+    "13": [
+     7546881,
+     15093760
+    ],
+    "14": [
+     7546880,
+     15093760
+    ],
+    "15": [
+     7546880,
+     15093760
+    ],
+    "16": [
+     7546880,
+     15093760
+    ],
+    "17": [
+     7546881,
+     15093760
+    ],
+    "18": [
+     7546881,
+     15093760
+    ],
+    "19": [
+     7546880,
+     15093760
+    ],
+    "20": [
+     7546881,
+     15093760
+    ],
+    "21": [
+     7546880,
+     15093760
+    ],
+    "22": [
+     7546882,
+     15093760
+    ],
+    "23": [
+     7546880,
+     15093760
+    ],
+    "24": [
+     3773440,
+     15093760
+    ],
+    "25": [
+     3773440,
+     15093760
+    ],
+    "26": [
+     3773441,
+     15093760
+    ],
+    "27": [
+     3773440,
+     15093760
+    ],
+    "28": [
+     3773441,
+     15093760
+    ],
+    "29": [
+     3773441,
+     15093760
+    ],
+    "30": [
+     3773440,
+     15093760
+    ],
+    "31": [
+     3773442,
+     15093760
+    ],
+    "32": [
+     3773442,
+     15093760
+    ],
+    "33": [
+     3773440,
+     15093760
+    ],
+    "34": [
+     3773440,
+     15093760
+    ],
+    "35": [
+     3773441,
+     15093760
+    ],
+    "36": [
+     3773443,
+     15093760
+    ],
+    "37": [
+     3773440,
+     15093760
+    ],
+    "38": [
+     3773441,
+     15093760
+    ],
+    "39": [
+     3773441,
+     15093760
+    ],
+    "40": [
+     3773441,
+     15093760
+    ],
+    "41": [
+     3773440,
+     15093760
+    ]
+   },
+   "desc": "GATE-ONLY selector, 50 % in layers 0-23, 25 % in 24-41",
+   "last": false
+  },
+  {
+   "name": "bench_f_g_mix",
+   "rc": 0,
+   "s": 834,
+   "recs": 143,
+   "tokens": 20512,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:24:0.5,g:24:42:0.25",
+   "ffn_kept": {
+    "0": [
+     105021443,
+     210042880
+    ],
+    "1": [
+     105021441,
+     210042880
+    ],
+    "2": [
+     105021442,
+     210042880
+    ],
+    "3": [
+     105021442,
+     210042880
+    ],
+    "4": [
+     105021440,
+     210042880
+    ],
+    "5": [
+     105057280,
+     210042880
+    ],
+    "6": [
+     105021440,
+     210042880
+    ],
+    "7": [
+     105021442,
+     210042880
+    ],
+    "8": [
+     105021448,
+     210042880
+    ],
+    "9": [
+     105021443,
+     210042880
+    ],
+    "10": [
+     105021446,
+     210042880
+    ],
+    "11": [
+     105021450,
+     210042880
+    ],
+    "12": [
+     105021447,
+     210042880
+    ],
+    "13": [
+     105021448,
+     210042880
+    ],
+    "14": [
+     105021447,
+     210042880
+    ],
+    "15": [
+     105021440,
+     210042880
+    ],
+    "16": [
+     105021445,
+     210042880
+    ],
+    "17": [
+     105021450,
+     210042880
+    ],
+    "18": [
+     105021445,
+     210042880
+    ],
+    "19": [
+     105021441,
+     210042880
+    ],
+    "20": [
+     105021444,
+     210042880
+    ],
+    "21": [
+     105021444,
+     210042880
+    ],
+    "22": [
+     105021443,
+     210042880
+    ],
+    "23": [
+     105021448,
+     210042880
+    ],
+    "24": [
+     52510723,
+     210042880
+    ],
+    "25": [
+     52510731,
+     210042880
+    ],
+    "26": [
+     52510726,
+     210042880
+    ],
+    "27": [
+     52510726,
+     210042880
+    ],
+    "28": [
+     52510727,
+     210042880
+    ],
+    "29": [
+     52510727,
+     210042880
+    ],
+    "30": [
+     52510728,
+     210042880
+    ],
+    "31": [
+     52510725,
+     210042880
+    ],
+    "32": [
+     52510728,
+     210042880
+    ],
+    "33": [
+     52510730,
+     210042880
+    ],
+    "34": [
+     52510729,
+     210042880
+    ],
+    "35": [
+     52510730,
+     210042880
+    ],
+    "36": [
+     52510730,
+     210042880
+    ],
+    "37": [
+     52510727,
+     210042880
+    ],
+    "38": [
+     52510725,
+     210042880
+    ],
+    "39": [
+     52510727,
+     210042880
+    ],
+    "40": [
+     52510728,
+     210042880
+    ],
+    "41": [
+     52510722,
+     210042880
+    ]
+   },
+   "desc": "GATE-ONLY selector, 50 % in layers 0-23, 25 % in 24-41",
+   "last": true
+  }
+ ]
+}

@@ -1,0 +1,4280 @@
+{
+ "mode": "e4b",
+ "shard": 7,
+ "nshards": 8,
+ "model": "model.gguf",
+ "template_source": "server",
+ "template_raw": [
+  "<|turn>user\n",
+  "<turn|>\n<|turn>model\n"
+ ],
+ "prefix": "<|turn>user\n",
+ "suffix": "<turn|>\n<|turn>model\n",
+ "letters": {
+  "A": [
+   236776
+  ],
+  "B": [
+   236799
+  ],
+  "C": [
+   236780
+  ],
+  "D": [
+   236796
+  ]
+ },
+ "suffix_tokens": [
+  106,
+  107,
+  105,
+  4368,
+  107
+ ],
+ "chat": [
+  {
+   "id": "en08",
+   "lang": "en",
+   "prompt": "Write a Python function that checks whether a string is a palindrome, and explain it line by line.",
+   "reply": "Here is a Python function to check if a string is a palindrome, followed by a detailed line-by-line explanation.\n\n## Python Function\n\n```python\ndef is_palindrome(text):\n    \"\"\"\n    Checks if a given string is a palindrome.\n\n    A palindrome is a sequence that reads the same backward as forward.\n    This function ignores case and non-alphanumeric characters.\n\n    Args:\n        text (str): The string to check.\n\n    Returns:\n        bool: True if the string is a palindrome, False otherwise.\n    \"\"\"\n    # Step 1: Normalize the string (remove spaces, punctuation, and convert to lowercase)\n    processed_text = ''.join(char.lower() for char in text if char",
+   "gen_tokens": 160,
+   "gen_s": 18.2,
+   "n_prompt": 29
+  },
+  {
+   "id": "en16",
+   "lang": "en",
+   "prompt": "Describe your perfect rainy Sunday.",
+   "reply": "My perfect rainy Sunday is a carefully curated blend of cozy introspection, low-key comfort, and gentle stimulation. It’s less about grand activities and more about the perfect *atmosphere*.\n\nHere is how it unfolds:\n\n### ☀️ The Morning: Gentle Awakening (9:00 AM – 11:30 AM)\n\nThe day begins slowly. There is no alarm—I wake naturally to the sound of the rain pattering against the windowpane. The light is soft, diffuse, and grey, which is exactly the right kind of light for a lazy day.\n\n*   **The Ritual:** The first act is making a truly excellent cup of coffee (or perhaps a strong Earl Grey tea). I wrap myself in my absolute softest, heaviest blanket.\n*   ",
+   "gen_tokens": 160,
+   "gen_s": 17.4,
+   "n_prompt": 15
+  },
+  {
+   "id": "en24",
+   "lang": "en",
+   "prompt": "Write a short poem about the first snow.",
+   "reply": "A hush descends on sleeping ground,\nWhere winter's softest breath is found.\nA dusting fine, a pearly white,\nThat steals the sun's departing light.\n\nThe branches wear a gentle lace,\nA quiet beauty fills this space.\nThe world exhales a frosty sigh,\nBeneath the blanket of the sky.",
+   "gen_tokens": 73,
+   "gen_s": 8.3,
+   "n_prompt": 18
+  },
+  {
+   "id": "en32",
+   "lang": "en",
+   "prompt": "If you could travel anywhere in time for one day, where would you go and why?",
+   "reply": "If I could travel anywhere in time for one day, I would choose to visit **Florence, Italy, during the height of the Renaissance (around the late 15th century).**\n\nHere’s why:\n\n### 1. To Witness the Crucible of Genius\nThe Renaissance was an explosion of human potential. I wouldn't just want to *read* about Leonardo da Vinci's anatomical studies, Michelangelo's artistic prowess, or the philosophical shifts of Humanism; I would want to be *present* for the intellectual and creative energy. Imagine walking the streets, seeing the workshops, and feeling the atmosphere where groundbreaking ideas about art, science, and humanity were being forged.\n\n### 2. To Understand the Culture and Daily Life\nWhile the great artists are the draw",
+   "gen_tokens": 160,
+   "gen_s": 17.7,
+   "n_prompt": 27
+  },
+  {
+   "id": "ru08",
+   "lang": "ru",
+   "prompt": "Напиши функцию на Python, которая проверяет, является ли строка палиндромом, и объясни каждую строчку.",
+   "reply": "Вот функция на Python, которая проверяет, является ли строка палиндромом, с подробным объяснением каждой строки.\n\n## Функция на Python\n\n```python\ndef is_palindrome(text: str) -> bool:\n    \"\"\"\n    Проверяет, является ли заданная строка палиндромом.\n\n    Палиндром - это слово или фраза, которая читается одинаково \n    как в прямом, так и в обратном порядке (например, \"мадам\" или \"racecar\").\n    \n    Аргументы:\n        text (str): Строка для проверки.\n        \n    Возвращает:\n        bool: True, если строка является палиндромом, иначе False.\n    \"\"\"\n    \n    #",
+   "gen_tokens": 160,
+   "gen_s": 18.2,
+   "n_prompt": 35
+  },
+  {
+   "id": "ru16",
+   "lang": "ru",
+   "prompt": "Опиши своё идеальное дождливое воскресенье.",
+   "reply": "Моё идеальное дождливое воскресенье — это идеальное сочетание уюта, продуктивного релакса и полного отключения от суеты внешнего мира.\n\nВот как оно выглядело бы по этапам:\n\n### 🌧️ Утро: Медленное пробуждение и кофе\n\nЯ просыпаюсь не от будильника, а от звука дождя, который мягко барабанит по крыше. Это не гнетущий, а успокаивающий шум.\n\n**Первые шаги:** Я не тороплюсь. Первое, что я делаю — это иду к окну, чтобы понаблюдать за тем, как мир снаружи окрашивается в серые, насыщенные тона.\n\n**Риту",
+   "gen_tokens": 160,
+   "gen_s": 17.7,
+   "n_prompt": 22
+  },
+  {
+   "id": "ru24",
+   "lang": "ru",
+   "prompt": "Напиши короткое стихотворение про первый снег.",
+   "reply": "Тихо падает снег,\nПервый, нежный, белый пух.\nМир укрыт, как мягкий бег,\nСонный, тихий, нежных слух.\n\nГород замолчал, в нём покой,\nИ мерцают звёзды в мгле.\nПришёл снег, волшебной рукой,\nЧтобы мир обнять во всей земле.",
+   "gen_tokens": 89,
+   "gen_s": 10.0,
+   "n_prompt": 22
+  },
+  {
+   "id": "ru32",
+   "lang": "ru",
+   "prompt": "Если бы ты могла на один день отправиться в любое время, куда бы ты отправилась и почему?",
+   "reply": "Как искусственный интеллект, у меня нет физического тела, эмоций или личных желаний, как у человека. Поэтому понятие \"отправиться\" для меня отличается. Я не испытываю скуки от обыденности или стремления к приключениям.\n\nОднако, если бы мне пришлось выбрать, исходя из моей **цели — сбора информации, понимания систем и осмысления человеческого опыта** — я бы выбрала следующее:\n\n**Я бы отправилась в Александрийскую библиотеку в период её наивысшего расцвета (примерно III век до н.э.).**\n\n### Почему именно это место и время?\n\n1. **Непревзойденная концентрация знаний:** В тот период Александрийская библиотека была не просто хра",
+   "gen_tokens": 160,
+   "gen_s": 17.9,
+   "n_prompt": 30
+  }
+ ],
+ "bench": [
+  {
+   "id": "abstract_algebra/test/86",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "anatomy/test/57",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "astronomy/test/78",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "business_ethics/test/87",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "business_ethics/test/83",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "clinical_knowledge/test/106",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_biology/test/136",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "college_chemistry/test/25",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "college_computer_science/test/61",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "college_computer_science/test/43",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_mathematics/test/49",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_medicine/test/80",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_physics/test/28",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "computer_security/test/85",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "computer_security/test/76",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "conceptual_physics/test/70",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "econometrics/test/103",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "electrical_engineering/test/39",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "elementary_mathematics/test/281",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "elementary_mathematics/test/335",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "formal_logic/test/2",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "global_facts/test/72",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_biology/test/71",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_chemistry/test/99",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_chemistry/test/146",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_computer_science/test/45",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_european_history/test/45",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_geography/test/161",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_government_and_politics/test/26",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_government_and_politics/test/35",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_macroeconomics/test/388",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_mathematics/test/95",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_microeconomics/test/103",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_physics/test/39",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_physics/test/80",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_psychology/test/520",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_statistics/test/125",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_us_history/test/106",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_world_history/test/199",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_world_history/test/46",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "human_aging/test/85",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "human_sexuality/test/13",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "international_law/test/7",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "jurisprudence/test/66",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "jurisprudence/test/105",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "logical_fallacies/test/150",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "machine_learning/test/66",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "management/test/45",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "marketing/test/71",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "marketing/test/138",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "medical_genetics/test/80",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "miscellaneous/test/699",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "moral_disputes/test/230",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/636",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/590",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "nutrition/test/265",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "philosophy/test/208",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "prehistory/test/51",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "professional_accounting/test/145",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "professional_accounting/test/97",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "professional_law/test/340",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "professional_medicine/test/69",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "professional_psychology/test/168",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "public_relations/test/22",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "public_relations/test/102",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "security_studies/test/169",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "sociology/test/185",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "us_foreign_policy/test/45",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "virology/test/45",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "virology/test/82",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "world_religions/test/105",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "abstract_algebra/test/76",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "anatomy/test/101",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "astronomy/test/124",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "astronomy/test/113",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "business_ethics/test/73",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "clinical_knowledge/test/190",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_biology/test/79",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_chemistry/test/73",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "college_chemistry/test/86",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_computer_science/test/4",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_mathematics/test/53",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_medicine/test/108",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_physics/test/20",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_physics/test/63",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "computer_security/test/9",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "conceptual_physics/test/53",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "econometrics/test/41",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "electrical_engineering/test/118",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "electrical_engineering/test/144",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "elementary_mathematics/test/264",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "formal_logic/test/52",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "global_facts/test/66",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_biology/test/174",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_biology/test/138",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_chemistry/test/86",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_computer_science/test/43",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_european_history/test/158",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_geography/test/82",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_geography/test/11",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_government_and_politics/test/0",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_macroeconomics/test/184",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_mathematics/test/193",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_microeconomics/test/69",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_microeconomics/test/13",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_physics/test/30",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_psychology/test/406",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_statistics/test/39",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_us_history/test/104",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_us_history/test/34",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_world_history/test/169",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "human_aging/test/117",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "human_sexuality/test/91",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "international_law/test/48",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "international_law/test/112",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "jurisprudence/test/102",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "logical_fallacies/test/114",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "machine_learning/test/87",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "management/test/4",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "management/test/33",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "marketing/test/184",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "medical_genetics/test/31",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "miscellaneous/test/72",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "moral_disputes/test/63",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "moral_disputes/test/101",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "moral_scenarios/test/90",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "nutrition/test/246",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "philosophy/test/7",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "prehistory/test/78",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "prehistory/test/302",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_accounting/test/7",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_law/test/1128",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "professional_medicine/test/185",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "professional_psychology/test/525",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "professional_psychology/test/349",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "public_relations/test/7",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "security_studies/test/172",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "sociology/test/75",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "us_foreign_policy/test/41",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "us_foreign_policy/test/79",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "virology/test/4",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "world_religions/test/135",
+   "lang": "ru",
+   "gold": "B"
+  }
+ ],
+ "arms": [
+  {
+   "name": "chat_full",
+   "rc": 0,
+   "s": 56,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": false
+  },
+  {
+   "name": "bench_full",
+   "rc": 0,
+   "s": 745,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": true
+  },
+  {
+   "name": "chat_s36_40",
+   "rc": 0,
+   "s": 52,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "36:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "38 layers (drop 36-39)",
+   "last": false
+  },
+  {
+   "name": "bench_s36_40",
+   "rc": 0,
+   "s": 678,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "36:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "38 layers (drop 36-39)",
+   "last": true
+  },
+  {
+   "name": "chat_s30_40",
+   "rc": 0,
+   "s": 45,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "30:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "32 layers (drop 30-39)",
+   "last": false
+  },
+  {
+   "name": "bench_s30_40",
+   "rc": 0,
+   "s": 578,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "30:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "32 layers (drop 30-39)",
+   "last": true
+  },
+  {
+   "name": "chat_s24_40",
+   "rc": 0,
+   "s": 39,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "24:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "26 layers (drop 24-39)",
+   "last": false
+  },
+  {
+   "name": "bench_s24_40",
+   "rc": 0,
+   "s": 476,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": "24:40",
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "26 layers (drop 24-39)",
+   "last": true
+  },
+  {
+   "name": "chat_f_k0_25",
+   "rc": 0,
+   "s": 63,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:0:42:0.25",
+   "ffn_kept": {
+    "0": [
+     3374080,
+     13496320
+    ],
+    "1": [
+     3374080,
+     13496320
+    ],
+    "2": [
+     3374082,
+     13496320
+    ],
+    "3": [
+     3374080,
+     13496320
+    ],
+    "4": [
+     3374080,
+     13496320
+    ],
+    "5": [
+     3374080,
+     13496320
+    ],
+    "6": [
+     3374080,
+     13496320
+    ],
+    "7": [
+     3374081,
+     13496320
+    ],
+    "8": [
+     3374080,
+     13496320
+    ],
+    "9": [
+     3374080,
+     13496320
+    ],
+    "10": [
+     3374081,
+     13496320
+    ],
+    "11": [
+     3374080,
+     13496320
+    ],
+    "12": [
+     3374080,
+     13496320
+    ],
+    "13": [
+     3374080,
+     13496320
+    ],
+    "14": [
+     3374080,
+     13496320
+    ],
+    "15": [
+     3374080,
+     13496320
+    ],
+    "16": [
+     3374080,
+     13496320
+    ],
+    "17": [
+     3374080,
+     13496320
+    ],
+    "18": [
+     3374080,
+     13496320
+    ],
+    "19": [
+     3374080,
+     13496320
+    ],
+    "20": [
+     3374080,
+     13496320
+    ],
+    "21": [
+     3374080,
+     13496320
+    ],
+    "22": [
+     3374080,
+     13496320
+    ],
+    "23": [
+     3374080,
+     13496320
+    ],
+    "24": [
+     3374080,
+     13496320
+    ],
+    "25": [
+     3374080,
+     13496320
+    ],
+    "26": [
+     3374080,
+     13496320
+    ],
+    "27": [
+     3374080,
+     13496320
+    ],
+    "28": [
+     3374081,
+     13496320
+    ],
+    "29": [
+     3374080,
+     13496320
+    ],
+    "30": [
+     3374080,
+     13496320
+    ],
+    "31": [
+     3374080,
+     13496320
+    ],
+    "32": [
+     3374080,
+     13496320
+    ],
+    "33": [
+     3374080,
+     13496320
+    ],
+    "34": [
+     3374080,
+     13496320
+    ],
+    "35": [
+     3374080,
+     13496320
+    ],
+    "36": [
+     3374080,
+     13496320
+    ],
+    "37": [
+     3374080,
+     13496320
+    ],
+    "38": [
+     3374081,
+     13496320
+    ],
+    "39": [
+     3374080,
+     13496320
+    ],
+    "40": [
+     3374080,
+     13496320
+    ],
+    "41": [
+     3374080,
+     13496320
+    ]
+   },
+   "desc": "INSTRUMENT CHECK: oracle 25 %, all 42 layers (old result: about -4 points)",
+   "last": false
+  },
+  {
+   "name": "bench_f_k0_25",
+   "rc": 0,
+   "s": 836,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:0:42:0.25",
+   "ffn_kept": {
+    "0": [
+     53117443,
+     212469760
+    ],
+    "1": [
+     53117440,
+     212469760
+    ],
+    "2": [
+     53117440,
+     212469760
+    ],
+    "3": [
+     53117442,
+     212469760
+    ],
+    "4": [
+     53117441,
+     212469760
+    ],
+    "5": [
+     53117440,
+     212469760
+    ],
+    "6": [
+     53117440,
+     212469760
+    ],
+    "7": [
+     53117440,
+     212469760
+    ],
+    "8": [
+     53117442,
+     212469760
+    ],
+    "9": [
+     53117444,
+     212469760
+    ],
+    "10": [
+     53117443,
+     212469760
+    ],
+    "11": [
+     53117442,
+     212469760
+    ],
+    "12": [
+     53117443,
+     212469760
+    ],
+    "13": [
+     53117444,
+     212469760
+    ],
+    "14": [
+     53117444,
+     212469760
+    ],
+    "15": [
+     53117444,
+     212469760
+    ],
+    "16": [
+     53117444,
+     212469760
+    ],
+    "17": [
+     53117440,
+     212469760
+    ],
+    "18": [
+     53117440,
+     212469760
+    ],
+    "19": [
+     53117441,
+     212469760
+    ],
+    "20": [
+     53117441,
+     212469760
+    ],
+    "21": [
+     53117442,
+     212469760
+    ],
+    "22": [
+     53117444,
+     212469760
+    ],
+    "23": [
+     53117443,
+     212469760
+    ],
+    "24": [
+     53117441,
+     212469760
+    ],
+    "25": [
+     53117442,
+     212469760
+    ],
+    "26": [
+     53117440,
+     212469760
+    ],
+    "27": [
+     53117441,
+     212469760
+    ],
+    "28": [
+     53117441,
+     212469760
+    ],
+    "29": [
+     53117445,
+     212469760
+    ],
+    "30": [
+     53117441,
+     212469760
+    ],
+    "31": [
+     53117441,
+     212469760
+    ],
+    "32": [
+     53117443,
+     212469760
+    ],
+    "33": [
+     53117442,
+     212469760
+    ],
+    "34": [
+     53117443,
+     212469760
+    ],
+    "35": [
+     53117442,
+     212469760
+    ],
+    "36": [
+     53117443,
+     212469760
+    ],
+    "37": [
+     53117443,
+     212469760
+    ],
+    "38": [
+     53117441,
+     212469760
+    ],
+    "39": [
+     53117441,
+     212469760
+    ],
+    "40": [
+     53117441,
+     212469760
+    ],
+    "41": [
+     53117441,
+     212469760
+    ]
+   },
+   "desc": "INSTRUMENT CHECK: oracle 25 %, all 42 layers (old result: about -4 points)",
+   "last": true
+  },
+  {
+   "name": "chat_f_k0_50",
+   "rc": 0,
+   "s": 63,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     6748160,
+     13496320
+    ],
+    "1": [
+     6748160,
+     13496320
+    ],
+    "2": [
+     6748160,
+     13496320
+    ],
+    "3": [
+     6748160,
+     13496320
+    ],
+    "4": [
+     6748160,
+     13496320
+    ],
+    "5": [
+     6748160,
+     13496320
+    ],
+    "6": [
+     6748160,
+     13496320
+    ],
+    "7": [
+     6748161,
+     13496320
+    ],
+    "8": [
+     6748160,
+     13496320
+    ],
+    "9": [
+     6748160,
+     13496320
+    ],
+    "10": [
+     6748160,
+     13496320
+    ],
+    "11": [
+     6748162,
+     13496320
+    ],
+    "12": [
+     6748160,
+     13496320
+    ],
+    "13": [
+     6748160,
+     13496320
+    ],
+    "14": [
+     6748160,
+     13496320
+    ],
+    "15": [
+     6748160,
+     13496320
+    ],
+    "16": [
+     6748160,
+     13496320
+    ],
+    "17": [
+     6748160,
+     13496320
+    ],
+    "18": [
+     6748160,
+     13496320
+    ],
+    "19": [
+     6748160,
+     13496320
+    ],
+    "20": [
+     6748160,
+     13496320
+    ],
+    "21": [
+     6748160,
+     13496320
+    ],
+    "22": [
+     6748160,
+     13496320
+    ],
+    "23": [
+     6748160,
+     13496320
+    ],
+    "24": [
+     6748160,
+     13496320
+    ],
+    "25": [
+     6748160,
+     13496320
+    ],
+    "26": [
+     6748160,
+     13496320
+    ],
+    "27": [
+     6748160,
+     13496320
+    ],
+    "28": [
+     6748160,
+     13496320
+    ],
+    "29": [
+     6748160,
+     13496320
+    ],
+    "30": [
+     6748160,
+     13496320
+    ],
+    "31": [
+     6748160,
+     13496320
+    ],
+    "32": [
+     6748160,
+     13496320
+    ],
+    "33": [
+     6748160,
+     13496320
+    ],
+    "34": [
+     6748160,
+     13496320
+    ],
+    "35": [
+     6748160,
+     13496320
+    ],
+    "36": [
+     6748160,
+     13496320
+    ],
+    "37": [
+     6748160,
+     13496320
+    ],
+    "38": [
+     6748160,
+     13496320
+    ],
+    "39": [
+     6748160,
+     13496320
+    ],
+    "40": [
+     6748160,
+     13496320
+    ],
+    "41": [
+     6748160,
+     13496320
+    ]
+   },
+   "desc": "oracle 50 % of FFN neurons, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_k0_50",
+   "rc": 0,
+   "s": 844,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     106234883,
+     212469760
+    ],
+    "1": [
+     106234880,
+     212469760
+    ],
+    "2": [
+     106234881,
+     212469760
+    ],
+    "3": [
+     106234880,
+     212469760
+    ],
+    "4": [
+     106234883,
+     212469760
+    ],
+    "5": [
+     106245121,
+     212469760
+    ],
+    "6": [
+     106234882,
+     212469760
+    ],
+    "7": [
+     106234881,
+     212469760
+    ],
+    "8": [
+     106234885,
+     212469760
+    ],
+    "9": [
+     106234882,
+     212469760
+    ],
+    "10": [
+     106234881,
+     212469760
+    ],
+    "11": [
+     106234882,
+     212469760
+    ],
+    "12": [
+     106234882,
+     212469760
+    ],
+    "13": [
+     106234885,
+     212469760
+    ],
+    "14": [
+     106234882,
+     212469760
+    ],
+    "15": [
+     106234881,
+     212469760
+    ],
+    "16": [
+     106234886,
+     212469760
+    ],
+    "17": [
+     106234883,
+     212469760
+    ],
+    "18": [
+     106234883,
+     212469760
+    ],
+    "19": [
+     106234882,
+     212469760
+    ],
+    "20": [
+     106234881,
+     212469760
+    ],
+    "21": [
+     106234881,
+     212469760
+    ],
+    "22": [
+     106234883,
+     212469760
+    ],
+    "23": [
+     106234882,
+     212469760
+    ],
+    "24": [
+     106234881,
+     212469760
+    ],
+    "25": [
+     106234881,
+     212469760
+    ],
+    "26": [
+     106234884,
+     212469760
+    ],
+    "27": [
+     106234881,
+     212469760
+    ],
+    "28": [
+     106234883,
+     212469760
+    ],
+    "29": [
+     106234884,
+     212469760
+    ],
+    "30": [
+     106234881,
+     212469760
+    ],
+    "31": [
+     106234881,
+     212469760
+    ],
+    "32": [
+     106234882,
+     212469760
+    ],
+    "33": [
+     106234881,
+     212469760
+    ],
+    "34": [
+     106234881,
+     212469760
+    ],
+    "35": [
+     106234881,
+     212469760
+    ],
+    "36": [
+     106234880,
+     212469760
+    ],
+    "37": [
+     106234883,
+     212469760
+    ],
+    "38": [
+     106234883,
+     212469760
+    ],
+    "39": [
+     106234883,
+     212469760
+    ],
+    "40": [
+     106234880,
+     212469760
+    ],
+    "41": [
+     106234880,
+     212469760
+    ]
+   },
+   "desc": "oracle 50 % of FFN neurons, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_k24_125",
+   "rc": 0,
+   "s": 59,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:24:42:0.125",
+   "ffn_kept": {
+    "24": [
+     1687040,
+     13496320
+    ],
+    "25": [
+     1687041,
+     13496320
+    ],
+    "26": [
+     1687040,
+     13496320
+    ],
+    "27": [
+     1687040,
+     13496320
+    ],
+    "28": [
+     1687040,
+     13496320
+    ],
+    "29": [
+     1687041,
+     13496320
+    ],
+    "30": [
+     1687040,
+     13496320
+    ],
+    "31": [
+     1687040,
+     13496320
+    ],
+    "32": [
+     1687040,
+     13496320
+    ],
+    "33": [
+     1687040,
+     13496320
+    ],
+    "34": [
+     1687040,
+     13496320
+    ],
+    "35": [
+     1687040,
+     13496320
+    ],
+    "36": [
+     1687040,
+     13496320
+    ],
+    "37": [
+     1687040,
+     13496320
+    ],
+    "38": [
+     1687040,
+     13496320
+    ],
+    "39": [
+     1687040,
+     13496320
+    ],
+    "40": [
+     1687040,
+     13496320
+    ],
+    "41": [
+     1687040,
+     13496320
+    ]
+   },
+   "desc": "oracle 12.5 % in the stateless layers 24-41",
+   "last": false
+  },
+  {
+   "name": "bench_f_k24_125",
+   "rc": 0,
+   "s": 783,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:24:42:0.125",
+   "ffn_kept": {
+    "24": [
+     26558720,
+     212469760
+    ],
+    "25": [
+     26558720,
+     212469760
+    ],
+    "26": [
+     26558720,
+     212469760
+    ],
+    "27": [
+     26558722,
+     212469760
+    ],
+    "28": [
+     26558722,
+     212469760
+    ],
+    "29": [
+     26558722,
+     212469760
+    ],
+    "30": [
+     26558721,
+     212469760
+    ],
+    "31": [
+     26558721,
+     212469760
+    ],
+    "32": [
+     26558722,
+     212469760
+    ],
+    "33": [
+     26558721,
+     212469760
+    ],
+    "34": [
+     26558722,
+     212469760
+    ],
+    "35": [
+     26558721,
+     212469760
+    ],
+    "36": [
+     26558720,
+     212469760
+    ],
+    "37": [
+     26558721,
+     212469760
+    ],
+    "38": [
+     26558720,
+     212469760
+    ],
+    "39": [
+     26558720,
+     212469760
+    ],
+    "40": [
+     26558722,
+     212469760
+    ],
+    "41": [
+     26558721,
+     212469760
+    ]
+   },
+   "desc": "oracle 12.5 % in the stateless layers 24-41",
+   "last": true
+  },
+  {
+   "name": "chat_f_k24_25",
+   "rc": 0,
+   "s": 59,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:24:42:0.25",
+   "ffn_kept": {
+    "24": [
+     3374081,
+     13496320
+    ],
+    "25": [
+     3374080,
+     13496320
+    ],
+    "26": [
+     3374080,
+     13496320
+    ],
+    "27": [
+     3374080,
+     13496320
+    ],
+    "28": [
+     3374080,
+     13496320
+    ],
+    "29": [
+     3374080,
+     13496320
+    ],
+    "30": [
+     3374080,
+     13496320
+    ],
+    "31": [
+     3374080,
+     13496320
+    ],
+    "32": [
+     3374080,
+     13496320
+    ],
+    "33": [
+     3374080,
+     13496320
+    ],
+    "34": [
+     3374080,
+     13496320
+    ],
+    "35": [
+     3374080,
+     13496320
+    ],
+    "36": [
+     3374081,
+     13496320
+    ],
+    "37": [
+     3374080,
+     13496320
+    ],
+    "38": [
+     3374081,
+     13496320
+    ],
+    "39": [
+     3374080,
+     13496320
+    ],
+    "40": [
+     3374081,
+     13496320
+    ],
+    "41": [
+     3374080,
+     13496320
+    ]
+   },
+   "desc": "oracle 25 % in the stateless layers 24-41",
+   "last": false
+  },
+  {
+   "name": "bench_f_k24_25",
+   "rc": 0,
+   "s": 783,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "k:24:42:0.25",
+   "ffn_kept": {
+    "24": [
+     53117445,
+     212469760
+    ],
+    "25": [
+     53117443,
+     212469760
+    ],
+    "26": [
+     53117442,
+     212469760
+    ],
+    "27": [
+     53117445,
+     212469760
+    ],
+    "28": [
+     53117441,
+     212469760
+    ],
+    "29": [
+     53117443,
+     212469760
+    ],
+    "30": [
+     53117444,
+     212469760
+    ],
+    "31": [
+     53117442,
+     212469760
+    ],
+    "32": [
+     53117445,
+     212469760
+    ],
+    "33": [
+     53117517,
+     212469760
+    ],
+    "34": [
+     53117447,
+     212469760
+    ],
+    "35": [
+     53117442,
+     212469760
+    ],
+    "36": [
+     53117441,
+     212469760
+    ],
+    "37": [
+     53117445,
+     212469760
+    ],
+    "38": [
+     53117442,
+     212469760
+    ],
+    "39": [
+     53117441,
+     212469760
+    ],
+    "40": [
+     53117446,
+     212469760
+    ],
+    "41": [
+     53117442,
+     212469760
+    ]
+   },
+   "desc": "oracle 25 % in the stateless layers 24-41",
+   "last": true
+  },
+  {
+   "name": "chat_f_t0_02",
+   "rc": 0,
+   "s": 89,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "t:0:42:0.02",
+   "ffn_kept": {
+    "0": [
+     9229903,
+     13496320
+    ],
+    "1": [
+     4598316,
+     13496320
+    ],
+    "2": [
+     8128098,
+     13496320
+    ],
+    "3": [
+     9211012,
+     13496320
+    ],
+    "4": [
+     9135640,
+     13496320
+    ],
+    "5": [
+     4150200,
+     13496320
+    ],
+    "6": [
+     6956863,
+     13496320
+    ],
+    "7": [
+     9500046,
+     13496320
+    ],
+    "8": [
+     10019115,
+     13496320
+    ],
+    "9": [
+     10141012,
+     13496320
+    ],
+    "10": [
+     10153237,
+     13496320
+    ],
+    "11": [
+     10360643,
+     13496320
+    ],
+    "12": [
+     10079300,
+     13496320
+    ],
+    "13": [
+     10373523,
+     13496320
+    ],
+    "14": [
+     10267483,
+     13496320
+    ],
+    "15": [
+     10256102,
+     13496320
+    ],
+    "16": [
+     10165486,
+     13496320
+    ],
+    "17": [
+     10145683,
+     13496320
+    ],
+    "18": [
+     10209050,
+     13496320
+    ],
+    "19": [
+     10152576,
+     13496320
+    ],
+    "20": [
+     10136382,
+     13496320
+    ],
+    "21": [
+     10224855,
+     13496320
+    ],
+    "22": [
+     10130479,
+     13496320
+    ],
+    "23": [
+     10183308,
+     13496320
+    ],
+    "24": [
+     10195320,
+     13496320
+    ],
+    "25": [
+     10256664,
+     13496320
+    ],
+    "26": [
+     10321493,
+     13496320
+    ],
+    "27": [
+     10314449,
+     13496320
+    ],
+    "28": [
+     10344260,
+     13496320
+    ],
+    "29": [
+     10227969,
+     13496320
+    ],
+    "30": [
+     10369571,
+     13496320
+    ],
+    "31": [
+     10296709,
+     13496320
+    ],
+    "32": [
+     10614824,
+     13496320
+    ],
+    "33": [
+     10551076,
+     13496320
+    ],
+    "34": [
+     10504420,
+     13496320
+    ],
+    "35": [
+     10194387,
+     13496320
+    ],
+    "36": [
+     10163030,
+     13496320
+    ],
+    "37": [
+     10134124,
+     13496320
+    ],
+    "38": [
+     10130646,
+     13496320
+    ],
+    "39": [
+     10116293,
+     13496320
+    ],
+    "40": [
+     10107240,
+     13496320
+    ],
+    "41": [
+     10030519,
+     13496320
+    ]
+   },
+   "desc": "oracle, bounded: drop <= 2 % of contribution mass, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_t0_02",
+   "rc": 0,
+   "s": 1252,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "t:0:42:0.02",
+   "ffn_kept": {
+    "0": [
+     145831404,
+     212469760
+    ],
+    "1": [
+     77073083,
+     212469760
+    ],
+    "2": [
+     129839847,
+     212469760
+    ],
+    "3": [
+     145104141,
+     212469760
+    ],
+    "4": [
+     144157720,
+     212469760
+    ],
+    "5": [
+     65465889,
+     212469760
+    ],
+    "6": [
+     105637318,
+     212469760
+    ],
+    "7": [
+     149991096,
+     212469760
+    ],
+    "8": [
+     157764726,
+     212469760
+    ],
+    "9": [
+     159568974,
+     212469760
+    ],
+    "10": [
+     159621638,
+     212469760
+    ],
+    "11": [
+     162786198,
+     212469760
+    ],
+    "12": [
+     158646721,
+     212469760
+    ],
+    "13": [
+     163369440,
+     212469760
+    ],
+    "14": [
+     161176228,
+     212469760
+    ],
+    "15": [
+     161030785,
+     212469760
+    ],
+    "16": [
+     159658967,
+     212469760
+    ],
+    "17": [
+     159322976,
+     212469760
+    ],
+    "18": [
+     160668099,
+     212469760
+    ],
+    "19": [
+     160074329,
+     212469760
+    ],
+    "20": [
+     159527172,
+     212469760
+    ],
+    "21": [
+     160757908,
+     212469760
+    ],
+    "22": [
+     159265267,
+     212469760
+    ],
+    "23": [
+     159505583,
+     212469760
+    ],
+    "24": [
+     160031950,
+     212469760
+    ],
+    "25": [
+     161249892,
+     212469760
+    ],
+    "26": [
+     162277244,
+     212469760
+    ],
+    "27": [
+     162116780,
+     212469760
+    ],
+    "28": [
+     162569012,
+     212469760
+    ],
+    "29": [
+     160755222,
+     212469760
+    ],
+    "30": [
+     163150754,
+     212469760
+    ],
+    "31": [
+     162045855,
+     212469760
+    ],
+    "32": [
+     166799939,
+     212469760
+    ],
+    "33": [
+     165494435,
+     212469760
+    ],
+    "34": [
+     165026536,
+     212469760
+    ],
+    "35": [
+     159837125,
+     212469760
+    ],
+    "36": [
+     159471102,
+     212469760
+    ],
+    "37": [
+     159061512,
+     212469760
+    ],
+    "38": [
+     159073078,
+     212469760
+    ],
+    "39": [
+     158668454,
+     212469760
+    ],
+    "40": [
+     158396942,
+     212469760
+    ],
+    "41": [
+     157209214,
+     212469760
+    ]
+   },
+   "desc": "oracle, bounded: drop <= 2 % of contribution mass, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_t0_005",
+   "rc": 0,
+   "s": 90,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "t:0:42:0.005",
+   "ffn_kept": {
+    "0": [
+     11039610,
+     13496320
+    ],
+    "1": [
+     6335909,
+     13496320
+    ],
+    "2": [
+     10024783,
+     13496320
+    ],
+    "3": [
+     10987453,
+     13496320
+    ],
+    "4": [
+     10899261,
+     13496320
+    ],
+    "5": [
+     5784217,
+     13496320
+    ],
+    "6": [
+     8767122,
+     13496320
+    ],
+    "7": [
+     11195994,
+     13496320
+    ],
+    "8": [
+     11595999,
+     13496320
+    ],
+    "9": [
+     11676788,
+     13496320
+    ],
+    "10": [
+     11676776,
+     13496320
+    ],
+    "11": [
+     11810265,
+     13496320
+    ],
+    "12": [
+     11591191,
+     13496320
+    ],
+    "13": [
+     11810523,
+     13496320
+    ],
+    "14": [
+     11739960,
+     13496320
+    ],
+    "15": [
+     11732134,
+     13496320
+    ],
+    "16": [
+     11673379,
+     13496320
+    ],
+    "17": [
+     11661368,
+     13496320
+    ],
+    "18": [
+     11701412,
+     13496320
+    ],
+    "19": [
+     11666802,
+     13496320
+    ],
+    "20": [
+     11656781,
+     13496320
+    ],
+    "21": [
+     11713831,
+     13496320
+    ],
+    "22": [
+     11653878,
+     13496320
+    ],
+    "23": [
+     11689138,
+     13496320
+    ],
+    "24": [
+     11696085,
+     13496320
+    ],
+    "25": [
+     11732125,
+     13496320
+    ],
+    "26": [
+     11772092,
+     13496320
+    ],
+    "27": [
+     11769777,
+     13496320
+    ],
+    "28": [
+     11791132,
+     13496320
+    ],
+    "29": [
+     11716277,
+     13496320
+    ],
+    "30": [
+     11806390,
+     13496320
+    ],
+    "31": [
+     11758066,
+     13496320
+    ],
+    "32": [
+     11962311,
+     13496320
+    ],
+    "33": [
+     11923222,
+     13496320
+    ],
+    "34": [
+     11894339,
+     13496320
+    ],
+    "35": [
+     11694948,
+     13496320
+    ],
+    "36": [
+     11672974,
+     13496320
+    ],
+    "37": [
+     11652434,
+     13496320
+    ],
+    "38": [
+     11650251,
+     13496320
+    ],
+    "39": [
+     11641399,
+     13496320
+    ],
+    "40": [
+     11640851,
+     13496320
+    ],
+    "41": [
+     11605734,
+     13496320
+    ]
+   },
+   "desc": "oracle, bounded: drop <= 0.5 % of contribution mass, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_t0_005",
+   "rc": 0,
+   "s": 1251,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "t:0:42:0.005",
+   "ffn_kept": {
+    "0": [
+     174265846,
+     212469760
+    ],
+    "1": [
+     105274590,
+     212469760
+    ],
+    "2": [
+     159619697,
+     212469760
+    ],
+    "3": [
+     173149492,
+     212469760
+    ],
+    "4": [
+     171956540,
+     212469760
+    ],
+    "5": [
+     91076945,
+     212469760
+    ],
+    "6": [
+     133920061,
+     212469760
+    ],
+    "7": [
+     176548708,
+     212469760
+    ],
+    "8": [
+     182625374,
+     212469760
+    ],
+    "9": [
+     183792280,
+     212469760
+    ],
+    "10": [
+     183686171,
+     212469760
+    ],
+    "11": [
+     185669629,
+     212469760
+    ],
+    "12": [
+     182403565,
+     212469760
+    ],
+    "13": [
+     185971674,
+     212469760
+    ],
+    "14": [
+     184552160,
+     212469760
+    ],
+    "15": [
+     184461616,
+     212469760
+    ],
+    "16": [
+     183574212,
+     212469760
+    ],
+    "17": [
+     183326224,
+     212469760
+    ],
+    "18": [
+     184191504,
+     212469760
+    ],
+    "19": [
+     183826521,
+     212469760
+    ],
+    "20": [
+     183505259,
+     212469760
+    ],
+    "21": [
+     184298618,
+     212469760
+    ],
+    "22": [
+     183357889,
+     212469760
+    ],
+    "23": [
+     183468984,
+     212469760
+    ],
+    "24": [
+     183808338,
+     212469760
+    ],
+    "25": [
+     184562823,
+     212469760
+    ],
+    "26": [
+     185201101,
+     212469760
+    ],
+    "27": [
+     185125411,
+     212469760
+    ],
+    "28": [
+     185463770,
+     212469760
+    ],
+    "29": [
+     184286552,
+     212469760
+    ],
+    "30": [
+     185793904,
+     212469760
+    ],
+    "31": [
+     185073107,
+     212469760
+    ],
+    "32": [
+     188139391,
+     212469760
+    ],
+    "33": [
+     187307663,
+     212469760
+    ],
+    "34": [
+     187017433,
+     212469760
+    ],
+    "35": [
+     183723024,
+     212469760
+    ],
+    "36": [
+     183454553,
+     212469760
+    ],
+    "37": [
+     183160100,
+     212469760
+    ],
+    "38": [
+     183169572,
+     212469760
+    ],
+    "39": [
+     182949467,
+     212469760
+    ],
+    "40": [
+     182832024,
+     212469760
+    ],
+    "41": [
+     182291411,
+     212469760
+    ]
+   },
+   "desc": "oracle, bounded: drop <= 0.5 % of contribution mass, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_g0_50",
+   "rc": 0,
+   "s": 64,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     6748161,
+     13496320
+    ],
+    "1": [
+     6748160,
+     13496320
+    ],
+    "2": [
+     6748160,
+     13496320
+    ],
+    "3": [
+     6748160,
+     13496320
+    ],
+    "4": [
+     6748160,
+     13496320
+    ],
+    "5": [
+     6748160,
+     13496320
+    ],
+    "6": [
+     6748160,
+     13496320
+    ],
+    "7": [
+     6748161,
+     13496320
+    ],
+    "8": [
+     6748161,
+     13496320
+    ],
+    "9": [
+     6748160,
+     13496320
+    ],
+    "10": [
+     6748160,
+     13496320
+    ],
+    "11": [
+     6748160,
+     13496320
+    ],
+    "12": [
+     6748160,
+     13496320
+    ],
+    "13": [
+     6748162,
+     13496320
+    ],
+    "14": [
+     6748161,
+     13496320
+    ],
+    "15": [
+     6748160,
+     13496320
+    ],
+    "16": [
+     6748160,
+     13496320
+    ],
+    "17": [
+     6748162,
+     13496320
+    ],
+    "18": [
+     6748160,
+     13496320
+    ],
+    "19": [
+     6748160,
+     13496320
+    ],
+    "20": [
+     6748160,
+     13496320
+    ],
+    "21": [
+     6748160,
+     13496320
+    ],
+    "22": [
+     6748161,
+     13496320
+    ],
+    "23": [
+     6748160,
+     13496320
+    ],
+    "24": [
+     6748160,
+     13496320
+    ],
+    "25": [
+     6748161,
+     13496320
+    ],
+    "26": [
+     6748160,
+     13496320
+    ],
+    "27": [
+     6748160,
+     13496320
+    ],
+    "28": [
+     6748160,
+     13496320
+    ],
+    "29": [
+     6748161,
+     13496320
+    ],
+    "30": [
+     6748160,
+     13496320
+    ],
+    "31": [
+     6748160,
+     13496320
+    ],
+    "32": [
+     6748161,
+     13496320
+    ],
+    "33": [
+     6748160,
+     13496320
+    ],
+    "34": [
+     6748161,
+     13496320
+    ],
+    "35": [
+     6748160,
+     13496320
+    ],
+    "36": [
+     6748160,
+     13496320
+    ],
+    "37": [
+     6748160,
+     13496320
+    ],
+    "38": [
+     6748160,
+     13496320
+    ],
+    "39": [
+     6748160,
+     13496320
+    ],
+    "40": [
+     6748161,
+     13496320
+    ],
+    "41": [
+     6748160,
+     13496320
+    ]
+   },
+   "desc": "GATE-ONLY selector, keep 50 %, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_g0_50",
+   "rc": 0,
+   "s": 848,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     106234888,
+     212469760
+    ],
+    "1": [
+     106234880,
+     212469760
+    ],
+    "2": [
+     106234883,
+     212469760
+    ],
+    "3": [
+     106234884,
+     212469760
+    ],
+    "4": [
+     106234885,
+     212469760
+    ],
+    "5": [
+     106260481,
+     212469760
+    ],
+    "6": [
+     106234885,
+     212469760
+    ],
+    "7": [
+     106234883,
+     212469760
+    ],
+    "8": [
+     106234884,
+     212469760
+    ],
+    "9": [
+     106234885,
+     212469760
+    ],
+    "10": [
+     106234889,
+     212469760
+    ],
+    "11": [
+     106234889,
+     212469760
+    ],
+    "12": [
+     106234886,
+     212469760
+    ],
+    "13": [
+     106234886,
+     212469760
+    ],
+    "14": [
+     106234882,
+     212469760
+    ],
+    "15": [
+     106234886,
+     212469760
+    ],
+    "16": [
+     106234883,
+     212469760
+    ],
+    "17": [
+     106234889,
+     212469760
+    ],
+    "18": [
+     106234885,
+     212469760
+    ],
+    "19": [
+     106234886,
+     212469760
+    ],
+    "20": [
+     106234883,
+     212469760
+    ],
+    "21": [
+     106234886,
+     212469760
+    ],
+    "22": [
+     106234884,
+     212469760
+    ],
+    "23": [
+     106234886,
+     212469760
+    ],
+    "24": [
+     106234881,
+     212469760
+    ],
+    "25": [
+     106234884,
+     212469760
+    ],
+    "26": [
+     106234881,
+     212469760
+    ],
+    "27": [
+     106234883,
+     212469760
+    ],
+    "28": [
+     106234880,
+     212469760
+    ],
+    "29": [
+     106234884,
+     212469760
+    ],
+    "30": [
+     106234891,
+     212469760
+    ],
+    "31": [
+     106234883,
+     212469760
+    ],
+    "32": [
+     106234889,
+     212469760
+    ],
+    "33": [
+     106234890,
+     212469760
+    ],
+    "34": [
+     106234892,
+     212469760
+    ],
+    "35": [
+     106234884,
+     212469760
+    ],
+    "36": [
+     106234882,
+     212469760
+    ],
+    "37": [
+     106234882,
+     212469760
+    ],
+    "38": [
+     106234882,
+     212469760
+    ],
+    "39": [
+     106234883,
+     212469760
+    ],
+    "40": [
+     106234884,
+     212469760
+    ],
+    "41": [
+     106234883,
+     212469760
+    ]
+   },
+   "desc": "GATE-ONLY selector, keep 50 %, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_g0_25",
+   "rc": 0,
+   "s": 63,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:42:0.25",
+   "ffn_kept": {
+    "0": [
+     3374080,
+     13496320
+    ],
+    "1": [
+     3374080,
+     13496320
+    ],
+    "2": [
+     3374080,
+     13496320
+    ],
+    "3": [
+     3374082,
+     13496320
+    ],
+    "4": [
+     3374080,
+     13496320
+    ],
+    "5": [
+     3374080,
+     13496320
+    ],
+    "6": [
+     3374080,
+     13496320
+    ],
+    "7": [
+     3374080,
+     13496320
+    ],
+    "8": [
+     3374080,
+     13496320
+    ],
+    "9": [
+     3374080,
+     13496320
+    ],
+    "10": [
+     3374082,
+     13496320
+    ],
+    "11": [
+     3374080,
+     13496320
+    ],
+    "12": [
+     3374081,
+     13496320
+    ],
+    "13": [
+     3374082,
+     13496320
+    ],
+    "14": [
+     3374080,
+     13496320
+    ],
+    "15": [
+     3374081,
+     13496320
+    ],
+    "16": [
+     3374081,
+     13496320
+    ],
+    "17": [
+     3374080,
+     13496320
+    ],
+    "18": [
+     3374081,
+     13496320
+    ],
+    "19": [
+     3374080,
+     13496320
+    ],
+    "20": [
+     3374080,
+     13496320
+    ],
+    "21": [
+     3374080,
+     13496320
+    ],
+    "22": [
+     3374080,
+     13496320
+    ],
+    "23": [
+     3374081,
+     13496320
+    ],
+    "24": [
+     3374080,
+     13496320
+    ],
+    "25": [
+     3374080,
+     13496320
+    ],
+    "26": [
+     3374080,
+     13496320
+    ],
+    "27": [
+     3374082,
+     13496320
+    ],
+    "28": [
+     3374080,
+     13496320
+    ],
+    "29": [
+     3374080,
+     13496320
+    ],
+    "30": [
+     3374080,
+     13496320
+    ],
+    "31": [
+     3374080,
+     13496320
+    ],
+    "32": [
+     3374080,
+     13496320
+    ],
+    "33": [
+     3374080,
+     13496320
+    ],
+    "34": [
+     3374081,
+     13496320
+    ],
+    "35": [
+     3374080,
+     13496320
+    ],
+    "36": [
+     3374080,
+     13496320
+    ],
+    "37": [
+     3374080,
+     13496320
+    ],
+    "38": [
+     3374080,
+     13496320
+    ],
+    "39": [
+     3374080,
+     13496320
+    ],
+    "40": [
+     3374080,
+     13496320
+    ],
+    "41": [
+     3374080,
+     13496320
+    ]
+   },
+   "desc": "GATE-ONLY selector, keep 25 %, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_g0_25",
+   "rc": 0,
+   "s": 848,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:42:0.25",
+   "ffn_kept": {
+    "0": [
+     53117446,
+     212469760
+    ],
+    "1": [
+     53117441,
+     212469760
+    ],
+    "2": [
+     53117442,
+     212469760
+    ],
+    "3": [
+     53117443,
+     212469760
+    ],
+    "4": [
+     53117445,
+     212469760
+    ],
+    "5": [
+     53117440,
+     212469760
+    ],
+    "6": [
+     53117442,
+     212469760
+    ],
+    "7": [
+     53117448,
+     212469760
+    ],
+    "8": [
+     53117446,
+     212469760
+    ],
+    "9": [
+     53117441,
+     212469760
+    ],
+    "10": [
+     53117447,
+     212469760
+    ],
+    "11": [
+     53117444,
+     212469760
+    ],
+    "12": [
+     53117448,
+     212469760
+    ],
+    "13": [
+     53117443,
+     212469760
+    ],
+    "14": [
+     53117446,
+     212469760
+    ],
+    "15": [
+     53117451,
+     212469760
+    ],
+    "16": [
+     53117446,
+     212469760
+    ],
+    "17": [
+     53117446,
+     212469760
+    ],
+    "18": [
+     53117447,
+     212469760
+    ],
+    "19": [
+     53117515,
+     212469760
+    ],
+    "20": [
+     53117441,
+     212469760
+    ],
+    "21": [
+     53117448,
+     212469760
+    ],
+    "22": [
+     53117441,
+     212469760
+    ],
+    "23": [
+     53117441,
+     212469760
+    ],
+    "24": [
+     53117449,
+     212469760
+    ],
+    "25": [
+     53117450,
+     212469760
+    ],
+    "26": [
+     53117448,
+     212469760
+    ],
+    "27": [
+     53117445,
+     212469760
+    ],
+    "28": [
+     53117447,
+     212469760
+    ],
+    "29": [
+     53117442,
+     212469760
+    ],
+    "30": [
+     53117445,
+     212469760
+    ],
+    "31": [
+     53117456,
+     212469760
+    ],
+    "32": [
+     53117452,
+     212469760
+    ],
+    "33": [
+     53117452,
+     212469760
+    ],
+    "34": [
+     53117451,
+     212469760
+    ],
+    "35": [
+     53117447,
+     212469760
+    ],
+    "36": [
+     53117448,
+     212469760
+    ],
+    "37": [
+     53117444,
+     212469760
+    ],
+    "38": [
+     53117445,
+     212469760
+    ],
+    "39": [
+     53117446,
+     212469760
+    ],
+    "40": [
+     53117445,
+     212469760
+    ],
+    "41": [
+     53117444,
+     212469760
+    ]
+   },
+   "desc": "GATE-ONLY selector, keep 25 %, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_G0_02",
+   "rc": 0,
+   "s": 90,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "G:0:42:0.02",
+   "ffn_kept": {
+    "0": [
+     11058132,
+     13496320
+    ],
+    "1": [
+     5783577,
+     13496320
+    ],
+    "2": [
+     9674680,
+     13496320
+    ],
+    "3": [
+     10754619,
+     13496320
+    ],
+    "4": [
+     10658679,
+     13496320
+    ],
+    "5": [
+     5161490,
+     13496320
+    ],
+    "6": [
+     8201679,
+     13496320
+    ],
+    "7": [
+     10996473,
+     13496320
+    ],
+    "8": [
+     11512497,
+     13496320
+    ],
+    "9": [
+     11631864,
+     13496320
+    ],
+    "10": [
+     11574436,
+     13496320
+    ],
+    "11": [
+     11776432,
+     13496320
+    ],
+    "12": [
+     11451899,
+     13496320
+    ],
+    "13": [
+     11788590,
+     13496320
+    ],
+    "14": [
+     11592844,
+     13496320
+    ],
+    "15": [
+     11568592,
+     13496320
+    ],
+    "16": [
+     11448678,
+     13496320
+    ],
+    "17": [
+     11374118,
+     13496320
+    ],
+    "18": [
+     11469400,
+     13496320
+    ],
+    "19": [
+     11424737,
+     13496320
+    ],
+    "20": [
+     11397447,
+     13496320
+    ],
+    "21": [
+     11492934,
+     13496320
+    ],
+    "22": [
+     11333953,
+     13496320
+    ],
+    "23": [
+     11400302,
+     13496320
+    ],
+    "24": [
+     11485959,
+     13496320
+    ],
+    "25": [
+     11551613,
+     13496320
+    ],
+    "26": [
+     11613007,
+     13496320
+    ],
+    "27": [
+     11616882,
+     13496320
+    ],
+    "28": [
+     11655203,
+     13496320
+    ],
+    "29": [
+     11491440,
+     13496320
+    ],
+    "30": [
+     11661065,
+     13496320
+    ],
+    "31": [
+     11611904,
+     13496320
+    ],
+    "32": [
+     11934171,
+     13496320
+    ],
+    "33": [
+     11894982,
+     13496320
+    ],
+    "34": [
+     11876008,
+     13496320
+    ],
+    "35": [
+     11539154,
+     13496320
+    ],
+    "36": [
+     11473045,
+     13496320
+    ],
+    "37": [
+     11417752,
+     13496320
+    ],
+    "38": [
+     11411777,
+     13496320
+    ],
+    "39": [
+     11410003,
+     13496320
+    ],
+    "40": [
+     11439677,
+     13496320
+    ],
+    "41": [
+     11430888,
+     13496320
+    ]
+   },
+   "desc": "GATE-ONLY selector, drop <= 2 % of gate-score mass, all layers",
+   "last": false
+  },
+  {
+   "name": "bench_f_G0_02",
+   "rc": 0,
+   "s": 1258,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "G:0:42:0.02",
+   "ffn_kept": {
+    "0": [
+     174761155,
+     212469760
+    ],
+    "1": [
+     96521634,
+     212469760
+    ],
+    "2": [
+     154481028,
+     212469760
+    ],
+    "3": [
+     169412200,
+     212469760
+    ],
+    "4": [
+     168299360,
+     212469760
+    ],
+    "5": [
+     81477853,
+     212469760
+    ],
+    "6": [
+     124659502,
+     212469760
+    ],
+    "7": [
+     173416265,
+     212469760
+    ],
+    "8": [
+     181539417,
+     212469760
+    ],
+    "9": [
+     183223668,
+     212469760
+    ],
+    "10": [
+     182087455,
+     212469760
+    ],
+    "11": [
+     185127909,
+     212469760
+    ],
+    "12": [
+     180092835,
+     212469760
+    ],
+    "13": [
+     185540165,
+     212469760
+    ],
+    "14": [
+     182159520,
+     212469760
+    ],
+    "15": [
+     181924505,
+     212469760
+    ],
+    "16": [
+     180277018,
+     212469760
+    ],
+    "17": [
+     179081332,
+     212469760
+    ],
+    "18": [
+     180911108,
+     212469760
+    ],
+    "19": [
+     180355246,
+     212469760
+    ],
+    "20": [
+     179766489,
+     212469760
+    ],
+    "21": [
+     181151642,
+     212469760
+    ],
+    "22": [
+     178319311,
+     212469760
+    ],
+    "23": [
+     178894435,
+     212469760
+    ],
+    "24": [
+     180701203,
+     212469760
+    ],
+    "25": [
+     181914662,
+     212469760
+    ],
+    "26": [
+     182896735,
+     212469760
+    ],
+    "27": [
+     183035108,
+     212469760
+    ],
+    "28": [
+     183525925,
+     212469760
+    ],
+    "29": [
+     181022919,
+     212469760
+    ],
+    "30": [
+     183816744,
+     212469760
+    ],
+    "31": [
+     183015682,
+     212469760
+    ],
+    "32": [
+     187591596,
+     212469760
+    ],
+    "33": [
+     186786423,
+     212469760
+    ],
+    "34": [
+     186675295,
+     212469760
+    ],
+    "35": [
+     181286932,
+     212469760
+    ],
+    "36": [
+     180454580,
+     212469760
+    ],
+    "37": [
+     179634852,
+     212469760
+    ],
+    "38": [
+     179653428,
+     212469760
+    ],
+    "39": [
+     179579531,
+     212469760
+    ],
+    "40": [
+     180119275,
+     212469760
+    ],
+    "41": [
+     179809730,
+     212469760
+    ]
+   },
+   "desc": "GATE-ONLY selector, drop <= 2 % of gate-score mass, all layers",
+   "last": true
+  },
+  {
+   "name": "chat_f_g_mix",
+   "rc": 0,
+   "s": 64,
+   "recs": 8,
+   "tokens": 1318,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:24:0.5,g:24:42:0.25",
+   "ffn_kept": {
+    "0": [
+     6748161,
+     13496320
+    ],
+    "1": [
+     6748160,
+     13496320
+    ],
+    "2": [
+     6748160,
+     13496320
+    ],
+    "3": [
+     6748160,
+     13496320
+    ],
+    "4": [
+     6748160,
+     13496320
+    ],
+    "5": [
+     6748160,
+     13496320
+    ],
+    "6": [
+     6748160,
+     13496320
+    ],
+    "7": [
+     6748161,
+     13496320
+    ],
+    "8": [
+     6748161,
+     13496320
+    ],
+    "9": [
+     6748160,
+     13496320
+    ],
+    "10": [
+     6748160,
+     13496320
+    ],
+    "11": [
+     6748160,
+     13496320
+    ],
+    "12": [
+     6748160,
+     13496320
+    ],
+    "13": [
+     6748162,
+     13496320
+    ],
+    "14": [
+     6748161,
+     13496320
+    ],
+    "15": [
+     6748160,
+     13496320
+    ],
+    "16": [
+     6748160,
+     13496320
+    ],
+    "17": [
+     6748162,
+     13496320
+    ],
+    "18": [
+     6748160,
+     13496320
+    ],
+    "19": [
+     6748160,
+     13496320
+    ],
+    "20": [
+     6748160,
+     13496320
+    ],
+    "21": [
+     6748160,
+     13496320
+    ],
+    "22": [
+     6748161,
+     13496320
+    ],
+    "23": [
+     6748160,
+     13496320
+    ],
+    "24": [
+     3374080,
+     13496320
+    ],
+    "25": [
+     3374082,
+     13496320
+    ],
+    "26": [
+     3374080,
+     13496320
+    ],
+    "27": [
+     3374080,
+     13496320
+    ],
+    "28": [
+     3374080,
+     13496320
+    ],
+    "29": [
+     3374080,
+     13496320
+    ],
+    "30": [
+     3374080,
+     13496320
+    ],
+    "31": [
+     3374081,
+     13496320
+    ],
+    "32": [
+     3374080,
+     13496320
+    ],
+    "33": [
+     3374082,
+     13496320
+    ],
+    "34": [
+     3374080,
+     13496320
+    ],
+    "35": [
+     3374080,
+     13496320
+    ],
+    "36": [
+     3374080,
+     13496320
+    ],
+    "37": [
+     3374080,
+     13496320
+    ],
+    "38": [
+     3374080,
+     13496320
+    ],
+    "39": [
+     3374080,
+     13496320
+    ],
+    "40": [
+     3374082,
+     13496320
+    ],
+    "41": [
+     3374080,
+     13496320
+    ]
+   },
+   "desc": "GATE-ONLY selector, 50 % in layers 0-23, 25 % in 24-41",
+   "last": false
+  },
+  {
+   "name": "bench_f_g_mix",
+   "rc": 0,
+   "s": 845,
+   "recs": 142,
+   "tokens": 20749,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "g:0:24:0.5,g:24:42:0.25",
+   "ffn_kept": {
+    "0": [
+     106234888,
+     212469760
+    ],
+    "1": [
+     106234880,
+     212469760
+    ],
+    "2": [
+     106234883,
+     212469760
+    ],
+    "3": [
+     106234884,
+     212469760
+    ],
+    "4": [
+     106234885,
+     212469760
+    ],
+    "5": [
+     106260481,
+     212469760
+    ],
+    "6": [
+     106234885,
+     212469760
+    ],
+    "7": [
+     106234883,
+     212469760
+    ],
+    "8": [
+     106234884,
+     212469760
+    ],
+    "9": [
+     106234885,
+     212469760
+    ],
+    "10": [
+     106234889,
+     212469760
+    ],
+    "11": [
+     106234889,
+     212469760
+    ],
+    "12": [
+     106234886,
+     212469760
+    ],
+    "13": [
+     106234886,
+     212469760
+    ],
+    "14": [
+     106234882,
+     212469760
+    ],
+    "15": [
+     106234886,
+     212469760
+    ],
+    "16": [
+     106234883,
+     212469760
+    ],
+    "17": [
+     106234889,
+     212469760
+    ],
+    "18": [
+     106234885,
+     212469760
+    ],
+    "19": [
+     106234886,
+     212469760
+    ],
+    "20": [
+     106234883,
+     212469760
+    ],
+    "21": [
+     106234886,
+     212469760
+    ],
+    "22": [
+     106234884,
+     212469760
+    ],
+    "23": [
+     106234886,
+     212469760
+    ],
+    "24": [
+     53117447,
+     212469760
+    ],
+    "25": [
+     53117455,
+     212469760
+    ],
+    "26": [
+     53117447,
+     212469760
+    ],
+    "27": [
+     53117445,
+     212469760
+    ],
+    "28": [
+     53117443,
+     212469760
+    ],
+    "29": [
+     53117445,
+     212469760
+    ],
+    "30": [
+     53117451,
+     212469760
+    ],
+    "31": [
+     53117451,
+     212469760
+    ],
+    "32": [
+     53117449,
+     212469760
+    ],
+    "33": [
+     53117451,
+     212469760
+    ],
+    "34": [
+     53117447,
+     212469760
+    ],
+    "35": [
+     53117449,
+     212469760
+    ],
+    "36": [
+     53117444,
+     212469760
+    ],
+    "37": [
+     53117442,
+     212469760
+    ],
+    "38": [
+     53117445,
+     212469760
+    ],
+    "39": [
+     53117449,
+     212469760
+    ],
+    "40": [
+     53117443,
+     212469760
+    ],
+    "41": [
+     53117445,
+     212469760
+    ]
+   },
+   "desc": "GATE-ONLY selector, 50 % in layers 0-23, 25 % in 24-41",
+   "last": true
+  }
+ ]
+}
