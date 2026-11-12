@@ -181,7 +181,7 @@ static void g4ffn_op(ggml_tensor * dst, const ggml_tensor * a, const ggml_tensor
 }
 
 '''
-anchor = "llama_model_gemma4::graph::graph(const llama_model & model"
+anchor = "llama_model_gemma4::graph::graph("   # b11235: (const llama_model & model, ...); b12317: (const llm_graph_params & params)
 assert s.count(anchor) == 1, "graph ctor anchor"
 s = s.replace(anchor, HELPERS + anchor)
 

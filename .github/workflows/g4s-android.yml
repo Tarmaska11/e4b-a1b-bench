@@ -1,0 +1,41 @@
+name: g4s-android
+# Build the patched engine for the A54 (arm64, static, armv8.2 + dotprod + fp16). Starts when g4exit/RUN_ANDROID changes.
+on:
+  push:
+    branches: ['fable/**']
+    paths: ['g4exit/RUN_ANDROID']
+env:
+  LLAMA_TAG: b12317
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: source + patch
+        run: |
+          set -e
+          git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
+          python3 g4exit/patch_gemma4.py src
+          if [ -f g4exit/patch_g4s.py ]; then python3 g4exit/patch_g4s.py src; fi
+      - name: build (NDK)
+        run: |
+          set -e
+          NDK=${ANDROID_NDK_LATEST_HOME:-$ANDROID_NDK}
+          echo "NDK=$NDK"
+          cmake -S src -B build -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake \
+                -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-29 -DCMAKE_BUILD_TYPE=Release \
+                -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_SERVER=OFF \
+                -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=ON -DGGML_OPENMP=OFF -DGGML_NATIVE=OFF \
+                -DCMAKE_C_FLAGS="-march=armv8.2-a+dotprod+fp16" -DCMAKE_CXX_FLAGS="-march=armv8.2-a+dotprod+fp16"
+          mkdir out
+          for t in llama-bench llama-completion llama-cli; do
+            cmake --build build --target $t -j 4 && cp "$(find build -name $t -type f | head -1)" out/ || echo "target $t failed"
+          done
+          ls -la out
+          file out/* || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: g4s-android
+          path: out
+          retention-days: 30
