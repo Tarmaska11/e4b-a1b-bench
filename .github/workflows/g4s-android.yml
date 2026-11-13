@@ -32,20 +32,19 @@ jobs:
           printf '<|turn>user\nExplain in three sentences why the sky is blue.<turn|>\n<|turn>model\n' > p.txt
           mkdir -p cache
           run() { # label, G4S value
-            G4S="$2" G4S_CACHE=$PWD/cache $B -m model.gguf -ngl 0 -t 4 -n 48 -c 2048 --no-warmup --no-repack --temp 0 --seed 1 \
+            G4S="$2" G4S_CACHE=$PWD/cache $B -m model.gguf -ngl 0 -t 4 -n 32 -c 2048 --no-warmup --no-repack --temp 0 --seed 1 \
               -no-cnv --no-display-prompt -f p.txt > out_$1.txt 2> log_$1.txt || echo "RUN $1 FAILED"
             echo "== $1 [$2]"; cat out_$1.txt; echo
             grep -E "G4S_TOTAL|G4S layer 0:|eval time" log_$1.txt | tail -4
           }
           run dense ""
-          run all100 "g:0:42:1.0"
-          run all100_again "g:0:42:1.0"
+          run early100 "g:0:9:1.0"
+          run early100_again "g:0:9:1.0"
           run early25 "g:0:9:0.25"
-          run all50 "g:0:42:0.5"
-          run all25 "g:0:42:0.25"
-          echo "---- identical to dense?"
-          for a in all100 all100_again early25 all50 all25; do cmp -s out_dense.txt out_$a.txt && echo "$a: IDENTICAL" || echo "$a: differs"; done
-          tail -3 log_all100.txt
+          echo "---- cache files"; ls -la cache | head -5
+          echo "---- same text as the first sparse run when re-run from the mapped cache?"
+          cmp -s out_early100.txt out_early100_again.txt && echo "early100 rerun: IDENTICAL" || echo "early100 rerun: DIFFERS"
+          grep -E "G4S_STAT il=0 |G4S_TOTAL" log_early100_again.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:

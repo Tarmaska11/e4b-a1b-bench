@@ -16,7 +16,8 @@ shutil.copy(here / "g4s_kernel.h", src / "g4s_kernel.h")
 
 inc = '#include "models.h"\n'
 assert s.count(inc) == 1, "include anchor"
-s = s.replace(inc, inc + '\n#include "ggml-cpu.h"\n#include "g4s_kernel.h"\n#include <atomic>\n#include <memory>\n#include <mutex>\n#include <thread>\n')
+s = s.replace(inc, inc + '\n#include "ggml-cpu.h"\n#include "g4s_kernel.h"\n#include <atomic>\n#include <memory>\n#include <mutex>\n#include <thread>\n'
+                     '#if !defined(_WIN32)\n#include <fcntl.h>\n#include <sys/mman.h>\n#include <sys/stat.h>\n#include <unistd.h>\n#endif\n')
 
 anchor = "llama_model_gemma4::graph::graph("
 assert s.count(anchor) == 1, "graph ctor anchor"
