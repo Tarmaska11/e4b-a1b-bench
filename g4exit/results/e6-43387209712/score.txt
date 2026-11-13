@@ -1,0 +1,9 @@
+system                       lang      n     acc          95% CI  letter
+e4b-q4km                     en      570   68.1%   64.1- 71.8%   97.5%
+e4b-q4km                     ru      570   65.1%   61.1- 68.9%  100.0%
+gemma4-26b-a4b-q2kxl         en      570   75.3%   71.6- 78.6%   89.6%
+gemma4-26b-a4b-q2kxl         ru      570   75.8%   72.1- 79.1%   99.8%
+
+paired vs e4b-q4km (same questions):
+  gemma4-26b-a4b-q2kxl         en   n= 570   +7.2 pts  (wins 79 / losses 38, sign-test p=0.000)
+  gemma4-26b-a4b-q2kxl         ru   n= 570  +10.7 pts  (wins 100 / losses 39, sign-test p=0.000)
