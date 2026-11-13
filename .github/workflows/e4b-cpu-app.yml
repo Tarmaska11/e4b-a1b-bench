@@ -1,0 +1,54 @@
+name: e4b-cpu-app
+# The "E4B CPU test" Android app: upstream llama.cpp's examples/llama.android, patched by e4bapp/patch_app.py
+# (own package, 32k context, RAM + speed line). One job. Starts when e4bapp/RUN_APP changes.
+on:
+  push:
+    branches: ['fable/**']
+    paths: ['e4bapp/RUN_APP']
+env:
+  LLAMA_TAG: b12317
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: source + patch
+        run: |
+          set -e
+          git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
+          python3 e4bapp/patch_app.py src
+          cd src && git diff --stat
+      - name: SDK components
+        run: |
+          set -e
+          SDKM=$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager
+          yes | $SDKM --licenses > /dev/null 2>&1 || true
+          $SDKM "ndk;29.0.13113456" "cmake;3.31.6" "platforms;android-36" | tail -3
+      - name: build
+        run: |
+          set -e
+          cd src/examples/llama.android
+          chmod +x gradlew
+          ./gradlew --no-daemon :app:assembleDebug -x lint > build.log 2>&1 || { tail -150 build.log; exit 1; }
+          tail -15 build.log
+          mkdir -p $GITHUB_WORKSPACE/out
+          cp app/build/outputs/apk/debug/*.apk $GITHUB_WORKSPACE/out/e4bcpu.apk
+          ls -la $GITHUB_WORKSPACE/out
+          unzip -l $GITHUB_WORKSPACE/out/e4bcpu.apk | grep -E "\.so|classes" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e4bcpu-buildlog
+          path: src/examples/llama.android/build.log
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        with:
+          name: e4bcpu-apk
+          path: out
+          compression-level: 0
+          retention-days: 30
