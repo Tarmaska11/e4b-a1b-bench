@@ -1,0 +1,855 @@
+{"key": "abstract_algebra/test/99|en", "id": "abstract_algebra/test/99", "lang": "en", "gold": "C", "reply": "C", "ms": 873, "prompt_tokens": 109}
+{"key": "abstract_algebra/test/19|en", "id": "abstract_algebra/test/19", "lang": "en", "gold": "A", "reply": "A", "ms": 993, "prompt_tokens": 135}
+{"key": "abstract_algebra/test/89|en", "id": "abstract_algebra/test/89", "lang": "en", "gold": "C", "reply": "A", "ms": 793, "prompt_tokens": 107}
+{"key": "anatomy/test/31|en", "id": "anatomy/test/31", "lang": "en", "gold": "A", "reply": "B", "ms": 817, "prompt_tokens": 110}
+{"key": "anatomy/test/89|en", "id": "anatomy/test/89", "lang": "en", "gold": "A", "reply": "A", "ms": 701, "prompt_tokens": 88}
+{"key": "astronomy/test/14|en", "id": "astronomy/test/14", "lang": "en", "gold": "B", "reply": "B", "ms": 851, "prompt_tokens": 103}
+{"key": "astronomy/test/74|en", "id": "astronomy/test/74", "lang": "en", "gold": "C", "reply": "C", "ms": 715, "prompt_tokens": 102}
+{"key": "astronomy/test/7|en", "id": "astronomy/test/7", "lang": "en", "gold": "B", "reply": "D", "ms": 1066, "prompt_tokens": 141}
+{"key": "business_ethics/test/19|en", "id": "business_ethics/test/19", "lang": "en", "gold": "A", "reply": "D", "ms": 876, "prompt_tokens": 113}
+{"key": "business_ethics/test/4|en", "id": "business_ethics/test/4", "lang": "en", "gold": "B", "reply": "B", "ms": 980, "prompt_tokens": 127}
+{"key": "clinical_knowledge/test/237|en", "id": "clinical_knowledge/test/237", "lang": "en", "gold": "C", "reply": "B", "ms": 671, "prompt_tokens": 96}
+{"key": "clinical_knowledge/test/212|en", "id": "clinical_knowledge/test/212", "lang": "en", "gold": "A", "reply": "A", "ms": 873, "prompt_tokens": 107}
+{"key": "clinical_knowledge/test/95|en", "id": "clinical_knowledge/test/95", "lang": "en", "gold": "C", "reply": "C", "ms": 923, "prompt_tokens": 116}
+{"key": "college_biology/test/130|en", "id": "college_biology/test/130", "lang": "en", "gold": "C", "reply": "C", "ms": 752, "prompt_tokens": 106}
+{"key": "college_biology/test/11|en", "id": "college_biology/test/11", "lang": "en", "gold": "D", "reply": "A", "ms": 815, "prompt_tokens": 95}
+{"key": "college_chemistry/test/17|en", "id": "college_chemistry/test/17", "lang": "en", "gold": "D", "reply": "D", "ms": 1191, "prompt_tokens": 151}
+{"key": "college_chemistry/test/11|en", "id": "college_chemistry/test/11", "lang": "en", "gold": "B", "reply": "C", "ms": 1330, "prompt_tokens": 179}
+{"key": "college_chemistry/test/7|en", "id": "college_chemistry/test/7", "lang": "en", "gold": "D", "reply": "D", "ms": 829, "prompt_tokens": 94}
+{"key": "college_computer_science/test/13|en", "id": "college_computer_science/test/13", "lang": "en", "gold": "C", "reply": "C", "ms": 822, "prompt_tokens": 111}
+{"key": "college_computer_science/test/29|en", "id": "college_computer_science/test/29", "lang": "en", "gold": "C", "reply": "C", "ms": 887, "prompt_tokens": 114}
+{"key": "college_mathematics/test/26|en", "id": "college_mathematics/test/26", "lang": "en", "gold": "D", "reply": "Let the total work be 1 (one practice test).  \nKate’s rate = \\( \\frac{1}{", "ms": 1980, "prompt_tokens": 165}
+{"key": "college_mathematics/test/74|en", "id": "college_mathematics/test/74", "lang": "en", "gold": "C", "reply": "A", "ms": 998, "prompt_tokens": 127}
+{"key": "college_mathematics/test/66|en", "id": "college_mathematics/test/66", "lang": "en", "gold": "C", "reply": "C", "ms": 866, "prompt_tokens": 120}
+{"key": "college_medicine/test/52|en", "id": "college_medicine/test/52", "lang": "en", "gold": "C", "reply": "C", "ms": 991, "prompt_tokens": 112}
+{"key": "college_medicine/test/137|en", "id": "college_medicine/test/137", "lang": "en", "gold": "B", "reply": "C", "ms": 879, "prompt_tokens": 105}
+{"key": "college_physics/test/39|en", "id": "college_physics/test/39", "lang": "en", "gold": "D", "reply": "C", "ms": 1006, "prompt_tokens": 123}
+{"key": "college_physics/test/55|en", "id": "college_physics/test/55", "lang": "en", "gold": "D", "reply": "D", "ms": 1272, "prompt_tokens": 164}
+{"key": "college_physics/test/19|en", "id": "college_physics/test/19", "lang": "en", "gold": "A", "reply": "C", "ms": 1156, "prompt_tokens": 139}
+{"key": "computer_security/test/38|en", "id": "computer_security/test/38", "lang": "en", "gold": "A", "reply": "C", "ms": 1028, "prompt_tokens": 141}
+{"key": "computer_security/test/20|en", "id": "computer_security/test/20", "lang": "en", "gold": "D", "reply": "D", "ms": 816, "prompt_tokens": 109}
+{"key": "conceptual_physics/test/97|en", "id": "conceptual_physics/test/97", "lang": "en", "gold": "A", "reply": "A", "ms": 810, "prompt_tokens": 95}
+{"key": "conceptual_physics/test/81|en", "id": "conceptual_physics/test/81", "lang": "en", "gold": "B", "reply": "B", "ms": 964, "prompt_tokens": 130}
+{"key": "conceptual_physics/test/69|en", "id": "conceptual_physics/test/69", "lang": "en", "gold": "C", "reply": "A", "ms": 920, "prompt_tokens": 128}
+{"key": "econometrics/test/107|en", "id": "econometrics/test/107", "lang": "en", "gold": "B", "reply": "A", "ms": 1856, "prompt_tokens": 234}
+{"key": "econometrics/test/29|en", "id": "econometrics/test/29", "lang": "en", "gold": "D", "reply": "D", "ms": 1110, "prompt_tokens": 140}
+{"key": "electrical_engineering/test/85|en", "id": "electrical_engineering/test/85", "lang": "en", "gold": "C", "reply": "C", "ms": 796, "prompt_tokens": 111}
+{"key": "electrical_engineering/test/74|en", "id": "electrical_engineering/test/74", "lang": "en", "gold": "B", "reply": "C", "ms": 785, "prompt_tokens": 92}
+{"key": "electrical_engineering/test/67|en", "id": "electrical_engineering/test/67", "lang": "en", "gold": "B", "reply": "A", "ms": 787, "prompt_tokens": 94}
+{"key": "elementary_mathematics/test/188|en", "id": "elementary_mathematics/test/188", "lang": "en", "gold": "B", "reply": "B", "ms": 658, "prompt_tokens": 96}
+{"key": "elementary_mathematics/test/206|en", "id": "elementary_mathematics/test/206", "lang": "en", "gold": "D", "reply": "D", "ms": 1168, "prompt_tokens": 149}
+{"key": "formal_logic/test/88|en", "id": "formal_logic/test/88", "lang": "en", "gold": "A", "reply": "A", "ms": 1765, "prompt_tokens": 223}
+{"key": "formal_logic/test/95|en", "id": "formal_logic/test/95", "lang": "en", "gold": "D", "reply": "C", "ms": 1345, "prompt_tokens": 180}
+{"key": "formal_logic/test/104|en", "id": "formal_logic/test/104", "lang": "en", "gold": "D", "reply": "B", "ms": 1218, "prompt_tokens": 164}
+{"key": "global_facts/test/26|en", "id": "global_facts/test/26", "lang": "en", "gold": "D", "reply": "C", "ms": 677, "prompt_tokens": 97}
+{"key": "global_facts/test/63|en", "id": "global_facts/test/63", "lang": "en", "gold": "C", "reply": "C", "ms": 891, "prompt_tokens": 110}
+{"key": "high_school_biology/test/12|en", "id": "high_school_biology/test/12", "lang": "en", "gold": "D", "reply": "D", "ms": 992, "prompt_tokens": 123}
+{"key": "high_school_biology/test/13|en", "id": "high_school_biology/test/13", "lang": "en", "gold": "D", "reply": "D", "ms": 602, "prompt_tokens": 85}
+{"key": "high_school_biology/test/126|en", "id": "high_school_biology/test/126", "lang": "en", "gold": "A", "reply": "A", "ms": 768, "prompt_tokens": 85}
+{"key": "high_school_chemistry/test/131|en", "id": "high_school_chemistry/test/131", "lang": "en", "gold": "D", "reply": "D", "ms": 683, "prompt_tokens": 89}
+{"key": "high_school_chemistry/test/189|en", "id": "high_school_chemistry/test/189", "lang": "en", "gold": "B", "reply": "B", "ms": 824, "prompt_tokens": 97}
+{"key": "high_school_computer_science/test/87|en", "id": "high_school_computer_science/test/87", "lang": "en", "gold": "A", "reply": "A", "ms": 940, "prompt_tokens": 114}
+{"key": "high_school_computer_science/test/81|en", "id": "high_school_computer_science/test/81", "lang": "en", "gold": "C", "reply": "C", "ms": 1946, "prompt_tokens": 267}
+{"key": "high_school_computer_science/test/88|en", "id": "high_school_computer_science/test/88", "lang": "en", "gold": "C", "reply": "C", "ms": 1000, "prompt_tokens": 124}
+{"key": "high_school_european_history/test/119|en", "id": "high_school_european_history/test/119", "lang": "en", "gold": "D", "reply": "D", "ms": 2367, "prompt_tokens": 322}
+{"key": "high_school_european_history/test/42|en", "id": "high_school_european_history/test/42", "lang": "en", "gold": "C", "reply": "D", "ms": 3430, "prompt_tokens": 466}
+{"key": "high_school_geography/test/124|en", "id": "high_school_geography/test/124", "lang": "en", "gold": "B", "reply": "B", "ms": 822, "prompt_tokens": 106}
+{"key": "high_school_geography/test/147|en", "id": "high_school_geography/test/147", "lang": "en", "gold": "D", "reply": "A", "ms": 792, "prompt_tokens": 105}
+{"key": "high_school_geography/test/19|en", "id": "high_school_geography/test/19", "lang": "en", "gold": "C", "reply": "C", "ms": 781, "prompt_tokens": 91}
+{"key": "high_school_government_and_politics/test/151|en", "id": "high_school_government_and_politics/test/151", "lang": "en", "gold": "C", "reply": "C", "ms": 1112, "prompt_tokens": 140}
+{"key": "high_school_government_and_politics/test/169|en", "id": "high_school_government_and_politics/test/169", "lang": "en", "gold": "B", "reply": "B", "ms": 666, "prompt_tokens": 95}
+{"key": "high_school_macroeconomics/test/280|en", "id": "high_school_macroeconomics/test/280", "lang": "en", "gold": "C", "reply": "C", "ms": 1109, "prompt_tokens": 140}
+{"key": "high_school_macroeconomics/test/319|en", "id": "high_school_macroeconomics/test/319", "lang": "en", "gold": "A", "reply": "A", "ms": 998, "prompt_tokens": 128}
+{"key": "high_school_macroeconomics/test/318|en", "id": "high_school_macroeconomics/test/318", "lang": "en", "gold": "D", "reply": "D", "ms": 1034, "prompt_tokens": 132}
+{"key": "high_school_mathematics/test/258|en", "id": "high_school_mathematics/test/258", "lang": "en", "gold": "B", "reply": "D", "ms": 813, "prompt_tokens": 117}
+{"key": "high_school_mathematics/test/67|en", "id": "high_school_mathematics/test/67", "lang": "en", "gold": "B", "reply": "C", "ms": 1172, "prompt_tokens": 149}
+{"key": "high_school_microeconomics/test/37|en", "id": "high_school_microeconomics/test/37", "lang": "en", "gold": "D", "reply": "D", "ms": 971, "prompt_tokens": 117}
+{"key": "high_school_microeconomics/test/182|en", "id": "high_school_microeconomics/test/182", "lang": "en", "gold": "C", "reply": "C", "ms": 1040, "prompt_tokens": 131}
+{"key": "high_school_microeconomics/test/96|en", "id": "high_school_microeconomics/test/96", "lang": "en", "gold": "B", "reply": "B", "ms": 1137, "prompt_tokens": 140}
+{"key": "high_school_physics/test/43|en", "id": "high_school_physics/test/43", "lang": "en", "gold": "D", "reply": "B", "ms": 1131, "prompt_tokens": 142}
+{"key": "high_school_physics/test/93|en", "id": "high_school_physics/test/93", "lang": "en", "gold": "D", "reply": "A", "ms": 1346, "prompt_tokens": 167}
+{"key": "high_school_psychology/test/355|en", "id": "high_school_psychology/test/355", "lang": "en", "gold": "A", "reply": "A", "ms": 768, "prompt_tokens": 107}
+{"key": "high_school_psychology/test/79|en", "id": "high_school_psychology/test/79", "lang": "en", "gold": "C", "reply": "C", "ms": 1317, "prompt_tokens": 168}
+{"key": "high_school_psychology/test/344|en", "id": "high_school_psychology/test/344", "lang": "en", "gold": "D", "reply": "D", "ms": 825, "prompt_tokens": 94}
+{"key": "high_school_statistics/test/4|en", "id": "high_school_statistics/test/4", "lang": "en", "gold": "D", "reply": "D", "ms": 963, "prompt_tokens": 115}
+{"key": "high_school_statistics/test/94|en", "id": "high_school_statistics/test/94", "lang": "en", "gold": "B", "reply": "B", "ms": 1707, "prompt_tokens": 233}
+{"key": "high_school_us_history/test/13|en", "id": "high_school_us_history/test/13", "lang": "en", "gold": "A", "reply": "D", "ms": 2913, "prompt_tokens": 387}
+{"key": "high_school_us_history/test/69|en", "id": "high_school_us_history/test/69", "lang": "en", "gold": "C", "reply": "C", "ms": 2574, "prompt_tokens": 346}
+{"key": "high_school_us_history/test/170|en", "id": "high_school_us_history/test/170", "lang": "en", "gold": "B", "reply": "B", "ms": 2602, "prompt_tokens": 356}
+{"key": "high_school_world_history/test/95|en", "id": "high_school_world_history/test/95", "lang": "en", "gold": "A", "reply": "A", "ms": 2611, "prompt_tokens": 368}
+{"key": "high_school_world_history/test/60|en", "id": "high_school_world_history/test/60", "lang": "en", "gold": "A", "reply": "A", "ms": 1921, "prompt_tokens": 270}
+{"key": "human_aging/test/21|en", "id": "human_aging/test/21", "lang": "en", "gold": "D", "reply": "C", "ms": 710, "prompt_tokens": 87}
+{"key": "human_aging/test/214|en", "id": "human_aging/test/214", "lang": "en", "gold": "C", "reply": "C", "ms": 813, "prompt_tokens": 94}
+{"key": "human_aging/test/101|en", "id": "human_aging/test/101", "lang": "en", "gold": "C", "reply": "C", "ms": 581, "prompt_tokens": 83}
+{"key": "human_sexuality/test/18|en", "id": "human_sexuality/test/18", "lang": "en", "gold": "A", "reply": "C", "ms": 763, "prompt_tokens": 87}
+{"key": "human_sexuality/test/113|en", "id": "human_sexuality/test/113", "lang": "en", "gold": "B", "reply": "B", "ms": 1139, "prompt_tokens": 143}
+{"key": "international_law/test/95|en", "id": "international_law/test/95", "lang": "en", "gold": "A", "reply": "C", "ms": 1215, "prompt_tokens": 153}
+{"key": "international_law/test/8|en", "id": "international_law/test/8", "lang": "en", "gold": "B", "reply": "B", "ms": 949, "prompt_tokens": 135}
+{"key": "international_law/test/27|en", "id": "international_law/test/27", "lang": "en", "gold": "C", "reply": "C", "ms": 980, "prompt_tokens": 120}
+{"key": "jurisprudence/test/67|en", "id": "jurisprudence/test/67", "lang": "en", "gold": "B", "reply": "B", "ms": 992, "prompt_tokens": 119}
+{"key": "jurisprudence/test/53|en", "id": "jurisprudence/test/53", "lang": "en", "gold": "A", "reply": "A", "ms": 1116, "prompt_tokens": 136}
+{"key": "logical_fallacies/test/37|en", "id": "logical_fallacies/test/37", "lang": "en", "gold": "C", "reply": "C", "ms": 783, "prompt_tokens": 113}
+{"key": "logical_fallacies/test/93|en", "id": "logical_fallacies/test/93", "lang": "en", "gold": "A", "reply": "A", "ms": 766, "prompt_tokens": 86}
+{"key": "logical_fallacies/test/96|en", "id": "logical_fallacies/test/96", "lang": "en", "gold": "D", "reply": "D", "ms": 871, "prompt_tokens": 99}
+{"key": "machine_learning/test/78|en", "id": "machine_learning/test/78", "lang": "en", "gold": "B", "reply": "B", "ms": 1226, "prompt_tokens": 149}
+{"key": "machine_learning/test/55|en", "id": "machine_learning/test/55", "lang": "en", "gold": "D", "reply": "C", "ms": 618, "prompt_tokens": 88}
+{"key": "management/test/15|en", "id": "management/test/15", "lang": "en", "gold": "C", "reply": "C", "ms": 1034, "prompt_tokens": 131}
+{"key": "management/test/22|en", "id": "management/test/22", "lang": "en", "gold": "D", "reply": "D", "ms": 894, "prompt_tokens": 101}
+{"key": "management/test/81|en", "id": "management/test/81", "lang": "en", "gold": "D", "reply": "D", "ms": 669, "prompt_tokens": 92}
+{"key": "marketing/test/104|en", "id": "marketing/test/104", "lang": "en", "gold": "D", "reply": "D", "ms": 874, "prompt_tokens": 104}
+{"key": "marketing/test/24|en", "id": "marketing/test/24", "lang": "en", "gold": "B", "reply": "B", "ms": 1008, "prompt_tokens": 125}
+{"key": "medical_genetics/test/17|en", "id": "medical_genetics/test/17", "lang": "en", "gold": "B", "reply": "B", "ms": 914, "prompt_tokens": 134}
+{"key": "medical_genetics/test/99|en", "id": "medical_genetics/test/99", "lang": "en", "gold": "D", "reply": "B", "ms": 841, "prompt_tokens": 97}
+{"key": "medical_genetics/test/72|en", "id": "medical_genetics/test/72", "lang": "en", "gold": "A", "reply": "A", "ms": 760, "prompt_tokens": 84}
+{"key": "miscellaneous/test/22|en", "id": "miscellaneous/test/22", "lang": "en", "gold": "C", "reply": "C", "ms": 574, "prompt_tokens": 82}
+{"key": "miscellaneous/test/8|en", "id": "miscellaneous/test/8", "lang": "en", "gold": "A", "reply": "A", "ms": 656, "prompt_tokens": 78}
+{"key": "moral_disputes/test/265|en", "id": "moral_disputes/test/265", "lang": "en", "gold": "D", "reply": "D", "ms": 1027, "prompt_tokens": 141}
+{"key": "moral_disputes/test/281|en", "id": "moral_disputes/test/281", "lang": "en", "gold": "D", "reply": "D", "ms": 1213, "prompt_tokens": 154}
+{"key": "moral_disputes/test/23|en", "id": "moral_disputes/test/23", "lang": "en", "gold": "C", "reply": "B", "ms": 924, "prompt_tokens": 110}
+{"key": "moral_scenarios/test/343|en", "id": "moral_scenarios/test/343", "lang": "en", "gold": "D", "reply": "B", "ms": 1220, "prompt_tokens": 153}
+{"key": "moral_scenarios/test/130|en", "id": "moral_scenarios/test/130", "lang": "en", "gold": "A", "reply": "C", "ms": 1179, "prompt_tokens": 147}
+{"key": "nutrition/test/87|en", "id": "nutrition/test/87", "lang": "en", "gold": "C", "reply": "C", "ms": 732, "prompt_tokens": 109}
+{"key": "nutrition/test/183|en", "id": "nutrition/test/183", "lang": "en", "gold": "D", "reply": "D", "ms": 1053, "prompt_tokens": 128}
+{"key": "nutrition/test/223|en", "id": "nutrition/test/223", "lang": "en", "gold": "B", "reply": "B", "ms": 1154, "prompt_tokens": 141}
+{"key": "philosophy/test/1|en", "id": "philosophy/test/1", "lang": "en", "gold": "D", "reply": "D", "ms": 878, "prompt_tokens": 94}
+{"key": "philosophy/test/187|en", "id": "philosophy/test/187", "lang": "en", "gold": "A", "reply": "A", "ms": 715, "prompt_tokens": 102}
+{"key": "prehistory/test/261|en", "id": "prehistory/test/261", "lang": "en", "gold": "C", "reply": "C", "ms": 840, "prompt_tokens": 93}
+{"key": "prehistory/test/321|en", "id": "prehistory/test/321", "lang": "en", "gold": "A", "reply": "A", "ms": 1308, "prompt_tokens": 167}
+{"key": "prehistory/test/44|en", "id": "prehistory/test/44", "lang": "en", "gold": "A", "reply": "A", "ms": 607, "prompt_tokens": 86}
+{"key": "professional_accounting/test/89|en", "id": "professional_accounting/test/89", "lang": "en", "gold": "B", "reply": "C", "ms": 1790, "prompt_tokens": 218}
+{"key": "professional_accounting/test/61|en", "id": "professional_accounting/test/61", "lang": "en", "gold": "A", "reply": "A", "ms": 1113, "prompt_tokens": 142}
+{"key": "professional_law/test/646|en", "id": "professional_law/test/646", "lang": "en", "gold": "D", "reply": "B", "ms": 2990, "prompt_tokens": 416}
+{"key": "professional_law/test/905|en", "id": "professional_law/test/905", "lang": "en", "gold": "C", "reply": "C", "ms": 1335, "prompt_tokens": 180}
+{"key": "professional_law/test/159|en", "id": "professional_law/test/159", "lang": "en", "gold": "D", "reply": "C", "ms": 1542, "prompt_tokens": 211}
+{"key": "professional_medicine/test/40|en", "id": "professional_medicine/test/40", "lang": "en", "gold": "C", "reply": "C", "ms": 2072, "prompt_tokens": 263}
+{"key": "professional_medicine/test/245|en", "id": "professional_medicine/test/245", "lang": "en", "gold": "D", "reply": "B", "ms": 2681, "prompt_tokens": 364}
+{"key": "professional_psychology/test/596|en", "id": "professional_psychology/test/596", "lang": "en", "gold": "C", "reply": "D", "ms": 1422, "prompt_tokens": 183}
+{"key": "professional_psychology/test/280|en", "id": "professional_psychology/test/280", "lang": "en", "gold": "C", "reply": "A", "ms": 1904, "prompt_tokens": 216}
+{"key": "professional_psychology/test/446|en", "id": "professional_psychology/test/446", "lang": "en", "gold": "A", "reply": "C", "ms": 1165, "prompt_tokens": 139}
+{"key": "public_relations/test/3|en", "id": "public_relations/test/3", "lang": "en", "gold": "B", "reply": "B", "ms": 674, "prompt_tokens": 93}
+{"key": "public_relations/test/36|en", "id": "public_relations/test/36", "lang": "en", "gold": "C", "reply": "C", "ms": 718, "prompt_tokens": 76}
+{"key": "security_studies/test/110|en", "id": "security_studies/test/110", "lang": "en", "gold": "D", "reply": "D", "ms": 2544, "prompt_tokens": 335}
+{"key": "security_studies/test/196|en", "id": "security_studies/test/196", "lang": "en", "gold": "A", "reply": "A", "ms": 1116, "prompt_tokens": 139}
+{"key": "security_studies/test/234|en", "id": "security_studies/test/234", "lang": "en", "gold": "C", "reply": "A", "ms": 567, "prompt_tokens": 82}
+{"key": "sociology/test/50|en", "id": "sociology/test/50", "lang": "en", "gold": "B", "reply": "B", "ms": 932, "prompt_tokens": 113}
+{"key": "sociology/test/19|en", "id": "sociology/test/19", "lang": "en", "gold": "A", "reply": "A", "ms": 1123, "prompt_tokens": 136}
+{"key": "us_foreign_policy/test/78|en", "id": "us_foreign_policy/test/78", "lang": "en", "gold": "D", "reply": "D", "ms": 740, "prompt_tokens": 105}
+{"key": "us_foreign_policy/test/8|en", "id": "us_foreign_policy/test/8", "lang": "en", "gold": "D", "reply": "D", "ms": 1039, "prompt_tokens": 126}
+{"key": "us_foreign_policy/test/60|en", "id": "us_foreign_policy/test/60", "lang": "en", "gold": "A", "reply": "A", "ms": 1063, "prompt_tokens": 119}
+{"key": "virology/test/65|en", "id": "virology/test/65", "lang": "en", "gold": "A", "reply": "B", "ms": 653, "prompt_tokens": 94}
+{"key": "virology/test/5|en", "id": "virology/test/5", "lang": "en", "gold": "A", "reply": "C", "ms": 843, "prompt_tokens": 90}
+{"key": "world_religions/test/59|en", "id": "world_religions/test/59", "lang": "en", "gold": "A", "reply": "B", "ms": 982, "prompt_tokens": 116}
+{"key": "world_religions/test/134|en", "id": "world_religions/test/134", "lang": "en", "gold": "C", "reply": "C", "ms": 619, "prompt_tokens": 86}
+{"key": "world_religions/test/151|en", "id": "world_religions/test/151", "lang": "en", "gold": "C", "reply": "C", "ms": 813, "prompt_tokens": 83}
+{"key": "abstract_algebra/test/21|ru", "id": "abstract_algebra/test/21", "lang": "ru", "gold": "A", "reply": "C", "ms": 1232, "prompt_tokens": 156}
+{"key": "abstract_algebra/test/12|ru", "id": "abstract_algebra/test/12", "lang": "ru", "gold": "A", "reply": "A", "ms": 758, "prompt_tokens": 107}
+{"key": "anatomy/test/120|ru", "id": "anatomy/test/120", "lang": "ru", "gold": "C", "reply": "C. Подвздошная кишка", "ms": 1218, "prompt_tokens": 125}
+{"key": "anatomy/test/104|ru", "id": "anatomy/test/104", "lang": "ru", "gold": "A", "reply": "A", "ms": 1520, "prompt_tokens": 200}
+{"key": "anatomy/test/132|ru", "id": "anatomy/test/132", "lang": "ru", "gold": "A", "reply": "A", "ms": 1297, "prompt_tokens": 156}
+{"key": "astronomy/test/100|ru", "id": "astronomy/test/100", "lang": "ru", "gold": "A", "reply": "A. Около 6 метров", "ms": 1518, "prompt_tokens": 163}
+{"key": "astronomy/test/112|ru", "id": "astronomy/test/112", "lang": "ru", "gold": "D", "reply": "D", "ms": 1100, "prompt_tokens": 159}
+{"key": "business_ethics/test/78|ru", "id": "business_ethics/test/78", "lang": "ru", "gold": "A", "reply": "C", "ms": 1249, "prompt_tokens": 163}
+{"key": "business_ethics/test/76|ru", "id": "business_ethics/test/76", "lang": "ru", "gold": "A", "reply": "A", "ms": 1236, "prompt_tokens": 159}
+{"key": "business_ethics/test/16|ru", "id": "business_ethics/test/16", "lang": "ru", "gold": "A", "reply": "A", "ms": 1090, "prompt_tokens": 134}
+{"key": "clinical_knowledge/test/261|ru", "id": "clinical_knowledge/test/261", "lang": "ru", "gold": "B", "reply": "B", "ms": 1278, "prompt_tokens": 164}
+{"key": "clinical_knowledge/test/7|ru", "id": "clinical_knowledge/test/7", "lang": "ru", "gold": "A", "reply": "A", "ms": 1853, "prompt_tokens": 215}
+{"key": "college_biology/test/1|ru", "id": "college_biology/test/1", "lang": "ru", "gold": "C", "reply": "C", "ms": 1753, "prompt_tokens": 210}
+{"key": "college_biology/test/56|ru", "id": "college_biology/test/56", "lang": "ru", "gold": "C", "reply": "A", "ms": 1951, "prompt_tokens": 239}
+{"key": "college_biology/test/84|ru", "id": "college_biology/test/84", "lang": "ru", "gold": "D", "reply": "D. Двойное оплодотворение", "ms": 1428, "prompt_tokens": 130}
+{"key": "college_chemistry/test/33|ru", "id": "college_chemistry/test/33", "lang": "ru", "gold": "D", "reply": "B", "ms": 1354, "prompt_tokens": 177}
+{"key": "college_chemistry/test/98|ru", "id": "college_chemistry/test/98", "lang": "ru", "gold": "B", "reply": "C. 7", "ms": 1743, "prompt_tokens": 131}
+{"key": "college_computer_science/test/44|ru", "id": "college_computer_science/test/44", "lang": "ru", "gold": "D", "reply": "A", "ms": 2250, "prompt_tokens": 160}
+{"key": "college_computer_science/test/40|ru", "id": "college_computer_science/test/40", "lang": "ru", "gold": "A", "reply": "A", "ms": 1716, "prompt_tokens": 219}
+{"key": "college_computer_science/test/26|ru", "id": "college_computer_science/test/26", "lang": "ru", "gold": "C", "reply": "C. Таблица символов", "ms": 1428, "prompt_tokens": 147}
+{"key": "college_mathematics/test/62|ru", "id": "college_mathematics/test/62", "lang": "ru", "gold": "A", "reply": "A", "ms": 1403, "prompt_tokens": 168}
+{"key": "college_mathematics/test/97|ru", "id": "college_mathematics/test/97", "lang": "ru", "gold": "C", "reply": "C", "ms": 1260, "prompt_tokens": 149}
+{"key": "college_medicine/test/78|ru", "id": "college_medicine/test/78", "lang": "ru", "gold": "C", "reply": "C. Гиперполяризация", "ms": 2623, "prompt_tokens": 276}
+{"key": "college_medicine/test/51|ru", "id": "college_medicine/test/51", "lang": "ru", "gold": "D", "reply": "D", "ms": 1000, "prompt_tokens": 115}
+{"key": "college_medicine/test/62|ru", "id": "college_medicine/test/62", "lang": "ru", "gold": "D", "reply": "D", "ms": 1034, "prompt_tokens": 108}
+{"key": "college_physics/test/97|ru", "id": "college_physics/test/97", "lang": "ru", "gold": "C", "reply": "B", "ms": 1395, "prompt_tokens": 180}
+{"key": "college_physics/test/96|ru", "id": "college_physics/test/96", "lang": "ru", "gold": "C", "reply": "C", "ms": 1351, "prompt_tokens": 167}
+{"key": "computer_security/test/52|ru", "id": "computer_security/test/52", "lang": "ru", "gold": "A", "reply": "A", "ms": 1149, "prompt_tokens": 129}
+{"key": "computer_security/test/30|ru", "id": "computer_security/test/30", "lang": "ru", "gold": "D", "reply": "D", "ms": 688, "prompt_tokens": 98}
+{"key": "computer_security/test/27|ru", "id": "computer_security/test/27", "lang": "ru", "gold": "B", "reply": "A", "ms": 958, "prompt_tokens": 110}
+{"key": "conceptual_physics/test/133|ru", "id": "conceptual_physics/test/133", "lang": "ru", "gold": "C", "reply": "C. синий", "ms": 1174, "prompt_tokens": 111}
+{"key": "conceptual_physics/test/172|ru", "id": "conceptual_physics/test/172", "lang": "ru", "gold": "B", "reply": "B", "ms": 1083, "prompt_tokens": 128}
+{"key": "econometrics/test/8|ru", "id": "econometrics/test/8", "lang": "ru", "gold": "B", "reply": "C. (i), (ii) и (iii) только", "ms": 2065, "prompt_tokens": 223}
+{"key": "econometrics/test/20|ru", "id": "econometrics/test/20", "lang": "ru", "gold": "B", "reply": "B", "ms": 1392, "prompt_tokens": 180}
+{"key": "econometrics/test/101|ru", "id": "econometrics/test/101", "lang": "ru", "gold": "D", "reply": "D", "ms": 1275, "prompt_tokens": 160}
+{"key": "electrical_engineering/test/41|ru", "id": "electrical_engineering/test/41", "lang": "ru", "gold": "B", "reply": "B", "ms": 1062, "prompt_tokens": 115}
+{"key": "electrical_engineering/test/27|ru", "id": "electrical_engineering/test/27", "lang": "ru", "gold": "A", "reply": "B", "ms": 1056, "prompt_tokens": 120}
+{"key": "elementary_mathematics/test/144|ru", "id": "elementary_mathematics/test/144", "lang": "ru", "gold": "B", "reply": "B", "ms": 1478, "prompt_tokens": 153}
+{"key": "elementary_mathematics/test/31|ru", "id": "elementary_mathematics/test/31", "lang": "ru", "gold": "B", "reply": "B", "ms": 1003, "prompt_tokens": 111}
+{"key": "elementary_mathematics/test/193|ru", "id": "elementary_mathematics/test/193", "lang": "ru", "gold": "D", "reply": "D", "ms": 906, "prompt_tokens": 122}
+{"key": "formal_logic/test/33|ru", "id": "formal_logic/test/33", "lang": "ru", "gold": "B", "reply": "B", "ms": 1760, "prompt_tokens": 183}
+{"key": "formal_logic/test/121|ru", "id": "formal_logic/test/121", "lang": "ru", "gold": "D", "reply": "B", "ms": 1927, "prompt_tokens": 243}
+{"key": "global_facts/test/5|ru", "id": "global_facts/test/5", "lang": "ru", "gold": "A", "reply": "A", "ms": 1333, "prompt_tokens": 133}
+{"key": "global_facts/test/98|ru", "id": "global_facts/test/98", "lang": "ru", "gold": "C", "reply": "C", "ms": 1016, "prompt_tokens": 117}
+{"key": "global_facts/test/24|ru", "id": "global_facts/test/24", "lang": "ru", "gold": "D", "reply": "B", "ms": 1842, "prompt_tokens": 253}
+{"key": "high_school_biology/test/165|ru", "id": "high_school_biology/test/165", "lang": "ru", "gold": "B", "reply": "D", "ms": 1160, "prompt_tokens": 138}
+{"key": "high_school_biology/test/177|ru", "id": "high_school_biology/test/177", "lang": "ru", "gold": "A", "reply": "A. тигмотропизм", "ms": 1147, "prompt_tokens": 116}
+{"key": "high_school_chemistry/test/91|ru", "id": "high_school_chemistry/test/91", "lang": "ru", "gold": "B", "reply": "B", "ms": 1199, "prompt_tokens": 140}
+{"key": "high_school_chemistry/test/107|ru", "id": "high_school_chemistry/test/107", "lang": "ru", "gold": "D", "reply": "D", "ms": 1168, "prompt_tokens": 136}
+{"key": "high_school_chemistry/test/173|ru", "id": "high_school_chemistry/test/173", "lang": "ru", "gold": "A", "reply": "A", "ms": 898, "prompt_tokens": 125}
+{"key": "high_school_computer_science/test/40|ru", "id": "high_school_computer_science/test/40", "lang": "ru", "gold": "B", "reply": "B", "ms": 2360, "prompt_tokens": 296}
+{"key": "high_school_computer_science/test/58|ru", "id": "high_school_computer_science/test/58", "lang": "ru", "gold": "C", "reply": "C. Очередь | Словарь/карта | Стек", "ms": 4176, "prompt_tokens": 478}
+{"key": "high_school_european_history/test/132|ru", "id": "high_school_european_history/test/132", "lang": "ru", "gold": "A", "reply": "D", "ms": 4905, "prompt_tokens": 616}
+{"key": "high_school_european_history/test/162|ru", "id": "high_school_european_history/test/162", "lang": "ru", "gold": "C", "reply": "C", "ms": 3658, "prompt_tokens": 477}
+{"key": "high_school_european_history/test/161|ru", "id": "high_school_european_history/test/161", "lang": "ru", "gold": "A", "reply": "A", "ms": 3317, "prompt_tokens": 439}
+{"key": "high_school_geography/test/185|ru", "id": "high_school_geography/test/185", "lang": "ru", "gold": "B", "reply": "B", "ms": 1085, "prompt_tokens": 119}
+{"key": "high_school_geography/test/86|ru", "id": "high_school_geography/test/86", "lang": "ru", "gold": "B", "reply": "B", "ms": 1307, "prompt_tokens": 162}
+{"key": "high_school_government_and_politics/test/179|ru", "id": "high_school_government_and_politics/test/179", "lang": "ru", "gold": "D", "reply": "D", "ms": 1397, "prompt_tokens": 173}
+{"key": "high_school_government_and_politics/test/136|ru", "id": "high_school_government_and_politics/test/136", "lang": "ru", "gold": "B", "reply": "B", "ms": 1481, "prompt_tokens": 181}
+{"key": "high_school_government_and_politics/test/114|ru", "id": "high_school_government_and_politics/test/114", "lang": "ru", "gold": "D", "reply": "A", "ms": 1352, "prompt_tokens": 158}
+{"key": "high_school_macroeconomics/test/296|ru", "id": "high_school_macroeconomics/test/296", "lang": "ru", "gold": "D", "reply": "B", "ms": 1102, "prompt_tokens": 118}
+{"key": "high_school_macroeconomics/test/283|ru", "id": "high_school_macroeconomics/test/283", "lang": "ru", "gold": "A", "reply": "D", "ms": 1151, "prompt_tokens": 134}
+{"key": "high_school_mathematics/test/228|ru", "id": "high_school_mathematics/test/228", "lang": "ru", "gold": "C", "reply": "C", "ms": 1105, "prompt_tokens": 131}
+{"key": "high_school_mathematics/test/176|ru", "id": "high_school_mathematics/test/176", "lang": "ru", "gold": "A", "reply": "A", "ms": 1583, "prompt_tokens": 203}
+{"key": "high_school_mathematics/test/110|ru", "id": "high_school_mathematics/test/110", "lang": "ru", "gold": "C", "reply": "B", "ms": 1509, "prompt_tokens": 181}
+{"key": "high_school_microeconomics/test/121|ru", "id": "high_school_microeconomics/test/121", "lang": "ru", "gold": "B", "reply": "B", "ms": 1571, "prompt_tokens": 195}
+{"key": "high_school_microeconomics/test/207|ru", "id": "high_school_microeconomics/test/207", "lang": "ru", "gold": "D", "reply": "D", "ms": 1870, "prompt_tokens": 214}
+{"key": "high_school_physics/test/99|ru", "id": "high_school_physics/test/99", "lang": "ru", "gold": "C", "reply": "C", "ms": 1483, "prompt_tokens": 177}
+{"key": "high_school_physics/test/31|ru", "id": "high_school_physics/test/31", "lang": "ru", "gold": "C", "reply": "C", "ms": 1812, "prompt_tokens": 243}
+{"key": "high_school_physics/test/142|ru", "id": "high_school_physics/test/142", "lang": "ru", "gold": "C", "reply": "C", "ms": 1908, "prompt_tokens": 217}
+{"key": "high_school_psychology/test/286|ru", "id": "high_school_psychology/test/286", "lang": "ru", "gold": "B", "reply": "B", "ms": 1555, "prompt_tokens": 202}
+{"key": "high_school_psychology/test/394|ru", "id": "high_school_psychology/test/394", "lang": "ru", "gold": "A", "reply": "D", "ms": 1037, "prompt_tokens": 137}
+{"key": "high_school_statistics/test/8|ru", "id": "high_school_statistics/test/8", "lang": "ru", "gold": "C", "reply": "C", "ms": 1695, "prompt_tokens": 198}
+{"key": "high_school_statistics/test/30|ru", "id": "high_school_statistics/test/30", "lang": "ru", "gold": "D", "reply": "D", "ms": 3125, "prompt_tokens": 406}
+{"key": "high_school_statistics/test/157|ru", "id": "high_school_statistics/test/157", "lang": "ru", "gold": "B", "reply": "B", "ms": 1575, "prompt_tokens": 205}
+{"key": "high_school_us_history/test/19|ru", "id": "high_school_us_history/test/19", "lang": "ru", "gold": "D", "reply": "C", "ms": 3680, "prompt_tokens": 474}
+{"key": "high_school_us_history/test/146|ru", "id": "high_school_us_history/test/146", "lang": "ru", "gold": "B", "reply": "A", "ms": 2690, "prompt_tokens": 343}
+{"key": "high_school_world_history/test/18|ru", "id": "high_school_world_history/test/18", "lang": "ru", "gold": "B", "reply": "A", "ms": 5976, "prompt_tokens": 754}
+{"key": "high_school_world_history/test/113|ru", "id": "high_school_world_history/test/113", "lang": "ru", "gold": "C", "reply": "C. Цель оправдывает средства", "ms": 3199, "prompt_tokens": 403}
+{"key": "high_school_world_history/test/158|ru", "id": "high_school_world_history/test/158", "lang": "ru", "gold": "C", "reply": "C. Участие США в борьбе за независимость Панамы", "ms": 5776, "prompt_tokens": 681}
+{"key": "human_aging/test/149|ru", "id": "human_aging/test/149", "lang": "ru", "gold": "C", "reply": "C", "ms": 1123, "prompt_tokens": 138}
+{"key": "human_aging/test/49|ru", "id": "human_aging/test/49", "lang": "ru", "gold": "A", "reply": "C. С другом", "ms": 942, "prompt_tokens": 92}
+{"key": "human_sexuality/test/57|ru", "id": "human_sexuality/test/57", "lang": "ru", "gold": "A", "reply": "B", "ms": 1490, "prompt_tokens": 193}
+{"key": "human_sexuality/test/96|ru", "id": "human_sexuality/test/96", "lang": "ru", "gold": "C", "reply": "C", "ms": 2764, "prompt_tokens": 356}
+{"key": "human_sexuality/test/37|ru", "id": "human_sexuality/test/37", "lang": "ru", "gold": "D", "reply": "D", "ms": 1214, "prompt_tokens": 149}
+{"key": "international_law/test/77|ru", "id": "international_law/test/77", "lang": "ru", "gold": "B", "reply": "B", "ms": 2228, "prompt_tokens": 271}
+{"key": "international_law/test/89|ru", "id": "international_law/test/89", "lang": "ru", "gold": "C", "reply": "C", "ms": 1304, "prompt_tokens": 160}
+{"key": "jurisprudence/test/83|ru", "id": "jurisprudence/test/83", "lang": "ru", "gold": "B", "reply": "A", "ms": 1359, "prompt_tokens": 168}
+{"key": "jurisprudence/test/72|ru", "id": "jurisprudence/test/72", "lang": "ru", "gold": "D", "reply": "C. Римское право", "ms": 1203, "prompt_tokens": 128}
+{"key": "jurisprudence/test/44|ru", "id": "jurisprudence/test/44", "lang": "ru", "gold": "C", "reply": "C. Закон неразрывно связан с моралью.", "ms": 1617, "prompt_tokens": 158}
+{"key": "logical_fallacies/test/108|ru", "id": "logical_fallacies/test/108", "lang": "ru", "gold": "A", "reply": "A", "ms": 1218, "prompt_tokens": 141}
+{"key": "logical_fallacies/test/24|ru", "id": "logical_fallacies/test/24", "lang": "ru", "gold": "C", "reply": "C. Ложный знак", "ms": 1189, "prompt_tokens": 108}
+{"key": "machine_learning/test/38|ru", "id": "machine_learning/test/38", "lang": "ru", "gold": "B", "reply": "B", "ms": 1301, "prompt_tokens": 162}
+{"key": "machine_learning/test/41|ru", "id": "machine_learning/test/41", "lang": "ru", "gold": "C", "reply": "C", "ms": 1702, "prompt_tokens": 220}
+{"key": "machine_learning/test/100|ru", "id": "machine_learning/test/100", "lang": "ru", "gold": "B", "reply": "D", "ms": 1144, "prompt_tokens": 140}
+{"key": "management/test/55|ru", "id": "management/test/55", "lang": "ru", "gold": "A", "reply": "A", "ms": 1147, "prompt_tokens": 137}
+{"key": "management/test/84|ru", "id": "management/test/84", "lang": "ru", "gold": "D", "reply": "B. Милтон Фридман", "ms": 1330, "prompt_tokens": 124}
+{"key": "marketing/test/48|ru", "id": "marketing/test/48", "lang": "ru", "gold": "A", "reply": "A", "ms": 932, "prompt_tokens": 131}
+{"key": "marketing/test/58|ru", "id": "marketing/test/58", "lang": "ru", "gold": "A", "reply": "A", "ms": 1090, "prompt_tokens": 131}
+{"key": "marketing/test/194|ru", "id": "marketing/test/194", "lang": "ru", "gold": "D", "reply": "D", "ms": 1303, "prompt_tokens": 153}
+{"key": "medical_genetics/test/10|ru", "id": "medical_genetics/test/10", "lang": "ru", "gold": "A", "reply": "B. Атаксия телеангиэктазия", "ms": 1375, "prompt_tokens": 128}
+{"key": "medical_genetics/test/79|ru", "id": "medical_genetics/test/79", "lang": "ru", "gold": "A", "reply": "C. Сахарный диабет", "ms": 1193, "prompt_tokens": 121}
+{"key": "miscellaneous/test/228|ru", "id": "miscellaneous/test/228", "lang": "ru", "gold": "A", "reply": "D. Сокращение торгового дефицита США", "ms": 1491, "prompt_tokens": 150}
+{"key": "miscellaneous/test/332|ru", "id": "miscellaneous/test/332", "lang": "ru", "gold": "A", "reply": "A. Стимул", "ms": 1108, "prompt_tokens": 125}
+{"key": "miscellaneous/test/651|ru", "id": "miscellaneous/test/651", "lang": "ru", "gold": "B", "reply": "B. Олимп", "ms": 995, "prompt_tokens": 108}
+{"key": "moral_disputes/test/27|ru", "id": "moral_disputes/test/27", "lang": "ru", "gold": "D", "reply": "A", "ms": 1398, "prompt_tokens": 184}
+{"key": "moral_disputes/test/268|ru", "id": "moral_disputes/test/268", "lang": "ru", "gold": "C", "reply": "C", "ms": 1342, "prompt_tokens": 178}
+{"key": "moral_scenarios/test/387|ru", "id": "moral_scenarios/test/387", "lang": "ru", "gold": "C", "reply": "B. Неправильно, не неправильно", "ms": 2407, "prompt_tokens": 249}
+{"key": "moral_scenarios/test/60|ru", "id": "moral_scenarios/test/60", "lang": "ru", "gold": "A", "reply": "C", "ms": 1824, "prompt_tokens": 248}
+{"key": "moral_scenarios/test/3|ru", "id": "moral_scenarios/test/3", "lang": "ru", "gold": "B", "reply": "B", "ms": 1722, "prompt_tokens": 238}
+{"key": "nutrition/test/269|ru", "id": "nutrition/test/269", "lang": "ru", "gold": "C", "reply": "C", "ms": 1183, "prompt_tokens": 150}
+{"key": "nutrition/test/232|ru", "id": "nutrition/test/232", "lang": "ru", "gold": "C", "reply": "C", "ms": 1037, "prompt_tokens": 127}
+{"key": "philosophy/test/308|ru", "id": "philosophy/test/308", "lang": "ru", "gold": "D", "reply": "B. бессмысленно", "ms": 1090, "prompt_tokens": 104}
+{"key": "philosophy/test/287|ru", "id": "philosophy/test/287", "lang": "ru", "gold": "C", "reply": "B", "ms": 1210, "prompt_tokens": 157}
+{"key": "philosophy/test/223|ru", "id": "philosophy/test/223", "lang": "ru", "gold": "B", "reply": "A", "ms": 863, "prompt_tokens": 117}
+{"key": "prehistory/test/287|ru", "id": "prehistory/test/287", "lang": "ru", "gold": "C", "reply": "C. самый большой", "ms": 948, "prompt_tokens": 110}
+{"key": "prehistory/test/32|ru", "id": "prehistory/test/32", "lang": "ru", "gold": "C", "reply": "C. приматология", "ms": 1168, "prompt_tokens": 122}
+{"key": "professional_accounting/test/27|ru", "id": "professional_accounting/test/27", "lang": "ru", "gold": "D", "reply": "D", "ms": 2835, "prompt_tokens": 386}
+{"key": "professional_accounting/test/157|ru", "id": "professional_accounting/test/157", "lang": "ru", "gold": "C", "reply": "C", "ms": 1481, "prompt_tokens": 198}
+{"key": "professional_accounting/test/142|ru", "id": "professional_accounting/test/142", "lang": "ru", "gold": "C", "reply": "C", "ms": 1939, "prompt_tokens": 241}
+{"key": "professional_law/test/147|ru", "id": "professional_law/test/147", "lang": "ru", "gold": "A", "reply": "B", "ms": 3315, "prompt_tokens": 459}
+{"key": "professional_law/test/235|ru", "id": "professional_law/test/235", "lang": "ru", "gold": "B", "reply": "A", "ms": 1977, "prompt_tokens": 247}
+{"key": "professional_medicine/test/95|ru", "id": "professional_medicine/test/95", "lang": "ru", "gold": "D", "reply": "B", "ms": 3315, "prompt_tokens": 455}
+{"key": "professional_medicine/test/72|ru", "id": "professional_medicine/test/72", "lang": "ru", "gold": "D", "reply": "D. α-Токсин", "ms": 2308, "prompt_tokens": 275}
+{"key": "professional_medicine/test/96|ru", "id": "professional_medicine/test/96", "lang": "ru", "gold": "A", "reply": "A. Дерматомиозит", "ms": 3849, "prompt_tokens": 496}
+{"key": "professional_psychology/test/177|ru", "id": "professional_psychology/test/177", "lang": "ru", "gold": "A", "reply": "B", "ms": 1131, "prompt_tokens": 136}
+{"key": "professional_psychology/test/407|ru", "id": "professional_psychology/test/407", "lang": "ru", "gold": "D", "reply": "D", "ms": 1365, "prompt_tokens": 171}
+{"key": "public_relations/test/8|ru", "id": "public_relations/test/8", "lang": "ru", "gold": "B", "reply": "B. Планирование программы", "ms": 1288, "prompt_tokens": 122}
+{"key": "public_relations/test/18|ru", "id": "public_relations/test/18", "lang": "ru", "gold": "D", "reply": "D", "ms": 1383, "prompt_tokens": 177}
+{"key": "public_relations/test/109|ru", "id": "public_relations/test/109", "lang": "ru", "gold": "D", "reply": "D. Спонсорство", "ms": 1208, "prompt_tokens": 127}
+{"key": "security_studies/test/34|ru", "id": "security_studies/test/34", "lang": "ru", "gold": "A", "reply": "C", "ms": 3737, "prompt_tokens": 498}
+{"key": "security_studies/test/177|ru", "id": "security_studies/test/177", "lang": "ru", "gold": "A", "reply": "B. 1990-е", "ms": 1353, "prompt_tokens": 135}
+{"key": "sociology/test/199|ru", "id": "sociology/test/199", "lang": "ru", "gold": "B", "reply": "B", "ms": 1318, "prompt_tokens": 161}
+{"key": "sociology/test/136|ru", "id": "sociology/test/136", "lang": "ru", "gold": "D", "reply": "A", "ms": 1433, "prompt_tokens": 177}
+{"key": "sociology/test/165|ru", "id": "sociology/test/165", "lang": "ru", "gold": "A", "reply": "C", "ms": 1748, "prompt_tokens": 233}
+{"key": "us_foreign_policy/test/90|ru", "id": "us_foreign_policy/test/90", "lang": "ru", "gold": "B", "reply": "B", "ms": 1432, "prompt_tokens": 186}
+{"key": "us_foreign_policy/test/26|ru", "id": "us_foreign_policy/test/26", "lang": "ru", "gold": "A", "reply": "A", "ms": 1214, "prompt_tokens": 150}
+{"key": "virology/test/51|ru", "id": "virology/test/51", "lang": "ru", "gold": "A", "reply": "B", "ms": 1151, "prompt_tokens": 135}
+{"key": "virology/test/7|ru", "id": "virology/test/7", "lang": "ru", "gold": "B", "reply": "B. Гастроэнтерит у детей", "ms": 1340, "prompt_tokens": 127}
+{"key": "virology/test/158|ru", "id": "virology/test/158", "lang": "ru", "gold": "A", "reply": "C", "ms": 4276, "prompt_tokens": 579}
+{"key": "world_religions/test/155|ru", "id": "world_religions/test/155", "lang": "ru", "gold": "D", "reply": "B. Медитация", "ms": 1038, "prompt_tokens": 101}
+{"key": "world_religions/test/4|ru", "id": "world_religions/test/4", "lang": "ru", "gold": "D", "reply": "B. Тарики", "ms": 1119, "prompt_tokens": 110}
+{"key": "abstract_algebra/test/6|en", "id": "abstract_algebra/test/6", "lang": "en", "gold": "A", "reply": "D", "ms": 1408, "prompt_tokens": 123}
+{"key": "abstract_algebra/test/76|en", "id": "abstract_algebra/test/76", "lang": "en", "gold": "C", "reply": "C", "ms": 1492, "prompt_tokens": 127}
+{"key": "abstract_algebra/test/18|en", "id": "abstract_algebra/test/18", "lang": "en", "gold": "D", "reply": "D", "ms": 1090, "prompt_tokens": 98}
+{"key": "anatomy/test/101|en", "id": "anatomy/test/101", "lang": "en", "gold": "D", "reply": "D", "ms": 1367, "prompt_tokens": 128}
+{"key": "anatomy/test/84|en", "id": "anatomy/test/84", "lang": "en", "gold": "B", "reply": "D", "ms": 1022, "prompt_tokens": 89}
+{"key": "astronomy/test/124|en", "id": "astronomy/test/124", "lang": "en", "gold": "D", "reply": "D", "ms": 1130, "prompt_tokens": 100}
+{"key": "astronomy/test/19|en", "id": "astronomy/test/19", "lang": "en", "gold": "C", "reply": "C", "ms": 1580, "prompt_tokens": 148}
+{"key": "astronomy/test/113|en", "id": "astronomy/test/113", "lang": "en", "gold": "C", "reply": "C", "ms": 1488, "prompt_tokens": 141}
+{"key": "business_ethics/test/68|en", "id": "business_ethics/test/68", "lang": "en", "gold": "A", "reply": "A", "ms": 1778, "prompt_tokens": 157}
+{"key": "business_ethics/test/73|en", "id": "business_ethics/test/73", "lang": "en", "gold": "C", "reply": "C", "ms": 1064, "prompt_tokens": 95}
+{"key": "clinical_knowledge/test/82|en", "id": "clinical_knowledge/test/82", "lang": "en", "gold": "B", "reply": "B", "ms": 1130, "prompt_tokens": 101}
+{"key": "clinical_knowledge/test/190|en", "id": "clinical_knowledge/test/190", "lang": "en", "gold": "C", "reply": "C", "ms": 1547, "prompt_tokens": 146}
+{"key": "clinical_knowledge/test/130|en", "id": "clinical_knowledge/test/130", "lang": "en", "gold": "A", "reply": "A", "ms": 1097, "prompt_tokens": 98}
+{"key": "college_biology/test/79|en", "id": "college_biology/test/79", "lang": "en", "gold": "D", "reply": "B", "ms": 2034, "prompt_tokens": 186}
+{"key": "college_biology/test/115|en", "id": "college_biology/test/115", "lang": "en", "gold": "D", "reply": "C", "ms": 1524, "prompt_tokens": 145}
+{"key": "college_chemistry/test/73|en", "id": "college_chemistry/test/73", "lang": "en", "gold": "A", "reply": "A", "ms": 1013, "prompt_tokens": 88}
+{"key": "college_chemistry/test/49|en", "id": "college_chemistry/test/49", "lang": "en", "gold": "D", "reply": "D", "ms": 1610, "prompt_tokens": 151}
+{"key": "college_chemistry/test/86|en", "id": "college_chemistry/test/86", "lang": "en", "gold": "D", "reply": "B", "ms": 2393, "prompt_tokens": 230}
+{"key": "college_computer_science/test/57|en", "id": "college_computer_science/test/57", "lang": "en", "gold": "D", "reply": "C", "ms": 1243, "prompt_tokens": 114}
+{"key": "college_computer_science/test/4|en", "id": "college_computer_science/test/4", "lang": "en", "gold": "C", "reply": "C", "ms": 1191, "prompt_tokens": 109}
+{"key": "college_mathematics/test/99|en", "id": "college_mathematics/test/99", "lang": "en", "gold": "A", "reply": "C", "ms": 1572, "prompt_tokens": 146}
+{"key": "college_mathematics/test/53|en", "id": "college_mathematics/test/53", "lang": "en", "gold": "C", "reply": "C", "ms": 1098, "prompt_tokens": 100}
+{"key": "college_mathematics/test/48|en", "id": "college_mathematics/test/48", "lang": "en", "gold": "C", "reply": "B", "ms": 1628, "prompt_tokens": 144}
+{"key": "college_medicine/test/108|en", "id": "college_medicine/test/108", "lang": "en", "gold": "C", "reply": "C", "ms": 1131, "prompt_tokens": 102}
+{"key": "college_medicine/test/44|en", "id": "college_medicine/test/44", "lang": "en", "gold": "C", "reply": "B", "ms": 1483, "prompt_tokens": 138}
+{"key": "college_physics/test/20|en", "id": "college_physics/test/20", "lang": "en", "gold": "C", "reply": "C", "ms": 1484, "prompt_tokens": 138}
+{"key": "college_physics/test/57|en", "id": "college_physics/test/57", "lang": "en", "gold": "D", "reply": "D", "ms": 1573, "prompt_tokens": 133}
+{"key": "college_physics/test/63|en", "id": "college_physics/test/63", "lang": "en", "gold": "D", "reply": "D", "ms": 1198, "prompt_tokens": 99}
+{"key": "computer_security/test/83|en", "id": "computer_security/test/83", "lang": "en", "gold": "C", "reply": "C", "ms": 1011, "prompt_tokens": 96}
+{"key": "computer_security/test/9|en", "id": "computer_security/test/9", "lang": "en", "gold": "B", "reply": "B", "ms": 1031, "prompt_tokens": 88}
+{"key": "conceptual_physics/test/16|en", "id": "conceptual_physics/test/16", "lang": "en", "gold": "A", "reply": "C", "ms": 1094, "prompt_tokens": 95}
+{"key": "conceptual_physics/test/53|en", "id": "conceptual_physics/test/53", "lang": "en", "gold": "B", "reply": "B", "ms": 903, "prompt_tokens": 76}
+{"key": "conceptual_physics/test/200|en", "id": "conceptual_physics/test/200", "lang": "en", "gold": "B", "reply": "B", "ms": 969, "prompt_tokens": 84}
+{"key": "econometrics/test/41|en", "id": "econometrics/test/41", "lang": "en", "gold": "B", "reply": "A", "ms": 2267, "prompt_tokens": 211}
+{"key": "econometrics/test/89|en", "id": "econometrics/test/89", "lang": "en", "gold": "B", "reply": "B", "ms": 1313, "prompt_tokens": 120}
+{"key": "electrical_engineering/test/118|en", "id": "electrical_engineering/test/118", "lang": "en", "gold": "C", "reply": "C", "ms": 1273, "prompt_tokens": 118}
+{"key": "electrical_engineering/test/112|en", "id": "electrical_engineering/test/112", "lang": "en", "gold": "B", "reply": "B", "ms": 1073, "prompt_tokens": 94}
+{"key": "electrical_engineering/test/144|en", "id": "electrical_engineering/test/144", "lang": "en", "gold": "A", "reply": "B", "ms": 1355, "prompt_tokens": 120}
+{"key": "elementary_mathematics/test/83|en", "id": "elementary_mathematics/test/83", "lang": "en", "gold": "C", "reply": "C", "ms": 1207, "prompt_tokens": 100}
+{"key": "elementary_mathematics/test/264|en", "id": "elementary_mathematics/test/264", "lang": "en", "gold": "D", "reply": "C", "ms": 1905, "prompt_tokens": 167}
+{"key": "formal_logic/test/66|en", "id": "formal_logic/test/66", "lang": "en", "gold": "D", "reply": "D", "ms": 1141, "prompt_tokens": 100}
+{"key": "formal_logic/test/52|en", "id": "formal_logic/test/52", "lang": "en", "gold": "D", "reply": "A", "ms": 1249, "prompt_tokens": 107}
+{"key": "formal_logic/test/8|en", "id": "formal_logic/test/8", "lang": "en", "gold": "D", "reply": "C", "ms": 1422, "prompt_tokens": 124}
+{"key": "global_facts/test/66|en", "id": "global_facts/test/66", "lang": "en", "gold": "A", "reply": "B", "ms": 1097, "prompt_tokens": 97}
+{"key": "global_facts/test/47|en", "id": "global_facts/test/47", "lang": "en", "gold": "B", "reply": "D", "ms": 1291, "prompt_tokens": 112}
+{"key": "high_school_biology/test/174|en", "id": "high_school_biology/test/174", "lang": "en", "gold": "D", "reply": "A", "ms": 1688, "prompt_tokens": 150}
+{"key": "high_school_biology/test/248|en", "id": "high_school_biology/test/248", "lang": "en", "gold": "B", "reply": "B", "ms": 2005, "prompt_tokens": 181}
+{"key": "high_school_biology/test/138|en", "id": "high_school_biology/test/138", "lang": "en", "gold": "C", "reply": "C", "ms": 961, "prompt_tokens": 91}
+{"key": "high_school_chemistry/test/148|en", "id": "high_school_chemistry/test/148", "lang": "en", "gold": "C", "reply": "C", "ms": 2100, "prompt_tokens": 199}
+{"key": "high_school_chemistry/test/86|en", "id": "high_school_chemistry/test/86", "lang": "en", "gold": "A", "reply": "A", "ms": 1364, "prompt_tokens": 126}
+{"key": "high_school_computer_science/test/52|en", "id": "high_school_computer_science/test/52", "lang": "en", "gold": "A", "reply": "A", "ms": 983, "prompt_tokens": 85}
+{"key": "high_school_computer_science/test/43|en", "id": "high_school_computer_science/test/43", "lang": "en", "gold": "A", "reply": "B", "ms": 1356, "prompt_tokens": 123}
+{"key": "high_school_computer_science/test/75|en", "id": "high_school_computer_science/test/75", "lang": "en", "gold": "C", "reply": "C", "ms": 2133, "prompt_tokens": 198}
+{"key": "high_school_european_history/test/158|en", "id": "high_school_european_history/test/158", "lang": "en", "gold": "D", "reply": "C", "ms": 3934, "prompt_tokens": 383}
+{"key": "high_school_european_history/test/80|en", "id": "high_school_european_history/test/80", "lang": "en", "gold": "C", "reply": "C", "ms": 3013, "prompt_tokens": 279}
+{"key": "high_school_geography/test/82|en", "id": "high_school_geography/test/82", "lang": "en", "gold": "B", "reply": "B", "ms": 1139, "prompt_tokens": 100}
+{"key": "high_school_geography/test/167|en", "id": "high_school_geography/test/167", "lang": "en", "gold": "B", "reply": "C", "ms": 1038, "prompt_tokens": 93}
+{"key": "high_school_geography/test/11|en", "id": "high_school_geography/test/11", "lang": "en", "gold": "B", "reply": "B", "ms": 1184, "prompt_tokens": 105}
+{"key": "high_school_government_and_politics/test/38|en", "id": "high_school_government_and_politics/test/38", "lang": "en", "gold": "C", "reply": "C", "ms": 1432, "prompt_tokens": 134}
+{"key": "high_school_government_and_politics/test/0|en", "id": "high_school_government_and_politics/test/0", "lang": "en", "gold": "D", "reply": "D", "ms": 1754, "prompt_tokens": 168}
+{"key": "high_school_macroeconomics/test/235|en", "id": "high_school_macroeconomics/test/235", "lang": "en", "gold": "B", "reply": "B", "ms": 1351, "prompt_tokens": 125}
+{"key": "high_school_macroeconomics/test/184|en", "id": "high_school_macroeconomics/test/184", "lang": "en", "gold": "D", "reply": "D", "ms": 1484, "prompt_tokens": 127}
+{"key": "high_school_macroeconomics/test/170|en", "id": "high_school_macroeconomics/test/170", "lang": "en", "gold": "D", "reply": "D", "ms": 960, "prompt_tokens": 95}
+{"key": "high_school_mathematics/test/193|en", "id": "high_school_mathematics/test/193", "lang": "en", "gold": "C", "reply": "C", "ms": 1890, "prompt_tokens": 169}
+{"key": "high_school_mathematics/test/74|en", "id": "high_school_mathematics/test/74", "lang": "en", "gold": "B", "reply": "Let the three terms of the arithmetic progression be $a_1, a_2, a_3$.\nGiven", "ms": 2215, "prompt_tokens": 134}
+{"key": "high_school_microeconomics/test/69|en", "id": "high_school_microeconomics/test/69", "lang": "en", "gold": "B", "reply": "B", "ms": 1317, "prompt_tokens": 119}
+{"key": "high_school_microeconomics/test/68|en", "id": "high_school_microeconomics/test/68", "lang": "en", "gold": "D", "reply": "A", "ms": 1179, "prompt_tokens": 104}
+{"key": "high_school_microeconomics/test/13|en", "id": "high_school_microeconomics/test/13", "lang": "en", "gold": "C", "reply": "C", "ms": 1228, "prompt_tokens": 112}
+{"key": "high_school_physics/test/3|en", "id": "high_school_physics/test/3", "lang": "en", "gold": "C", "reply": "B", "ms": 2274, "prompt_tokens": 210}
+{"key": "high_school_physics/test/30|en", "id": "high_school_physics/test/30", "lang": "en", "gold": "A", "reply": "A", "ms": 1359, "prompt_tokens": 126}
+{"key": "high_school_psychology/test/165|en", "id": "high_school_psychology/test/165", "lang": "en", "gold": "A", "reply": "A", "ms": 1002, "prompt_tokens": 83}
+{"key": "high_school_psychology/test/406|en", "id": "high_school_psychology/test/406", "lang": "en", "gold": "A", "reply": "A", "ms": 1080, "prompt_tokens": 96}
+{"key": "high_school_psychology/test/176|en", "id": "high_school_psychology/test/176", "lang": "en", "gold": "D", "reply": "D", "ms": 970, "prompt_tokens": 87}
+{"key": "high_school_statistics/test/39|en", "id": "high_school_statistics/test/39", "lang": "en", "gold": "B", "reply": "B", "ms": 1865, "prompt_tokens": 174}
+{"key": "high_school_statistics/test/154|en", "id": "high_school_statistics/test/154", "lang": "en", "gold": "A", "reply": "C", "ms": 3082, "prompt_tokens": 284}
+{"key": "high_school_us_history/test/104|en", "id": "high_school_us_history/test/104", "lang": "en", "gold": "D", "reply": "D", "ms": 2851, "prompt_tokens": 272}
+{"key": "high_school_us_history/test/108|en", "id": "high_school_us_history/test/108", "lang": "en", "gold": "A", "reply": "A", "ms": 3230, "prompt_tokens": 283}
+{"key": "high_school_us_history/test/34|en", "id": "high_school_us_history/test/34", "lang": "en", "gold": "C", "reply": "C", "ms": 3360, "prompt_tokens": 329}
+{"key": "high_school_world_history/test/216|en", "id": "high_school_world_history/test/216", "lang": "en", "gold": "B", "reply": "B", "ms": 2935, "prompt_tokens": 275}
+{"key": "high_school_world_history/test/169|en", "id": "high_school_world_history/test/169", "lang": "en", "gold": "A", "reply": "A", "ms": 6759, "prompt_tokens": 642}
+{"key": "human_aging/test/31|en", "id": "human_aging/test/31", "lang": "en", "gold": "B", "reply": "B", "ms": 1039, "prompt_tokens": 92}
+{"key": "human_aging/test/117|en", "id": "human_aging/test/117", "lang": "en", "gold": "C", "reply": "C", "ms": 1040, "prompt_tokens": 87}
+{"key": "human_aging/test/55|en", "id": "human_aging/test/55", "lang": "en", "gold": "B", "reply": "C", "ms": 1025, "prompt_tokens": 86}
+{"key": "human_sexuality/test/91|en", "id": "human_sexuality/test/91", "lang": "en", "gold": "B", "reply": "B", "ms": 1008, "prompt_tokens": 85}
+{"key": "human_sexuality/test/14|en", "id": "human_sexuality/test/14", "lang": "en", "gold": "D", "reply": "D", "ms": 991, "prompt_tokens": 81}
+{"key": "international_law/test/48|en", "id": "international_law/test/48", "lang": "en", "gold": "C", "reply": "C", "ms": 1577, "prompt_tokens": 147}
+{"key": "international_law/test/35|en", "id": "international_law/test/35", "lang": "en", "gold": "D", "reply": "D", "ms": 1519, "prompt_tokens": 139}
+{"key": "international_law/test/112|en", "id": "international_law/test/112", "lang": "en", "gold": "D", "reply": "D", "ms": 1947, "prompt_tokens": 176}
+{"key": "jurisprudence/test/63|en", "id": "jurisprudence/test/63", "lang": "en", "gold": "B", "reply": "D", "ms": 1846, "prompt_tokens": 179}
+{"key": "jurisprudence/test/102|en", "id": "jurisprudence/test/102", "lang": "en", "gold": "C", "reply": "A", "ms": 1735, "prompt_tokens": 146}
+{"key": "logical_fallacies/test/46|en", "id": "logical_fallacies/test/46", "lang": "en", "gold": "A", "reply": "A", "ms": 1501, "prompt_tokens": 141}
+{"key": "logical_fallacies/test/114|en", "id": "logical_fallacies/test/114", "lang": "en", "gold": "A", "reply": "A", "ms": 1424, "prompt_tokens": 131}
+{"key": "logical_fallacies/test/143|en", "id": "logical_fallacies/test/143", "lang": "en", "gold": "B", "reply": "B", "ms": 1293, "prompt_tokens": 116}
+{"key": "machine_learning/test/87|en", "id": "machine_learning/test/87", "lang": "en", "gold": "C", "reply": "C", "ms": 1341, "prompt_tokens": 119}
+{"key": "machine_learning/test/103|en", "id": "machine_learning/test/103", "lang": "en", "gold": "C", "reply": "B", "ms": 3184, "prompt_tokens": 301}
+{"key": "management/test/4|en", "id": "management/test/4", "lang": "en", "gold": "D", "reply": "B", "ms": 1074, "prompt_tokens": 94}
+{"key": "management/test/62|en", "id": "management/test/62", "lang": "en", "gold": "D", "reply": "C", "ms": 1059, "prompt_tokens": 86}
+{"key": "management/test/33|en", "id": "management/test/33", "lang": "en", "gold": "B", "reply": "B", "ms": 824, "prompt_tokens": 80}
+{"key": "marketing/test/88|en", "id": "marketing/test/88", "lang": "en", "gold": "D", "reply": "D", "ms": 1016, "prompt_tokens": 86}
+{"key": "marketing/test/184|en", "id": "marketing/test/184", "lang": "en", "gold": "B", "reply": "A", "ms": 1056, "prompt_tokens": 93}
+{"key": "medical_genetics/test/82|en", "id": "medical_genetics/test/82", "lang": "en", "gold": "B", "reply": "B", "ms": 1254, "prompt_tokens": 112}
+{"key": "medical_genetics/test/31|en", "id": "medical_genetics/test/31", "lang": "en", "gold": "C", "reply": "C", "ms": 1365, "prompt_tokens": 124}
+{"key": "medical_genetics/test/93|en", "id": "medical_genetics/test/93", "lang": "en", "gold": "A", "reply": "A", "ms": 1257, "prompt_tokens": 112}
+{"key": "miscellaneous/test/72|en", "id": "miscellaneous/test/72", "lang": "en", "gold": "B", "reply": "B", "ms": 1047, "prompt_tokens": 89}
+{"key": "miscellaneous/test/143|en", "id": "miscellaneous/test/143", "lang": "en", "gold": "B", "reply": "A", "ms": 1390, "prompt_tokens": 127}
+{"key": "moral_disputes/test/63|en", "id": "moral_disputes/test/63", "lang": "en", "gold": "D", "reply": "D", "ms": 1160, "prompt_tokens": 101}
+{"key": "moral_disputes/test/286|en", "id": "moral_disputes/test/286", "lang": "en", "gold": "C", "reply": "C", "ms": 1297, "prompt_tokens": 115}
+{"key": "moral_disputes/test/101|en", "id": "moral_disputes/test/101", "lang": "en", "gold": "D", "reply": "D", "ms": 1555, "prompt_tokens": 142}
+{"key": "moral_scenarios/test/209|en", "id": "moral_scenarios/test/209", "lang": "en", "gold": "C", "reply": "B", "ms": 1829, "prompt_tokens": 157}
+{"key": "moral_scenarios/test/90|en", "id": "moral_scenarios/test/90", "lang": "en", "gold": "C", "reply": "B", "ms": 1641, "prompt_tokens": 152}
+{"key": "nutrition/test/97|en", "id": "nutrition/test/97", "lang": "en", "gold": "D", "reply": "D", "ms": 1202, "prompt_tokens": 104}
+{"key": "nutrition/test/246|en", "id": "nutrition/test/246", "lang": "en", "gold": "C", "reply": "C", "ms": 1967, "prompt_tokens": 177}
+{"key": "nutrition/test/18|en", "id": "nutrition/test/18", "lang": "en", "gold": "A", "reply": "A", "ms": 1038, "prompt_tokens": 82}
+{"key": "philosophy/test/7|en", "id": "philosophy/test/7", "lang": "en", "gold": "D", "reply": "A", "ms": 1357, "prompt_tokens": 127}
+{"key": "philosophy/test/302|en", "id": "philosophy/test/302", "lang": "en", "gold": "B", "reply": "B", "ms": 1020, "prompt_tokens": 97}
+{"key": "prehistory/test/78|en", "id": "prehistory/test/78", "lang": "en", "gold": "B", "reply": "B", "ms": 1319, "prompt_tokens": 117}
+{"key": "prehistory/test/83|en", "id": "prehistory/test/83", "lang": "en", "gold": "C", "reply": "C", "ms": 1178, "prompt_tokens": 105}
+{"key": "prehistory/test/302|en", "id": "prehistory/test/302", "lang": "en", "gold": "D", "reply": "D", "ms": 1422, "prompt_tokens": 112}
+{"key": "professional_accounting/test/3|en", "id": "professional_accounting/test/3", "lang": "en", "gold": "D", "reply": "C", "ms": 1478, "prompt_tokens": 135}
+{"key": "professional_accounting/test/7|en", "id": "professional_accounting/test/7", "lang": "en", "gold": "D", "reply": "C", "ms": 1309, "prompt_tokens": 117}
+{"key": "professional_law/test/1240|en", "id": "professional_law/test/1240", "lang": "en", "gold": "D", "reply": "A", "ms": 4390, "prompt_tokens": 422}
+{"key": "professional_law/test/1128|en", "id": "professional_law/test/1128", "lang": "en", "gold": "B", "reply": "C", "ms": 3005, "prompt_tokens": 277}
+{"key": "professional_law/test/93|en", "id": "professional_law/test/93", "lang": "en", "gold": "C", "reply": "C", "ms": 1077, "prompt_tokens": 94}
+{"key": "professional_medicine/test/185|en", "id": "professional_medicine/test/185", "lang": "en", "gold": "C", "reply": "C", "ms": 1975, "prompt_tokens": 194}
+{"key": "professional_medicine/test/58|en", "id": "professional_medicine/test/58", "lang": "en", "gold": "D", "reply": "D", "ms": 3055, "prompt_tokens": 279}
+{"key": "professional_psychology/test/525|en", "id": "professional_psychology/test/525", "lang": "en", "gold": "C", "reply": "C", "ms": 1225, "prompt_tokens": 105}
+{"key": "professional_psychology/test/260|en", "id": "professional_psychology/test/260", "lang": "en", "gold": "B", "reply": "B", "ms": 814, "prompt_tokens": 81}
+{"key": "professional_psychology/test/349|en", "id": "professional_psychology/test/349", "lang": "en", "gold": "A", "reply": "A", "ms": 1685, "prompt_tokens": 141}
+{"key": "public_relations/test/100|en", "id": "public_relations/test/100", "lang": "en", "gold": "D", "reply": "D", "ms": 1114, "prompt_tokens": 95}
+{"key": "public_relations/test/7|en", "id": "public_relations/test/7", "lang": "en", "gold": "A", "reply": "C", "ms": 1427, "prompt_tokens": 122}
+{"key": "security_studies/test/64|en", "id": "security_studies/test/64", "lang": "en", "gold": "D", "reply": "D", "ms": 3679, "prompt_tokens": 349}
+{"key": "security_studies/test/172|en", "id": "security_studies/test/172", "lang": "en", "gold": "D", "reply": "D", "ms": 2552, "prompt_tokens": 240}
+{"key": "security_studies/test/92|en", "id": "security_studies/test/92", "lang": "en", "gold": "A", "reply": "A", "ms": 2893, "prompt_tokens": 274}
+{"key": "sociology/test/75|en", "id": "sociology/test/75", "lang": "en", "gold": "A", "reply": "A", "ms": 1232, "prompt_tokens": 105}
+{"key": "sociology/test/10|en", "id": "sociology/test/10", "lang": "en", "gold": "B", "reply": "B", "ms": 1342, "prompt_tokens": 120}
+{"key": "us_foreign_policy/test/41|en", "id": "us_foreign_policy/test/41", "lang": "en", "gold": "B", "reply": "D", "ms": 1331, "prompt_tokens": 117}
+{"key": "us_foreign_policy/test/37|en", "id": "us_foreign_policy/test/37", "lang": "en", "gold": "C", "reply": "C", "ms": 1111, "prompt_tokens": 95}
+{"key": "us_foreign_policy/test/79|en", "id": "us_foreign_policy/test/79", "lang": "en", "gold": "D", "reply": "D", "ms": 1139, "prompt_tokens": 98}
+{"key": "virology/test/27|en", "id": "virology/test/27", "lang": "en", "gold": "A", "reply": "B", "ms": 1043, "prompt_tokens": 85}
+{"key": "virology/test/4|en", "id": "virology/test/4", "lang": "en", "gold": "B", "reply": "C", "ms": 1285, "prompt_tokens": 112}
+{"key": "world_religions/test/170|en", "id": "world_religions/test/170", "lang": "en", "gold": "A", "reply": "A", "ms": 1060, "prompt_tokens": 88}
+{"key": "world_religions/test/135|en", "id": "world_religions/test/135", "lang": "en", "gold": "B", "reply": "B", "ms": 1103, "prompt_tokens": 91}
+{"key": "world_religions/test/78|en", "id": "world_religions/test/78", "lang": "en", "gold": "C", "reply": "C", "ms": 794, "prompt_tokens": 77}
+{"key": "abstract_algebra/test/0|ru", "id": "abstract_algebra/test/0", "lang": "ru", "gold": "B", "reply": "B", "ms": 1271, "prompt_tokens": 114}
+{"key": "abstract_algebra/test/86|ru", "id": "abstract_algebra/test/86", "lang": "ru", "gold": "A", "reply": "A", "ms": 1870, "prompt_tokens": 160}
+{"key": "anatomy/test/59|ru", "id": "anatomy/test/59", "lang": "ru", "gold": "D", "reply": "B. Височная", "ms": 1444, "prompt_tokens": 117}
+{"key": "anatomy/test/57|ru", "id": "anatomy/test/57", "lang": "ru", "gold": "C", "reply": "C", "ms": 1479, "prompt_tokens": 133}
+{"key": "anatomy/test/119|ru", "id": "anatomy/test/119", "lang": "ru", "gold": "D", "reply": "A", "ms": 1349, "prompt_tokens": 118}
+{"key": "astronomy/test/78|ru", "id": "astronomy/test/78", "lang": "ru", "gold": "B", "reply": "B", "ms": 2151, "prompt_tokens": 194}
+{"key": "astronomy/test/87|ru", "id": "astronomy/test/87", "lang": "ru", "gold": "B", "reply": "D", "ms": 2071, "prompt_tokens": 168}
+{"key": "business_ethics/test/87|ru", "id": "business_ethics/test/87", "lang": "ru", "gold": "A", "reply": "A", "ms": 1790, "prompt_tokens": 167}
+{"key": "business_ethics/test/13|ru", "id": "business_ethics/test/13", "lang": "ru", "gold": "B", "reply": "D. Скимминг", "ms": 1539, "prompt_tokens": 126}
+{"key": "business_ethics/test/83|ru", "id": "business_ethics/test/83", "lang": "ru", "gold": "D", "reply": "D. Регуманизация", "ms": 2318, "prompt_tokens": 190}
+{"key": "clinical_knowledge/test/220|ru", "id": "clinical_knowledge/test/220", "lang": "ru", "gold": "D", "reply": "A", "ms": 1828, "prompt_tokens": 159}
+{"key": "clinical_knowledge/test/106|ru", "id": "clinical_knowledge/test/106", "lang": "ru", "gold": "D", "reply": "D. одной Y-хромосомы от отца.", "ms": 1903, "prompt_tokens": 135}
+{"key": "college_biology/test/46|ru", "id": "college_biology/test/46", "lang": "ru", "gold": "B", "reply": "A", "ms": 2358, "prompt_tokens": 213}
+{"key": "college_biology/test/136|ru", "id": "college_biology/test/136", "lang": "ru", "gold": "A", "reply": "A. кроссинговером", "ms": 2463, "prompt_tokens": 198}
+{"key": "college_biology/test/135|ru", "id": "college_biology/test/135", "lang": "ru", "gold": "A", "reply": "A", "ms": 3033, "prompt_tokens": 272}
+{"key": "college_chemistry/test/25|ru", "id": "college_chemistry/test/25", "lang": "ru", "gold": "A", "reply": "B", "ms": 1514, "prompt_tokens": 126}
+{"key": "college_chemistry/test/21|ru", "id": "college_chemistry/test/21", "lang": "ru", "gold": "D", "reply": "A", "ms": 2204, "prompt_tokens": 183}
+{"key": "college_computer_science/test/61|ru", "id": "college_computer_science/test/61", "lang": "ru", "gold": "B", "reply": "A", "ms": 3542, "prompt_tokens": 240}
+{"key": "college_computer_science/test/85|ru", "id": "college_computer_science/test/85", "lang": "ru", "gold": "D", "reply": "B", "ms": 2301, "prompt_tokens": 198}
+{"key": "college_computer_science/test/43|ru", "id": "college_computer_science/test/43", "lang": "ru", "gold": "D", "reply": "C", "ms": 3619, "prompt_tokens": 327}
+{"key": "college_mathematics/test/13|ru", "id": "college_mathematics/test/13", "lang": "ru", "gold": "B", "reply": "B", "ms": 2323, "prompt_tokens": 192}
+{"key": "college_mathematics/test/49|ru", "id": "college_mathematics/test/49", "lang": "ru", "gold": "D", "reply": "D", "ms": 2344, "prompt_tokens": 202}
+{"key": "college_medicine/test/50|ru", "id": "college_medicine/test/50", "lang": "ru", "gold": "D", "reply": "D. Восполняйте запасы жидкости, пейте фильтрованную воду.", "ms": 19946, "prompt_tokens": 1674}
+{"key": "college_medicine/test/80|ru", "id": "college_medicine/test/80", "lang": "ru", "gold": "D", "reply": "B. Производство похожего по размеру, но нефункционального белка", "ms": 3630, "prompt_tokens": 257}
+{"key": "college_medicine/test/166|ru", "id": "college_medicine/test/166", "lang": "ru", "gold": "B", "reply": "B", "ms": 1775, "prompt_tokens": 164}
+{"key": "college_physics/test/28|ru", "id": "college_physics/test/28", "lang": "ru", "gold": "B", "reply": "A", "ms": 2778, "prompt_tokens": 235}
+{"key": "college_physics/test/68|ru", "id": "college_physics/test/68", "lang": "ru", "gold": "A", "reply": "B. на половину удалены от нас, чем сегодня", "ms": 2363, "prompt_tokens": 183}
+{"key": "computer_security/test/85|ru", "id": "computer_security/test/85", "lang": "ru", "gold": "A", "reply": "A", "ms": 1420, "prompt_tokens": 106}
+{"key": "computer_security/test/49|ru", "id": "computer_security/test/49", "lang": "ru", "gold": "C", "reply": "C. проверки границ", "ms": 1474, "prompt_tokens": 118}
+{"key": "computer_security/test/76|ru", "id": "computer_security/test/76", "lang": "ru", "gold": "D", "reply": "A", "ms": 2665, "prompt_tokens": 241}
+{"key": "conceptual_physics/test/83|ru", "id": "conceptual_physics/test/83", "lang": "ru", "gold": "A", "reply": "A", "ms": 1618, "prompt_tokens": 146}
+{"key": "conceptual_physics/test/70|ru", "id": "conceptual_physics/test/70", "lang": "ru", "gold": "A", "reply": "A", "ms": 1273, "prompt_tokens": 110}
+{"key": "econometrics/test/106|ru", "id": "econometrics/test/106", "lang": "ru", "gold": "C", "reply": "D", "ms": 2118, "prompt_tokens": 167}
+{"key": "econometrics/test/103|ru", "id": "econometrics/test/103", "lang": "ru", "gold": "D", "reply": "A. только (ii) и (iv)", "ms": 2535, "prompt_tokens": 197}
+{"key": "econometrics/test/21|ru", "id": "econometrics/test/21", "lang": "ru", "gold": "D", "reply": "C. Остатки, по-видимому, не автокоррелированы", "ms": 3744, "prompt_tokens": 217}
+{"key": "electrical_engineering/test/39|ru", "id": "electrical_engineering/test/39", "lang": "ru", "gold": "B", "reply": "B. 250 Гц.", "ms": 2502, "prompt_tokens": 158}
+{"key": "electrical_engineering/test/114|ru", "id": "electrical_engineering/test/114", "lang": "ru", "gold": "C", "reply": "C", "ms": 1330, "prompt_tokens": 103}
+{"key": "elementary_mathematics/test/281|ru", "id": "elementary_mathematics/test/281", "lang": "ru", "gold": "D", "reply": "D", "ms": 1961, "prompt_tokens": 176}
+{"key": "elementary_mathematics/test/329|ru", "id": "elementary_mathematics/test/329", "lang": "ru", "gold": "A", "reply": "A", "ms": 1635, "prompt_tokens": 130}
+{"key": "elementary_mathematics/test/335|ru", "id": "elementary_mathematics/test/335", "lang": "ru", "gold": "D", "reply": "D. 30 квадратных футов", "ms": 2277, "prompt_tokens": 172}
+{"key": "formal_logic/test/118|ru", "id": "formal_logic/test/118", "lang": "ru", "gold": "C", "reply": "C", "ms": 2265, "prompt_tokens": 168}
+{"key": "formal_logic/test/2|ru", "id": "formal_logic/test/2", "lang": "ru", "gold": "C", "reply": "D", "ms": 2576, "prompt_tokens": 199}
+{"key": "global_facts/test/70|ru", "id": "global_facts/test/70", "lang": "ru", "gold": "B", "reply": "B", "ms": 1518, "prompt_tokens": 134}
+{"key": "global_facts/test/72|ru", "id": "global_facts/test/72", "lang": "ru", "gold": "B", "reply": "A", "ms": 1753, "prompt_tokens": 137}
+{"key": "global_facts/test/23|ru", "id": "global_facts/test/23", "lang": "ru", "gold": "B", "reply": "B", "ms": 1319, "prompt_tokens": 115}
+{"key": "high_school_biology/test/71|ru", "id": "high_school_biology/test/71", "lang": "ru", "gold": "D", "reply": "D", "ms": 3724, "prompt_tokens": 308}
+{"key": "high_school_biology/test/0|ru", "id": "high_school_biology/test/0", "lang": "ru", "gold": "A", "reply": "A. направленного отбора.", "ms": 2207, "prompt_tokens": 182}
+{"key": "high_school_chemistry/test/99|ru", "id": "high_school_chemistry/test/99", "lang": "ru", "gold": "A", "reply": "A", "ms": 2224, "prompt_tokens": 175}
+{"key": "high_school_chemistry/test/198|ru", "id": "high_school_chemistry/test/198", "lang": "ru", "gold": "D", "reply": "D", "ms": 1308, "prompt_tokens": 113}
+{"key": "high_school_chemistry/test/146|ru", "id": "high_school_chemistry/test/146", "lang": "ru", "gold": "B", "reply": "B. N2(г)", "ms": 2013, "prompt_tokens": 147}
+{"key": "high_school_computer_science/test/70|ru", "id": "high_school_computer_science/test/70", "lang": "ru", "gold": "B", "reply": "B. 3y", "ms": 1828, "prompt_tokens": 150}
+{"key": "high_school_computer_science/test/45|ru", "id": "high_school_computer_science/test/45", "lang": "ru", "gold": "B", "reply": "B", "ms": 1232, "prompt_tokens": 97}
+{"key": "high_school_european_history/test/73|ru", "id": "high_school_european_history/test/73", "lang": "ru", "gold": "C", "reply": "B. Кардинал Мазарини, его регент и советник по внешней политике", "ms": 9080, "prompt_tokens": 746}
+{"key": "high_school_european_history/test/45|ru", "id": "high_school_european_history/test/45", "lang": "ru", "gold": "D", "reply": "C. Бентамиты", "ms": 7129, "prompt_tokens": 602}
+{"key": "high_school_european_history/test/71|ru", "id": "high_school_european_history/test/71", "lang": "ru", "gold": "B", "reply": "B. сферы влияния", "ms": 4251, "prompt_tokens": 369}
+{"key": "high_school_geography/test/161|ru", "id": "high_school_geography/test/161", "lang": "ru", "gold": "D", "reply": "D. ООП", "ms": 1406, "prompt_tokens": 106}
+{"key": "high_school_geography/test/56|ru", "id": "high_school_geography/test/56", "lang": "ru", "gold": "A", "reply": "A", "ms": 1518, "prompt_tokens": 135}
+{"key": "high_school_government_and_politics/test/26|ru", "id": "high_school_government_and_politics/test/26", "lang": "ru", "gold": "C", "reply": "C", "ms": 2076, "prompt_tokens": 179}
+{"key": "high_school_government_and_politics/test/186|ru", "id": "high_school_government_and_politics/test/186", "lang": "ru", "gold": "A", "reply": "A", "ms": 2480, "prompt_tokens": 219}
+{"key": "high_school_government_and_politics/test/35|ru", "id": "high_school_government_and_politics/test/35", "lang": "ru", "gold": "D", "reply": "D", "ms": 2440, "prompt_tokens": 217}
+{"key": "high_school_macroeconomics/test/62|ru", "id": "high_school_macroeconomics/test/62", "lang": "ru", "gold": "D", "reply": "B", "ms": 1676, "prompt_tokens": 152}
+{"key": "high_school_macroeconomics/test/388|ru", "id": "high_school_macroeconomics/test/388", "lang": "ru", "gold": "B", "reply": "B", "ms": 1540, "prompt_tokens": 140}
+{"key": "high_school_mathematics/test/269|ru", "id": "high_school_mathematics/test/269", "lang": "ru", "gold": "B", "reply": "A", "ms": 1795, "prompt_tokens": 138}
+{"key": "high_school_mathematics/test/95|ru", "id": "high_school_mathematics/test/95", "lang": "ru", "gold": "A", "reply": "B", "ms": 1521, "prompt_tokens": 129}
+{"key": "high_school_mathematics/test/71|ru", "id": "high_school_mathematics/test/71", "lang": "ru", "gold": "B", "reply": "B", "ms": 1455, "prompt_tokens": 127}
+{"key": "high_school_microeconomics/test/103|ru", "id": "high_school_microeconomics/test/103", "lang": "ru", "gold": "A", "reply": "D", "ms": 1813, "prompt_tokens": 164}
+{"key": "high_school_microeconomics/test/112|ru", "id": "high_school_microeconomics/test/112", "lang": "ru", "gold": "A", "reply": "A", "ms": 2537, "prompt_tokens": 226}
+{"key": "high_school_physics/test/39|ru", "id": "high_school_physics/test/39", "lang": "ru", "gold": "A", "reply": "A", "ms": 1814, "prompt_tokens": 145}
+{"key": "high_school_physics/test/98|ru", "id": "high_school_physics/test/98", "lang": "ru", "gold": "A", "reply": "C", "ms": 2000, "prompt_tokens": 185}
+{"key": "high_school_physics/test/80|ru", "id": "high_school_physics/test/80", "lang": "ru", "gold": "D", "reply": "C", "ms": 1844, "prompt_tokens": 144}
+{"key": "high_school_psychology/test/410|ru", "id": "high_school_psychology/test/410", "lang": "ru", "gold": "C", "reply": "B. бета-волны.", "ms": 2628, "prompt_tokens": 206}
+{"key": "high_school_psychology/test/520|ru", "id": "high_school_psychology/test/520", "lang": "ru", "gold": "D", "reply": "D", "ms": 2390, "prompt_tokens": 213}
+{"key": "high_school_statistics/test/25|ru", "id": "high_school_statistics/test/25", "lang": "ru", "gold": "D", "reply": "B", "ms": 2983, "prompt_tokens": 253}
+{"key": "high_school_statistics/test/125|ru", "id": "high_school_statistics/test/125", "lang": "ru", "gold": "D", "reply": "D", "ms": 2367, "prompt_tokens": 170}
+{"key": "high_school_statistics/test/184|ru", "id": "high_school_statistics/test/184", "lang": "ru", "gold": "D", "reply": "B", "ms": 1540, "prompt_tokens": 135}
+{"key": "high_school_us_history/test/106|ru", "id": "high_school_us_history/test/106", "lang": "ru", "gold": "D", "reply": "D", "ms": 7489, "prompt_tokens": 670}
+{"key": "high_school_us_history/test/133|ru", "id": "high_school_us_history/test/133", "lang": "ru", "gold": "A", "reply": "A", "ms": 6276, "prompt_tokens": 579}
+{"key": "high_school_world_history/test/199|ru", "id": "high_school_world_history/test/199", "lang": "ru", "gold": "D", "reply": "D", "ms": 4673, "prompt_tokens": 427}
+{"key": "high_school_world_history/test/80|ru", "id": "high_school_world_history/test/80", "lang": "ru", "gold": "C", "reply": "C. Продажа индульгенций", "ms": 8401, "prompt_tokens": 694}
+{"key": "high_school_world_history/test/46|ru", "id": "high_school_world_history/test/46", "lang": "ru", "gold": "C", "reply": "C", "ms": 8775, "prompt_tokens": 790}
+{"key": "human_aging/test/179|ru", "id": "human_aging/test/179", "lang": "ru", "gold": "B", "reply": "B. Прожить 100 лет или больше", "ms": 1849, "prompt_tokens": 126}
+{"key": "human_aging/test/85|ru", "id": "human_aging/test/85", "lang": "ru", "gold": "B", "reply": "B", "ms": 2291, "prompt_tokens": 178}
+{"key": "human_sexuality/test/33|ru", "id": "human_sexuality/test/33", "lang": "ru", "gold": "A", "reply": "A", "ms": 1433, "prompt_tokens": 105}
+{"key": "human_sexuality/test/13|ru", "id": "human_sexuality/test/13", "lang": "ru", "gold": "B", "reply": "B. аскетизм", "ms": 1892, "prompt_tokens": 149}
+{"key": "human_sexuality/test/19|ru", "id": "human_sexuality/test/19", "lang": "ru", "gold": "C", "reply": "C. сексуально мотивированный", "ms": 1928, "prompt_tokens": 132}
+{"key": "international_law/test/7|ru", "id": "international_law/test/7", "lang": "ru", "gold": "C", "reply": "C", "ms": 2537, "prompt_tokens": 207}
+{"key": "international_law/test/87|ru", "id": "international_law/test/87", "lang": "ru", "gold": "B", "reply": "B", "ms": 1966, "prompt_tokens": 177}
+{"key": "jurisprudence/test/66|ru", "id": "jurisprudence/test/66", "lang": "ru", "gold": "B", "reply": "B", "ms": 2270, "prompt_tokens": 202}
+{"key": "jurisprudence/test/70|ru", "id": "jurisprudence/test/70", "lang": "ru", "gold": "C", "reply": "A", "ms": 1239, "prompt_tokens": 108}
+{"key": "jurisprudence/test/105|ru", "id": "jurisprudence/test/105", "lang": "ru", "gold": "C", "reply": "C", "ms": 1793, "prompt_tokens": 166}
+{"key": "logical_fallacies/test/91|ru", "id": "logical_fallacies/test/91", "lang": "ru", "gold": "B", "reply": "B", "ms": 2930, "prompt_tokens": 233}
+{"key": "logical_fallacies/test/150|ru", "id": "logical_fallacies/test/150", "lang": "ru", "gold": "C", "reply": "A", "ms": 2093, "prompt_tokens": 197}
+{"key": "machine_learning/test/58|ru", "id": "machine_learning/test/58", "lang": "ru", "gold": "B", "reply": "A", "ms": 2243, "prompt_tokens": 182}
+{"key": "machine_learning/test/66|ru", "id": "machine_learning/test/66", "lang": "ru", "gold": "C", "reply": "C", "ms": 3309, "prompt_tokens": 296}
+{"key": "machine_learning/test/5|ru", "id": "machine_learning/test/5", "lang": "ru", "gold": "B", "reply": "A", "ms": 2267, "prompt_tokens": 199}
+{"key": "management/test/45|ru", "id": "management/test/45", "lang": "ru", "gold": "C", "reply": "C. Социальный аудит", "ms": 1734, "prompt_tokens": 133}
+{"key": "management/test/93|ru", "id": "management/test/93", "lang": "ru", "gold": "D", "reply": "A", "ms": 1662, "prompt_tokens": 125}
+{"key": "marketing/test/71|ru", "id": "marketing/test/71", "lang": "ru", "gold": "C", "reply": "C", "ms": 1594, "prompt_tokens": 136}
+{"key": "marketing/test/180|ru", "id": "marketing/test/180", "lang": "ru", "gold": "C", "reply": "C. Интернет-реклама.", "ms": 2256, "prompt_tokens": 169}
+{"key": "marketing/test/138|ru", "id": "marketing/test/138", "lang": "ru", "gold": "C", "reply": "C. Брендинг клиентов.", "ms": 2028, "prompt_tokens": 167}
+{"key": "medical_genetics/test/33|ru", "id": "medical_genetics/test/33", "lang": "ru", "gold": "B", "reply": "C. кодоминирование", "ms": 2723, "prompt_tokens": 218}
+{"key": "medical_genetics/test/80|ru", "id": "medical_genetics/test/80", "lang": "ru", "gold": "B", "reply": "B", "ms": 1843, "prompt_tokens": 144}
+{"key": "miscellaneous/test/560|ru", "id": "miscellaneous/test/560", "lang": "ru", "gold": "B", "reply": "A", "ms": 1400, "prompt_tokens": 125}
+{"key": "miscellaneous/test/699|ru", "id": "miscellaneous/test/699", "lang": "ru", "gold": "A", "reply": "A", "ms": 1456, "prompt_tokens": 131}
+{"key": "miscellaneous/test/53|ru", "id": "miscellaneous/test/53", "lang": "ru", "gold": "C", "reply": "C", "ms": 1269, "prompt_tokens": 106}
+{"key": "moral_disputes/test/230|ru", "id": "moral_disputes/test/230", "lang": "ru", "gold": "C", "reply": "A", "ms": 1456, "prompt_tokens": 126}
+{"key": "moral_disputes/test/205|ru", "id": "moral_disputes/test/205", "lang": "ru", "gold": "C", "reply": "C. «почти так же важно»", "ms": 2420, "prompt_tokens": 185}
+{"key": "moral_scenarios/test/636|ru", "id": "moral_scenarios/test/636", "lang": "ru", "gold": "C", "reply": "C", "ms": 2585, "prompt_tokens": 237}
+{"key": "moral_scenarios/test/651|ru", "id": "moral_scenarios/test/651", "lang": "ru", "gold": "A", "reply": "C", "ms": 2740, "prompt_tokens": 252}
+{"key": "moral_scenarios/test/590|ru", "id": "moral_scenarios/test/590", "lang": "ru", "gold": "C", "reply": "C", "ms": 2929, "prompt_tokens": 249}
+{"key": "nutrition/test/71|ru", "id": "nutrition/test/71", "lang": "ru", "gold": "A", "reply": "A", "ms": 1274, "prompt_tokens": 113}
+{"key": "nutrition/test/265|ru", "id": "nutrition/test/265", "lang": "ru", "gold": "D", "reply": "B. Плохое когнитивное развитие", "ms": 1850, "prompt_tokens": 112}
+{"key": "philosophy/test/176|ru", "id": "philosophy/test/176", "lang": "ru", "gold": "B", "reply": "A. истинный", "ms": 1655, "prompt_tokens": 107}
+{"key": "philosophy/test/208|ru", "id": "philosophy/test/208", "lang": "ru", "gold": "B", "reply": "D", "ms": 1567, "prompt_tokens": 141}
+{"key": "philosophy/test/179|ru", "id": "philosophy/test/179", "lang": "ru", "gold": "A", "reply": "A", "ms": 1828, "prompt_tokens": 146}
+{"key": "prehistory/test/51|ru", "id": "prehistory/test/51", "lang": "ru", "gold": "B", "reply": "B. картофель", "ms": 1384, "prompt_tokens": 112}
+{"key": "prehistory/test/319|ru", "id": "prehistory/test/319", "lang": "ru", "gold": "B", "reply": "C", "ms": 2232, "prompt_tokens": 211}
+{"key": "professional_accounting/test/145|ru", "id": "professional_accounting/test/145", "lang": "ru", "gold": "A", "reply": "A", "ms": 2931, "prompt_tokens": 261}
+{"key": "professional_accounting/test/147|ru", "id": "professional_accounting/test/147", "lang": "ru", "gold": "C", "reply": "B", "ms": 1541, "prompt_tokens": 140}
+{"key": "professional_accounting/test/97|ru", "id": "professional_accounting/test/97", "lang": "ru", "gold": "B", "reply": "B. Невозвратные издержки", "ms": 1769, "prompt_tokens": 134}
+{"key": "professional_law/test/1438|ru", "id": "professional_law/test/1438", "lang": "ru", "gold": "A", "reply": "A", "ms": 4762, "prompt_tokens": 440}
+{"key": "professional_law/test/340|ru", "id": "professional_law/test/340", "lang": "ru", "gold": "B", "reply": "B", "ms": 5057, "prompt_tokens": 477}
+{"key": "professional_medicine/test/261|ru", "id": "professional_medicine/test/261", "lang": "ru", "gold": "D", "reply": "B. Барбитураты", "ms": 2858, "prompt_tokens": 231}
+{"key": "professional_medicine/test/69|ru", "id": "professional_medicine/test/69", "lang": "ru", "gold": "B", "reply": "C", "ms": 2478, "prompt_tokens": 223}
+{"key": "professional_medicine/test/148|ru", "id": "professional_medicine/test/148", "lang": "ru", "gold": "D", "reply": "D", "ms": 2562, "prompt_tokens": 229}
+{"key": "professional_psychology/test/168|ru", "id": "professional_psychology/test/168", "lang": "ru", "gold": "B", "reply": "C", "ms": 2238, "prompt_tokens": 196}
+{"key": "professional_psychology/test/257|ru", "id": "professional_psychology/test/257", "lang": "ru", "gold": "A", "reply": "A", "ms": 2153, "prompt_tokens": 181}
+{"key": "public_relations/test/22|ru", "id": "public_relations/test/22", "lang": "ru", "gold": "B", "reply": "A", "ms": 2843, "prompt_tokens": 268}
+{"key": "public_relations/test/76|ru", "id": "public_relations/test/76", "lang": "ru", "gold": "C", "reply": "A. Одна четверть", "ms": 1428, "prompt_tokens": 114}
+{"key": "public_relations/test/102|ru", "id": "public_relations/test/102", "lang": "ru", "gold": "C", "reply": "A", "ms": 1378, "prompt_tokens": 121}
+{"key": "security_studies/test/158|ru", "id": "security_studies/test/158", "lang": "ru", "gold": "D", "reply": "C", "ms": 2437, "prompt_tokens": 218}
+{"key": "security_studies/test/169|ru", "id": "security_studies/test/169", "lang": "ru", "gold": "A", "reply": "A", "ms": 6335, "prompt_tokens": 581}
+{"key": "sociology/test/82|ru", "id": "sociology/test/82", "lang": "ru", "gold": "D", "reply": "A", "ms": 2746, "prompt_tokens": 256}
+{"key": "sociology/test/185|ru", "id": "sociology/test/185", "lang": "ru", "gold": "A", "reply": "A", "ms": 1965, "prompt_tokens": 181}
+{"key": "sociology/test/55|ru", "id": "sociology/test/55", "lang": "ru", "gold": "C", "reply": "A", "ms": 1940, "prompt_tokens": 170}
+{"key": "us_foreign_policy/test/45|ru", "id": "us_foreign_policy/test/45", "lang": "ru", "gold": "C", "reply": "C. Самодержавие", "ms": 1368, "prompt_tokens": 105}
+{"key": "us_foreign_policy/test/30|ru", "id": "us_foreign_policy/test/30", "lang": "ru", "gold": "C", "reply": "A", "ms": 2755, "prompt_tokens": 259}
+{"key": "virology/test/45|ru", "id": "virology/test/45", "lang": "ru", "gold": "B", "reply": "C", "ms": 1335, "prompt_tokens": 117}
+{"key": "virology/test/16|ru", "id": "virology/test/16", "lang": "ru", "gold": "D", "reply": "D. Перспективная когорта", "ms": 2274, "prompt_tokens": 174}
+{"key": "virology/test/82|ru", "id": "virology/test/82", "lang": "ru", "gold": "C", "reply": "C", "ms": 1362, "prompt_tokens": 120}
+{"key": "world_religions/test/164|ru", "id": "world_religions/test/164", "lang": "ru", "gold": "A", "reply": "B", "ms": 1389, "prompt_tokens": 126}
+{"key": "world_religions/test/105|ru", "id": "world_religions/test/105", "lang": "ru", "gold": "A", "reply": "A. Эпос Творения", "ms": 1417, "prompt_tokens": 105}
+{"key": "abstract_algebra/test/21|en", "id": "abstract_algebra/test/21", "lang": "en", "gold": "A", "reply": "C", "ms": 2003, "prompt_tokens": 137}
+{"key": "abstract_algebra/test/12|en", "id": "abstract_algebra/test/12", "lang": "en", "gold": "A", "reply": "D", "ms": 1305, "prompt_tokens": 96}
+{"key": "anatomy/test/120|en", "id": "anatomy/test/120", "lang": "en", "gold": "C", "reply": "C", "ms": 1181, "prompt_tokens": 86}
+{"key": "anatomy/test/104|en", "id": "anatomy/test/104", "lang": "en", "gold": "A", "reply": "A", "ms": 2011, "prompt_tokens": 138}
+{"key": "anatomy/test/132|en", "id": "anatomy/test/132", "lang": "en", "gold": "A", "reply": "A", "ms": 1805, "prompt_tokens": 118}
+{"key": "astronomy/test/100|en", "id": "astronomy/test/100", "lang": "en", "gold": "A", "reply": "A", "ms": 1923, "prompt_tokens": 130}
+{"key": "astronomy/test/112|en", "id": "astronomy/test/112", "lang": "en", "gold": "D", "reply": "D", "ms": 1945, "prompt_tokens": 123}
+{"key": "business_ethics/test/78|en", "id": "business_ethics/test/78", "lang": "en", "gold": "A", "reply": "A", "ms": 1672, "prompt_tokens": 114}
+{"key": "business_ethics/test/76|en", "id": "business_ethics/test/76", "lang": "en", "gold": "A", "reply": "D", "ms": 2733, "prompt_tokens": 119}
+{"key": "business_ethics/test/16|en", "id": "business_ethics/test/16", "lang": "en", "gold": "A", "reply": "A", "ms": 1601, "prompt_tokens": 99}
+{"key": "clinical_knowledge/test/261|en", "id": "clinical_knowledge/test/261", "lang": "en", "gold": "B", "reply": "B", "ms": 1692, "prompt_tokens": 115}
+{"key": "clinical_knowledge/test/7|en", "id": "clinical_knowledge/test/7", "lang": "en", "gold": "A", "reply": "A", "ms": 2181, "prompt_tokens": 144}
+{"key": "college_biology/test/1|en", "id": "college_biology/test/1", "lang": "en", "gold": "C", "reply": "C", "ms": 1877, "prompt_tokens": 132}
+{"key": "college_biology/test/56|en", "id": "college_biology/test/56", "lang": "en", "gold": "C", "reply": "C", "ms": 2486, "prompt_tokens": 168}
+{"key": "college_biology/test/84|en", "id": "college_biology/test/84", "lang": "en", "gold": "D", "reply": "D", "ms": 1348, "prompt_tokens": 90}
+{"key": "college_chemistry/test/33|en", "id": "college_chemistry/test/33", "lang": "en", "gold": "D", "reply": "D", "ms": 1882, "prompt_tokens": 123}
+{"key": "college_chemistry/test/98|en", "id": "college_chemistry/test/98", "lang": "en", "gold": "B", "reply": "C", "ms": 1598, "prompt_tokens": 106}
+{"key": "college_computer_science/test/44|en", "id": "college_computer_science/test/44", "lang": "en", "gold": "D", "reply": "A", "ms": 2083, "prompt_tokens": 136}
+{"key": "college_computer_science/test/40|en", "id": "college_computer_science/test/40", "lang": "en", "gold": "A", "reply": "A", "ms": 2058, "prompt_tokens": 134}
+{"key": "college_computer_science/test/26|en", "id": "college_computer_science/test/26", "lang": "en", "gold": "C", "reply": "C", "ms": 1599, "prompt_tokens": 101}
+{"key": "college_mathematics/test/62|en", "id": "college_mathematics/test/62", "lang": "en", "gold": "A", "reply": "A", "ms": 2203, "prompt_tokens": 147}
+{"key": "college_mathematics/test/97|en", "id": "college_mathematics/test/97", "lang": "en", "gold": "C", "reply": "C", "ms": 1854, "prompt_tokens": 130}
+{"key": "college_medicine/test/78|en", "id": "college_medicine/test/78", "lang": "en", "gold": "C", "reply": "A", "ms": 2831, "prompt_tokens": 179}
+{"key": "college_medicine/test/51|en", "id": "college_medicine/test/51", "lang": "en", "gold": "D", "reply": "D", "ms": 1332, "prompt_tokens": 87}
+{"key": "college_medicine/test/62|en", "id": "college_medicine/test/62", "lang": "en", "gold": "D", "reply": "D", "ms": 1236, "prompt_tokens": 81}
+{"key": "college_physics/test/97|en", "id": "college_physics/test/97", "lang": "en", "gold": "C", "reply": "C", "ms": 2097, "prompt_tokens": 145}
+{"key": "college_physics/test/96|en", "id": "college_physics/test/96", "lang": "en", "gold": "C", "reply": "C", "ms": 1935, "prompt_tokens": 127}
+{"key": "computer_security/test/52|en", "id": "computer_security/test/52", "lang": "en", "gold": "A", "reply": "A", "ms": 1440, "prompt_tokens": 96}
+{"key": "computer_security/test/30|en", "id": "computer_security/test/30", "lang": "en", "gold": "D", "reply": "D", "ms": 1294, "prompt_tokens": 84}
+{"key": "computer_security/test/27|en", "id": "computer_security/test/27", "lang": "en", "gold": "B", "reply": "D", "ms": 1345, "prompt_tokens": 87}
+{"key": "conceptual_physics/test/133|en", "id": "conceptual_physics/test/133", "lang": "en", "gold": "C", "reply": "A", "ms": 1318, "prompt_tokens": 85}
+{"key": "conceptual_physics/test/172|en", "id": "conceptual_physics/test/172", "lang": "en", "gold": "B", "reply": "B", "ms": 1313, "prompt_tokens": 85}
+{"key": "econometrics/test/8|en", "id": "econometrics/test/8", "lang": "en", "gold": "B", "reply": "C", "ms": 2415, "prompt_tokens": 164}
+{"key": "econometrics/test/20|en", "id": "econometrics/test/20", "lang": "en", "gold": "B", "reply": "B", "ms": 1772, "prompt_tokens": 114}
+{"key": "econometrics/test/101|en", "id": "econometrics/test/101", "lang": "en", "gold": "D", "reply": "D", "ms": 1787, "prompt_tokens": 118}
+{"key": "electrical_engineering/test/41|en", "id": "electrical_engineering/test/41", "lang": "en", "gold": "B", "reply": "B", "ms": 1326, "prompt_tokens": 87}
+{"key": "electrical_engineering/test/27|en", "id": "electrical_engineering/test/27", "lang": "en", "gold": "A", "reply": "B", "ms": 1428, "prompt_tokens": 95}
+{"key": "elementary_mathematics/test/144|en", "id": "elementary_mathematics/test/144", "lang": "en", "gold": "B", "reply": "B", "ms": 1894, "prompt_tokens": 119}
+{"key": "elementary_mathematics/test/31|en", "id": "elementary_mathematics/test/31", "lang": "en", "gold": "B", "reply": "B", "ms": 1477, "prompt_tokens": 97}
+{"key": "elementary_mathematics/test/193|en", "id": "elementary_mathematics/test/193", "lang": "en", "gold": "D", "reply": "D", "ms": 1538, "prompt_tokens": 102}
+{"key": "formal_logic/test/33|en", "id": "formal_logic/test/33", "lang": "en", "gold": "B", "reply": "B", "ms": 2186, "prompt_tokens": 144}
+{"key": "formal_logic/test/121|en", "id": "formal_logic/test/121", "lang": "en", "gold": "D", "reply": "B", "ms": 3509, "prompt_tokens": 178}
+{"key": "global_facts/test/5|en", "id": "global_facts/test/5", "lang": "en", "gold": "A", "reply": "B", "ms": 1474, "prompt_tokens": 99}
+{"key": "global_facts/test/98|en", "id": "global_facts/test/98", "lang": "en", "gold": "C", "reply": "C", "ms": 1492, "prompt_tokens": 99}
+{"key": "global_facts/test/24|en", "id": "global_facts/test/24", "lang": "en", "gold": "D", "reply": "B", "ms": 2427, "prompt_tokens": 163}
+{"key": "high_school_biology/test/165|en", "id": "high_school_biology/test/165", "lang": "en", "gold": "B", "reply": "D", "ms": 1659, "prompt_tokens": 109}
+{"key": "high_school_biology/test/177|en", "id": "high_school_biology/test/177", "lang": "en", "gold": "A", "reply": "A", "ms": 1597, "prompt_tokens": 100}
+{"key": "high_school_chemistry/test/91|en", "id": "high_school_chemistry/test/91", "lang": "en", "gold": "B", "reply": "B", "ms": 1473, "prompt_tokens": 98}
+{"key": "high_school_chemistry/test/107|en", "id": "high_school_chemistry/test/107", "lang": "en", "gold": "D", "reply": "D", "ms": 1501, "prompt_tokens": 100}
+{"key": "high_school_chemistry/test/173|en", "id": "high_school_chemistry/test/173", "lang": "en", "gold": "A", "reply": "A", "ms": 1449, "prompt_tokens": 95}
+{"key": "high_school_computer_science/test/40|en", "id": "high_school_computer_science/test/40", "lang": "en", "gold": "B", "reply": "B", "ms": 3288, "prompt_tokens": 222}
+{"key": "high_school_computer_science/test/58|en", "id": "high_school_computer_science/test/58", "lang": "en", "gold": "C", "reply": "C", "ms": 4589, "prompt_tokens": 305}
+{"key": "high_school_european_history/test/132|en", "id": "high_school_european_history/test/132", "lang": "en", "gold": "A", "reply": "A", "ms": 6159, "prompt_tokens": 427}
+{"key": "high_school_european_history/test/162|en", "id": "high_school_european_history/test/162", "lang": "en", "gold": "C", "reply": "C", "ms": 4540, "prompt_tokens": 312}
+{"key": "high_school_european_history/test/161|en", "id": "high_school_european_history/test/161", "lang": "en", "gold": "A", "reply": "A", "ms": 4421, "prompt_tokens": 297}
+{"key": "high_school_geography/test/185|en", "id": "high_school_geography/test/185", "lang": "en", "gold": "B", "reply": "B", "ms": 1349, "prompt_tokens": 87}
+{"key": "high_school_geography/test/86|en", "id": "high_school_geography/test/86", "lang": "en", "gold": "B", "reply": "B", "ms": 1746, "prompt_tokens": 120}
+{"key": "high_school_government_and_politics/test/179|en", "id": "high_school_government_and_politics/test/179", "lang": "en", "gold": "D", "reply": "D", "ms": 1869, "prompt_tokens": 115}
+{"key": "high_school_government_and_politics/test/136|en", "id": "high_school_government_and_politics/test/136", "lang": "en", "gold": "B", "reply": "B", "ms": 1752, "prompt_tokens": 121}
+{"key": "high_school_government_and_politics/test/114|en", "id": "high_school_government_and_politics/test/114", "lang": "en", "gold": "D", "reply": "B", "ms": 1575, "prompt_tokens": 108}
+{"key": "high_school_macroeconomics/test/296|en", "id": "high_school_macroeconomics/test/296", "lang": "en", "gold": "D", "reply": "D", "ms": 1325, "prompt_tokens": 86}
+{"key": "high_school_macroeconomics/test/283|en", "id": "high_school_macroeconomics/test/283", "lang": "en", "gold": "A", "reply": "A", "ms": 1770, "prompt_tokens": 106}
+{"key": "high_school_mathematics/test/228|en", "id": "high_school_mathematics/test/228", "lang": "en", "gold": "C", "reply": "C", "ms": 1626, "prompt_tokens": 110}
+{"key": "high_school_mathematics/test/176|en", "id": "high_school_mathematics/test/176", "lang": "en", "gold": "A", "reply": "A", "ms": 2429, "prompt_tokens": 160}
+{"key": "high_school_mathematics/test/110|en", "id": "high_school_mathematics/test/110", "lang": "en", "gold": "C", "reply": "B", "ms": 2182, "prompt_tokens": 140}
+{"key": "high_school_microeconomics/test/121|en", "id": "high_school_microeconomics/test/121", "lang": "en", "gold": "B", "reply": "B", "ms": 1761, "prompt_tokens": 118}
+{"key": "high_school_microeconomics/test/207|en", "id": "high_school_microeconomics/test/207", "lang": "en", "gold": "D", "reply": "A", "ms": 2012, "prompt_tokens": 124}
+{"key": "high_school_physics/test/99|en", "id": "high_school_physics/test/99", "lang": "en", "gold": "C", "reply": "D", "ms": 3214, "prompt_tokens": 155}
+{"key": "high_school_physics/test/31|en", "id": "high_school_physics/test/31", "lang": "en", "gold": "C", "reply": "C", "ms": 2531, "prompt_tokens": 169}
+{"key": "high_school_physics/test/142|en", "id": "high_school_physics/test/142", "lang": "en", "gold": "C", "reply": "C", "ms": 2208, "prompt_tokens": 142}
+{"key": "high_school_psychology/test/286|en", "id": "high_school_psychology/test/286", "lang": "en", "gold": "B", "reply": "B", "ms": 2017, "prompt_tokens": 128}
+{"key": "high_school_psychology/test/394|en", "id": "high_school_psychology/test/394", "lang": "en", "gold": "A", "reply": "D", "ms": 1382, "prompt_tokens": 89}
+{"key": "high_school_statistics/test/8|en", "id": "high_school_statistics/test/8", "lang": "en", "gold": "C", "reply": "C", "ms": 1817, "prompt_tokens": 127}
+{"key": "high_school_statistics/test/30|en", "id": "high_school_statistics/test/30", "lang": "en", "gold": "D", "reply": "D", "ms": 4036, "prompt_tokens": 269}
+{"key": "high_school_statistics/test/157|en", "id": "high_school_statistics/test/157", "lang": "en", "gold": "B", "reply": "B", "ms": 2674, "prompt_tokens": 159}
+{"key": "high_school_us_history/test/19|en", "id": "high_school_us_history/test/19", "lang": "en", "gold": "D", "reply": "D", "ms": 4427, "prompt_tokens": 307}
+{"key": "high_school_us_history/test/146|en", "id": "high_school_us_history/test/146", "lang": "en", "gold": "B", "reply": "B", "ms": 3493, "prompt_tokens": 236}
+{"key": "high_school_world_history/test/18|en", "id": "high_school_world_history/test/18", "lang": "en", "gold": "B", "reply": "B", "ms": 7589, "prompt_tokens": 514}
+{"key": "high_school_world_history/test/113|en", "id": "high_school_world_history/test/113", "lang": "en", "gold": "C", "reply": "C", "ms": 4154, "prompt_tokens": 274}
+{"key": "high_school_world_history/test/158|en", "id": "high_school_world_history/test/158", "lang": "en", "gold": "C", "reply": "C", "ms": 7147, "prompt_tokens": 468}
+{"key": "human_aging/test/149|en", "id": "human_aging/test/149", "lang": "en", "gold": "C", "reply": "C", "ms": 1486, "prompt_tokens": 95}
+{"key": "human_aging/test/49|en", "id": "human_aging/test/49", "lang": "en", "gold": "A", "reply": "A", "ms": 1274, "prompt_tokens": 79}
+{"key": "human_sexuality/test/57|en", "id": "human_sexuality/test/57", "lang": "en", "gold": "A", "reply": "D", "ms": 1878, "prompt_tokens": 130}
+{"key": "human_sexuality/test/96|en", "id": "human_sexuality/test/96", "lang": "en", "gold": "C", "reply": "C", "ms": 3640, "prompt_tokens": 242}
+{"key": "human_sexuality/test/37|en", "id": "human_sexuality/test/37", "lang": "en", "gold": "D", "reply": "D", "ms": 1856, "prompt_tokens": 111}
+{"key": "international_law/test/77|en", "id": "international_law/test/77", "lang": "en", "gold": "B", "reply": "B", "ms": 2737, "prompt_tokens": 184}
+{"key": "international_law/test/89|en", "id": "international_law/test/89", "lang": "en", "gold": "C", "reply": "C", "ms": 2827, "prompt_tokens": 132}
+{"key": "jurisprudence/test/83|en", "id": "jurisprudence/test/83", "lang": "en", "gold": "B", "reply": "A", "ms": 1786, "prompt_tokens": 115}
+{"key": "jurisprudence/test/72|en", "id": "jurisprudence/test/72", "lang": "en", "gold": "D", "reply": "C", "ms": 1482, "prompt_tokens": 87}
+{"key": "jurisprudence/test/44|en", "id": "jurisprudence/test/44", "lang": "en", "gold": "C", "reply": "C", "ms": 1788, "prompt_tokens": 121}
+{"key": "logical_fallacies/test/108|en", "id": "logical_fallacies/test/108", "lang": "en", "gold": "A", "reply": "C", "ms": 1560, "prompt_tokens": 104}
+{"key": "logical_fallacies/test/24|en", "id": "logical_fallacies/test/24", "lang": "en", "gold": "C", "reply": "C", "ms": 1362, "prompt_tokens": 87}
+{"key": "machine_learning/test/38|en", "id": "machine_learning/test/38", "lang": "en", "gold": "B", "reply": "B", "ms": 1948, "prompt_tokens": 119}
+{"key": "machine_learning/test/41|en", "id": "machine_learning/test/41", "lang": "en", "gold": "C", "reply": "C", "ms": 2873, "prompt_tokens": 196}
+{"key": "machine_learning/test/100|en", "id": "machine_learning/test/100", "lang": "en", "gold": "B", "reply": "C", "ms": 1642, "prompt_tokens": 109}
+{"key": "management/test/55|en", "id": "management/test/55", "lang": "en", "gold": "A", "reply": "C", "ms": 1708, "prompt_tokens": 96}
+{"key": "management/test/84|en", "id": "management/test/84", "lang": "en", "gold": "D", "reply": "C", "ms": 1446, "prompt_tokens": 93}
+{"key": "marketing/test/48|en", "id": "marketing/test/48", "lang": "en", "gold": "A", "reply": "A", "ms": 1518, "prompt_tokens": 97}
+{"key": "marketing/test/58|en", "id": "marketing/test/58", "lang": "en", "gold": "A", "reply": "A", "ms": 1467, "prompt_tokens": 95}
+{"key": "marketing/test/194|en", "id": "marketing/test/194", "lang": "en", "gold": "D", "reply": "D", "ms": 1528, "prompt_tokens": 99}
+{"key": "medical_genetics/test/10|en", "id": "medical_genetics/test/10", "lang": "en", "gold": "A", "reply": "A", "ms": 1404, "prompt_tokens": 92}
+{"key": "medical_genetics/test/79|en", "id": "medical_genetics/test/79", "lang": "en", "gold": "A", "reply": "D", "ms": 1509, "prompt_tokens": 96}
+{"key": "miscellaneous/test/228|en", "id": "miscellaneous/test/228", "lang": "en", "gold": "A", "reply": "B", "ms": 1985, "prompt_tokens": 119}
+{"key": "miscellaneous/test/332|en", "id": "miscellaneous/test/332", "lang": "en", "gold": "A", "reply": "B", "ms": 1522, "prompt_tokens": 98}
+{"key": "miscellaneous/test/651|en", "id": "miscellaneous/test/651", "lang": "en", "gold": "B", "reply": "B", "ms": 1389, "prompt_tokens": 86}
+{"key": "moral_disputes/test/27|en", "id": "moral_disputes/test/27", "lang": "en", "gold": "D", "reply": "C", "ms": 2184, "prompt_tokens": 137}
+{"key": "moral_disputes/test/268|en", "id": "moral_disputes/test/268", "lang": "en", "gold": "C", "reply": "C", "ms": 1835, "prompt_tokens": 120}
+{"key": "moral_scenarios/test/387|en", "id": "moral_scenarios/test/387", "lang": "en", "gold": "C", "reply": "C", "ms": 2450, "prompt_tokens": 159}
+{"key": "moral_scenarios/test/60|en", "id": "moral_scenarios/test/60", "lang": "en", "gold": "A", "reply": "B", "ms": 2382, "prompt_tokens": 152}
+{"key": "moral_scenarios/test/3|en", "id": "moral_scenarios/test/3", "lang": "en", "gold": "B", "reply": "C", "ms": 2387, "prompt_tokens": 152}
+{"key": "nutrition/test/269|en", "id": "nutrition/test/269", "lang": "en", "gold": "C", "reply": "B", "ms": 1521, "prompt_tokens": 98}
+{"key": "nutrition/test/232|en", "id": "nutrition/test/232", "lang": "en", "gold": "C", "reply": "C", "ms": 1457, "prompt_tokens": 91}
+{"key": "philosophy/test/308|en", "id": "philosophy/test/308", "lang": "en", "gold": "D", "reply": "A", "ms": 1307, "prompt_tokens": 81}
+{"key": "philosophy/test/287|en", "id": "philosophy/test/287", "lang": "en", "gold": "C", "reply": "B", "ms": 1882, "prompt_tokens": 110}
+{"key": "philosophy/test/223|en", "id": "philosophy/test/223", "lang": "en", "gold": "B", "reply": "A", "ms": 1437, "prompt_tokens": 90}
+{"key": "prehistory/test/287|en", "id": "prehistory/test/287", "lang": "en", "gold": "C", "reply": "C", "ms": 1352, "prompt_tokens": 84}
+{"key": "prehistory/test/32|en", "id": "prehistory/test/32", "lang": "en", "gold": "C", "reply": "C", "ms": 1406, "prompt_tokens": 88}
+{"key": "professional_accounting/test/27|en", "id": "professional_accounting/test/27", "lang": "en", "gold": "D", "reply": "C", "ms": 4180, "prompt_tokens": 283}
+{"key": "professional_accounting/test/157|en", "id": "professional_accounting/test/157", "lang": "en", "gold": "C", "reply": "C", "ms": 2188, "prompt_tokens": 138}
+{"key": "professional_accounting/test/142|en", "id": "professional_accounting/test/142", "lang": "en", "gold": "C", "reply": "C", "ms": 3149, "prompt_tokens": 150}
+{"key": "professional_law/test/147|en", "id": "professional_law/test/147", "lang": "en", "gold": "A", "reply": "B", "ms": 4718, "prompt_tokens": 314}
+{"key": "professional_law/test/235|en", "id": "professional_law/test/235", "lang": "en", "gold": "B", "reply": "B", "ms": 2539, "prompt_tokens": 164}
+{"key": "professional_medicine/test/95|en", "id": "professional_medicine/test/95", "lang": "en", "gold": "D", "reply": "C", "ms": 4320, "prompt_tokens": 291}
+{"key": "professional_medicine/test/72|en", "id": "professional_medicine/test/72", "lang": "en", "gold": "D", "reply": "D", "ms": 2738, "prompt_tokens": 181}
+{"key": "professional_medicine/test/96|en", "id": "professional_medicine/test/96", "lang": "en", "gold": "A", "reply": "A", "ms": 5387, "prompt_tokens": 346}
+{"key": "professional_psychology/test/177|en", "id": "professional_psychology/test/177", "lang": "en", "gold": "A", "reply": "A", "ms": 1488, "prompt_tokens": 96}
+{"key": "professional_psychology/test/407|en", "id": "professional_psychology/test/407", "lang": "en", "gold": "D", "reply": "D", "ms": 1705, "prompt_tokens": 113}
+{"key": "public_relations/test/8|en", "id": "public_relations/test/8", "lang": "en", "gold": "B", "reply": "B", "ms": 1456, "prompt_tokens": 91}
+{"key": "public_relations/test/18|en", "id": "public_relations/test/18", "lang": "en", "gold": "D", "reply": "D", "ms": 1949, "prompt_tokens": 116}
+{"key": "public_relations/test/109|en", "id": "public_relations/test/109", "lang": "en", "gold": "D", "reply": "D", "ms": 1434, "prompt_tokens": 87}
+{"key": "security_studies/test/34|en", "id": "security_studies/test/34", "lang": "en", "gold": "A", "reply": "C", "ms": 4566, "prompt_tokens": 314}
+{"key": "security_studies/test/177|en", "id": "security_studies/test/177", "lang": "en", "gold": "A", "reply": "B", "ms": 1911, "prompt_tokens": 113}
+{"key": "sociology/test/199|en", "id": "sociology/test/199", "lang": "en", "gold": "B", "reply": "B", "ms": 1545, "prompt_tokens": 101}
+{"key": "sociology/test/136|en", "id": "sociology/test/136", "lang": "en", "gold": "D", "reply": "D", "ms": 1723, "prompt_tokens": 115}
+{"key": "sociology/test/165|en", "id": "sociology/test/165", "lang": "en", "gold": "A", "reply": "A", "ms": 2600, "prompt_tokens": 169}
+{"key": "us_foreign_policy/test/90|en", "id": "us_foreign_policy/test/90", "lang": "en", "gold": "B", "reply": "B", "ms": 2045, "prompt_tokens": 126}
+{"key": "us_foreign_policy/test/26|en", "id": "us_foreign_policy/test/26", "lang": "en", "gold": "A", "reply": "A", "ms": 1626, "prompt_tokens": 108}
+{"key": "virology/test/51|en", "id": "virology/test/51", "lang": "en", "gold": "A", "reply": "B", "ms": 1545, "prompt_tokens": 100}
+{"key": "virology/test/7|en", "id": "virology/test/7", "lang": "en", "gold": "B", "reply": "B", "ms": 1441, "prompt_tokens": 90}
+{"key": "virology/test/158|en", "id": "virology/test/158", "lang": "en", "gold": "A", "reply": "C", "ms": 6105, "prompt_tokens": 400}
+{"key": "world_religions/test/155|en", "id": "world_religions/test/155", "lang": "en", "gold": "D", "reply": "D", "ms": 1279, "prompt_tokens": 79}
+{"key": "world_religions/test/4|en", "id": "world_religions/test/4", "lang": "en", "gold": "D", "reply": "D", "ms": 1354, "prompt_tokens": 85}
+{"key": "abstract_algebra/test/99|ru", "id": "abstract_algebra/test/99", "lang": "ru", "gold": "C", "reply": "C", "ms": 2899, "prompt_tokens": 136}
+{"key": "abstract_algebra/test/19|ru", "id": "abstract_algebra/test/19", "lang": "ru", "gold": "A", "reply": "A", "ms": 2816, "prompt_tokens": 170}
+{"key": "abstract_algebra/test/89|ru", "id": "abstract_algebra/test/89", "lang": "ru", "gold": "C", "reply": "D", "ms": 2229, "prompt_tokens": 141}
+{"key": "anatomy/test/31|ru", "id": "anatomy/test/31", "lang": "ru", "gold": "A", "reply": "B. восходящим движением надгортания.", "ms": 2724, "prompt_tokens": 142}
+{"key": "anatomy/test/89|ru", "id": "anatomy/test/89", "lang": "ru", "gold": "A", "reply": "A", "ms": 1977, "prompt_tokens": 116}
+{"key": "astronomy/test/14|ru", "id": "astronomy/test/14", "lang": "ru", "gold": "B", "reply": "B. Ланиакея", "ms": 2062, "prompt_tokens": 125}
+{"key": "astronomy/test/74|ru", "id": "astronomy/test/74", "lang": "ru", "gold": "C", "reply": "B", "ms": 2178, "prompt_tokens": 131}
+{"key": "astronomy/test/7|ru", "id": "astronomy/test/7", "lang": "ru", "gold": "B", "reply": "B", "ms": 3007, "prompt_tokens": 202}
+{"key": "business_ethics/test/19|ru", "id": "business_ethics/test/19", "lang": "ru", "gold": "A", "reply": "D", "ms": 2109, "prompt_tokens": 128}
+{"key": "business_ethics/test/4|ru", "id": "business_ethics/test/4", "lang": "ru", "gold": "B", "reply": "B", "ms": 3066, "prompt_tokens": 196}
+{"key": "clinical_knowledge/test/237|ru", "id": "clinical_knowledge/test/237", "lang": "ru", "gold": "C", "reply": "C. грыж вокруг стомы.", "ms": 2296, "prompt_tokens": 116}
+{"key": "clinical_knowledge/test/212|ru", "id": "clinical_knowledge/test/212", "lang": "ru", "gold": "A", "reply": "A", "ms": 2582, "prompt_tokens": 165}
+{"key": "clinical_knowledge/test/95|ru", "id": "clinical_knowledge/test/95", "lang": "ru", "gold": "C", "reply": "C", "ms": 2517, "prompt_tokens": 159}
+{"key": "college_biology/test/130|ru", "id": "college_biology/test/130", "lang": "ru", "gold": "C", "reply": "A", "ms": 2571, "prompt_tokens": 146}
+{"key": "college_biology/test/11|ru", "id": "college_biology/test/11", "lang": "ru", "gold": "D", "reply": "A", "ms": 3313, "prompt_tokens": 140}
+{"key": "college_chemistry/test/17|ru", "id": "college_chemistry/test/17", "lang": "ru", "gold": "D", "reply": "C", "ms": 3860, "prompt_tokens": 244}
+{"key": "college_chemistry/test/11|ru", "id": "college_chemistry/test/11", "lang": "ru", "gold": "B", "reply": "C", "ms": 3565, "prompt_tokens": 227}
+{"key": "college_chemistry/test/7|ru", "id": "college_chemistry/test/7", "lang": "ru", "gold": "D", "reply": "C", "ms": 2444, "prompt_tokens": 141}
+{"key": "college_computer_science/test/13|ru", "id": "college_computer_science/test/13", "lang": "ru", "gold": "C", "reply": "C", "ms": 2638, "prompt_tokens": 160}
+{"key": "college_computer_science/test/29|ru", "id": "college_computer_science/test/29", "lang": "ru", "gold": "C", "reply": "C", "ms": 2731, "prompt_tokens": 170}
+{"key": "college_mathematics/test/26|ru", "id": "college_mathematics/test/26", "lang": "ru", "gold": "D", "reply": "C", "ms": 3513, "prompt_tokens": 237}
+{"key": "college_mathematics/test/74|ru", "id": "college_mathematics/test/74", "lang": "ru", "gold": "C", "reply": "A", "ms": 2361, "prompt_tokens": 141}
+{"key": "college_mathematics/test/66|ru", "id": "college_mathematics/test/66", "lang": "ru", "gold": "C", "reply": "C", "ms": 2649, "prompt_tokens": 138}
+{"key": "college_medicine/test/52|ru", "id": "college_medicine/test/52", "lang": "ru", "gold": "C", "reply": "B", "ms": 2862, "prompt_tokens": 151}
+{"key": "college_medicine/test/137|ru", "id": "college_medicine/test/137", "lang": "ru", "gold": "B", "reply": "B. две молекулы АТФ.", "ms": 2687, "prompt_tokens": 146}
+{"key": "college_physics/test/39|ru", "id": "college_physics/test/39", "lang": "ru", "gold": "D", "reply": "B. 4", "ms": 2655, "prompt_tokens": 162}
+{"key": "college_physics/test/55|ru", "id": "college_physics/test/55", "lang": "ru", "gold": "D", "reply": "B. 10%", "ms": 3743, "prompt_tokens": 225}
+{"key": "college_physics/test/19|ru", "id": "college_physics/test/19", "lang": "ru", "gold": "A", "reply": "A", "ms": 2667, "prompt_tokens": 171}
+{"key": "computer_security/test/38|ru", "id": "computer_security/test/38", "lang": "ru", "gold": "A", "reply": "A", "ms": 2686, "prompt_tokens": 173}
+{"key": "computer_security/test/20|ru", "id": "computer_security/test/20", "lang": "ru", "gold": "D", "reply": "D", "ms": 2681, "prompt_tokens": 171}
+{"key": "conceptual_physics/test/97|ru", "id": "conceptual_physics/test/97", "lang": "ru", "gold": "A", "reply": "A", "ms": 2200, "prompt_tokens": 130}
+{"key": "conceptual_physics/test/81|ru", "id": "conceptual_physics/test/81", "lang": "ru", "gold": "B", "reply": "B", "ms": 2349, "prompt_tokens": 155}
+{"key": "conceptual_physics/test/69|ru", "id": "conceptual_physics/test/69", "lang": "ru", "gold": "C", "reply": "A", "ms": 2442, "prompt_tokens": 153}
+{"key": "econometrics/test/107|ru", "id": "econometrics/test/107", "lang": "ru", "gold": "B", "reply": "A", "ms": 5353, "prompt_tokens": 353}
+{"key": "econometrics/test/29|ru", "id": "econometrics/test/29", "lang": "ru", "gold": "D", "reply": "D", "ms": 2723, "prompt_tokens": 174}
+{"key": "electrical_engineering/test/85|ru", "id": "electrical_engineering/test/85", "lang": "ru", "gold": "C", "reply": "A", "ms": 2184, "prompt_tokens": 132}
+{"key": "electrical_engineering/test/74|ru", "id": "electrical_engineering/test/74", "lang": "ru", "gold": "B", "reply": "A", "ms": 2351, "prompt_tokens": 129}
+{"key": "electrical_engineering/test/67|ru", "id": "electrical_engineering/test/67", "lang": "ru", "gold": "B", "reply": "C", "ms": 1871, "prompt_tokens": 125}
+{"key": "elementary_mathematics/test/188|ru", "id": "elementary_mathematics/test/188", "lang": "ru", "gold": "B", "reply": "B", "ms": 1902, "prompt_tokens": 110}
+{"key": "elementary_mathematics/test/206|ru", "id": "elementary_mathematics/test/206", "lang": "ru", "gold": "D", "reply": "D", "ms": 3021, "prompt_tokens": 183}
+{"key": "formal_logic/test/88|ru", "id": "formal_logic/test/88", "lang": "ru", "gold": "A", "reply": "A", "ms": 4023, "prompt_tokens": 255}
+{"key": "formal_logic/test/95|ru", "id": "formal_logic/test/95", "lang": "ru", "gold": "D", "reply": "C", "ms": 3893, "prompt_tokens": 252}
+{"key": "formal_logic/test/104|ru", "id": "formal_logic/test/104", "lang": "ru", "gold": "D", "reply": "B", "ms": 3468, "prompt_tokens": 236}
+{"key": "global_facts/test/26|ru", "id": "global_facts/test/26", "lang": "ru", "gold": "D", "reply": "B", "ms": 2455, "prompt_tokens": 121}
+{"key": "global_facts/test/63|ru", "id": "global_facts/test/63", "lang": "ru", "gold": "C", "reply": "B", "ms": 2518, "prompt_tokens": 133}
+{"key": "high_school_biology/test/12|ru", "id": "high_school_biology/test/12", "lang": "ru", "gold": "D", "reply": "A", "ms": 2962, "prompt_tokens": 191}
+{"key": "high_school_biology/test/13|ru", "id": "high_school_biology/test/13", "lang": "ru", "gold": "D", "reply": "D", "ms": 1675, "prompt_tokens": 107}
+{"key": "high_school_biology/test/126|ru", "id": "high_school_biology/test/126", "lang": "ru", "gold": "A", "reply": "A", "ms": 2164, "prompt_tokens": 121}
+{"key": "high_school_chemistry/test/131|ru", "id": "high_school_chemistry/test/131", "lang": "ru", "gold": "D", "reply": "D", "ms": 1676, "prompt_tokens": 105}
+{"key": "high_school_chemistry/test/189|ru", "id": "high_school_chemistry/test/189", "lang": "ru", "gold": "B", "reply": "B", "ms": 2366, "prompt_tokens": 142}
+{"key": "high_school_computer_science/test/87|ru", "id": "high_school_computer_science/test/87", "lang": "ru", "gold": "A", "reply": "A", "ms": 2023, "prompt_tokens": 135}
+{"key": "high_school_computer_science/test/81|ru", "id": "high_school_computer_science/test/81", "lang": "ru", "gold": "C", "reply": "B", "ms": 5270, "prompt_tokens": 340}
+{"key": "high_school_computer_science/test/88|ru", "id": "high_school_computer_science/test/88", "lang": "ru", "gold": "C", "reply": "C", "ms": 2212, "prompt_tokens": 133}
+{"key": "high_school_european_history/test/119|ru", "id": "high_school_european_history/test/119", "lang": "ru", "gold": "D", "reply": "A", "ms": 7378, "prompt_tokens": 491}
+{"key": "high_school_european_history/test/42|ru", "id": "high_school_european_history/test/42", "lang": "ru", "gold": "C", "reply": "A. Томас Мальтус", "ms": 10928, "prompt_tokens": 697}
+{"key": "high_school_geography/test/124|ru", "id": "high_school_geography/test/124", "lang": "ru", "gold": "B", "reply": "B", "ms": 2402, "prompt_tokens": 148}
+{"key": "high_school_geography/test/147|ru", "id": "high_school_geography/test/147", "lang": "ru", "gold": "D", "reply": "A", "ms": 2382, "prompt_tokens": 146}
+{"key": "high_school_geography/test/19|ru", "id": "high_school_geography/test/19", "lang": "ru", "gold": "C", "reply": "C. абсолютное местоположение.", "ms": 1979, "prompt_tokens": 112}
+{"key": "high_school_government_and_politics/test/151|ru", "id": "high_school_government_and_politics/test/151", "lang": "ru", "gold": "C", "reply": "C", "ms": 3355, "prompt_tokens": 207}
+{"key": "high_school_government_and_politics/test/169|ru", "id": "high_school_government_and_politics/test/169", "lang": "ru", "gold": "B", "reply": "D", "ms": 1989, "prompt_tokens": 130}
+{"key": "high_school_macroeconomics/test/280|ru", "id": "high_school_macroeconomics/test/280", "lang": "ru", "gold": "C", "reply": "C", "ms": 3379, "prompt_tokens": 207}
+{"key": "high_school_macroeconomics/test/319|ru", "id": "high_school_macroeconomics/test/319", "lang": "ru", "gold": "A", "reply": "A", "ms": 4729, "prompt_tokens": 261}
+{"key": "high_school_macroeconomics/test/318|ru", "id": "high_school_macroeconomics/test/318", "lang": "ru", "gold": "D", "reply": "D", "ms": 2549, "prompt_tokens": 162}
+{"key": "high_school_mathematics/test/258|ru", "id": "high_school_mathematics/test/258", "lang": "ru", "gold": "B", "reply": "B", "ms": 2330, "prompt_tokens": 142}
+{"key": "high_school_mathematics/test/67|ru", "id": "high_school_mathematics/test/67", "lang": "ru", "gold": "B", "reply": "C. 18", "ms": 2757, "prompt_tokens": 162}
+{"key": "high_school_microeconomics/test/37|ru", "id": "high_school_microeconomics/test/37", "lang": "ru", "gold": "D", "reply": "A", "ms": 2555, "prompt_tokens": 162}
+{"key": "high_school_microeconomics/test/182|ru", "id": "high_school_microeconomics/test/182", "lang": "ru", "gold": "C", "reply": "D", "ms": 2884, "prompt_tokens": 188}
+{"key": "high_school_microeconomics/test/96|ru", "id": "high_school_microeconomics/test/96", "lang": "ru", "gold": "B", "reply": "A", "ms": 2680, "prompt_tokens": 172}
+{"key": "high_school_physics/test/43|ru", "id": "high_school_physics/test/43", "lang": "ru", "gold": "D", "reply": "B", "ms": 2893, "prompt_tokens": 191}
+{"key": "high_school_physics/test/93|ru", "id": "high_school_physics/test/93", "lang": "ru", "gold": "D", "reply": "A", "ms": 3869, "prompt_tokens": 245}
+{"key": "high_school_psychology/test/355|ru", "id": "high_school_psychology/test/355", "lang": "ru", "gold": "A", "reply": "A", "ms": 2463, "prompt_tokens": 152}
+{"key": "high_school_psychology/test/79|ru", "id": "high_school_psychology/test/79", "lang": "ru", "gold": "C", "reply": "C", "ms": 3884, "prompt_tokens": 249}
+{"key": "high_school_psychology/test/344|ru", "id": "high_school_psychology/test/344", "lang": "ru", "gold": "D", "reply": "B", "ms": 2325, "prompt_tokens": 141}
+{"key": "high_school_statistics/test/4|ru", "id": "high_school_statistics/test/4", "lang": "ru", "gold": "D", "reply": "D", "ms": 2504, "prompt_tokens": 158}
+{"key": "high_school_statistics/test/94|ru", "id": "high_school_statistics/test/94", "lang": "ru", "gold": "B", "reply": "B", "ms": 5617, "prompt_tokens": 374}
+{"key": "high_school_us_history/test/13|ru", "id": "high_school_us_history/test/13", "lang": "ru", "gold": "A", "reply": "A", "ms": 8722, "prompt_tokens": 578}
+{"key": "high_school_us_history/test/69|ru", "id": "high_school_us_history/test/69", "lang": "ru", "gold": "C", "reply": "C", "ms": 8363, "prompt_tokens": 527}
+{"key": "high_school_us_history/test/170|ru", "id": "high_school_us_history/test/170", "lang": "ru", "gold": "B", "reply": "B", "ms": 8892, "prompt_tokens": 562}
+{"key": "high_school_world_history/test/95|ru", "id": "high_school_world_history/test/95", "lang": "ru", "gold": "A", "reply": "A", "ms": 8026, "prompt_tokens": 568}
+{"key": "high_school_world_history/test/60|ru", "id": "high_school_world_history/test/60", "lang": "ru", "gold": "A", "reply": "A. религиозная терпимость", "ms": 5846, "prompt_tokens": 397}
+{"key": "human_aging/test/21|ru", "id": "human_aging/test/21", "lang": "ru", "gold": "D", "reply": "C. Левенсон", "ms": 1411, "prompt_tokens": 115}
+{"key": "human_aging/test/214|ru", "id": "human_aging/test/214", "lang": "ru", "gold": "C", "reply": "C. Умственная стимуляция", "ms": 1600, "prompt_tokens": 124}
+{"key": "human_aging/test/101|ru", "id": "human_aging/test/101", "lang": "ru", "gold": "C", "reply": "A", "ms": 1124, "prompt_tokens": 106}
+{"key": "human_sexuality/test/18|ru", "id": "human_sexuality/test/18", "lang": "ru", "gold": "A", "reply": "C", "ms": 1740, "prompt_tokens": 115}
+{"key": "human_sexuality/test/113|ru", "id": "human_sexuality/test/113", "lang": "ru", "gold": "B", "reply": "B", "ms": 3108, "prompt_tokens": 201}
+{"key": "international_law/test/95|ru", "id": "international_law/test/95", "lang": "ru", "gold": "A", "reply": "C", "ms": 3824, "prompt_tokens": 252}
+{"key": "international_law/test/8|ru", "id": "international_law/test/8", "lang": "ru", "gold": "B", "reply": "B", "ms": 3424, "prompt_tokens": 217}
+{"key": "international_law/test/27|ru", "id": "international_law/test/27", "lang": "ru", "gold": "C", "reply": "B", "ms": 3020, "prompt_tokens": 202}
+{"key": "jurisprudence/test/67|ru", "id": "jurisprudence/test/67", "lang": "ru", "gold": "B", "reply": "B. Правовая система на самом деле несправедлива.", "ms": 2824, "prompt_tokens": 150}
+{"key": "jurisprudence/test/53|ru", "id": "jurisprudence/test/53", "lang": "ru", "gold": "A", "reply": "A", "ms": 2747, "prompt_tokens": 179}
+{"key": "logical_fallacies/test/37|ru", "id": "logical_fallacies/test/37", "lang": "ru", "gold": "C", "reply": "A", "ms": 2477, "prompt_tokens": 155}
+{"key": "logical_fallacies/test/93|ru", "id": "logical_fallacies/test/93", "lang": "ru", "gold": "A", "reply": "B", "ms": 1841, "prompt_tokens": 117}
+{"key": "logical_fallacies/test/96|ru", "id": "logical_fallacies/test/96", "lang": "ru", "gold": "D", "reply": "D. Условный (или гипотетический)", "ms": 2859, "prompt_tokens": 146}
+{"key": "machine_learning/test/78|ru", "id": "machine_learning/test/78", "lang": "ru", "gold": "B", "reply": "B", "ms": 3944, "prompt_tokens": 264}
+{"key": "machine_learning/test/55|ru", "id": "machine_learning/test/55", "lang": "ru", "gold": "D", "reply": "D", "ms": 2034, "prompt_tokens": 127}
+{"key": "management/test/15|ru", "id": "management/test/15", "lang": "ru", "gold": "C", "reply": "C", "ms": 3777, "prompt_tokens": 189}
+{"key": "management/test/22|ru", "id": "management/test/22", "lang": "ru", "gold": "D", "reply": "D", "ms": 1953, "prompt_tokens": 131}
+{"key": "management/test/81|ru", "id": "management/test/81", "lang": "ru", "gold": "D", "reply": "D. Ограничить права работников", "ms": 2422, "prompt_tokens": 122}
+{"key": "marketing/test/104|ru", "id": "marketing/test/104", "lang": "ru", "gold": "D", "reply": "A", "ms": 1793, "prompt_tokens": 157}
+{"key": "marketing/test/24|ru", "id": "marketing/test/24", "lang": "ru", "gold": "B", "reply": "B. Интерактивный маркетинг.", "ms": 2671, "prompt_tokens": 186}
+{"key": "medical_genetics/test/17|ru", "id": "medical_genetics/test/17", "lang": "ru", "gold": "B", "reply": "B", "ms": 2460, "prompt_tokens": 158}
+{"key": "medical_genetics/test/99|ru", "id": "medical_genetics/test/99", "lang": "ru", "gold": "D", "reply": "D", "ms": 2096, "prompt_tokens": 124}
+{"key": "medical_genetics/test/72|ru", "id": "medical_genetics/test/72", "lang": "ru", "gold": "A", "reply": "C. замена.", "ms": 1799, "prompt_tokens": 108}
+{"key": "miscellaneous/test/22|ru", "id": "miscellaneous/test/22", "lang": "ru", "gold": "C", "reply": "A", "ms": 1585, "prompt_tokens": 101}
+{"key": "miscellaneous/test/8|ru", "id": "miscellaneous/test/8", "lang": "ru", "gold": "A", "reply": "A. второкурсник", "ms": 1728, "prompt_tokens": 101}
+{"key": "moral_disputes/test/265|ru", "id": "moral_disputes/test/265", "lang": "ru", "gold": "D", "reply": "C", "ms": 2805, "prompt_tokens": 182}
+{"key": "moral_disputes/test/281|ru", "id": "moral_disputes/test/281", "lang": "ru", "gold": "D", "reply": "D", "ms": 3417, "prompt_tokens": 217}
+{"key": "moral_disputes/test/23|ru", "id": "moral_disputes/test/23", "lang": "ru", "gold": "C", "reply": "B", "ms": 2630, "prompt_tokens": 165}
+{"key": "moral_scenarios/test/343|ru", "id": "moral_scenarios/test/343", "lang": "ru", "gold": "D", "reply": "B", "ms": 3775, "prompt_tokens": 242}
+{"key": "moral_scenarios/test/130|ru", "id": "moral_scenarios/test/130", "lang": "ru", "gold": "A", "reply": "C", "ms": 3472, "prompt_tokens": 237}
+{"key": "nutrition/test/87|ru", "id": "nutrition/test/87", "lang": "ru", "gold": "C", "reply": "C. Адаптивный термогенез", "ms": 2801, "prompt_tokens": 158}
+{"key": "nutrition/test/183|ru", "id": "nutrition/test/183", "lang": "ru", "gold": "D", "reply": "D", "ms": 2976, "prompt_tokens": 178}
+{"key": "nutrition/test/223|ru", "id": "nutrition/test/223", "lang": "ru", "gold": "B", "reply": "B", "ms": 2886, "prompt_tokens": 189}
+{"key": "philosophy/test/1|ru", "id": "philosophy/test/1", "lang": "ru", "gold": "D", "reply": "D. душа", "ms": 1850, "prompt_tokens": 116}
+{"key": "philosophy/test/187|ru", "id": "philosophy/test/187", "lang": "ru", "gold": "A", "reply": "B. достижимо для каждого, но только ценой больших усилий.", "ms": 2686, "prompt_tokens": 125}
+{"key": "prehistory/test/261|ru", "id": "prehistory/test/261", "lang": "ru", "gold": "C", "reply": "B. Инка", "ms": 2081, "prompt_tokens": 116}
+{"key": "prehistory/test/321|ru", "id": "prehistory/test/321", "lang": "ru", "gold": "A", "reply": "C", "ms": 4138, "prompt_tokens": 271}
+{"key": "prehistory/test/44|ru", "id": "prehistory/test/44", "lang": "ru", "gold": "A", "reply": "A", "ms": 1809, "prompt_tokens": 120}
+{"key": "professional_accounting/test/89|ru", "id": "professional_accounting/test/89", "lang": "ru", "gold": "B", "reply": "B", "ms": 5436, "prompt_tokens": 313}
+{"key": "professional_accounting/test/61|ru", "id": "professional_accounting/test/61", "lang": "ru", "gold": "A", "reply": "A", "ms": 3517, "prompt_tokens": 223}
+{"key": "professional_law/test/646|ru", "id": "professional_law/test/646", "lang": "ru", "gold": "D", "reply": "B", "ms": 11038, "prompt_tokens": 724}
+{"key": "professional_law/test/905|ru", "id": "professional_law/test/905", "lang": "ru", "gold": "C", "reply": "B", "ms": 4288, "prompt_tokens": 282}
+{"key": "professional_law/test/159|ru", "id": "professional_law/test/159", "lang": "ru", "gold": "D", "reply": "A", "ms": 4894, "prompt_tokens": 319}
+{"key": "professional_medicine/test/40|ru", "id": "professional_medicine/test/40", "lang": "ru", "gold": "C", "reply": "C", "ms": 5683, "prompt_tokens": 375}
+{"key": "professional_medicine/test/245|ru", "id": "professional_medicine/test/245", "lang": "ru", "gold": "D", "reply": "A", "ms": 8810, "prompt_tokens": 575}
+{"key": "professional_psychology/test/596|ru", "id": "professional_psychology/test/596", "lang": "ru", "gold": "C", "reply": "D", "ms": 3944, "prompt_tokens": 264}
+{"key": "professional_psychology/test/280|ru", "id": "professional_psychology/test/280", "lang": "ru", "gold": "C", "reply": "A", "ms": 4921, "prompt_tokens": 331}
+{"key": "professional_psychology/test/446|ru", "id": "professional_psychology/test/446", "lang": "ru", "gold": "A", "reply": "C", "ms": 3572, "prompt_tokens": 230}
+{"key": "public_relations/test/3|ru", "id": "public_relations/test/3", "lang": "ru", "gold": "B", "reply": "B. 1922", "ms": 1801, "prompt_tokens": 105}
+{"key": "public_relations/test/36|ru", "id": "public_relations/test/36", "lang": "ru", "gold": "C", "reply": "C. символ", "ms": 1563, "prompt_tokens": 95}
+{"key": "security_studies/test/110|ru", "id": "security_studies/test/110", "lang": "ru", "gold": "D", "reply": "D", "ms": 9921, "prompt_tokens": 600}
+{"key": "security_studies/test/196|ru", "id": "security_studies/test/196", "lang": "ru", "gold": "A", "reply": "D", "ms": 3025, "prompt_tokens": 200}
+{"key": "security_studies/test/234|ru", "id": "security_studies/test/234", "lang": "ru", "gold": "C", "reply": "A", "ms": 1694, "prompt_tokens": 110}
+{"key": "sociology/test/50|ru", "id": "sociology/test/50", "lang": "ru", "gold": "B", "reply": "C", "ms": 2468, "prompt_tokens": 152}
+{"key": "sociology/test/19|ru", "id": "sociology/test/19", "lang": "ru", "gold": "A", "reply": "A", "ms": 2462, "prompt_tokens": 193}
+{"key": "us_foreign_policy/test/78|ru", "id": "us_foreign_policy/test/78", "lang": "ru", "gold": "D", "reply": "D", "ms": 2489, "prompt_tokens": 154}
+{"key": "us_foreign_policy/test/8|ru", "id": "us_foreign_policy/test/8", "lang": "ru", "gold": "D", "reply": "D", "ms": 3123, "prompt_tokens": 207}
+{"key": "us_foreign_policy/test/60|ru", "id": "us_foreign_policy/test/60", "lang": "ru", "gold": "A", "reply": "A", "ms": 2873, "prompt_tokens": 190}
+{"key": "virology/test/65|ru", "id": "virology/test/65", "lang": "ru", "gold": "A", "reply": "C", "ms": 1977, "prompt_tokens": 115}
+{"key": "virology/test/5|ru", "id": "virology/test/5", "lang": "ru", "gold": "A", "reply": "B. Ранние адаптеры", "ms": 2225, "prompt_tokens": 129}
+{"key": "world_religions/test/59|ru", "id": "world_religions/test/59", "lang": "ru", "gold": "A", "reply": "B", "ms": 2940, "prompt_tokens": 172}
+{"key": "world_religions/test/134|ru", "id": "world_religions/test/134", "lang": "ru", "gold": "C", "reply": "C. Страдания", "ms": 1933, "prompt_tokens": 112}
+{"key": "world_religions/test/151|ru", "id": "world_religions/test/151", "lang": "ru", "gold": "C", "reply": "B", "ms": 1688, "prompt_tokens": 107}
