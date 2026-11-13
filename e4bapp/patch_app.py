@@ -51,13 +51,29 @@ edit(cm, r'set\(GGML_OPENMP ON\)', 'set(GGML_OPENMP OFF)')
 # ---- ai_chat.cpp -----------------------------------------------------------------------------------------------------
 cpp = app / "lib" / "src" / "main" / "cpp" / "ai_chat.cpp"
 
-edit(cpp, r'#include <unistd\.h>', '#include <unistd.h>\n#include <atomic>\n#include <cstdio>')
-edit(cpp, r'DEFAULT_CONTEXT_SIZE(\s*)=\s*8192;', 'DEFAULT_CONTEXT_SIZE    = 32768;')
+edit(cpp, r'#include <unistd\.h>',
+     '#include <unistd.h>\n#include <atomic>\n#include <cstdio>\n#include <cstdlib>\n#include <sys/system_properties.h>')
+assert "swa_full" in (src / "include" / "llama.h").read_text(encoding="utf-8"), "llama.h has no swa_full"
+# 32k by default; a plain global (not constexpr) so that `setprop debug.e4bcpu.ctx N` can change it at model load
+edit(cpp, r'constexpr int   DEFAULT_CONTEXT_SIZE(\s*)=\s*8192;', 'static int      DEFAULT_CONTEXT_SIZE    = 32768;')
+edit(cpp, r'auto \*context = init_context\(g_model\);',
+     'DEFAULT_CONTEXT_SIZE = prop_int("debug.e4bcpu.ctx", 32768);\n'
+     '    auto *context = init_context(g_model);')
+# The API default keeps a FULL-size cache for the 20 sliding-window layers: 1280 MiB at 32k on top of the 512 MiB of the
+# 4 global layers. First run on the A54: 1.8 GB of own memory, the model's pages evicted, 0.1 tok/s. The command-line
+# tools default to the window-sized cache; do the same.
+edit(cpp, r'ctx_params\.n_ctx = n_ctx;', 'ctx_params.n_ctx = n_ctx;\n    ctx_params.swa_full = false;')
 edit(cpp, r'static common_sampler\s*\* g_sampler;',
      'static common_sampler                   * g_sampler;\n\n'
      '// E4B test app: counters of the last turn (written by the engine thread, read by the UI thread)\n'
      'static std::atomic<long long> g_st_prompt_us{0}, g_st_gen_us{0}, g_st_first_us{0}, g_st_last_us{0};\n'
-     'static std::atomic<int>       g_st_prompt_n{0}, g_st_gen_n{0}, g_st_pos{0};')
+     'static std::atomic<int>       g_st_prompt_n{0}, g_st_gen_n{0}, g_st_pos{0};\n\n'
+     '// E4B test app: knobs settable from adb without a rebuild, e.g. `setprop debug.e4bcpu.tb 4` (read at model load)\n'
+     'static int prop_int(const char *name, int def) {\n'
+     '    char buf[PROP_VALUE_MAX] = {0};\n'
+     '    if (__system_property_get(name, buf) > 0) { const int v = atoi(buf); if (v > 0) { return v; } }\n'
+     '    return def;\n'
+     '}')
 
 # weights stay in the mapped file (= --no-repack); otherwise Q4_K is copied into ~2.6 GB of anonymous memory
 edit(cpp, r'llama_model_params model_params = llama_model_default_params\(\);',
@@ -65,8 +81,14 @@ edit(cpp, r'llama_model_params model_params = llama_model_default_params\(\);',
      '    model_params.use_extra_bufts = false;')
 
 # 3 threads (measured best on the A54: 4 big cores, one left for the screen)
-edit(cpp, r'const int n_threads = std::max\(N_THREADS_MIN,.*?N_THREADS_HEADROOM\)\);', 'const int n_threads = 3;', flags=re.S)
-edit(cpp, r'ctx_params\.n_ubatch = BATCH_SIZE;', 'ctx_params.n_ubatch = 128;')
+edit(cpp, r'const int n_threads = std::max\(N_THREADS_MIN,.*?N_THREADS_HEADROOM\)\);',
+     'const int n_threads = prop_int("debug.e4bcpu.t", 3);', flags=re.S)
+edit(cpp, r'ctx_params\.n_ubatch = BATCH_SIZE;', 'ctx_params.n_ubatch = prop_int("debug.e4bcpu.ub", 128);')
+# prompt reading: 4 threads measured faster than 3 on the A54 (generation stays at 3)
+edit(cpp, r'ctx_params\.n_threads_batch = n_threads;',
+     'ctx_params.n_threads_batch = prop_int("debug.e4bcpu.tb", 4);\n'
+     '    LOGi("%s: threads %d, batch threads %d, ubatch %d", __func__, n_threads,\n'
+     '         (int) ctx_params.n_threads_batch, (int) ctx_params.n_ubatch);')
 
 # the chat-template object is not used for formatting any more; do not let its parser take the app down
 edit(cpp, r'g_chat_templates = common_chat_templates_init\(g_model, ""\);',
@@ -156,6 +178,6 @@ shutil.copyfile(here / "MainActivity.kt", dst)
 print("ok   MainActivity.kt replaced")
 
 # show what the engine file looks like around the edits (for the build log)
-for key in ("use_extra_bufts", "n_threads = 3", "first_turn", "t_g0", "statsNative"):
+for key in ("use_extra_bufts", "debug.e4bcpu.tb", "first_turn", "t_g0", "statsNative"):
     assert key in cpp.read_text(encoding="utf-8"), key
 print("patch_app: done")
