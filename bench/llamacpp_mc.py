@@ -22,7 +22,8 @@ bindir = os.path.dirname(os.path.abspath(a.server))
 env = dict(os.environ, LD_LIBRARY_PATH=bindir + ":" + os.environ.get("LD_LIBRARY_PATH", ""))
 log = open("server_%d.log" % a.shard, "w")
 srv = subprocess.Popen([a.server, "-m", a.model, "--jinja", "-c", "4096", "-t", str(os.cpu_count()),
-                        "--port", "8080", "-np", "1", "-ngl", "0"], env=env, stdout=log, stderr=subprocess.STDOUT)
+                        "--port", "8080", "-np", "1", "-ngl", "0"] + os.environ.get("LLAMA_EXTRA_ARGS", "").split(),
+                       env=env, stdout=log, stderr=subprocess.STDOUT)
 
 
 def call(path, body=None, timeout=600):

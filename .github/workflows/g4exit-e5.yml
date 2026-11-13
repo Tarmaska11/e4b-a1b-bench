@@ -1,0 +1,92 @@
+name: g4exit-e5
+# E5: Qwen3.6-35B-A3B Q2_K_XL with fewer experts per token (K = 4, 6; native K = 8), same harness.
+on:
+  push:
+    branches: ['fable/**']
+    paths: ['g4exit/RUN_E5']
+permissions:
+  contents: write
+env:
+  LLAMA_TAG: b12317
+jobs:
+  mc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        model:
+          - { tag: qwen36-35b-k4, repo: unsloth/Qwen3.6-35B-A3B-GGUF, file: Qwen3.6-35B-A3B-UD-Q2_K_XL.gguf, k: 4 }
+          - { tag: qwen36-35b-k6, repo: unsloth/Qwen3.6-35B-A3B-GGUF, file: Qwen3.6-35B-A3B-UD-Q2_K_XL.gguf, k: 6 }
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - name: llama.cpp (CPU, prebuilt) + model
+        run: |
+          set -e
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+          df -h / | tail -1
+          curl -sSL -o llama.tar.gz https://github.com/ggml-org/llama.cpp/releases/download/$LLAMA_TAG/llama-$LLAMA_TAG-bin-ubuntu-x64.tar.gz
+          mkdir llama && tar -xzf llama.tar.gz -C llama
+          curl -sSL -o model.gguf "https://huggingface.co/${{ matrix.model.repo }}/resolve/main/${{ matrix.model.file }}"
+          ls -la model.gguf
+      - name: benchmark shard
+        run: |
+          SRV=$(find llama -name 'llama-server' -type f | head -1)
+          export LLAMA_EXTRA_ARGS="--override-kv qwen35moe.expert_used_count=int:${{ matrix.model.k }}"
+          python3 bench/llamacpp_mc.py --server "$SRV" --model model.gguf --data data/bench_gmmlu.jsonl \
+            --shard ${{ matrix.shard }} --nshards 4 --out out_${{ matrix.model.tag }}_${{ matrix.shard }}.jsonl
+      - name: server log check (was the override applied?)
+        if: always()
+        run: grep -i -E "expert_used|override" server_*.log | head -5 || true
+      - name: chat samples (EN + RU, for reading)
+        if: matrix.shard < 1 && matrix.model.k == 4
+        run: |
+          SRV=$(find llama -name 'llama-server' -type f | head -1)
+          python3 g4exit/chat_sample.py --server "$SRV" --model model.gguf --shard ${{ matrix.shard }} --nshards 4 \
+            --temp 0.7 --top-p 0.9 --top-k 40 --out chat_${{ matrix.model.tag }}_${{ matrix.shard }}.jsonl
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e5-${{ matrix.model.tag }}-${{ matrix.shard }}
+          path: |
+            out_*.jsonl
+            chat_*.jsonl
+            server_*.log
+          retention-days: 30
+
+  report:
+    needs: mc
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: e5-*
+          path: res
+          merge-multiple: true
+      - name: score and commit
+        run: |
+          set -e
+          D=g4exit/results/e5-${{ github.run_id }}
+          mkdir -p $D
+          ARGS="e4b-q4km=g4exit/ref/e4b_q4km.jsonl qwen36-35b-k8=g4exit/results/e4-43343572647/out_qwen36-35b-a3b-q2kxl.jsonl"
+          for t in qwen36-35b-k4 qwen36-35b-k6; do
+            if ls res/out_${t}_*.jsonl >/dev/null 2>&1; then
+              cat res/out_${t}_*.jsonl > $D/out_$t.jsonl
+              ARGS="$ARGS $t=$D/out_$t.jsonl"
+            fi
+            if ls res/chat_${t}_*.jsonl >/dev/null 2>&1; then cat res/chat_${t}_*.jsonl > $D/chat_$t.jsonl; fi
+          done
+          python3 bench/score_mc.py $ARGS --ref e4b-q4km | tee $D/score.txt
+          python3 bench/score_mc.py $ARGS --ref qwen36-35b-k8 | tee $D/score_vs_k8.txt
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add g4exit/results
+          git commit -m "E5 results, run ${{ github.run_id }}" || exit 0
+          for i in 1 2 3 4 5 6; do
+            git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break
+            sleep $((RANDOM % 20 + 5))
+          done
