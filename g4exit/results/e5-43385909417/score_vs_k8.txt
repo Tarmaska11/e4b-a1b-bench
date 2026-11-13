@@ -1,0 +1,17 @@
+system                       lang      n     acc          95% CI  letter
+e4b-q4km                     en      570   68.1%   64.1- 71.8%   97.5%
+e4b-q4km                     ru      570   65.1%   61.1- 68.9%  100.0%
+qwen36-35b-k8                en      570   77.9%   74.3- 81.1%   97.0%
+qwen36-35b-k8                ru      570   74.2%   70.5- 77.6%  100.0%
+qwen36-35b-k4                en      570   49.5%   45.4- 53.6%   74.6%
+qwen36-35b-k4                ru      570   60.0%   55.9- 63.9%   98.4%
+qwen36-35b-k6                en      570   68.6%   64.7- 72.3%   93.2%
+qwen36-35b-k6                ru      570   74.9%   71.2- 78.3%  100.0%
+
+paired vs qwen36-35b-k8 (same questions):
+  e4b-q4km                     en   n= 570   -9.8 pts  (wins 30 / losses 86, sign-test p=0.000)
+  e4b-q4km                     ru   n= 570   -9.1 pts  (wins 47 / losses 99, sign-test p=0.000)
+  qwen36-35b-k4                en   n= 570  -28.4 pts  (wins 11 / losses 173, sign-test p=0.000)
+  qwen36-35b-k4                ru   n= 570  -14.2 pts  (wins 21 / losses 102, sign-test p=0.000)
+  qwen36-35b-k6                en   n= 570   -9.3 pts  (wins 16 / losses 69, sign-test p=0.000)
+  qwen36-35b-k6                ru   n= 570   +0.7 pts  (wins 28 / losses 24, sign-test p=0.678)
