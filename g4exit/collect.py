@@ -196,7 +196,7 @@ else:
     ARMS = [x + (None,) for x in ARMS]
     if a.armset == "e3":
         PR = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "profiles.json")))
-        D_ = "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= %s, else dense"
+        D_ = "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 %% / 25 %% whose calibrated FFN error is <= %s, else dense"
         ARMS = [("T004", None, PR["T004"], D_ % "0.004 (the Q4 noise floor)", None),
                 ("T008", None, PR["T008"], D_ % "0.008", None),
                 ("T016", None, PR["T016"], D_ % "0.016", None),
