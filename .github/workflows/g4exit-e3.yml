@@ -109,7 +109,11 @@ jobs:
         run: |
           SRV=$(find llama -name 'llama-server' -type f | head -1)
           export G4_CAL=$PWD/cal
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+          df -h / | tail -1
+          U=https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main
           python3 g4exit/collect.py --server "$SRV" --g4dump bin/g4dump --model model.gguf --mode e4b --armset e3 \
+            --extra "q8ref=$U/gemma-4-E4B-it-Q8_0.gguf,q4ks=$U/gemma-4-E4B-it-Q4_K_S.gguf" \
             --shard ${{ matrix.shard }} --nshards 8 --out out
       - uses: actions/upload-artifact@v4
         if: always()

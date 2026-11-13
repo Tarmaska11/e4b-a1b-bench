@@ -29,6 +29,7 @@ ap.add_argument("--chat", default="g4exit/chat_prompts.jsonl")
 ap.add_argument("--out", required=True)
 ap.add_argument("--limit", type=int, default=0, help="smoke: keep only this many records of each kind")
 ap.add_argument("--armset", default="e0")
+ap.add_argument("--extra", default="", help="other model files as arms: name=URL,name=URL (downloaded, dumped, deleted)")
 a = ap.parse_args()
 
 os.makedirs(a.out, exist_ok=True)
@@ -131,7 +132,7 @@ bench_recs = [prefix + r["prompt"] + suffix for r in bench]
 
 
 # ---------------------------------------------------------------- dumps
-def dump(name, recs, layers, last, skip=None, ffn=None, desc="", xenv=None):
+def dump(name, recs, layers, last, skip=None, ffn=None, desc="", xenv=None, model=None):
     if not recs:
         return None
     for x in recs:
@@ -148,7 +149,7 @@ def dump(name, recs, layers, last, skip=None, ffn=None, desc="", xenv=None):
     e.update(xenv or {})
     t = time.time()
     with open(os.path.join(a.out, name + ".log"), "w") as lg:
-        rc = subprocess.call([a.g4dump, "-m", a.model, "-f", rf, "--no-escape", "--no-repack", "-c", "2048", "-b", "2048",
+        rc = subprocess.call([a.g4dump, "-m", model or a.model, "-f", rf, "--no-escape", "--no-repack", "-c", "2048", "-b", "2048",
                               "-t", str(NCPU), "-ngl", "0"], env=e, stdout=lg, stderr=subprocess.STDOUT)
     dt = time.time() - t
     if rc != 0:
@@ -194,23 +195,31 @@ else:
             ("f_g_mix", None, "g:0:24:0.5,g:24:42:0.25", "GATE-ONLY selector, 50 % in layers 0-23, 25 % in 24-41")]
     ARMS = [x + (None,) for x in ARMS]
     if a.armset == "e3":
-        PA = "c:0:9:0.25,c:9:14:0.5,c:41:42:0.5"
-        PB = "c:0:9:0.125,c:9:14:0.25,c:14:24:0.5,c:24:42:0.25"
-        PC = "c:0:9:0.125,c:9:24:0.25,c:24:42:0.125"
-        ARMS = [("pA", None, PA, "profile A (at the Q4 noise floor): 25 % in layers 0-8, 50 % in 9-13 and 41, dense 14-40; gate-cal + bypass", None),
-                ("pB", None, PB, "profile B: 12.5 % in 0-8, 25 % in 9-13, 50 % in 14-23, 25 % in 24-41; gate-cal + bypass", None),
-                ("pB_nobyp", None, PB, "profile B WITHOUT the bypass", {"G4_NOBYP": "1"}),
-                ("pC", None, PC, "profile C: 12.5 % in 0-8, 25 % in 9-23, 12.5 % in 24-41; gate-cal + bypass", None),
-                ("c50", None, "c:0:42:0.5", "gate-cal + bypass, 50 % everywhere", None),
-                ("c25", None, "c:0:42:0.25", "gate-cal + bypass, 25 % everywhere", None),
-                ("early125", None, "c:0:9:0.125", "only layers 0-8 sparse (12.5 %), gate-cal + bypass", None),
-                ("top25", None, "c:24:42:0.25", "only the stateless layers 24-41 sparse (25 %), gate-cal + bypass", None),
-                ("top125", None, "c:24:42:0.125", "only the stateless layers 24-41 sparse (12.5 %), gate-cal + bypass", None)]
+        PR = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "profiles.json")))
+        D_ = "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= %s, else dense"
+        ARMS = [("T004", None, PR["T004"], D_ % "0.004 (the Q4 noise floor)", None),
+                ("T008", None, PR["T008"], D_ % "0.008", None),
+                ("T016", None, PR["T016"], D_ % "0.016", None),
+                ("T032", None, PR["T032"], D_ % "0.032", None),
+                ("T064", None, PR["T064"], D_ % "0.064", None),
+                ("T016_nobyp", None, PR["T016"], "the T016 profile WITHOUT the bypass", {"G4_NOBYP": "1"}),
+                ("c50", None, "c:0:42:0.5", "gate-cal + bypass, 50 % in every layer", None),
+                ("top25", None, "c:24:42:0.25", "gate-cal + bypass, 25 % in the stateless layers 24-41 only", None)]
     if a.limit and a.armset == "e0":
         ARMS.append(("f_ctrl", None, "k:0:42:1.0", "control: sparse code path with every neuron kept (must equal full)", None))
     for name, spec, ffn, desc, xenv in ARMS:
         arms.append(dump("chat_" + name, chat_recs, [41], False, spec, ffn, desc, xenv))
         arms.append(dump("bench_" + name, bench_recs, [41], True, spec, ffn, desc, xenv))
+for spec_ in [x for x in a.extra.split(",") if x]:
+    nm_, url_ = spec_.split("=", 1)
+    mp_ = os.path.join(a.out, "extra.gguf")
+    rc_ = os.system('curl -sSL -o "%s" "%s"' % (mp_, url_))
+    log("extra model %s: download rc=%d, %.2f GB" % (nm_, rc_, os.path.getsize(mp_) / 1e9 if os.path.exists(mp_) else 0))
+    d_ = "ANOTHER FILE of the same model as an arm: %s" % url_.rsplit("/", 1)[-1]
+    arms.append(dump("chat_" + nm_, chat_recs, [41], False, None, None, d_, None, mp_))
+    arms.append(dump("bench_" + nm_, bench_recs, [41], True, None, None, d_, None, mp_))
+    if os.path.exists(mp_):
+        os.remove(mp_)
 meta["arms"] = arms
 json.dump(meta, open(os.path.join(a.out, "meta.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 log("done")
