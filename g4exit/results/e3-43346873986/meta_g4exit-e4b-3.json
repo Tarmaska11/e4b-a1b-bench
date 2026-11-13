@@ -1,0 +1,2721 @@
+{
+ "mode": "e4b",
+ "shard": 3,
+ "nshards": 8,
+ "model": "model.gguf",
+ "template_source": "server",
+ "template_raw": [
+  "<|turn>user\n",
+  "<turn|>\n<|turn>model\n"
+ ],
+ "prefix": "<|turn>user\n",
+ "suffix": "<turn|>\n<|turn>model\n",
+ "letters": {
+  "A": [
+   236776
+  ],
+  "B": [
+   236799
+  ],
+  "C": [
+   236780
+  ],
+  "D": [
+   236796
+  ]
+ },
+ "suffix_tokens": [
+  106,
+  107,
+  105,
+  4368,
+  107
+ ],
+ "chat": [
+  {
+   "id": "en04",
+   "lang": "en",
+   "prompt": "What should I cook tonight? I have eggs, rice, an onion and some frozen peas.",
+   "reply": "That's a simple but versatile set of ingredients! You can make a few different things depending on how much effort you want to put in and what kind of flavor profile you're in the mood for.\n\nHere are three great options, ranging from super quick to slightly more involved:\n\n---\n\n## 🍳 Option 1: Quick & Easy - Fried Rice with Eggs (The Speedy Classic)\n\nThis is the most straightforward and delicious use of your ingredients.\n\n**What you'll need:**\n* All your ingredients\n* A little oil (vegetable or olive)\n* Salt and pepper\n\n**How to make it:**\n1. **Sauté Onion:** Heat a little oil in a pan over medium heat. Add the chopped onion and cook until softened (about ",
+   "gen_tokens": 160,
+   "gen_s": 14.5,
+   "n_prompt": 28
+  },
+  {
+   "id": "en12",
+   "lang": "en",
+   "prompt": "Good morning! I slept badly. Say something to cheer me up.",
+   "reply": "Good morning! ☀️ I'm so sorry you slept badly—that's the absolute worst way to start the day.\n\nBut hey, here’s the deal: **You made it through the night, and that means you are resilient!** Even if the sleep wasn't perfect, you are still here, and that's a win.\n\nThink of your body right now as a little superhero who fought a tough battle against restless sleep. You deserve some kindness today.\n\nHow about we try this little mental reset? Pick one thing—something tiny—that you can look forward to today. Maybe it's a really good cup of coffee, listening to your favorite song, or just getting a few minutes of sunshine.\n\n**Let's focus on one small,",
+   "gen_tokens": 160,
+   "gen_s": 14.6,
+   "n_prompt": 23
+  },
+  {
+   "id": "en20",
+   "lang": "en",
+   "prompt": "I'm nervous about a job interview tomorrow. Help me prepare for the question 'tell me about yourself'.",
+   "reply": "It is completely normal to be nervous! The \"Tell me about yourself\" question is actually one of the *best* questions because it sets the tone for the entire interview. It's not an invitation to give your life story; it's a **professional elevator pitch**.\n\nHere is a comprehensive guide to structuring your answer, along with different approaches depending on the job type.\n\n---\n\n## 🧠 The Golden Rule: The Present-Past-Future Framework\n\nThe most effective way to structure this answer is using the **Present-Past-Future** formula. It's concise, relevant, and immediately positions you as a solution to their needs.\n\n### 1. **Present (Who you are *now*)** - *The Hook*\n*   Start with a brief",
+   "gen_tokens": 160,
+   "gen_s": 14.6,
+   "n_prompt": 31
+  },
+  {
+   "id": "en28",
+   "lang": "en",
+   "prompt": "I feel lonely in a new city. How do adults actually make friends?",
+   "reply": "It is completely normal and very common to feel lonely in a new city. Moving to a new place is exciting, but it can also feel incredibly isolating. Please be kind to yourself—this is a transitional phase, and making friends as an adult takes effort, patience, and a little bit of strategic action.\n\nThe idea that \"adults just make friends\" can feel like a myth. In reality, it's more like a social skill that needs to be practiced.\n\nHere is a comprehensive, step-by-step guide on how adults actually make friends, broken down into mindset, action, and maintenance.\n\n---\n\n## 🧠 Phase 1: Adjusting Your Mindset (The Inner Work)\n\nBefore you can find friends, you need to be ready to receive them",
+   "gen_tokens": 160,
+   "gen_s": 14.3,
+   "n_prompt": 24
+  },
+  {
+   "id": "ru04",
+   "lang": "ru",
+   "prompt": "Что приготовить на ужин? Есть яйца, рис, лук и замороженный горошек.",
+   "reply": "С вашими ингредиентами (яйца, рис, лук, замороженный горошек) можно приготовить несколько вкусных и быстрых вариантов ужина. Вот три идеи, от самых простых до чуть более сытных:\n\n---\n\n## 🍳 Вариант 1: Простой яично-рисовый \"Гречаник\" (или Жареный Рис)\n\nЭто самый быстрый и легкий вариант.\n\n**Что нужно:**\n* Рис (предварительно сваренный, если это не готовый рис)\n* Яйца\n* Лук\n* Горошек\n* Масло для жарки\n* Соль, перец\n\n**Как готовить:**\n1. **Обжарьте лук:** На",
+   "gen_tokens": 160,
+   "gen_s": 14.6,
+   "n_prompt": 31
+  },
+  {
+   "id": "ru12",
+   "lang": "ru",
+   "prompt": "Доброе утро! Я плохо спала. Скажи что-нибудь, чтобы поднять настроение.",
+   "reply": "Доброе утро! ☀️ Сочувствую, что плохо спала. Надеюсь, этот день принесет тебе больше энергии!\n\nВот несколько вариантов, выбирай, что больше откликается сейчас:\n\n**🌱 Легкий и позитивный заряд:**\n\n* **\"Сегодня — твой день, чтобы сделать что-то маленькое, что принесет тебе улыбку. Даже если это просто выпить чашку любимого чая в тишине!\"**\n* \"Помни: ты прошла через вчера, и сегодня — чистый лист. У тебя есть все ресурсы, чтобы сделать его хорошим!\"\n* \"Даже маленькое движение вперед — это победа. Начни с чего-то простого, и пусть этот импульс поднимет тебя",
+   "gen_tokens": 160,
+   "gen_s": 14.7,
+   "n_prompt": 29
+  },
+  {
+   "id": "ru20",
+   "lang": "ru",
+   "prompt": "Завтра собеседование, я волнуюсь. Помоги подготовить ответ на вопрос «расскажите о себе».",
+   "reply": "Это совершенно нормально волноваться перед собеседованием! Главное — помнить, что этот вопрос (\"Расскажите о себе\") — это не биография, а **продающая презентация** вашего профессионального \"продукта\" (то есть, вас).\n\nВаша цель — не просто перечислить факты, а **создать историю**, которая показывает, почему вы идеальный кандидат именно для этой роли и этой компании.\n\nВот пошаговая инструкция и несколько шаблонов, из которых вы можете выбрать подходящий.\n\n---\n\n## 🧠 Структура идеального ответа (Метод \"Настоящее – Прошлое – Будущее\")\n\nСамый эффективный и структурированный ответ делится на три части:\n\n### 1.",
+   "gen_tokens": 160,
+   "gen_s": 14.4,
+   "n_prompt": 36
+  },
+  {
+   "id": "ru28",
+   "lang": "ru",
+   "prompt": "Мне одиноко в новом городе. Как взрослые люди вообще заводят друзей?",
+   "reply": "Мне очень жаль, что вы сейчас чувствуете себя одиноко. Это совершенно нормальное и очень человечное чувство, когда вы находитесь в новом городе. Переезд — это огромное изменение, и адаптация к новой социальной среде требует времени и усилий.\n\nТо, что вы спрашиваете, \"Как взрослые люди вообще заводят друзей?\", — это очень глубокий и важный вопрос. Ответ не один, он очень индивидуален, но я могу дать вам структурированный план действий и психологические подходы, которые используют люди для построения социальных связей во взрослом возрасте.\n\n---\n\n### 🧠 Понимание процесса: Почему это сложно?\n\nПрежде чем переходить к действиям, важно принять несколько вещей:\n\n1. **Дружба — это не случай",
+   "gen_tokens": 160,
+   "gen_s": 13.9,
+   "n_prompt": 25
+  }
+ ],
+ "bench": [
+  {
+   "id": "abstract_algebra/test/0",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "anatomy/test/59",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "anatomy/test/119",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "astronomy/test/87",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "business_ethics/test/13",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "clinical_knowledge/test/220",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_biology/test/46",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "college_biology/test/135",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "college_chemistry/test/21",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_computer_science/test/85",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_mathematics/test/13",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "college_medicine/test/50",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_medicine/test/166",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "college_physics/test/68",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "computer_security/test/49",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "conceptual_physics/test/83",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "econometrics/test/106",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "econometrics/test/21",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "electrical_engineering/test/114",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "elementary_mathematics/test/329",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "formal_logic/test/118",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "global_facts/test/70",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "global_facts/test/23",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_biology/test/0",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_chemistry/test/198",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_computer_science/test/70",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_european_history/test/73",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_european_history/test/71",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_geography/test/56",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_government_and_politics/test/186",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_macroeconomics/test/62",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_mathematics/test/269",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_mathematics/test/71",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_microeconomics/test/112",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_physics/test/98",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_psychology/test/410",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_statistics/test/25",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_statistics/test/184",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_us_history/test/133",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_world_history/test/80",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "human_aging/test/179",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "human_sexuality/test/33",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "human_sexuality/test/19",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "international_law/test/87",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "jurisprudence/test/70",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "logical_fallacies/test/91",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "machine_learning/test/58",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "machine_learning/test/5",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "management/test/93",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "marketing/test/180",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "medical_genetics/test/33",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "miscellaneous/test/560",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "miscellaneous/test/53",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "moral_disputes/test/205",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/651",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "nutrition/test/71",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "philosophy/test/176",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "philosophy/test/179",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "prehistory/test/319",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "professional_accounting/test/147",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_law/test/1438",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "professional_medicine/test/261",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "professional_medicine/test/148",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "professional_psychology/test/257",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "public_relations/test/76",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "security_studies/test/158",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "sociology/test/82",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "sociology/test/55",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "us_foreign_policy/test/30",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "virology/test/16",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "world_religions/test/164",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "abstract_algebra/test/6",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "abstract_algebra/test/18",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "anatomy/test/84",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "astronomy/test/19",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "business_ethics/test/68",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "clinical_knowledge/test/82",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "clinical_knowledge/test/130",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "college_biology/test/115",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_chemistry/test/49",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_computer_science/test/57",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_mathematics/test/99",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "college_mathematics/test/48",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_medicine/test/44",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_physics/test/57",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "computer_security/test/83",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "conceptual_physics/test/16",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "conceptual_physics/test/200",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "econometrics/test/89",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "electrical_engineering/test/112",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "elementary_mathematics/test/83",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "formal_logic/test/66",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "formal_logic/test/8",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "global_facts/test/47",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_biology/test/248",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_chemistry/test/148",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_computer_science/test/52",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_computer_science/test/75",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_european_history/test/80",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_geography/test/167",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_government_and_politics/test/38",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_macroeconomics/test/235",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_macroeconomics/test/170",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_mathematics/test/74",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_microeconomics/test/68",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_physics/test/3",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_psychology/test/165",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_psychology/test/176",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_statistics/test/154",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_us_history/test/108",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_world_history/test/216",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "human_aging/test/31",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "human_aging/test/55",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "human_sexuality/test/14",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "international_law/test/35",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "jurisprudence/test/63",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "logical_fallacies/test/46",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "logical_fallacies/test/143",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "machine_learning/test/103",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "management/test/62",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "marketing/test/88",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "medical_genetics/test/82",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "medical_genetics/test/93",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "miscellaneous/test/143",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "moral_disputes/test/286",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/209",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "nutrition/test/97",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "nutrition/test/18",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "philosophy/test/302",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "prehistory/test/83",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "professional_accounting/test/3",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_law/test/1240",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_law/test/93",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "professional_medicine/test/58",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_psychology/test/260",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "public_relations/test/100",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "security_studies/test/64",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "security_studies/test/92",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "sociology/test/10",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "us_foreign_policy/test/37",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "virology/test/27",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "world_religions/test/170",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "world_religions/test/78",
+   "lang": "ru",
+   "gold": "C"
+  }
+ ],
+ "arms": [
+  {
+   "name": "chat_full",
+   "rc": 0,
+   "s": 45,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": false
+  },
+  {
+   "name": "bench_full",
+   "rc": 0,
+   "s": 535,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": true
+  },
+  {
+   "name": "chat_T004",
+   "rc": 0,
+   "s": 51,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.25,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.25,c:8:9:0.25",
+   "ffn_kept": {
+    "0": [
+     1928960,
+     15431680
+    ],
+    "1": [
+     1928961,
+     15431680
+    ],
+    "2": [
+     1928960,
+     15431680
+    ],
+    "3": [
+     3857920,
+     15431680
+    ],
+    "4": [
+     1928960,
+     15431680
+    ],
+    "5": [
+     1928960,
+     15431680
+    ],
+    "6": [
+     1928961,
+     15431680
+    ],
+    "7": [
+     3857920,
+     15431680
+    ],
+    "8": [
+     3857920,
+     15431680
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.004 (the Q4 noise floor), else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T004",
+   "rc": 0,
+   "s": 617,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.25,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.25,c:8:9:0.25",
+   "ffn_kept": {
+    "0": [
+     26736640,
+     213893120
+    ],
+    "1": [
+     26736640,
+     213893120
+    ],
+    "2": [
+     26736641,
+     213893120
+    ],
+    "3": [
+     53473284,
+     213893120
+    ],
+    "4": [
+     26736641,
+     213893120
+    ],
+    "5": [
+     26736642,
+     213893120
+    ],
+    "6": [
+     26736644,
+     213893120
+    ],
+    "7": [
+     53473283,
+     213893120
+    ],
+    "8": [
+     53473282,
+     213893120
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.004 (the Q4 noise floor), else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T008",
+   "rc": 0,
+   "s": 54,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.25,c:10:11:0.25,c:11:12:0.125,c:12:13:0.25,c:13:14:0.25",
+   "ffn_kept": {
+    "0": [
+     1928960,
+     15431680
+    ],
+    "1": [
+     1928961,
+     15431680
+    ],
+    "2": [
+     1928960,
+     15431680
+    ],
+    "3": [
+     1928960,
+     15431680
+    ],
+    "4": [
+     1928960,
+     15431680
+    ],
+    "5": [
+     1928960,
+     15431680
+    ],
+    "6": [
+     1928960,
+     15431680
+    ],
+    "7": [
+     1928961,
+     15431680
+    ],
+    "8": [
+     1928960,
+     15431680
+    ],
+    "9": [
+     3857920,
+     15431680
+    ],
+    "10": [
+     3857920,
+     15431680
+    ],
+    "11": [
+     1928960,
+     15431680
+    ],
+    "12": [
+     3857920,
+     15431680
+    ],
+    "13": [
+     3857922,
+     15431680
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.008, else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T008",
+   "rc": 0,
+   "s": 646,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.25,c:10:11:0.25,c:11:12:0.125,c:12:13:0.25,c:13:14:0.25",
+   "ffn_kept": {
+    "0": [
+     26736640,
+     213893120
+    ],
+    "1": [
+     26736640,
+     213893120
+    ],
+    "2": [
+     26736641,
+     213893120
+    ],
+    "3": [
+     26736641,
+     213893120
+    ],
+    "4": [
+     26736641,
+     213893120
+    ],
+    "5": [
+     26736641,
+     213893120
+    ],
+    "6": [
+     26736642,
+     213893120
+    ],
+    "7": [
+     26736641,
+     213893120
+    ],
+    "8": [
+     26736640,
+     213893120
+    ],
+    "9": [
+     53473286,
+     213893120
+    ],
+    "10": [
+     53473281,
+     213893120
+    ],
+    "11": [
+     26736641,
+     213893120
+    ],
+    "12": [
+     53473285,
+     213893120
+    ],
+    "13": [
+     53473289,
+     213893120
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.008, else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T016",
+   "rc": 0,
+   "s": 56,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.25,c:22:23:0.25,c:40:41:0.25,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     1928960,
+     15431680
+    ],
+    "1": [
+     1928961,
+     15431680
+    ],
+    "2": [
+     1928960,
+     15431680
+    ],
+    "3": [
+     1928960,
+     15431680
+    ],
+    "4": [
+     1928960,
+     15431680
+    ],
+    "5": [
+     1928960,
+     15431680
+    ],
+    "6": [
+     1928960,
+     15431680
+    ],
+    "7": [
+     1928961,
+     15431680
+    ],
+    "8": [
+     1928960,
+     15431680
+    ],
+    "9": [
+     1928960,
+     15431680
+    ],
+    "10": [
+     1928960,
+     15431680
+    ],
+    "11": [
+     1928960,
+     15431680
+    ],
+    "12": [
+     1928960,
+     15431680
+    ],
+    "13": [
+     1928960,
+     15431680
+    ],
+    "14": [
+     3857920,
+     15431680
+    ],
+    "22": [
+     3857920,
+     15431680
+    ],
+    "40": [
+     3857921,
+     15431680
+    ],
+    "41": [
+     1928960,
+     15431680
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.016, else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T016",
+   "rc": 0,
+   "s": 691,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.25,c:22:23:0.25,c:40:41:0.25,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     26736640,
+     213893120
+    ],
+    "1": [
+     26736640,
+     213893120
+    ],
+    "2": [
+     26736641,
+     213893120
+    ],
+    "3": [
+     26736641,
+     213893120
+    ],
+    "4": [
+     26736641,
+     213893120
+    ],
+    "5": [
+     26736641,
+     213893120
+    ],
+    "6": [
+     26736642,
+     213893120
+    ],
+    "7": [
+     26736641,
+     213893120
+    ],
+    "8": [
+     26736640,
+     213893120
+    ],
+    "9": [
+     26736640,
+     213893120
+    ],
+    "10": [
+     26736645,
+     213893120
+    ],
+    "11": [
+     26736642,
+     213893120
+    ],
+    "12": [
+     26736641,
+     213893120
+    ],
+    "13": [
+     26736648,
+     213893120
+    ],
+    "14": [
+     53473281,
+     213893120
+    ],
+    "22": [
+     53473284,
+     213893120
+    ],
+    "40": [
+     53473287,
+     213893120
+    ],
+    "41": [
+     26736642,
+     213893120
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.016, else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T032",
+   "rc": 0,
+   "s": 63,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.125,c:15:16:0.25,c:21:22:0.25,c:22:23:0.125,c:23:24:0.125,c:24:25:0.25,c:28:29:0.25,c:30:31:0.25,c:33:34:0.25,c:34:35:0.25,c:35:36:0.25,c:39:40:0.25,c:40:41:0.125,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     1928960,
+     15431680
+    ],
+    "1": [
+     1928961,
+     15431680
+    ],
+    "2": [
+     1928960,
+     15431680
+    ],
+    "3": [
+     1928960,
+     15431680
+    ],
+    "4": [
+     1928960,
+     15431680
+    ],
+    "5": [
+     1928960,
+     15431680
+    ],
+    "6": [
+     1928960,
+     15431680
+    ],
+    "7": [
+     1928961,
+     15431680
+    ],
+    "8": [
+     1928960,
+     15431680
+    ],
+    "9": [
+     1928960,
+     15431680
+    ],
+    "10": [
+     1928960,
+     15431680
+    ],
+    "11": [
+     1928960,
+     15431680
+    ],
+    "12": [
+     1928960,
+     15431680
+    ],
+    "13": [
+     1928960,
+     15431680
+    ],
+    "14": [
+     1928960,
+     15431680
+    ],
+    "15": [
+     3857921,
+     15431680
+    ],
+    "21": [
+     3857921,
+     15431680
+    ],
+    "22": [
+     1928963,
+     15431680
+    ],
+    "23": [
+     1928961,
+     15431680
+    ],
+    "24": [
+     3857920,
+     15431680
+    ],
+    "28": [
+     3857920,
+     15431680
+    ],
+    "30": [
+     3857920,
+     15431680
+    ],
+    "33": [
+     3857921,
+     15431680
+    ],
+    "34": [
+     3857920,
+     15431680
+    ],
+    "35": [
+     3857921,
+     15431680
+    ],
+    "39": [
+     3857920,
+     15431680
+    ],
+    "40": [
+     1928960,
+     15431680
+    ],
+    "41": [
+     1928961,
+     15431680
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.032, else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T032",
+   "rc": 0,
+   "s": 778,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.125,c:15:16:0.25,c:21:22:0.25,c:22:23:0.125,c:23:24:0.125,c:24:25:0.25,c:28:29:0.25,c:30:31:0.25,c:33:34:0.25,c:34:35:0.25,c:35:36:0.25,c:39:40:0.25,c:40:41:0.125,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     26736640,
+     213893120
+    ],
+    "1": [
+     26736640,
+     213893120
+    ],
+    "2": [
+     26736641,
+     213893120
+    ],
+    "3": [
+     26736641,
+     213893120
+    ],
+    "4": [
+     26736641,
+     213893120
+    ],
+    "5": [
+     26736641,
+     213893120
+    ],
+    "6": [
+     26736642,
+     213893120
+    ],
+    "7": [
+     26736641,
+     213893120
+    ],
+    "8": [
+     26736640,
+     213893120
+    ],
+    "9": [
+     26736640,
+     213893120
+    ],
+    "10": [
+     26736645,
+     213893120
+    ],
+    "11": [
+     26736642,
+     213893120
+    ],
+    "12": [
+     26736641,
+     213893120
+    ],
+    "13": [
+     26736648,
+     213893120
+    ],
+    "14": [
+     26736643,
+     213893120
+    ],
+    "15": [
+     53473282,
+     213893120
+    ],
+    "21": [
+     53473286,
+     213893120
+    ],
+    "22": [
+     26736644,
+     213893120
+    ],
+    "23": [
+     26736641,
+     213893120
+    ],
+    "24": [
+     53473292,
+     213893120
+    ],
+    "28": [
+     53473285,
+     213893120
+    ],
+    "30": [
+     53473286,
+     213893120
+    ],
+    "33": [
+     53473286,
+     213893120
+    ],
+    "34": [
+     53473284,
+     213893120
+    ],
+    "35": [
+     53473284,
+     213893120
+    ],
+    "39": [
+     53473282,
+     213893120
+    ],
+    "40": [
+     26736642,
+     213893120
+    ],
+    "41": [
+     26736642,
+     213893120
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.032, else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T064",
+   "rc": 0,
+   "s": 72,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.125,c:15:16:0.125,c:16:17:0.125,c:17:18:0.25,c:18:19:0.125,c:19:20:0.125,c:20:21:0.125,c:21:22:0.125,c:22:23:0.125,c:23:24:0.125,c:24:25:0.125,c:25:26:0.125,c:26:27:0.125,c:27:28:0.125,c:28:29:0.125,c:29:30:0.125,c:30:31:0.125,c:31:32:0.125,c:32:33:0.125,c:33:34:0.125,c:34:35:0.125,c:35:36:0.125,c:36:37:0.125,c:37:38:0.125,c:38:39:0.125,c:39:40:0.125,c:40:41:0.125,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     1928960,
+     15431680
+    ],
+    "1": [
+     1928961,
+     15431680
+    ],
+    "2": [
+     1928960,
+     15431680
+    ],
+    "3": [
+     1928960,
+     15431680
+    ],
+    "4": [
+     1928960,
+     15431680
+    ],
+    "5": [
+     1928960,
+     15431680
+    ],
+    "6": [
+     1928960,
+     15431680
+    ],
+    "7": [
+     1928961,
+     15431680
+    ],
+    "8": [
+     1928960,
+     15431680
+    ],
+    "9": [
+     1928960,
+     15431680
+    ],
+    "10": [
+     1928960,
+     15431680
+    ],
+    "11": [
+     1928960,
+     15431680
+    ],
+    "12": [
+     1928960,
+     15431680
+    ],
+    "13": [
+     1928960,
+     15431680
+    ],
+    "14": [
+     1928960,
+     15431680
+    ],
+    "15": [
+     1928960,
+     15431680
+    ],
+    "16": [
+     1928960,
+     15431680
+    ],
+    "17": [
+     3857920,
+     15431680
+    ],
+    "18": [
+     1928960,
+     15431680
+    ],
+    "19": [
+     1928960,
+     15431680
+    ],
+    "20": [
+     1928960,
+     15431680
+    ],
+    "21": [
+     1928960,
+     15431680
+    ],
+    "22": [
+     1928960,
+     15431680
+    ],
+    "23": [
+     1928960,
+     15431680
+    ],
+    "24": [
+     1928960,
+     15431680
+    ],
+    "25": [
+     1928961,
+     15431680
+    ],
+    "26": [
+     1928960,
+     15431680
+    ],
+    "27": [
+     1928960,
+     15431680
+    ],
+    "28": [
+     1928960,
+     15431680
+    ],
+    "29": [
+     1928960,
+     15431680
+    ],
+    "30": [
+     1928960,
+     15431680
+    ],
+    "31": [
+     1928960,
+     15431680
+    ],
+    "32": [
+     1928960,
+     15431680
+    ],
+    "33": [
+     1928961,
+     15431680
+    ],
+    "34": [
+     1928960,
+     15431680
+    ],
+    "35": [
+     1928961,
+     15431680
+    ],
+    "36": [
+     1928961,
+     15431680
+    ],
+    "37": [
+     1928960,
+     15431680
+    ],
+    "38": [
+     1928960,
+     15431680
+    ],
+    "39": [
+     1928960,
+     15431680
+    ],
+    "40": [
+     1928960,
+     15431680
+    ],
+    "41": [
+     1928960,
+     15431680
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.064, else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T064",
+   "rc": 0,
+   "s": 904,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.125,c:15:16:0.125,c:16:17:0.125,c:17:18:0.25,c:18:19:0.125,c:19:20:0.125,c:20:21:0.125,c:21:22:0.125,c:22:23:0.125,c:23:24:0.125,c:24:25:0.125,c:25:26:0.125,c:26:27:0.125,c:27:28:0.125,c:28:29:0.125,c:29:30:0.125,c:30:31:0.125,c:31:32:0.125,c:32:33:0.125,c:33:34:0.125,c:34:35:0.125,c:35:36:0.125,c:36:37:0.125,c:37:38:0.125,c:38:39:0.125,c:39:40:0.125,c:40:41:0.125,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     26736640,
+     213893120
+    ],
+    "1": [
+     26736640,
+     213893120
+    ],
+    "2": [
+     26736641,
+     213893120
+    ],
+    "3": [
+     26736641,
+     213893120
+    ],
+    "4": [
+     26736641,
+     213893120
+    ],
+    "5": [
+     26736641,
+     213893120
+    ],
+    "6": [
+     26736642,
+     213893120
+    ],
+    "7": [
+     26736641,
+     213893120
+    ],
+    "8": [
+     26736640,
+     213893120
+    ],
+    "9": [
+     26736640,
+     213893120
+    ],
+    "10": [
+     26736645,
+     213893120
+    ],
+    "11": [
+     26736642,
+     213893120
+    ],
+    "12": [
+     26736641,
+     213893120
+    ],
+    "13": [
+     26736648,
+     213893120
+    ],
+    "14": [
+     26736643,
+     213893120
+    ],
+    "15": [
+     26736641,
+     213893120
+    ],
+    "16": [
+     26736642,
+     213893120
+    ],
+    "17": [
+     53473285,
+     213893120
+    ],
+    "18": [
+     26736640,
+     213893120
+    ],
+    "19": [
+     26736644,
+     213893120
+    ],
+    "20": [
+     26736646,
+     213893120
+    ],
+    "21": [
+     26736641,
+     213893120
+    ],
+    "22": [
+     26736641,
+     213893120
+    ],
+    "23": [
+     26736642,
+     213893120
+    ],
+    "24": [
+     26736644,
+     213893120
+    ],
+    "25": [
+     26736643,
+     213893120
+    ],
+    "26": [
+     26736642,
+     213893120
+    ],
+    "27": [
+     26736643,
+     213893120
+    ],
+    "28": [
+     26736641,
+     213893120
+    ],
+    "29": [
+     26736640,
+     213893120
+    ],
+    "30": [
+     26736642,
+     213893120
+    ],
+    "31": [
+     26736641,
+     213893120
+    ],
+    "32": [
+     26736647,
+     213893120
+    ],
+    "33": [
+     26736645,
+     213893120
+    ],
+    "34": [
+     26736647,
+     213893120
+    ],
+    "35": [
+     26736641,
+     213893120
+    ],
+    "36": [
+     26736642,
+     213893120
+    ],
+    "37": [
+     26736643,
+     213893120
+    ],
+    "38": [
+     26736643,
+     213893120
+    ],
+    "39": [
+     26736641,
+     213893120
+    ],
+    "40": [
+     26736643,
+     213893120
+    ],
+    "41": [
+     26736640,
+     213893120
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.064, else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T016_nobyp",
+   "rc": 0,
+   "s": 49,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.25,c:22:23:0.25,c:40:41:0.25,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     1928960,
+     15431680
+    ],
+    "1": [
+     1928960,
+     15431680
+    ],
+    "2": [
+     1928960,
+     15431680
+    ],
+    "3": [
+     1928960,
+     15431680
+    ],
+    "4": [
+     1928960,
+     15431680
+    ],
+    "5": [
+     1928960,
+     15431680
+    ],
+    "6": [
+     1928960,
+     15431680
+    ],
+    "7": [
+     1928960,
+     15431680
+    ],
+    "8": [
+     1928960,
+     15431680
+    ],
+    "9": [
+     1928960,
+     15431680
+    ],
+    "10": [
+     1928960,
+     15431680
+    ],
+    "11": [
+     1928960,
+     15431680
+    ],
+    "12": [
+     1928960,
+     15431680
+    ],
+    "13": [
+     1928960,
+     15431680
+    ],
+    "14": [
+     3857920,
+     15431680
+    ],
+    "22": [
+     3857920,
+     15431680
+    ],
+    "40": [
+     3857920,
+     15431680
+    ],
+    "41": [
+     1928960,
+     15431680
+    ]
+   },
+   "desc": "the T016 profile WITHOUT the bypass",
+   "last": false
+  },
+  {
+   "name": "bench_T016_nobyp",
+   "rc": 0,
+   "s": 560,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.25,c:22:23:0.25,c:40:41:0.25,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     26736640,
+     213893120
+    ],
+    "1": [
+     26736641,
+     213893120
+    ],
+    "2": [
+     26736641,
+     213893120
+    ],
+    "3": [
+     26736643,
+     213893120
+    ],
+    "4": [
+     26736641,
+     213893120
+    ],
+    "5": [
+     26736641,
+     213893120
+    ],
+    "6": [
+     26736643,
+     213893120
+    ],
+    "7": [
+     26736640,
+     213893120
+    ],
+    "8": [
+     26736641,
+     213893120
+    ],
+    "9": [
+     26736641,
+     213893120
+    ],
+    "10": [
+     26736640,
+     213893120
+    ],
+    "11": [
+     26736643,
+     213893120
+    ],
+    "12": [
+     26736643,
+     213893120
+    ],
+    "13": [
+     26736642,
+     213893120
+    ],
+    "14": [
+     53473290,
+     213893120
+    ],
+    "22": [
+     53473281,
+     213893120
+    ],
+    "40": [
+     53473285,
+     213893120
+    ],
+    "41": [
+     26736642,
+     213893120
+    ]
+   },
+   "desc": "the T016 profile WITHOUT the bypass",
+   "last": true
+  },
+  {
+   "name": "chat_c50",
+   "rc": 0,
+   "s": 71,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     7715840,
+     15431680
+    ],
+    "1": [
+     7715840,
+     15431680
+    ],
+    "2": [
+     7715840,
+     15431680
+    ],
+    "3": [
+     7715841,
+     15431680
+    ],
+    "4": [
+     7715841,
+     15431680
+    ],
+    "5": [
+     7715840,
+     15431680
+    ],
+    "6": [
+     7715840,
+     15431680
+    ],
+    "7": [
+     7715840,
+     15431680
+    ],
+    "8": [
+     7715840,
+     15431680
+    ],
+    "9": [
+     7715840,
+     15431680
+    ],
+    "10": [
+     7715840,
+     15431680
+    ],
+    "11": [
+     7715840,
+     15431680
+    ],
+    "12": [
+     7715841,
+     15431680
+    ],
+    "13": [
+     7715840,
+     15431680
+    ],
+    "14": [
+     7715841,
+     15431680
+    ],
+    "15": [
+     7715840,
+     15431680
+    ],
+    "16": [
+     7715840,
+     15431680
+    ],
+    "17": [
+     7715841,
+     15431680
+    ],
+    "18": [
+     7715840,
+     15431680
+    ],
+    "19": [
+     7715840,
+     15431680
+    ],
+    "20": [
+     7715840,
+     15431680
+    ],
+    "21": [
+     7715840,
+     15431680
+    ],
+    "22": [
+     7715842,
+     15431680
+    ],
+    "23": [
+     7715840,
+     15431680
+    ],
+    "24": [
+     7715840,
+     15431680
+    ],
+    "25": [
+     7715840,
+     15431680
+    ],
+    "26": [
+     7715840,
+     15431680
+    ],
+    "27": [
+     7715840,
+     15431680
+    ],
+    "28": [
+     7715840,
+     15431680
+    ],
+    "29": [
+     7715840,
+     15431680
+    ],
+    "30": [
+     7715841,
+     15431680
+    ],
+    "31": [
+     7715840,
+     15431680
+    ],
+    "32": [
+     7715840,
+     15431680
+    ],
+    "33": [
+     7715840,
+     15431680
+    ],
+    "34": [
+     7715841,
+     15431680
+    ],
+    "35": [
+     7715840,
+     15431680
+    ],
+    "36": [
+     7715841,
+     15431680
+    ],
+    "37": [
+     7715840,
+     15431680
+    ],
+    "38": [
+     7715841,
+     15431680
+    ],
+    "39": [
+     7715840,
+     15431680
+    ],
+    "40": [
+     7715840,
+     15431680
+    ],
+    "41": [
+     7715840,
+     15431680
+    ]
+   },
+   "desc": "gate-cal + bypass, 50 % in every layer",
+   "last": false
+  },
+  {
+   "name": "bench_c50",
+   "rc": 0,
+   "s": 889,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     106946564,
+     213893120
+    ],
+    "1": [
+     106946560,
+     213893120
+    ],
+    "2": [
+     106946563,
+     213893120
+    ],
+    "3": [
+     106946562,
+     213893120
+    ],
+    "4": [
+     106946636,
+     213893120
+    ],
+    "5": [
+     106977280,
+     213893120
+    ],
+    "6": [
+     106946561,
+     213893120
+    ],
+    "7": [
+     106946565,
+     213893120
+    ],
+    "8": [
+     106946565,
+     213893120
+    ],
+    "9": [
+     106946569,
+     213893120
+    ],
+    "10": [
+     106946565,
+     213893120
+    ],
+    "11": [
+     106946565,
+     213893120
+    ],
+    "12": [
+     106946568,
+     213893120
+    ],
+    "13": [
+     106946567,
+     213893120
+    ],
+    "14": [
+     106946562,
+     213893120
+    ],
+    "15": [
+     106946562,
+     213893120
+    ],
+    "16": [
+     106946565,
+     213893120
+    ],
+    "17": [
+     106946563,
+     213893120
+    ],
+    "18": [
+     106946563,
+     213893120
+    ],
+    "19": [
+     106946562,
+     213893120
+    ],
+    "20": [
+     106946565,
+     213893120
+    ],
+    "21": [
+     106946570,
+     213893120
+    ],
+    "22": [
+     106946567,
+     213893120
+    ],
+    "23": [
+     106946562,
+     213893120
+    ],
+    "24": [
+     106946564,
+     213893120
+    ],
+    "25": [
+     106946565,
+     213893120
+    ],
+    "26": [
+     106946565,
+     213893120
+    ],
+    "27": [
+     106946564,
+     213893120
+    ],
+    "28": [
+     106946568,
+     213893120
+    ],
+    "29": [
+     106946563,
+     213893120
+    ],
+    "30": [
+     106946567,
+     213893120
+    ],
+    "31": [
+     106946563,
+     213893120
+    ],
+    "32": [
+     106946568,
+     213893120
+    ],
+    "33": [
+     106946565,
+     213893120
+    ],
+    "34": [
+     106946566,
+     213893120
+    ],
+    "35": [
+     106946566,
+     213893120
+    ],
+    "36": [
+     106946566,
+     213893120
+    ],
+    "37": [
+     106946564,
+     213893120
+    ],
+    "38": [
+     106946567,
+     213893120
+    ],
+    "39": [
+     106946561,
+     213893120
+    ],
+    "40": [
+     106946560,
+     213893120
+    ],
+    "41": [
+     106946563,
+     213893120
+    ]
+   },
+   "desc": "gate-cal + bypass, 50 % in every layer",
+   "last": true
+  },
+  {
+   "name": "chat_top25",
+   "rc": 0,
+   "s": 53,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:24:42:0.25",
+   "ffn_kept": {
+    "24": [
+     3857920,
+     15431680
+    ],
+    "25": [
+     3857920,
+     15431680
+    ],
+    "26": [
+     3857920,
+     15431680
+    ],
+    "27": [
+     3857920,
+     15431680
+    ],
+    "28": [
+     3857921,
+     15431680
+    ],
+    "29": [
+     3857920,
+     15431680
+    ],
+    "30": [
+     3857920,
+     15431680
+    ],
+    "31": [
+     3857921,
+     15431680
+    ],
+    "32": [
+     3857921,
+     15431680
+    ],
+    "33": [
+     3857920,
+     15431680
+    ],
+    "34": [
+     3857920,
+     15431680
+    ],
+    "35": [
+     3857920,
+     15431680
+    ],
+    "36": [
+     3857921,
+     15431680
+    ],
+    "37": [
+     3857920,
+     15431680
+    ],
+    "38": [
+     3857920,
+     15431680
+    ],
+    "39": [
+     3857920,
+     15431680
+    ],
+    "40": [
+     3857921,
+     15431680
+    ],
+    "41": [
+     3857921,
+     15431680
+    ]
+   },
+   "desc": "gate-cal + bypass, 25 % in the stateless layers 24-41 only",
+   "last": false
+  },
+  {
+   "name": "bench_top25",
+   "rc": 0,
+   "s": 658,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:24:42:0.25",
+   "ffn_kept": {
+    "24": [
+     53473283,
+     213893120
+    ],
+    "25": [
+     53473291,
+     213893120
+    ],
+    "26": [
+     53473290,
+     213893120
+    ],
+    "27": [
+     53473285,
+     213893120
+    ],
+    "28": [
+     53473283,
+     213893120
+    ],
+    "29": [
+     53473282,
+     213893120
+    ],
+    "30": [
+     53473283,
+     213893120
+    ],
+    "31": [
+     53473285,
+     213893120
+    ],
+    "32": [
+     53473287,
+     213893120
+    ],
+    "33": [
+     53473289,
+     213893120
+    ],
+    "34": [
+     53473289,
+     213893120
+    ],
+    "35": [
+     53473287,
+     213893120
+    ],
+    "36": [
+     53473286,
+     213893120
+    ],
+    "37": [
+     53473288,
+     213893120
+    ],
+    "38": [
+     53473281,
+     213893120
+    ],
+    "39": [
+     53473286,
+     213893120
+    ],
+    "40": [
+     53473282,
+     213893120
+    ],
+    "41": [
+     53473290,
+     213893120
+    ]
+   },
+   "desc": "gate-cal + bypass, 25 % in the stateless layers 24-41 only",
+   "last": true
+  },
+  {
+   "name": "chat_q8ref",
+   "rc": 0,
+   "s": 63,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: gemma-4-E4B-it-Q8_0.gguf",
+   "last": false
+  },
+  {
+   "name": "bench_q8ref",
+   "rc": 0,
+   "s": 730,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: gemma-4-E4B-it-Q8_0.gguf",
+   "last": true
+  },
+  {
+   "name": "chat_q4ks",
+   "rc": 0,
+   "s": 42,
+   "recs": 8,
+   "tokens": 1507,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: gemma-4-E4B-it-Q4_K_S.gguf",
+   "last": false
+  },
+  {
+   "name": "bench_q4ks",
+   "rc": 0,
+   "s": 515,
+   "recs": 143,
+   "tokens": 20888,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: gemma-4-E4B-it-Q4_K_S.gguf",
+   "last": true
+  }
+ ]
+}

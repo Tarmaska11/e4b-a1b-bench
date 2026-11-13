@@ -1,0 +1,2716 @@
+{
+ "mode": "e4b",
+ "shard": 4,
+ "nshards": 8,
+ "model": "model.gguf",
+ "template_source": "server",
+ "template_raw": [
+  "<|turn>user\n",
+  "<turn|>\n<|turn>model\n"
+ ],
+ "prefix": "<|turn>user\n",
+ "suffix": "<turn|>\n<|turn>model\n",
+ "letters": {
+  "A": [
+   236776
+  ],
+  "B": [
+   236799
+  ],
+  "C": [
+   236780
+  ],
+  "D": [
+   236796
+  ]
+ },
+ "suffix_tokens": [
+  106,
+  107,
+  105,
+  4368,
+  107
+ ],
+ "chat": [
+  {
+   "id": "en05",
+   "lang": "en",
+   "prompt": "I keep procrastinating on my thesis. Give me a realistic plan for the next week.",
+   "reply": "It's incredibly common to feel stuck in thesis procrastination. The key to beating it isn't usually motivation—it's **structure and lowering the bar for what counts as \"done.\"**\n\nSince I don't know your field, your thesis stage (e.g., literature review, data analysis, writing the introduction), or how much time you have, this is a flexible, actionable framework.\n\nHere is a realistic, low-pressure plan for the next 7 days.\n\n---\n\n## The Anti-Procrastination Thesis Plan (Next 7 Days)\n\nThis plan focuses on **micro-tasks** rather than overwhelming goals. You are aiming for *momentum*, not perfection.\n\n### ⚙️ Guiding Principles for the Week\n\n1.  **The",
+   "gen_tokens": 160,
+   "gen_s": 16.7,
+   "n_prompt": 27
+  },
+  {
+   "id": "en13",
+   "lang": "en",
+   "prompt": "How do vaccines train the immune system?",
+   "reply": "Vaccines train the immune system by presenting it with a harmless version of a pathogen (like a virus or bacteria), allowing the immune system to recognize and build defenses against it without causing the actual disease.",
+   "gen_tokens": 41,
+   "gen_s": 4.8,
+   "n_prompt": 17
+  },
+  {
+   "id": "en21",
+   "lang": "en",
+   "prompt": "Why do we dream? What does science say?",
+   "reply": "The question of \"why we dream\" is one of the most enduring and fascinating mysteries in science and philosophy. There is **no single, universally accepted answer** to why we dream. Instead, science has developed several competing, overlapping, and sometimes complementary theories.\n\nHere is a comprehensive overview of what science currently suggests about the functions and purposes of dreaming.\n\n---\n\n## Major Theories of Dreaming\n\nDream theories generally fall into a few broad categories: psychological, cognitive, physiological, and evolutionary.\n\n### 1. Psychoanalytic Theories (Historical Perspective)\n\nThe most famous early theory comes from **Sigmund Freud**.\n\n*   **The Idea:** Dreams are the \"royal road to the unconscious.\" They are a form of **wish fulfillment**—a disguised expression of repressed desires, conflicts,",
+   "gen_tokens": 160,
+   "gen_s": 16.7,
+   "n_prompt": 19
+  },
+  {
+   "id": "en29",
+   "lang": "en",
+   "prompt": "What is the capital of Australia, and why isn't it Sydney?",
+   "reply": "The capital of Australia is **Canberra**.\n\nThe reason it isn't Sydney (or Melbourne, which was also a contender) is due to a specific historical decision made by the Australian government. Here is a breakdown of why:\n\n### The Need for a National Capital\n\nWhen the Australian colonies began to unite and form the Commonwealth of Australia in 1901, a crucial national question was: **Where should the permanent seat of government be located?**\n\nThe major cities of the time—Sydney and Melbourne—were fiercely proud and each believed they deserved to be the capital. A contest between these two massive, powerful cities would have led to intense political and social rivalry, potentially destabilizing the new nation.\n\n### The Compromise: Canberra\n\nTo resolve this intense rivalry and ensure",
+   "gen_tokens": 160,
+   "gen_s": 16.8,
+   "n_prompt": 24
+  },
+  {
+   "id": "ru05",
+   "lang": "ru",
+   "prompt": "Я всё время откладываю диплом. Составь реалистичный план на ближайшую неделю.",
+   "reply": "Отлично, что вы решили взять ситуацию под контроль! Прокрастинация — это не лень, а чаще всего страх, перфекционизм или ощущение подавленности объемом.\n\nЧтобы план был *реалистичным*, мы не будем ставить цель \"написать диплом\". Наша цель на неделю — **сделать управляемый, измеримый прогресс**, чтобы вы восстановили инерцию.\n\nВот пошаговый, реалистичный план на ближайшие 7 дней, который фокусируется не на результате, а на **процессе**.\n\n---\n\n## 🧠 Шаг 0: Диагностика (5–10 минут)\n\nПрежде чем начинать, нужно понять, **почему** вы откладываете. Отве",
+   "gen_tokens": 160,
+   "gen_s": 17.5,
+   "n_prompt": 30
+  },
+  {
+   "id": "ru13",
+   "lang": "ru",
+   "prompt": "Как прививки обучают иммунную систему?",
+   "reply": "Прививки — это один из самых гениальных и эффективных способов \"обучения\" иммунной системы. Проще говоря, они позволяют иммунитету **научиться распознавать врага (патоген)**, не подвергая организм реальной, опасной инфекции.\n\nВот подробное объяснение того, как это происходит, шаг за шагом.\n\n---\n\n## 🔬 1. Что такое \"обучение\" иммунитета?\n\nИммунная система постоянно патрулирует тело, выискивая чужеродные тела (вирусы, бактерии, токсины). Когда она сталкивается с ними, она запускает сложный процесс:\n\n1. **Распознавание:** Иммунные клетки (например, ден",
+   "gen_tokens": 160,
+   "gen_s": 16.9,
+   "n_prompt": 18
+  },
+  {
+   "id": "ru21",
+   "lang": "ru",
+   "prompt": "Почему мы видим сны? Что об этом говорит наука?",
+   "reply": "Вопрос о том, **почему мы видим сны**, является одним из самых интригующих и наименее однозначно отвеченных в науке. Нет единого, общепризнанного ответа, и разные теории предлагают различные механизмы и функции сновидений.\n\nВот подробный обзор того, что говорит наука о природе сновидений.\n\n---\n\n## 🔬 Основные научные теории о снах\n\nБольшинство современных теорий не пытаются ответить на вопрос \"для чего\", а скорее описывают, \"как\" это происходит. Они часто пересекаются, и возможно, истинный ответ лежит в комбинации нескольких механизмов.\n\n### 1. Теория консолидации памяти (Самая популярная)\nЭта теория предполагает, что сон, особенно",
+   "gen_tokens": 160,
+   "gen_s": 16.6,
+   "n_prompt": 21
+  },
+  {
+   "id": "ru29",
+   "lang": "ru",
+   "prompt": "Какая столица у Австралии и почему это не Сидней?",
+   "reply": "Столица Австралии — **Канберра** (Canberra).\n\n**Почему это не Сидней?**\n\nИсторически сложилось так, что Сидней и Мельбурн долгое время были самыми крупными и привлекательными городами, и многие ошибочно считают Сидней столицей. Однако Канберра была специально создана в середине 20-го века как **планируемая столица** Австралии.\n\nВот основные причины, почему было принято решение создать Канберру:\n\n1. **Преодоление конкуренции:** В начале XX века возникла острая политическая дискуссия о том, какой из крупных городов (Сидней, Мельбурн, Брисбен) должен стать столицей. Чтобы",
+   "gen_tokens": 160,
+   "gen_s": 16.8,
+   "n_prompt": 24
+  }
+ ],
+ "bench": [
+  {
+   "id": "abstract_algebra/test/19",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "anatomy/test/31",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "astronomy/test/14",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "astronomy/test/7",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "business_ethics/test/4",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "clinical_knowledge/test/212",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "college_biology/test/130",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_chemistry/test/17",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_chemistry/test/7",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_computer_science/test/29",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_mathematics/test/74",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_medicine/test/52",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_physics/test/39",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_physics/test/19",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "computer_security/test/20",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "conceptual_physics/test/81",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "econometrics/test/107",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "electrical_engineering/test/85",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "electrical_engineering/test/67",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "elementary_mathematics/test/206",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "formal_logic/test/95",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "global_facts/test/26",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_biology/test/12",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_biology/test/126",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_chemistry/test/189",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_computer_science/test/81",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_european_history/test/119",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_geography/test/124",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_geography/test/19",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_government_and_politics/test/169",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_macroeconomics/test/319",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_mathematics/test/258",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_microeconomics/test/37",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_microeconomics/test/96",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_physics/test/93",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_psychology/test/79",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_statistics/test/4",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_us_history/test/13",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_us_history/test/170",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_world_history/test/60",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "human_aging/test/214",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "human_sexuality/test/18",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "international_law/test/95",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "international_law/test/27",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "jurisprudence/test/53",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "logical_fallacies/test/93",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "machine_learning/test/78",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "management/test/15",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "management/test/81",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "marketing/test/24",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "medical_genetics/test/99",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "miscellaneous/test/22",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "moral_disputes/test/265",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "moral_disputes/test/23",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/130",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "nutrition/test/183",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "philosophy/test/1",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "prehistory/test/261",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "prehistory/test/44",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "professional_accounting/test/61",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "professional_law/test/905",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_medicine/test/40",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_psychology/test/596",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_psychology/test/446",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "public_relations/test/36",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "security_studies/test/196",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "sociology/test/50",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "us_foreign_policy/test/78",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "us_foreign_policy/test/60",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "virology/test/5",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "world_religions/test/134",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "abstract_algebra/test/21",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "anatomy/test/120",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "anatomy/test/132",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "astronomy/test/112",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "business_ethics/test/76",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "clinical_knowledge/test/261",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "college_biology/test/1",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_biology/test/84",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_chemistry/test/98",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "college_computer_science/test/40",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "college_mathematics/test/62",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "college_medicine/test/78",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "college_medicine/test/62",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_physics/test/96",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "computer_security/test/30",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "conceptual_physics/test/133",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "econometrics/test/8",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "econometrics/test/101",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "electrical_engineering/test/27",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "elementary_mathematics/test/31",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "formal_logic/test/33",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "global_facts/test/5",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "global_facts/test/24",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_biology/test/177",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_chemistry/test/107",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_computer_science/test/40",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_european_history/test/132",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_european_history/test/161",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_geography/test/86",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_government_and_politics/test/136",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_macroeconomics/test/296",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_mathematics/test/228",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_mathematics/test/110",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_microeconomics/test/207",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_physics/test/31",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_psychology/test/286",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_statistics/test/8",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_statistics/test/157",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_us_history/test/146",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_world_history/test/113",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "human_aging/test/149",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "human_sexuality/test/57",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "human_sexuality/test/37",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "international_law/test/89",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "jurisprudence/test/72",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "logical_fallacies/test/108",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "machine_learning/test/38",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "machine_learning/test/100",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "management/test/84",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "marketing/test/58",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "medical_genetics/test/10",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "miscellaneous/test/228",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "miscellaneous/test/651",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "moral_disputes/test/268",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/60",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "nutrition/test/269",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "philosophy/test/308",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "philosophy/test/223",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "prehistory/test/32",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "professional_accounting/test/157",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "professional_law/test/147",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "professional_medicine/test/95",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_medicine/test/96",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "professional_psychology/test/407",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "public_relations/test/18",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "security_studies/test/34",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "sociology/test/199",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "sociology/test/165",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "us_foreign_policy/test/26",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "virology/test/7",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "world_religions/test/155",
+   "lang": "ru",
+   "gold": "D"
+  }
+ ],
+ "arms": [
+  {
+   "name": "chat_full",
+   "rc": 0,
+   "s": 56,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": false
+  },
+  {
+   "name": "bench_full",
+   "rc": 0,
+   "s": 693,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": true
+  },
+  {
+   "name": "chat_T004",
+   "rc": 0,
+   "s": 65,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.25,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.25,c:8:9:0.25",
+   "ffn_kept": {
+    "0": [
+     1715200,
+     13721600
+    ],
+    "1": [
+     1715200,
+     13721600
+    ],
+    "2": [
+     1715201,
+     13721600
+    ],
+    "3": [
+     3430400,
+     13721600
+    ],
+    "4": [
+     1715200,
+     13721600
+    ],
+    "5": [
+     1715200,
+     13721600
+    ],
+    "6": [
+     1715200,
+     13721600
+    ],
+    "7": [
+     3430400,
+     13721600
+    ],
+    "8": [
+     3430400,
+     13721600
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.004 (the Q4 noise floor), else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T004",
+   "rc": 0,
+   "s": 815,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.25,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.25,c:8:9:0.25",
+   "ffn_kept": {
+    "0": [
+     25049600,
+     200396800
+    ],
+    "1": [
+     25049603,
+     200396800
+    ],
+    "2": [
+     25049601,
+     200396800
+    ],
+    "3": [
+     50099206,
+     200396800
+    ],
+    "4": [
+     25049600,
+     200396800
+    ],
+    "5": [
+     25049600,
+     200396800
+    ],
+    "6": [
+     25049601,
+     200396800
+    ],
+    "7": [
+     50099203,
+     200396800
+    ],
+    "8": [
+     50099204,
+     200396800
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.004 (the Q4 noise floor), else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T008",
+   "rc": 0,
+   "s": 69,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.25,c:10:11:0.25,c:11:12:0.125,c:12:13:0.25,c:13:14:0.25",
+   "ffn_kept": {
+    "0": [
+     1715200,
+     13721600
+    ],
+    "1": [
+     1715200,
+     13721600
+    ],
+    "2": [
+     1715201,
+     13721600
+    ],
+    "3": [
+     1715200,
+     13721600
+    ],
+    "4": [
+     1715200,
+     13721600
+    ],
+    "5": [
+     1715200,
+     13721600
+    ],
+    "6": [
+     1715200,
+     13721600
+    ],
+    "7": [
+     1715200,
+     13721600
+    ],
+    "8": [
+     1715200,
+     13721600
+    ],
+    "9": [
+     3430401,
+     13721600
+    ],
+    "10": [
+     3430400,
+     13721600
+    ],
+    "11": [
+     1715200,
+     13721600
+    ],
+    "12": [
+     3430400,
+     13721600
+    ],
+    "13": [
+     3430401,
+     13721600
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.008, else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T008",
+   "rc": 0,
+   "s": 880,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.25,c:10:11:0.25,c:11:12:0.125,c:12:13:0.25,c:13:14:0.25",
+   "ffn_kept": {
+    "0": [
+     25049600,
+     200396800
+    ],
+    "1": [
+     25049603,
+     200396800
+    ],
+    "2": [
+     25049601,
+     200396800
+    ],
+    "3": [
+     25049602,
+     200396800
+    ],
+    "4": [
+     25049602,
+     200396800
+    ],
+    "5": [
+     25049600,
+     200396800
+    ],
+    "6": [
+     25049602,
+     200396800
+    ],
+    "7": [
+     25049601,
+     200396800
+    ],
+    "8": [
+     25049600,
+     200396800
+    ],
+    "9": [
+     50099204,
+     200396800
+    ],
+    "10": [
+     50099207,
+     200396800
+    ],
+    "11": [
+     25049601,
+     200396800
+    ],
+    "12": [
+     50099202,
+     200396800
+    ],
+    "13": [
+     50099202,
+     200396800
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.008, else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T016",
+   "rc": 0,
+   "s": 73,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.25,c:22:23:0.25,c:40:41:0.25,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     1715200,
+     13721600
+    ],
+    "1": [
+     1715200,
+     13721600
+    ],
+    "2": [
+     1715201,
+     13721600
+    ],
+    "3": [
+     1715200,
+     13721600
+    ],
+    "4": [
+     1715200,
+     13721600
+    ],
+    "5": [
+     1715200,
+     13721600
+    ],
+    "6": [
+     1715200,
+     13721600
+    ],
+    "7": [
+     1715200,
+     13721600
+    ],
+    "8": [
+     1715200,
+     13721600
+    ],
+    "9": [
+     1715200,
+     13721600
+    ],
+    "10": [
+     1715200,
+     13721600
+    ],
+    "11": [
+     1715200,
+     13721600
+    ],
+    "12": [
+     1715200,
+     13721600
+    ],
+    "13": [
+     1715201,
+     13721600
+    ],
+    "14": [
+     3430400,
+     13721600
+    ],
+    "22": [
+     3430400,
+     13721600
+    ],
+    "40": [
+     3430400,
+     13721600
+    ],
+    "41": [
+     1715200,
+     13721600
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.016, else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T016",
+   "rc": 0,
+   "s": 933,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.25,c:22:23:0.25,c:40:41:0.25,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     25049600,
+     200396800
+    ],
+    "1": [
+     25049603,
+     200396800
+    ],
+    "2": [
+     25049601,
+     200396800
+    ],
+    "3": [
+     25049602,
+     200396800
+    ],
+    "4": [
+     25049602,
+     200396800
+    ],
+    "5": [
+     25049600,
+     200396800
+    ],
+    "6": [
+     25049602,
+     200396800
+    ],
+    "7": [
+     25049601,
+     200396800
+    ],
+    "8": [
+     25049600,
+     200396800
+    ],
+    "9": [
+     25049601,
+     200396800
+    ],
+    "10": [
+     25049602,
+     200396800
+    ],
+    "11": [
+     25049600,
+     200396800
+    ],
+    "12": [
+     25049602,
+     200396800
+    ],
+    "13": [
+     25049604,
+     200396800
+    ],
+    "14": [
+     50099202,
+     200396800
+    ],
+    "22": [
+     50099203,
+     200396800
+    ],
+    "40": [
+     50099207,
+     200396800
+    ],
+    "41": [
+     25049602,
+     200396800
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.016, else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T032",
+   "rc": 0,
+   "s": 82,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.125,c:15:16:0.25,c:21:22:0.25,c:22:23:0.125,c:23:24:0.125,c:24:25:0.25,c:28:29:0.25,c:30:31:0.25,c:33:34:0.25,c:34:35:0.25,c:35:36:0.25,c:39:40:0.25,c:40:41:0.125,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     1715200,
+     13721600
+    ],
+    "1": [
+     1715200,
+     13721600
+    ],
+    "2": [
+     1715201,
+     13721600
+    ],
+    "3": [
+     1715200,
+     13721600
+    ],
+    "4": [
+     1715200,
+     13721600
+    ],
+    "5": [
+     1715200,
+     13721600
+    ],
+    "6": [
+     1715200,
+     13721600
+    ],
+    "7": [
+     1715200,
+     13721600
+    ],
+    "8": [
+     1715200,
+     13721600
+    ],
+    "9": [
+     1715200,
+     13721600
+    ],
+    "10": [
+     1715200,
+     13721600
+    ],
+    "11": [
+     1715200,
+     13721600
+    ],
+    "12": [
+     1715200,
+     13721600
+    ],
+    "13": [
+     1715201,
+     13721600
+    ],
+    "14": [
+     1715200,
+     13721600
+    ],
+    "15": [
+     3430400,
+     13721600
+    ],
+    "21": [
+     3430400,
+     13721600
+    ],
+    "22": [
+     1715200,
+     13721600
+    ],
+    "23": [
+     1715200,
+     13721600
+    ],
+    "24": [
+     3430402,
+     13721600
+    ],
+    "28": [
+     3430400,
+     13721600
+    ],
+    "30": [
+     3430400,
+     13721600
+    ],
+    "33": [
+     3430401,
+     13721600
+    ],
+    "34": [
+     3430401,
+     13721600
+    ],
+    "35": [
+     3430401,
+     13721600
+    ],
+    "39": [
+     3430400,
+     13721600
+    ],
+    "40": [
+     1715200,
+     13721600
+    ],
+    "41": [
+     1715200,
+     13721600
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.032, else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T032",
+   "rc": 0,
+   "s": 1066,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.125,c:15:16:0.25,c:21:22:0.25,c:22:23:0.125,c:23:24:0.125,c:24:25:0.25,c:28:29:0.25,c:30:31:0.25,c:33:34:0.25,c:34:35:0.25,c:35:36:0.25,c:39:40:0.25,c:40:41:0.125,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     25049600,
+     200396800
+    ],
+    "1": [
+     25049603,
+     200396800
+    ],
+    "2": [
+     25049601,
+     200396800
+    ],
+    "3": [
+     25049602,
+     200396800
+    ],
+    "4": [
+     25049602,
+     200396800
+    ],
+    "5": [
+     25049600,
+     200396800
+    ],
+    "6": [
+     25049602,
+     200396800
+    ],
+    "7": [
+     25049601,
+     200396800
+    ],
+    "8": [
+     25049600,
+     200396800
+    ],
+    "9": [
+     25049601,
+     200396800
+    ],
+    "10": [
+     25049602,
+     200396800
+    ],
+    "11": [
+     25049600,
+     200396800
+    ],
+    "12": [
+     25049602,
+     200396800
+    ],
+    "13": [
+     25049604,
+     200396800
+    ],
+    "14": [
+     25049602,
+     200396800
+    ],
+    "15": [
+     50099204,
+     200396800
+    ],
+    "21": [
+     50099204,
+     200396800
+    ],
+    "22": [
+     25049603,
+     200396800
+    ],
+    "23": [
+     25049601,
+     200396800
+    ],
+    "24": [
+     50099202,
+     200396800
+    ],
+    "28": [
+     50099201,
+     200396800
+    ],
+    "30": [
+     50099211,
+     200396800
+    ],
+    "33": [
+     50099213,
+     200396800
+    ],
+    "34": [
+     50099209,
+     200396800
+    ],
+    "35": [
+     50099205,
+     200396800
+    ],
+    "39": [
+     50099201,
+     200396800
+    ],
+    "40": [
+     25049602,
+     200396800
+    ],
+    "41": [
+     25049600,
+     200396800
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.032, else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T064",
+   "rc": 0,
+   "s": 96,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.125,c:15:16:0.125,c:16:17:0.125,c:17:18:0.25,c:18:19:0.125,c:19:20:0.125,c:20:21:0.125,c:21:22:0.125,c:22:23:0.125,c:23:24:0.125,c:24:25:0.125,c:25:26:0.125,c:26:27:0.125,c:27:28:0.125,c:28:29:0.125,c:29:30:0.125,c:30:31:0.125,c:31:32:0.125,c:32:33:0.125,c:33:34:0.125,c:34:35:0.125,c:35:36:0.125,c:36:37:0.125,c:37:38:0.125,c:38:39:0.125,c:39:40:0.125,c:40:41:0.125,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     1715200,
+     13721600
+    ],
+    "1": [
+     1715200,
+     13721600
+    ],
+    "2": [
+     1715201,
+     13721600
+    ],
+    "3": [
+     1715200,
+     13721600
+    ],
+    "4": [
+     1715200,
+     13721600
+    ],
+    "5": [
+     1715200,
+     13721600
+    ],
+    "6": [
+     1715200,
+     13721600
+    ],
+    "7": [
+     1715200,
+     13721600
+    ],
+    "8": [
+     1715200,
+     13721600
+    ],
+    "9": [
+     1715200,
+     13721600
+    ],
+    "10": [
+     1715200,
+     13721600
+    ],
+    "11": [
+     1715200,
+     13721600
+    ],
+    "12": [
+     1715200,
+     13721600
+    ],
+    "13": [
+     1715201,
+     13721600
+    ],
+    "14": [
+     1715200,
+     13721600
+    ],
+    "15": [
+     1715200,
+     13721600
+    ],
+    "16": [
+     1715200,
+     13721600
+    ],
+    "17": [
+     3430400,
+     13721600
+    ],
+    "18": [
+     1715200,
+     13721600
+    ],
+    "19": [
+     1715200,
+     13721600
+    ],
+    "20": [
+     1715200,
+     13721600
+    ],
+    "21": [
+     1715200,
+     13721600
+    ],
+    "22": [
+     1715200,
+     13721600
+    ],
+    "23": [
+     1715201,
+     13721600
+    ],
+    "24": [
+     1715200,
+     13721600
+    ],
+    "25": [
+     1715200,
+     13721600
+    ],
+    "26": [
+     1715200,
+     13721600
+    ],
+    "27": [
+     1715201,
+     13721600
+    ],
+    "28": [
+     1715201,
+     13721600
+    ],
+    "29": [
+     1715200,
+     13721600
+    ],
+    "30": [
+     1715200,
+     13721600
+    ],
+    "31": [
+     1715200,
+     13721600
+    ],
+    "32": [
+     1715200,
+     13721600
+    ],
+    "33": [
+     1715200,
+     13721600
+    ],
+    "34": [
+     1715200,
+     13721600
+    ],
+    "35": [
+     1715200,
+     13721600
+    ],
+    "36": [
+     1715200,
+     13721600
+    ],
+    "37": [
+     1715200,
+     13721600
+    ],
+    "38": [
+     1715200,
+     13721600
+    ],
+    "39": [
+     1715200,
+     13721600
+    ],
+    "40": [
+     1715200,
+     13721600
+    ],
+    "41": [
+     1715200,
+     13721600
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.064, else dense",
+   "last": false
+  },
+  {
+   "name": "bench_T064",
+   "rc": 0,
+   "s": 1249,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.125,c:15:16:0.125,c:16:17:0.125,c:17:18:0.25,c:18:19:0.125,c:19:20:0.125,c:20:21:0.125,c:21:22:0.125,c:22:23:0.125,c:23:24:0.125,c:24:25:0.125,c:25:26:0.125,c:26:27:0.125,c:27:28:0.125,c:28:29:0.125,c:29:30:0.125,c:30:31:0.125,c:31:32:0.125,c:32:33:0.125,c:33:34:0.125,c:34:35:0.125,c:35:36:0.125,c:36:37:0.125,c:37:38:0.125,c:38:39:0.125,c:39:40:0.125,c:40:41:0.125,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     25049600,
+     200396800
+    ],
+    "1": [
+     25049603,
+     200396800
+    ],
+    "2": [
+     25049601,
+     200396800
+    ],
+    "3": [
+     25049602,
+     200396800
+    ],
+    "4": [
+     25049602,
+     200396800
+    ],
+    "5": [
+     25049600,
+     200396800
+    ],
+    "6": [
+     25049602,
+     200396800
+    ],
+    "7": [
+     25049601,
+     200396800
+    ],
+    "8": [
+     25049600,
+     200396800
+    ],
+    "9": [
+     25049601,
+     200396800
+    ],
+    "10": [
+     25049602,
+     200396800
+    ],
+    "11": [
+     25049600,
+     200396800
+    ],
+    "12": [
+     25049602,
+     200396800
+    ],
+    "13": [
+     25049604,
+     200396800
+    ],
+    "14": [
+     25049602,
+     200396800
+    ],
+    "15": [
+     25049602,
+     200396800
+    ],
+    "16": [
+     25049601,
+     200396800
+    ],
+    "17": [
+     50099204,
+     200396800
+    ],
+    "18": [
+     25049600,
+     200396800
+    ],
+    "19": [
+     25049602,
+     200396800
+    ],
+    "20": [
+     25049601,
+     200396800
+    ],
+    "21": [
+     25049600,
+     200396800
+    ],
+    "22": [
+     25049600,
+     200396800
+    ],
+    "23": [
+     25049600,
+     200396800
+    ],
+    "24": [
+     25049601,
+     200396800
+    ],
+    "25": [
+     25049600,
+     200396800
+    ],
+    "26": [
+     25049603,
+     200396800
+    ],
+    "27": [
+     25049601,
+     200396800
+    ],
+    "28": [
+     25049604,
+     200396800
+    ],
+    "29": [
+     25049601,
+     200396800
+    ],
+    "30": [
+     25049605,
+     200396800
+    ],
+    "31": [
+     25049602,
+     200396800
+    ],
+    "32": [
+     25049601,
+     200396800
+    ],
+    "33": [
+     25049604,
+     200396800
+    ],
+    "34": [
+     25049605,
+     200396800
+    ],
+    "35": [
+     25049602,
+     200396800
+    ],
+    "36": [
+     25049606,
+     200396800
+    ],
+    "37": [
+     25049601,
+     200396800
+    ],
+    "38": [
+     25049602,
+     200396800
+    ],
+    "39": [
+     25049600,
+     200396800
+    ],
+    "40": [
+     25049603,
+     200396800
+    ],
+    "41": [
+     25049601,
+     200396800
+    ]
+   },
+   "desc": "gate-cal selector + rank-256 bypass; per layer the smallest of 12.5 % / 25 % whose calibrated FFN error is <= 0.064, else dense",
+   "last": true
+  },
+  {
+   "name": "chat_T016_nobyp",
+   "rc": 0,
+   "s": 60,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.25,c:22:23:0.25,c:40:41:0.25,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     1715200,
+     13721600
+    ],
+    "1": [
+     1715200,
+     13721600
+    ],
+    "2": [
+     1715201,
+     13721600
+    ],
+    "3": [
+     1715200,
+     13721600
+    ],
+    "4": [
+     1715200,
+     13721600
+    ],
+    "5": [
+     1715200,
+     13721600
+    ],
+    "6": [
+     1715200,
+     13721600
+    ],
+    "7": [
+     1715200,
+     13721600
+    ],
+    "8": [
+     1715200,
+     13721600
+    ],
+    "9": [
+     1715200,
+     13721600
+    ],
+    "10": [
+     1715200,
+     13721600
+    ],
+    "11": [
+     1715200,
+     13721600
+    ],
+    "12": [
+     1715200,
+     13721600
+    ],
+    "13": [
+     1715200,
+     13721600
+    ],
+    "14": [
+     3430401,
+     13721600
+    ],
+    "22": [
+     3430400,
+     13721600
+    ],
+    "40": [
+     3430400,
+     13721600
+    ],
+    "41": [
+     1715200,
+     13721600
+    ]
+   },
+   "desc": "the T016 profile WITHOUT the bypass",
+   "last": false
+  },
+  {
+   "name": "bench_T016_nobyp",
+   "rc": 0,
+   "s": 733,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:1:0.125,c:1:2:0.125,c:2:3:0.125,c:3:4:0.125,c:4:5:0.125,c:5:6:0.125,c:6:7:0.125,c:7:8:0.125,c:8:9:0.125,c:9:10:0.125,c:10:11:0.125,c:11:12:0.125,c:12:13:0.125,c:13:14:0.125,c:14:15:0.25,c:22:23:0.25,c:40:41:0.25,c:41:42:0.125",
+   "ffn_kept": {
+    "0": [
+     25049600,
+     200396800
+    ],
+    "1": [
+     25049602,
+     200396800
+    ],
+    "2": [
+     25049603,
+     200396800
+    ],
+    "3": [
+     25049600,
+     200396800
+    ],
+    "4": [
+     25049600,
+     200396800
+    ],
+    "5": [
+     25049601,
+     200396800
+    ],
+    "6": [
+     25049602,
+     200396800
+    ],
+    "7": [
+     25049602,
+     200396800
+    ],
+    "8": [
+     25049604,
+     200396800
+    ],
+    "9": [
+     25049600,
+     200396800
+    ],
+    "10": [
+     25049600,
+     200396800
+    ],
+    "11": [
+     25049602,
+     200396800
+    ],
+    "12": [
+     25049601,
+     200396800
+    ],
+    "13": [
+     25049603,
+     200396800
+    ],
+    "14": [
+     50099206,
+     200396800
+    ],
+    "22": [
+     50099200,
+     200396800
+    ],
+    "40": [
+     50099203,
+     200396800
+    ],
+    "41": [
+     25049601,
+     200396800
+    ]
+   },
+   "desc": "the T016 profile WITHOUT the bypass",
+   "last": true
+  },
+  {
+   "name": "chat_c50",
+   "rc": 0,
+   "s": 96,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     6860800,
+     13721600
+    ],
+    "1": [
+     6860800,
+     13721600
+    ],
+    "2": [
+     6860800,
+     13721600
+    ],
+    "3": [
+     6860800,
+     13721600
+    ],
+    "4": [
+     6860800,
+     13721600
+    ],
+    "5": [
+     6860800,
+     13721600
+    ],
+    "6": [
+     6860800,
+     13721600
+    ],
+    "7": [
+     6860802,
+     13721600
+    ],
+    "8": [
+     6860800,
+     13721600
+    ],
+    "9": [
+     6860800,
+     13721600
+    ],
+    "10": [
+     6860800,
+     13721600
+    ],
+    "11": [
+     6860800,
+     13721600
+    ],
+    "12": [
+     6860801,
+     13721600
+    ],
+    "13": [
+     6860801,
+     13721600
+    ],
+    "14": [
+     6860801,
+     13721600
+    ],
+    "15": [
+     6860800,
+     13721600
+    ],
+    "16": [
+     6860800,
+     13721600
+    ],
+    "17": [
+     6860801,
+     13721600
+    ],
+    "18": [
+     6860800,
+     13721600
+    ],
+    "19": [
+     6860800,
+     13721600
+    ],
+    "20": [
+     6860800,
+     13721600
+    ],
+    "21": [
+     6860800,
+     13721600
+    ],
+    "22": [
+     6860801,
+     13721600
+    ],
+    "23": [
+     6860800,
+     13721600
+    ],
+    "24": [
+     6860800,
+     13721600
+    ],
+    "25": [
+     6860801,
+     13721600
+    ],
+    "26": [
+     6860802,
+     13721600
+    ],
+    "27": [
+     6860800,
+     13721600
+    ],
+    "28": [
+     6860800,
+     13721600
+    ],
+    "29": [
+     6860800,
+     13721600
+    ],
+    "30": [
+     6860801,
+     13721600
+    ],
+    "31": [
+     6860800,
+     13721600
+    ],
+    "32": [
+     6860801,
+     13721600
+    ],
+    "33": [
+     6860800,
+     13721600
+    ],
+    "34": [
+     6860800,
+     13721600
+    ],
+    "35": [
+     6860800,
+     13721600
+    ],
+    "36": [
+     6860800,
+     13721600
+    ],
+    "37": [
+     6860801,
+     13721600
+    ],
+    "38": [
+     6860802,
+     13721600
+    ],
+    "39": [
+     6860800,
+     13721600
+    ],
+    "40": [
+     6860801,
+     13721600
+    ],
+    "41": [
+     6860800,
+     13721600
+    ]
+   },
+   "desc": "gate-cal + bypass, 50 % in every layer",
+   "last": false
+  },
+  {
+   "name": "bench_c50",
+   "rc": 0,
+   "s": 1262,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:0:42:0.5",
+   "ffn_kept": {
+    "0": [
+     100198405,
+     200396800
+    ],
+    "1": [
+     100198401,
+     200396800
+    ],
+    "2": [
+     100198401,
+     200396800
+    ],
+    "3": [
+     100198405,
+     200396800
+    ],
+    "4": [
+     100198474,
+     200396800
+    ],
+    "5": [
+     100198401,
+     200396800
+    ],
+    "6": [
+     100198400,
+     200396800
+    ],
+    "7": [
+     100198403,
+     200396800
+    ],
+    "8": [
+     100198404,
+     200396800
+    ],
+    "9": [
+     100198404,
+     200396800
+    ],
+    "10": [
+     100198401,
+     200396800
+    ],
+    "11": [
+     100198407,
+     200396800
+    ],
+    "12": [
+     100198404,
+     200396800
+    ],
+    "13": [
+     100198404,
+     200396800
+    ],
+    "14": [
+     100198402,
+     200396800
+    ],
+    "15": [
+     100198403,
+     200396800
+    ],
+    "16": [
+     100198401,
+     200396800
+    ],
+    "17": [
+     100198403,
+     200396800
+    ],
+    "18": [
+     100198400,
+     200396800
+    ],
+    "19": [
+     100198403,
+     200396800
+    ],
+    "20": [
+     100198403,
+     200396800
+    ],
+    "21": [
+     100198404,
+     200396800
+    ],
+    "22": [
+     100198405,
+     200396800
+    ],
+    "23": [
+     100198406,
+     200396800
+    ],
+    "24": [
+     100198404,
+     200396800
+    ],
+    "25": [
+     100198402,
+     200396800
+    ],
+    "26": [
+     100198406,
+     200396800
+    ],
+    "27": [
+     100198406,
+     200396800
+    ],
+    "28": [
+     100198406,
+     200396800
+    ],
+    "29": [
+     100198403,
+     200396800
+    ],
+    "30": [
+     100198403,
+     200396800
+    ],
+    "31": [
+     100198404,
+     200396800
+    ],
+    "32": [
+     100198408,
+     200396800
+    ],
+    "33": [
+     100198405,
+     200396800
+    ],
+    "34": [
+     100198403,
+     200396800
+    ],
+    "35": [
+     100198401,
+     200396800
+    ],
+    "36": [
+     100198407,
+     200396800
+    ],
+    "37": [
+     100198404,
+     200396800
+    ],
+    "38": [
+     100198402,
+     200396800
+    ],
+    "39": [
+     100198403,
+     200396800
+    ],
+    "40": [
+     100198405,
+     200396800
+    ],
+    "41": [
+     100198404,
+     200396800
+    ]
+   },
+   "desc": "gate-cal + bypass, 50 % in every layer",
+   "last": true
+  },
+  {
+   "name": "chat_top25",
+   "rc": 0,
+   "s": 73,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:24:42:0.25",
+   "ffn_kept": {
+    "24": [
+     3430402,
+     13721600
+    ],
+    "25": [
+     3430400,
+     13721600
+    ],
+    "26": [
+     3430401,
+     13721600
+    ],
+    "27": [
+     3430400,
+     13721600
+    ],
+    "28": [
+     3430402,
+     13721600
+    ],
+    "29": [
+     3430400,
+     13721600
+    ],
+    "30": [
+     3430401,
+     13721600
+    ],
+    "31": [
+     3430400,
+     13721600
+    ],
+    "32": [
+     3430400,
+     13721600
+    ],
+    "33": [
+     3430402,
+     13721600
+    ],
+    "34": [
+     3430401,
+     13721600
+    ],
+    "35": [
+     3430401,
+     13721600
+    ],
+    "36": [
+     3430400,
+     13721600
+    ],
+    "37": [
+     3430401,
+     13721600
+    ],
+    "38": [
+     3430400,
+     13721600
+    ],
+    "39": [
+     3430400,
+     13721600
+    ],
+    "40": [
+     3430400,
+     13721600
+    ],
+    "41": [
+     3430400,
+     13721600
+    ]
+   },
+   "desc": "gate-cal + bypass, 25 % in the stateless layers 24-41 only",
+   "last": false
+  },
+  {
+   "name": "bench_top25",
+   "rc": 0,
+   "s": 936,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": "c:24:42:0.25",
+   "ffn_kept": {
+    "24": [
+     50099204,
+     200396800
+    ],
+    "25": [
+     50099204,
+     200396800
+    ],
+    "26": [
+     50099205,
+     200396800
+    ],
+    "27": [
+     50099204,
+     200396800
+    ],
+    "28": [
+     50099202,
+     200396800
+    ],
+    "29": [
+     50099205,
+     200396800
+    ],
+    "30": [
+     50099205,
+     200396800
+    ],
+    "31": [
+     50099208,
+     200396800
+    ],
+    "32": [
+     50099207,
+     200396800
+    ],
+    "33": [
+     50099213,
+     200396800
+    ],
+    "34": [
+     50099208,
+     200396800
+    ],
+    "35": [
+     50099204,
+     200396800
+    ],
+    "36": [
+     50099202,
+     200396800
+    ],
+    "37": [
+     50099201,
+     200396800
+    ],
+    "38": [
+     50099204,
+     200396800
+    ],
+    "39": [
+     50099203,
+     200396800
+    ],
+    "40": [
+     50099205,
+     200396800
+    ],
+    "41": [
+     50099203,
+     200396800
+    ]
+   },
+   "desc": "gate-cal + bypass, 25 % in the stateless layers 24-41 only",
+   "last": true
+  },
+  {
+   "name": "chat_q8ref",
+   "rc": 0,
+   "s": 84,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: gemma-4-E4B-it-Q8_0.gguf",
+   "last": false
+  },
+  {
+   "name": "bench_q8ref",
+   "rc": 0,
+   "s": 1024,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: gemma-4-E4B-it-Q8_0.gguf",
+   "last": true
+  },
+  {
+   "name": "chat_q4ks",
+   "rc": 0,
+   "s": 56,
+   "recs": 8,
+   "tokens": 1340,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: gemma-4-E4B-it-Q4_K_S.gguf",
+   "last": false
+  },
+  {
+   "name": "bench_q4ks",
+   "rc": 0,
+   "s": 686,
+   "recs": 142,
+   "tokens": 19570,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: gemma-4-E4B-it-Q4_K_S.gguf",
+   "last": true
+  }
+ ]
+}
