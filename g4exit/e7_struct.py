@@ -38,6 +38,7 @@ ap.add_argument("--selftest", action="store_true", help="tiny synthetic model an
 ap.add_argument("--pop", default="e7", help="e7 = MMLU + Wikipedia prose, de-duplicated; e2b = the exact E2b population")
 ap.add_argument("--chat", default="g4exit/chat_prompts.jsonl")
 ap.add_argument("--quick", action="store_true", help="stop after the oracle arms and the by-kind breakdown")
+ap.add_argument("--sketch", action="store_true", help="section C: cheap selectors (1-bit / 2-bit scans) vs the oracle")
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 T0 = time.time()
@@ -452,6 +453,54 @@ rep("| linear map alone | " + " | ".join("%.4f" % bl[k][0] for k in ks) + " |")
 for b in sorted(BYK):
     rep("| dynamic oracle %.4g %% + bypass | " % (100 * b) + " | ".join("%.4f" % BYK[b][k][0] for k in ks) + " |")
 RES["by_kind"] = dict(linear={k: bl[k][0] for k in ks}, oracle={str(b): {k: BYK[b][k][0] for k in ks} for b in BYK})
+# ---------------------------------------------------------------------------------------------- C: cheap selectors
+if a.sketch:
+    rep("")
+    rep("## C. cheap selectors: which neurons to compute exactly, chosen from a low-precision scan (exact values for the chosen, bypass for the rest)")
+    rep("")
+    rep("| selector (bytes scanned, share of the dense FFN) | computed exactly | error with bypass | dir | overlap with the oracle's set |")
+    rep("|---|---:|---:|---:|---:|")
+
+    def sk1(W):
+        return np.sign(W).astype(np.float32) * np.abs(W).mean(1, keepdims=True)
+
+    def sk2(W):
+        st = 0.9957 * np.sqrt((W ** 2).mean(1, keepdims=True))
+        return ((np.clip(np.floor(W / st), -2, 1) + 0.5) * st).astype(np.float32)
+
+    urms = np.sqrt(((Xev[e_tr][:8000] @ Wu.T) ** 2).mean(0))
+    SEL = [("exact gate x calibrated |u| (33 %)", Wg, None),
+           ("1-bit gate x calibrated |u| (7 %)", sk1(Wg), None),
+           ("1-bit gate and 1-bit up (15 %)", sk1(Wg), sk1(Wu)),
+           ("2-bit gate and 2-bit up (30 %)", sk2(Wg), sk2(Wu))]
+    RES["sketch"] = []
+    orc = np.abs(Hev) * dn
+    for nm, Sg, Su in SEL:
+        SC = np.empty((Nev, n), np.float32)
+        for s0 in range(0, Nev, CH):
+            g = gelu(Xev[s0:s0 + CH] @ Sg.T)
+            SC[s0:s0 + CH] = np.abs(g) * (urms if Su is None else np.abs(Xev[s0:s0 + CH] @ Su.T)) * dn
+        for b in (0.125, 0.25, 0.5):
+            k = int(b * n)
+            ov = 0.0
+
+            def mf(s0, e0, k=k):
+                sc = SC[s0:e0]
+                thr = -np.partition(-sc, k - 1, axis=1)[:, k - 1:k]
+                return sc >= thr
+            Yk, act = masked(mf)
+            e, dv, e0_ = score(Yk)
+            for s0 in range(0, Nev, CH):                      # overlap with the oracle's top-k set
+                o = orc[s0:s0 + CH]
+                to = -np.partition(-o, k - 1, axis=1)[:, k - 1:k]
+                ov += float(((o >= to) & mf(s0, min(Nev, s0 + CH))).sum())
+            ov /= (Nev * k)
+            RES["sketch"].append(dict(selector=nm, frac=b, err=e, dir=dv, overlap=ov, oracle=ORA[b]))
+            rep("| %s | %.4g %% | %.4f | %.4f | %.0f %% |" % (nm, 100 * b, e, dv, 100 * ov))
+        del SC
+    del orc
+    rep("")
+    rep("(oracle with bypass on the same positions: " + ", ".join("%.4g %%: %.4f" % (100 * b, ORA[b]) for b in sorted(ORA)) + ")")
 if a.quick:
     rep("")
     rep("quick run: stopped here, %.0f s" % (time.time() - T0))

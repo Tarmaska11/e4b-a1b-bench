@@ -8,6 +8,7 @@ be to contain what the sampler needs (the exact top-1, the exact top-64 and thei
 Sketches of a row e (full width, no dimension dropped):
   s1    sign(e) * mean|e|                         1 bit per weight, float hidden state
   s1q4  the same, hidden state rounded to 4 bits  (what a popcount kernel over 4 bit-planes computes)
+  s1q8  the same, hidden state at 8 bits over its full range (8 bit-planes, no clipping)
   s2    4 levels per weight                       2 bits per weight
 """
 import argparse
@@ -141,6 +142,12 @@ def q4(Hb):
     return (np.clip(np.floor(Hb / dlt), -8, 7) + 0.5) * dlt
 
 
+def q8(Hb):
+    """hidden state at 8 bits, full range of each vector (no clipping)"""
+    dlt = np.abs(Hb).max(1, keepdims=True) / 127.5
+    return (np.clip(np.floor(Hb / dlt), -128, 127) + 0.5) * dlt
+
+
 def mm(Hb, M, scale=None, off=0.0):
     out = np.empty((len(Hb), V), np.float32)
     for s in range(0, V, 32768):
@@ -153,7 +160,7 @@ def mm(Hb, M, scale=None, off=0.0):
     return out
 
 
-SK = ("s1", "s1q4", "s2")
+SK = ("s1", "s1q8", "s1q4", "s2")
 acc = {k: {sk: {} for sk in SK} for k in sorted(set(kind))}
 top1_ok = {k: [] for k in acc}
 BS = 192
@@ -174,7 +181,8 @@ for b0 in range(0, P, BS):
     p64 = pr[rows[:, None], part]
     for i, k in enumerate(kb):
         top1_ok[k].append(float(top1[i] == nxt[b0 + i]) if nxt[b0 + i] >= 0 else np.nan)
-    sk_scores = {"s1": mm(Hb, S1, alpha1), "s1q4": mm(q4(Hb), S1, alpha1), "s2": mm(Hb, S2, step, off=0.5)}
+    sk_scores = {"s1": mm(Hb, S1, alpha1), "s1q8": mm(q8(Hb), S1, alpha1), "s1q4": mm(q4(Hb), S1, alpha1),
+                 "s2": mm(Hb, S2, step, off=0.5)}
     for sk, S in sk_scores.items():
         r1 = (S > S[rows, top1][:, None]).sum(1)                          # rank of the exact top-1 in the sketch
         s64 = S[rows[:, None], part]
