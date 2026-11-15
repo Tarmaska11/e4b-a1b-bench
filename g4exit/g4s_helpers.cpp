@@ -46,6 +46,10 @@ static bool                         g4s_init = false;
 static int       g4s_pf       = 1;
 static int       g4s_chunk    = 128;
 static bool      g4s_populate = true;
+//   G4S_DROPDOWN=0      keep the model's own down matrices mapped (default: once a layer's records are mapped,
+//                       hand the dense down matrix of that layer back to the kernel; sparse decode never reads it)
+static bool      g4s_dropdown = true;
+static double    g4s_prep_us  = 0.0;
 static int       g4s_last     = -1; // highest sparse layer: when its first call ends, every layer is prepared
 static long long g4s_flt0[2]  = { 0, 0 };
 static int64_t   g4s_t_first  = 0;
@@ -174,8 +178,8 @@ static void g4s_report() {
                 us / calls / 1000.0, sel / calls / 1000.0, rec / calls / 1000.0, byp / calls / 1000.0, 100.0 * kept / std::max(1LL, total));
         long long f1[2];
         g4s_faults(&f1[0], &f1[1]);
-        fprintf(stderr, "G4S_V3 pf=%d chunk=%d populate=%d | per selected neuron %.3f us (records, wall) | wait %.2f ms per token | after the first token: %.1f s, minflt %lld, majflt %lld\n",
-                g4s_pf, g4s_chunk, g4s_populate ? 1 : 0, rec / std::max(1LL, kept), wait / calls / 1000.0,
+        fprintf(stderr, "G4S_V3 pf=%d chunk=%d populate=%d dropdown=%d prepare %.0f ms | per selected neuron %.3f us (records, wall) | wait %.2f ms per token | after the first token: %.1f s, minflt %lld, majflt %lld\n",
+                g4s_pf, g4s_chunk, g4s_populate ? 1 : 0, g4s_dropdown ? 1 : 0, g4s_prep_us / 1000.0, rec / std::max(1LL, kept), wait / calls / 1000.0,
                 g4s_t_first ? (ggml_time_us() - g4s_t_first) / 1e6 : 0.0, f1[0] - g4s_flt0[0], f1[1] - g4s_flt0[1]);
     }
 }
@@ -237,7 +241,10 @@ static bool g4s_on(int il, int n_layer) {
             if (const char * v = getenv("G4S_POPULATE")) {
                 g4s_populate = atoi(v) != 0;
             }
-            fprintf(stderr, "G4S enabled: %s (v3: pf=%d chunk=%d populate=%d)\n", s.c_str(), g4s_pf, g4s_chunk, g4s_populate ? 1 : 0);
+            if (const char * v = getenv("G4S_DROPDOWN")) {
+                g4s_dropdown = atoi(v) != 0;
+            }
+            fprintf(stderr, "G4S enabled: %s (v3: pf=%d chunk=%d populate=%d dropdown=%d)\n", s.c_str(), g4s_pf, g4s_chunk, g4s_populate ? 1 : 0, g4s_dropdown ? 1 : 0);
             atexit(g4s_report);
         }
     }
@@ -245,7 +252,8 @@ static bool g4s_on(int il, int n_layer) {
 }
 
 static void g4s_prepare(g4s_layer & L) {
-    const ggml_tensor * up = L.up;
+    const int64_t       t_prep = ggml_time_us();
+    const ggml_tensor * up     = L.up;
     GGML_ASSERT(up->type == GGML_TYPE_Q4_K && "G4S expects Q4_K up projections (and --no-repack)");
     L.n      = (int) up->ne[1];
     L.d      = (int) up->ne[0];
@@ -326,6 +334,28 @@ static void g4s_prepare(g4s_layer & L) {
     if (base) {
         L.c    = (const float *) (base + hdr);
         L.recs = base + hdr + cbytes;
+#if !defined(_WIN32)
+        if (g4s_dropdown && L.down && L.down->data) { // v3: the dense down matrix is dead weight in sparse decode: give its pages back
+            const size_t    pg  = (size_t) sysconf(_SC_PAGESIZE);
+            const uintptr_t beg = ((uintptr_t) L.down->data + pg - 1) & ~(uintptr_t) (pg - 1);
+            const uintptr_t end = ((uintptr_t) L.down->data + ggml_nbytes(L.down)) & ~(uintptr_t) (pg - 1);
+            if (end > beg) {
+#if defined(MADV_PAGEOUT)
+                int rc = madvise((void *) beg, end - beg, MADV_PAGEOUT);
+                if (rc != 0) {
+                    rc = madvise((void *) beg, end - beg, MADV_DONTNEED);
+                }
+#else
+                int rc = madvise((void *) beg, end - beg, MADV_DONTNEED);
+#endif
+                static bool warned = false;
+                if (rc != 0 && !warned) {
+                    warned = true;
+                    fprintf(stderr, "G4S: could not release the dense down matrix of layer %d\n", L.il);
+                }
+            }
+        }
+#endif
     } else {
         L.c    = L.own_c.data();
         L.recs = L.own_rec.data();
@@ -387,6 +417,7 @@ static void g4s_prepare(g4s_layer & L) {
         L.A1t = (const ggml_fp16_t *) (bb + hdr + cbytes);
         L.A2  = L.A1t + (size_t) L.r * d;
     }
+    g4s_prep_us += (double) (ggml_time_us() - t_prep);
 }
 
 // dst = sparse FFN output [n_embd, 1]; a = x (the FFN input) [n_embd, 1]; b = gelu(W_gate x) [n_ff, 1]
@@ -515,4 +546,42 @@ static void g4s_op(ggml_tensor * dst, const ggml_tensor * a, const ggml_tensor *
         g4s_faults(&g4s_flt0[0], &g4s_flt0[1]);
         g4s_t_first = ggml_time_us();
     }
+}
+
+// ====================================================================================================================
+// G4TICK: one timestamp (and the process's fault counters) per decoded token, in EVERY mode, dense included, so that
+// both arms of a comparison are timed by the same clock and the first token (cache preparation) is left out.
+// The op sits right before the LM head and copies its input through.
+// ====================================================================================================================
+static std::vector<int64_t>   g4tick_t;
+static std::vector<long long> g4tick_min, g4tick_maj;
+
+static void g4tick_report() {
+    const int n = (int) g4tick_t.size();
+    if (n < 6) {
+        return;
+    }
+    const int k0 = n / 3;
+    fprintf(stderr, "G4TICK n=%d | tokens 2..n %.3f tok/s, minflt %lld, majflt %lld | last two thirds %.3f tok/s, minflt %lld, majflt %lld\n", n,
+            (n - 1) * 1e6 / (double) (g4tick_t[n - 1] - g4tick_t[0]), g4tick_min[n - 1] - g4tick_min[0], g4tick_maj[n - 1] - g4tick_maj[0],
+            (n - 1 - k0) * 1e6 / (double) (g4tick_t[n - 1] - g4tick_t[k0]), g4tick_min[n - 1] - g4tick_min[k0], g4tick_maj[n - 1] - g4tick_maj[k0]);
+}
+
+static void g4tick_op(ggml_tensor * dst, const ggml_tensor * a, int ith, int nth, void * ud) {
+    (void) nth;
+    (void) ud;
+    if (ith != 0) {
+        return;
+    }
+    memcpy(dst->data, a->data, ggml_nbytes(a));
+    static bool reg = false;
+    if (!reg) {
+        reg = true;
+        atexit(g4tick_report);
+    }
+    long long f[2];
+    g4s_faults(&f[0], &f[1]);
+    g4tick_t.push_back(ggml_time_us());
+    g4tick_min.push_back(f[0]);
+    g4tick_maj.push_back(f[1]);
 }

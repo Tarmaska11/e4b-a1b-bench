@@ -16,7 +16,7 @@ shutil.copy(here / "g4s_kernel.h", src / "g4s_kernel.h")
 
 inc = '#include "models.h"\n'
 assert s.count(inc) == 1, "include anchor"
-s = s.replace(inc, inc + '\n#include "ggml-cpu.h"\n#include "g4s_kernel.h"\n#include <atomic>\n#include <memory>\n#include <mutex>\n#include <thread>\n'
+s = s.replace(inc, inc + '\n#include "ggml-cpu.h"\n#include "g4s_kernel.h"\n#include <atomic>\n#include <memory>\n#include <mutex>\n#include <thread>\n#include <vector>\n#include <cstdint>\n'
                      '#if !defined(_WIN32)\n#include <fcntl.h>\n#include <sys/mman.h>\n#include <sys/stat.h>\n#include <unistd.h>\n#endif\n')
 
 anchor = "llama_model_gemma4::graph::graph("
@@ -34,5 +34,10 @@ b = '''            if (g4s_on(il, n_layer) && n_tokens == 1) {
             } else if (g4ffn_on(il, n_layer, model.layers[il].ffn_down, model.layers[il].ffn_up)) {
 '''
 s = s.replace(a, b)
+
+# G4TICK: a pass-through op right before the LM head that timestamps every decoded token (all modes)
+h = "    // lm_head\n    cur = build_lora_mm(model.output, cur, model.output_s);\n"
+assert s.count(h) == 1, "lm_head anchor"
+s = s.replace(h, "    if (n_tokens == 1) {\n        cur = ggml_map_custom1(ctx0, cur, g4tick_op, 1, nullptr);\n    }\n" + h)
 p.write_text(s, encoding="utf-8", newline="\n")
 print("G4S patched", p)

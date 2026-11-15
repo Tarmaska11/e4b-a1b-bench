@@ -41,10 +41,13 @@ jobs:
           run early100 "g:0:9:1.0"
           run early100_again "g:0:9:1.0"
           run early25 "g:0:9:0.25"
+          G4S_PF=0 G4S_CHUNK=0 G4S_POPULATE=0 G4S_DROPDOWN=0 run early25_v2path "g:0:9:0.25"
           echo "---- cache files"; ls -la cache | head -5
           echo "---- same text as the first sparse run when re-run from the mapped cache?"
           cmp -s out_early100.txt out_early100_again.txt && echo "early100 rerun: IDENTICAL" || echo "early100 rerun: DIFFERS"
           grep -E "G4S_STAT il=0 |G4S_TOTAL" log_early100_again.txt
+          cmp -s out_early25.txt out_early25_v2path.txt && echo "early25 v3 vs v2 path: IDENTICAL" || echo "early25 v3 vs v2 path: differs (summation order)"
+          grep -E "G4S_V3|G4TICK" log_dense.txt log_early25.txt log_early25_v2path.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:

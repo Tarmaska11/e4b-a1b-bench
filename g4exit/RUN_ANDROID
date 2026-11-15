@@ -1,2 +1,3 @@
 Fri Nov 13 03:31:39     2026
 v3 20261115T230503Z prefetch + populate + chunked work + fault counters
+v3b 20261115T231616Z + release of the dense down matrices, G4TICK per-token clock
