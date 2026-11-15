@@ -39,6 +39,8 @@ ap.add_argument("--pop", default="e7", help="e7 = MMLU + Wikipedia prose, de-dup
 ap.add_argument("--chat", default="g4exit/chat_prompts.jsonl")
 ap.add_argument("--quick", action="store_true", help="stop after the oracle arms and the by-kind breakdown")
 ap.add_argument("--sketch", action="store_true", help="section C: cheap selectors (1-bit / 2-bit scans) vs the oracle")
+ap.add_argument("--cascade", action="store_true",
+                help="section E: a 1-bit scan picks a shortlist m x the final share; exact scores of the shortlist pick the neurons")
 ap.add_argument("--blocks", action="store_true",
                 help="section D: contiguous blocks of co-active neurons chosen per token by exact score; variable k per token")
 a = ap.parse_args()
@@ -605,6 +607,73 @@ if a.blocks:
                                     err=e, dir=dv, oracle=ORA[b]))
             rep("| %s | %.2f %% | %d / %d / %d | %.4f | %.4f | %.2f |" % (nm, 100 * act, q[0], q[1], q[2], e, dv, e / ORA[b]))
     del orc
+# ---------------------------------------------------------------------------------------------- E: cascade selector
+if a.cascade:
+    rep("")
+    rep("## E. cascade: a 1-bit scan of all neurons picks a shortlist, exact scores of the shortlist pick the neurons to compute")
+    rep("")
+    rep("bytes are a share of the dense three-matrix FFN at Q4_K: a 1-bit matrix = 1/13.5; exact rows of the shortlist; down rows of the final set")
+    rep("")
+
+    def sk1c(W):
+        return np.sign(W).astype(np.float32) * np.abs(W).mean(1, keepdims=True)
+
+    urms_c = np.sqrt(((Xev[e_tr][:8000] @ Wu.T) ** 2).mean(0))
+    orc = np.abs(Hev) * dn
+    GC = np.empty((Nev, n), np.float32)                               # the exact-gate selector's score
+    for s0 in range(0, Nev, CH):
+        GC[s0:s0 + CH] = np.abs(gelu(Xev[s0:s0 + CH] @ Wg.T)) * urms_c * dn
+    BASE = {}
+    for b in (0.125, 0.25):
+        k = int(b * n)
+
+        def mfg(s0, e0, k=k):
+            sc = GC[s0:e0]
+            thr = -np.partition(-sc, k - 1, axis=1)[:, k - 1:k]
+            return sc >= thr
+        Yk, _ = masked(mfg)
+        BASE[b] = score(Yk)[0]
+    rep("reference on the same positions: " + "; ".join("%.4g %%: oracle %.4f, exact-gate selector %.4f (bytes %.0f %%)" % (
+        100 * b, ORA[b], BASE[b], 100 * (1 / 3 + b * 2 / 3)) for b in sorted(BASE)))
+    rep("")
+    rep("| 1-bit scan | final choice by | computed | shortlist | bytes read | oracle's set inside the shortlist | error with bypass | x oracle | x exact-gate selector |")
+    rep("|---|---|---:|---:|---:|---:|---:|---:|---:|")
+    RES["cascade"] = []
+    PRE = [("gate only, x calibrated |u|", sk1c(Wg), None, 1 / 13.5),
+           ("gate and up", sk1c(Wg), sk1c(Wu), 2 / 13.5)]
+    for nm, Sg, Su, pb in PRE:
+        SC = np.empty((Nev, n), np.float32)
+        for s0 in range(0, Nev, CH):
+            g = gelu(Xev[s0:s0 + CH] @ Sg.T)
+            SC[s0:s0 + CH] = np.abs(g) * (urms_c if Su is None else np.abs(Xev[s0:s0 + CH] @ Su.T)) * dn
+        for b in (0.125, 0.25):
+            k = int(b * n)
+            for m in (1.5, 2.0, 3.0):
+                ks = int(min(n, round(m * k)))
+                rec = 0.0
+                for s0 in range(0, Nev, CH):                      # how much of the oracle's set the shortlist holds
+                    sc = SC[s0:s0 + CH]
+                    ts = -np.partition(-sc, ks - 1, axis=1)[:, ks - 1:ks]
+                    o = orc[s0:s0 + CH]
+                    to = -np.partition(-o, k - 1, axis=1)[:, k - 1:k]
+                    rec += float(((o >= to) & (sc >= ts)).sum())
+                rec /= (Nev * k)
+                for fin_nm, FIN, by in (("oracle score (exact gate and up rows of the shortlist)", orc, pb + m * b * 2 / 3 + b / 3),
+                                        ("exact gate x calibrated |u| (exact gate rows of the shortlist)", GC, pb + m * b / 3 + b * 2 / 3)):
+                    def mfc(s0, e0, k=k, ks=ks, FIN=FIN):
+                        sc = SC[s0:e0]
+                        ts = -np.partition(-sc, ks - 1, axis=1)[:, ks - 1:ks]
+                        f2 = np.where(sc >= ts, FIN[s0:e0], -1.0)
+                        t2 = -np.partition(-f2, k - 1, axis=1)[:, k - 1:k]
+                        return f2 >= np.maximum(t2, 0.0)
+                    Yk, act = masked(mfc)
+                    e, dv, _ = score(Yk)
+                    RES["cascade"].append(dict(scan=nm, final=fin_nm, frac=b, m=m, active=act, bytes=by, recall=rec, err=e, dir=dv,
+                                               oracle=ORA[b], gate=BASE[b]))
+                    rep("| %s | %s | %.4g %% | x%.1f | %.0f %% | %.1f %% | %.4f | %.2f | %.2f |" % (
+                        nm, fin_nm, 100 * act, m, 100 * by, 100 * rec, e, e / ORA[b], e / BASE[b]))
+        del SC
+    del orc, GC
 if a.quick:
     rep("")
     rep("quick run: stopped here, %.0f s" % (time.time() - T0))
