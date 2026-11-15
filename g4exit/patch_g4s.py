@@ -44,5 +44,20 @@ s = s.replace(o, "    g4o_apply(model);\n\n" + o)
 h = "    // lm_head\n    cur = build_lora_mm(model.output, cur, model.output_s);\n"
 assert s.count(h) == 1, "lm_head anchor"
 s = s.replace(h, "    if (n_tokens == 1) {\n        cur = ggml_map_custom1(ctx0, cur, g4tick_op, 1, nullptr);\n    }\n" + h)
+# G4H: the 1-bit scan + exact shortlist head, decode only (the dense head stays for batches and when G4H is unset)
+assert s.count(h) == 1, "lm_head anchor (second use)"
+s = s.replace(h, """    // lm_head
+    if (n_tokens == 1 && g4h_on(model.output, model.output_s)) {
+        const int64_t g4h_v     = model.output->ne[1];
+        ggml_tensor * g4h_a1[1] = { cur };
+        ggml_tensor * g4h_sc    = ggml_custom_4d(ctx0, GGML_TYPE_F32, g4h_v, 1, 1, 1, g4h_a1, 1, g4h_scan, GGML_N_TASKS_MAX, nullptr);
+        ggml_tensor * g4h_a2[1] = { g4h_sc };
+        ggml_tensor * g4h_fl    = ggml_custom_4d(ctx0, GGML_TYPE_F32, g4h_v, 1, 1, 1, g4h_a2, 1, g4h_select, 1, nullptr);
+        ggml_tensor * g4h_a3[2] = { cur, g4h_fl };
+        cur = ggml_custom_4d(ctx0, GGML_TYPE_F32, g4h_v, 1, 1, 1, g4h_a3, 2, g4h_exact, GGML_N_TASKS_MAX, nullptr);
+    } else {
+        cur = build_lora_mm(model.output, cur, model.output_s);
+    }
+""")
 p.write_text(s, encoding="utf-8", newline="\n")
 print("G4S patched", p)

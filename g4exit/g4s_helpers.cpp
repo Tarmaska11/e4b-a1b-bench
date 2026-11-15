@@ -593,7 +593,7 @@ static void g4tick_op(ggml_tensor * dst, const ggml_tensor * a, int ith, int nth
 // A research switch: one binary and one model file run "as shipped" and "lean" back to back on a phone that has
 // no room for a second 4.4 GB file. A product file would simply contain the lean tensors.
 // ====================================================================================================================
-static bool g4o_done = false;
+static const void * g4o_model = nullptr; // the model the overlay was last applied to
 
 static void g4o_release(void * data, size_t n) {
 #if !defined(_WIN32)
@@ -616,14 +616,17 @@ static void g4o_release(void * data, size_t n) {
 }
 
 static void g4o_apply(const llama_model & model) {
-    if (g4o_done) {
+    if (g4o_model == (const void *) &model) {
         return;
     }
-    g4o_done          = true;
     const char * path = getenv("G4_OVERLAY");
     if (!path || !*path) {
         return;
     }
+    if (model.layers.empty() || model.layers[0].ffn_down == nullptr || model.layers[0].ffn_down->data == nullptr) {
+        return; // a metadata-only model (the memory-fit pass): nothing to re-point, and do not mark it as done
+    }
+    g4o_model = (const void *) &model;
     ggml_context *   meta = nullptr;
     gguf_init_params ip   = { /*.no_alloc =*/ true, /*.ctx =*/ &meta };
     gguf_context *   g    = gguf_init_from_file(path, ip);
@@ -673,4 +676,275 @@ static void g4o_apply(const llama_model & model) {
     }
     swap(model.per_layer_model_proj);
     fprintf(stderr, "G4_OVERLAY: %lld tensors replaced from %s, %.1f MiB -> %.1f MiB\n", n, path, b_old / 1048576.0, b_new / 1048576.0);
+}
+
+// ====================================================================================================================
+// G4H=<N>: the LM head as "every row at 1 bit, then the exact logit of a shortlist of N rows". Decode only.
+//   scan    score_j = alpha_j * sum_i sign(e_ji) * (q_i + 0.5), q = the hidden state at 8 bits over its full range.
+//           This is the `s1q8` sketch measured in E7H / E9 (N = 8192: the exact top token inside in 100 % of 5 960
+//           positions). Computed with AND + popcount over the 8 bit-planes of q.
+//   select  the N best scores
+//   exact   for those rows, the model's own Q4_K row against the hidden state with the kernel the dense head uses
+//           (so a shortlisted logit is bit-identical to the dense one); every other logit is set far below, which
+//           the soft-cap turns into -30.
+// G4H_CACHE=<dir>: the sketch (alpha, popcounts, sign bits: ~82 MiB) is built once from token_embd and then mapped.
+// ====================================================================================================================
+struct g4h_state {
+    int                 N = 0;
+    const ggml_tensor * W = nullptr;
+    bool                ready = false;
+    std::mutex          mtx;
+    int                 V = 0, d = 0, nb = 0, rowsz = 0;
+    const float *       alpha = nullptr;
+    const uint16_t *    pc    = nullptr;
+    const uint8_t *     bits  = nullptr;
+    std::vector<uint8_t> own;
+    std::atomic<int>    next{ 0 };
+    long long           calls = 0, picked = 0;
+    double              us_scan = 0.0, us_sel = 0.0, us_exact = 0.0, us_prep = 0.0;
+};
+static g4h_state g4h;
+static int       g4h_init = 0; // 0 = not read, 1 = off, 2 = on
+
+static void g4h_report() {
+    if (g4h.calls > 0) {
+        fprintf(stderr, "G4H N=%d | per token: scan %.2f ms, select %.2f ms, exact %.2f ms | rows re-scored per token %.0f | sketch prepared in %.0f ms\n", g4h.N,
+                g4h.us_scan / g4h.calls / 1000.0, g4h.us_sel / g4h.calls / 1000.0, g4h.us_exact / g4h.calls / 1000.0, (double) g4h.picked / g4h.calls,
+                g4h.us_prep / 1000.0);
+    }
+}
+
+static bool g4h_on(const ggml_tensor * W, const ggml_tensor * W_s) {
+    if (g4h_init == 0) {
+        g4h_init = 1;
+        const char * e = getenv("G4H");
+        const int    N = e ? atoi(e) : 0;
+        if (N > 0 && W && W_s == nullptr && W->type == GGML_TYPE_Q4_K && W->ne[0] % 256 == 0 && N < W->ne[1]) {
+            g4h.N    = N;
+            g4h.W    = W;
+            g4h_init = 2;
+            fprintf(stderr, "G4H enabled: 1-bit scan of %lld rows, exact logits for the best %d\n", (long long) W->ne[1], N);
+            atexit(g4h_report);
+        } else if (N > 0) {
+            fprintf(stderr, "G4H requested but not applicable to this head (type / scale / size): dense head stays\n");
+        }
+    }
+    if (g4h_init == 2 && g4h.W != W) { // a new model object (the first one may have been the metadata-only fit pass)
+        std::lock_guard<std::mutex> lk(g4h.mtx);
+        g4h.W     = W;
+        g4h.ready = false;
+    }
+    return g4h_init == 2;
+}
+
+static void g4h_prepare() {
+    const int64_t t0 = ggml_time_us();
+    const ggml_tensor * W = g4h.W;
+    g4h.V     = (int) W->ne[1];
+    g4h.d     = (int) W->ne[0];
+    g4h.nb    = g4h.d / 8;
+    g4h.rowsz = (int) ggml_row_size(GGML_TYPE_Q4_K, g4h.d);
+    const int    V = g4h.V, d = g4h.d, nb = g4h.nb;
+    const size_t hdr = 4 * sizeof(int32_t), ab = (size_t) V * sizeof(float), pb = (size_t) V * sizeof(uint16_t);
+    const size_t off_bits = (hdr + ab + pb + 63) / 64 * 64, total = off_bits + (size_t) V * nb;
+    const char * dir = getenv("G4H_CACHE");
+    char         path[1024] = { 0 };
+    const uint8_t * base = nullptr;
+    size_t          len  = 0;
+    if (dir) {
+        snprintf(path, sizeof(path), "%s/g4h_sketch.bin", dir);
+        base = g4s_map(path, &len);
+        if (base) {
+            int32_t h[4];
+            memcpy(h, base, sizeof(h));
+            if (!(h[0] == 0x31483447 && h[1] == V && h[2] == d && len == total)) {
+                base = nullptr;
+            }
+        }
+    }
+    if (!base) {
+        g4h.own.assign(total, 0);
+        const int32_t h[4] = { 0x31483447, V, d, 0 };
+        memcpy(g4h.own.data(), h, sizeof(h));
+        float *    al = (float *) (g4h.own.data() + hdr);
+        uint16_t * pc = (uint16_t *) (g4h.own.data() + hdr + ab);
+        uint8_t *  bt = g4h.own.data() + off_bits;
+        std::vector<float> buf(d);
+        for (int j = 0; j < V; ++j) {
+            g4_row(W, j, buf.data());
+            double    a = 0.0;
+            int       c = 0;
+            uint8_t * r = bt + (size_t) j * nb;
+            for (int i = 0; i < d; ++i) {
+                a += fabs((double) buf[i]);
+                if (buf[i] >= 0.0f) {
+                    r[i >> 3] |= (uint8_t) (1u << (i & 7));
+                    c += 1;
+                }
+            }
+            al[j] = (float) (a / d);
+            pc[j] = (uint16_t) c;
+        }
+        bool mapped = false;
+        if (dir) {
+            FILE * f = fopen(path, "wb");
+            if (f) {
+                fwrite(g4h.own.data(), 1, total, f);
+                fclose(f);
+                base   = g4s_map(path, &len);
+                mapped = base != nullptr && len == total;
+            }
+        }
+        if (mapped) {
+            std::vector<uint8_t>().swap(g4h.own);
+        } else {
+            base = g4h.own.data();
+        }
+    }
+    g4h.alpha = (const float *) (base + hdr);
+    g4h.pc    = (const uint16_t *) (base + hdr + ab);
+    g4h.bits  = base + off_bits;
+    g4h.us_prep = (double) (ggml_time_us() - t0);
+}
+
+// sum over b of 2^b * popcount(bits & plane_b): the sum of u_i over the dimensions whose sign bit is set
+static inline uint32_t g4h_masked(const uint8_t * bits, const uint8_t * planes, int nb) {
+#if defined(__ARM_NEON)
+    uint16x8_t acc[8];
+    for (int b = 0; b < 8; ++b) {
+        acc[b] = vdupq_n_u16(0);
+    }
+    for (int o = 0; o < nb; o += 16) {
+        const uint8x16_t w = vld1q_u8(bits + o);
+        for (int b = 0; b < 8; ++b) {
+            acc[b] = vpadalq_u8(acc[b], vcntq_u8(vandq_u8(w, vld1q_u8(planes + (size_t) b * nb + o))));
+        }
+    }
+    uint32_t s = 0;
+    for (int b = 0; b < 8; ++b) {
+        s += (uint32_t) vaddlvq_u16(acc[b]) << b;
+    }
+    return s;
+#else
+    uint32_t s = 0;
+    for (int b = 0; b < 8; ++b) {
+        const uint8_t * pl = planes + (size_t) b * nb;
+        uint32_t        c  = 0;
+        for (int o = 0; o < nb; o += 8) {
+            uint64_t x, y;
+            memcpy(&x, bits + o, 8);
+            memcpy(&y, pl + o, 8);
+            c += (uint32_t) __builtin_popcountll(x & y);
+        }
+        s += c << b;
+    }
+    return s;
+#endif
+}
+
+// dst = scores [V]; src[0] = the hidden state [d, 1]
+static void g4h_scan(ggml_tensor * dst, int ith, int nth, void * ud) {
+    (void) ud;
+    const int64_t t0 = ith == 0 ? ggml_time_us() : 0;
+    {
+        std::lock_guard<std::mutex> lk(g4h.mtx);
+        if (!g4h.ready) {
+            g4h_prepare();
+            g4h.ready = true;
+        }
+    }
+    const int     V = g4h.V, d = g4h.d, nb = g4h.nb;
+    const float * h = (const float *) dst->src[0]->data;
+    GGML_ASSERT(dst->src[0]->ne[0] == d && dst->ne[0] == V && nb % 16 == 0);
+    float mx = 0.0f;
+    for (int i = 0; i < d; ++i) {
+        mx = std::max(mx, fabsf(h[i]));
+    }
+    const float          inv = mx > 0.0f ? 127.5f / mx : 0.0f;
+    std::vector<uint8_t> planes((size_t) 8 * nb, 0);
+    long long            Q = 0;
+    for (int i = 0; i < d; ++i) {
+        int q = (int) floorf(h[i] * inv);
+        q     = q < -128 ? -128 : (q > 127 ? 127 : q);
+        Q += q;
+        const unsigned u = (unsigned) (q + 128);
+        for (int b = 0; b < 8; ++b) {
+            if ((u >> b) & 1u) {
+                planes[(size_t) b * nb + (i >> 3)] |= (uint8_t) (1u << (i & 7));
+            }
+        }
+    }
+    float *   out = (float *) dst->data;
+    const int j0 = (int) ((int64_t) V * ith / nth), j1 = (int) ((int64_t) V * (ith + 1) / nth);
+    const float halfd = 0.5f * (float) d;
+    for (int j = j0; j < j1; ++j) {
+        const long long m = (long long) g4h_masked(g4h.bits + (size_t) j * nb, planes.data(), nb);
+        out[j]            = g4h.alpha[j] * ((float) (2 * m - 255LL * g4h.pc[j] - Q) - halfd);
+    }
+    if (ith == 0) {
+        g4h.us_scan += (double) (ggml_time_us() - t0);
+    }
+}
+
+// dst = flags [V] (1 = re-score exactly); src[0] = scores [V]. One thread.
+static void g4h_select(ggml_tensor * dst, int ith, int nth, void * ud) {
+    (void) nth;
+    (void) ud;
+    if (ith != 0) {
+        return;
+    }
+    const int64_t t0 = ggml_time_us();
+    const int     V  = g4h.V, N = g4h.N;
+    const float * sc = (const float *) dst->src[0]->data;
+    static std::vector<float> tmp;
+    tmp.assign(sc, sc + V);
+    std::nth_element(tmp.begin(), tmp.begin() + (N - 1), tmp.end(), [](float p, float q) { return p > q; });
+    const float cut = tmp[N - 1];
+    float *     fl  = (float *) dst->data;
+    long long   n   = 0;
+    for (int j = 0; j < V; ++j) {
+        const bool in = sc[j] >= cut;
+        fl[j]         = in ? 1.0f : 0.0f;
+        n += in ? 1 : 0;
+    }
+    g4h.next.store(0);
+    g4h.picked += n;
+    g4h.calls += 1;
+    g4h.us_sel += (double) (ggml_time_us() - t0);
+}
+
+// dst = logits [V]; src[0] = the hidden state [d, 1]; src[1] = flags [V]
+static void g4h_exact(ggml_tensor * dst, int ith, int nth, void * ud) {
+    (void) nth;
+    (void) ud;
+    const int64_t t0 = ith == 0 ? ggml_time_us() : 0;
+    static const ggml_type_traits_cpu * tc = ggml_get_type_traits_cpu(GGML_TYPE_Q4_K);
+    static const ggml_type_traits_cpu * tq = ggml_get_type_traits_cpu(tc->vec_dot_type);
+    const int       V = g4h.V, d = g4h.d, rs = g4h.rowsz;
+    const float *   h  = (const float *) dst->src[0]->data;
+    const float *   fl = (const float *) dst->src[1]->data;
+    const uint8_t * W  = (const uint8_t *) g4h.W->data;
+    float *         out = (float *) dst->data;
+    std::vector<uint8_t> xq(ggml_row_size(tc->vec_dot_type, d));
+    tq->from_float(h, xq.data(), d);
+    const int CH = 2048;
+    for (;;) {
+        const int j0 = g4h.next.fetch_add(CH);
+        if (j0 >= V) {
+            break;
+        }
+        const int j1 = std::min(V, j0 + CH);
+        for (int j = j0; j < j1; ++j) {
+            if (fl[j] != 0.0f) {
+                float u = 0.0f;
+                tc->vec_dot(d, &u, 0, W + (size_t) j * rs, 0, xq.data(), 0, 1);
+                out[j] = u;
+            } else {
+                out[j] = -1.0e9f;
+            }
+        }
+    }
+    if (ith == 0) {
+        g4h.us_exact += (double) (ggml_time_us() - t0);
+    }
 }

@@ -2,3 +2,4 @@ Fri Nov 13 03:31:39     2026
 v3 20261115T230503Z prefetch + populate + chunked work + fault counters
 v3b 20261115T231616Z + release of the dense down matrices, G4TICK per-token clock
 v3c 20261115T232554Z + G4_OVERLAY (lean-A), lean_pack on the runner
+v3d 20261115T233543Z overlay applied to the real model (not the memory-fit copy), G4H head kernel

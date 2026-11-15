@@ -73,6 +73,29 @@ jobs:
           run2 full "" leanA_full.gguf
           cmp -s out_overlay.txt out_full.txt && echo "overlay vs full lean file: IDENTICAL" || echo "overlay vs full lean file: DIFFERS"
           cmp -s out_base.txt out_full.txt && echo "base vs lean (48 tokens, greedy): identical text" || echo "base vs lean (48 tokens, greedy): text differs"
+          echo "---- the head kernel on the full lean file (greedy text must equal the dense head's)"
+          mkdir -p hcache
+          runh() { # label, N
+            G4H="$2" G4H_CACHE=$PWD/hcache $B -m leanA_full.gguf -ngl 0 -t 4 -n 48 -c 2048 --no-warmup --no-repack --temp 0 --seed 1 \
+              -no-cnv --no-display-prompt -f p.txt > out_$1.txt 2> log_$1.txt || echo "RUN $1 FAILED"
+            echo "== $1"; cat out_$1.txt; echo
+            grep -E "G4H|G4TICK|eval time" log_$1.txt | tail -4
+          }
+          runh head8192 8192
+          runh head8192_again 8192
+          runh head1024 1024
+          ls -la hcache
+          cmp -s out_full.txt out_head8192.txt && echo "dense head vs G4H=8192: IDENTICAL" || echo "dense head vs G4H=8192: DIFFERS"
+          cmp -s out_head8192.txt out_head8192_again.txt && echo "G4H rerun from the mapped sketch: IDENTICAL" || echo "G4H rerun from the mapped sketch: DIFFERS"
+          cmp -s out_full.txt out_head1024.txt && echo "dense head vs G4H=1024: identical" || echo "dense head vs G4H=1024: differs"
+          printf '<|turn>user\nОбъясни в трёх предложениях, почему небо голубое.<turn|>\n<|turn>model\n' > p_ru.txt
+          for v in dense head; do
+            E=""; [ $v = head ] && E=8192
+            G4H="$E" G4H_CACHE=$PWD/hcache $B -m leanA_full.gguf -ngl 0 -t 4 -n 64 -c 2048 --no-warmup --no-repack --temp 0 --seed 1 \
+              -no-cnv --no-display-prompt -f p_ru.txt > out_ru_$v.txt 2> log_ru_$v.txt || echo "RUN ru_$v FAILED"
+            echo "== ru_$v"; cat out_ru_$v.txt; echo
+          done
+          cmp -s out_ru_dense.txt out_ru_head.txt && echo "RU dense head vs G4H=8192: IDENTICAL" || echo "RU dense head vs G4H=8192: DIFFERS"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
