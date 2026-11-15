@@ -39,6 +39,8 @@ ap.add_argument("--pop", default="e7", help="e7 = MMLU + Wikipedia prose, de-dup
 ap.add_argument("--chat", default="g4exit/chat_prompts.jsonl")
 ap.add_argument("--quick", action="store_true", help="stop after the oracle arms and the by-kind breakdown")
 ap.add_argument("--sketch", action="store_true", help="section C: cheap selectors (1-bit / 2-bit scans) vs the oracle")
+ap.add_argument("--blocks", action="store_true",
+                help="section D: contiguous blocks of co-active neurons chosen per token by exact score; variable k per token")
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 T0 = time.time()
@@ -501,6 +503,108 @@ if a.sketch:
     del orc
     rep("")
     rep("(oracle with bypass on the same positions: " + ", ".join("%.4g %%: %.4f" % (100 * b, ORA[b]) for b in sorted(ORA)) + ")")
+# ---------------------------------------------------------------------------------------------- D: blocks, variable k
+if a.blocks:
+    rep("")
+    rep("## D. blocks of co-active neurons (a file layout could read them as contiguous runs), and a variable number of neurons per token")
+    rep("")
+    orc = np.abs(Hev) * dn
+    JS = (10, 8, 6) if n % 1024 == 0 else (6, 4, 2)          # tree depths -> block sizes n / 2^j
+    TC = min(16384, len(e_tr))
+    k25 = int(0.25 * n)
+    F = np.empty((n, TC), np.float32)                         # neuron x train position: is it in the token's top 25 %?
+    for s0 in range(0, TC, CH):
+        o = orc[s0:min(TC, s0 + CH)]
+        thr = -np.partition(-o, k25 - 1, axis=1)[:, k25 - 1:k25]
+        F[:, s0:s0 + len(o)] = (o >= thr).T
+    rate = F.mean(1)
+    F -= rate[:, None]
+    F /= np.linalg.norm(F, axis=1, keepdims=True) + 1e-6      # rows are now correlation features
+
+    def cluster_order(depth, seed=0):
+        """balanced recursive bisection along the main co-activation direction; leaf order = the new neuron order"""
+        rs2 = np.random.default_rng(seed)
+        order = np.arange(n)
+        segs = [(0, n, 0)]
+        while segs:
+            s0, e0, lv = segs.pop()
+            if lv >= depth:
+                continue
+            idx = order[s0:e0]
+            Fs = F[idx]
+            mu = Fs.mean(0)
+            v = rs2.standard_normal(TC).astype(np.float32)
+            for _ in range(10):
+                u = Fs @ v - float(mu @ v)
+                v = Fs.T @ u - mu * float(u.sum())
+                v /= np.linalg.norm(v) + 1e-12
+            u = Fs @ v - float(mu @ v)
+            order[s0:e0] = idx[np.argsort(u, kind="stable")]
+            h = (e0 - s0) // 2
+            segs += [(s0, s0 + h, lv + 1), (s0 + h, e0, lv + 1)]
+        return order
+
+    def within_corr(perm, B):
+        """mean pairwise correlation of the top-25 % indicator inside a block (train positions)"""
+        S = F[perm].reshape(n // B, B, TC).sum(1)
+        return float(((S * S).sum() - (F * F).sum()) / (n * (B - 1)))
+
+    def block_fn(perm, B, b):
+        nba = n // B
+        nb = max(1, int(round(b * nba)))
+        inv = np.empty(n, np.int64)
+        inv[perm] = np.arange(n)
+
+        def mf(s0, e0):
+            o = orc[s0:e0]
+            en = (o * o)[:, perm].reshape(-1, nba, B).sum(2)
+            thr = -np.partition(-en, nb - 1, axis=1)[:, nb - 1:nb]
+            return np.repeat(en >= thr, B, axis=1)[:, inv]
+        return mf
+
+    t1 = time.time()
+    perm_c = cluster_order(max(JS))
+    perm_r = np.random.default_rng(11).permutation(n)
+    say("neuron order by co-activation: %.0f s" % (time.time() - t1))
+    RES["blocks"], RES["vark"] = [], []
+    Yk, act = masked(block_fn(np.arange(n), 1, 0.25))
+    chk1 = score(Yk)[0]
+    RES["blocks_check"] = [chk1, ORA[0.25]]
+    rep("instrument check: blocks of ONE neuron at 25 %% give %.4f; the neuron-level oracle above gave %.4f" % (chk1, ORA[0.25]))
+    rep("")
+    rep("| neuron order | block size | mean correlation inside a block | computed exactly | error with bypass | dir | x the neuron-level oracle |")
+    rep("|---|---:|---:|---:|---:|---:|---:|")
+    ARMS_D = [("co-activation clusters", perm_c, n >> j) for j in JS] + [("random order (control)", perm_r, n >> JS[1])]
+    for nm, perm, B in ARMS_D:
+        wc = within_corr(perm, B)
+        for b in (0.125, 0.25, 0.5):
+            Yk, act = masked(block_fn(perm, B, b))
+            e, dv, _ = score(Yk)
+            RES["blocks"].append(dict(order=nm, B=B, frac=b, active=act, corr=wc, err=e, dir=dv, oracle=ORA[b]))
+            rep("| %s | %d | %.3f | %.4g %% | %.4f | %.4f | %.2f |" % (nm, B, wc, 100 * act, e, dv, e / ORA[b]))
+    del F
+    rep("")
+    rep("variable k: one threshold for every token instead of a fixed count (same MEAN share; hard tokens get more neurons)")
+    rep("")
+    rep("| rule | mean share computed | neurons per token, 10th / 50th / 90th percentile | error with bypass | dir | x fixed top-k at that share |")
+    rep("|---|---:|---:|---:|---:|---:|")
+    sub = orc[e_tr[:: max(1, len(e_tr) // 2000)]]
+    srm = np.sqrt((sub ** 2).mean(1, keepdims=True))
+    te_s = e_te[:: max(1, len(e_te) // 3000)]
+    for b in (0.125, 0.25, 0.5):
+        ta = float(np.quantile(sub, 1 - b))
+        tr_ = float(np.quantile(sub / srm, 1 - b))
+        for nm, fn in (("absolute threshold on the score", lambda s0, e0, t=ta: orc[s0:e0] >= t),
+                       ("threshold relative to the token's own rms score",
+                        lambda s0, e0, t=tr_: orc[s0:e0] >= t * np.sqrt((orc[s0:e0] ** 2).mean(1, keepdims=True)))):
+            Yk, act = masked(fn)
+            e, dv, _ = score(Yk)
+            kk = np.concatenate([fn(int(i), int(i) + 1).sum(1) for i in te_s])
+            q = np.percentile(kk, (10, 50, 90))
+            RES["vark"].append(dict(rule=nm, frac=b, active=act, k_p10=float(q[0]), k_p50=float(q[1]), k_p90=float(q[2]),
+                                    err=e, dir=dv, oracle=ORA[b]))
+            rep("| %s | %.2f %% | %d / %d / %d | %.4f | %.4f | %.2f |" % (nm, 100 * act, q[0], q[1], q[2], e, dv, e / ORA[b]))
+    del orc
 if a.quick:
     rep("")
     rep("quick run: stopped here, %.0f s" % (time.time() - T0))
