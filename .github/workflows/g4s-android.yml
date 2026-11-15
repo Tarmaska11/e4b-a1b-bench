@@ -48,6 +48,38 @@ jobs:
           grep -E "G4S_STAT il=0 |G4S_TOTAL" log_early100_again.txt
           cmp -s out_early25.txt out_early25_v2path.txt && echo "early25 v3 vs v2 path: IDENTICAL" || echo "early25 v3 vs v2 path: differs (summation order)"
           grep -E "G4S_V3|G4TICK" log_dense.txt log_early25.txt log_early25_v2path.txt
+      - name: lean-A overlay and full file (tools/lean_pack.py)
+        run: |
+          set -e
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+          df -h . | tail -1
+          pip install -q numpy gguf
+          curl -sSL -o donor.gguf "${E4B_URL/Q4_K_M/Q4_K_S}"
+          python3 g4exit/lean_pack.py --base model.gguf --donor donor.gguf --overlay leanA_overlay.gguf --full leanA_full.gguf
+          rm donor.gguf
+          ls -la leanA_overlay.gguf leanA_full.gguf
+          sha256sum leanA_overlay.gguf
+      - name: overlay functional test (the overlay must behave exactly like the full lean file)
+        run: |
+          B=$(find build -name llama-completion -type f | head -1)
+          run2() { # label, overlay path or "", model file
+            G4_OVERLAY="$2" $B -m "$3" -ngl 0 -t 4 -n 48 -c 2048 --no-warmup --no-repack --temp 0 --seed 1 \
+              -no-cnv --no-display-prompt -f p.txt > out_$1.txt 2> log_$1.txt || echo "RUN $1 FAILED"
+            echo "== $1"; cat out_$1.txt; echo
+            grep -E "G4_OVERLAY|G4TICK|eval time" log_$1.txt | tail -4
+          }
+          run2 base "" model.gguf
+          run2 overlay "$PWD/leanA_overlay.gguf" model.gguf
+          run2 full "" leanA_full.gguf
+          cmp -s out_overlay.txt out_full.txt && echo "overlay vs full lean file: IDENTICAL" || echo "overlay vs full lean file: DIFFERS"
+          cmp -s out_base.txt out_full.txt && echo "base vs lean (48 tokens, greedy): identical text" || echo "base vs lean (48 tokens, greedy): text differs"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: leanA-overlay
+          path: leanA_overlay.gguf
+          compression-level: 0
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:

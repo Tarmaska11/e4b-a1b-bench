@@ -585,3 +585,92 @@ static void g4tick_op(ggml_tensor * dst, const ggml_tensor * a, int ith, int nth
     g4tick_min.push_back(f[0]);
     g4tick_maj.push_back(f[1]);
 }
+
+// ====================================================================================================================
+// G4_OVERLAY=<file.gguf>: replacement tensors for the loaded model, read from a second GGUF (same names and shapes,
+// other storage types; built by tools/lean_pack.py). The overlay is memory-mapped; a replaced tensor's header is
+// re-pointed at the overlay's bytes and the bytes it used to own are handed back to the kernel.
+// A research switch: one binary and one model file run "as shipped" and "lean" back to back on a phone that has
+// no room for a second 4.4 GB file. A product file would simply contain the lean tensors.
+// ====================================================================================================================
+static bool g4o_done = false;
+
+static void g4o_release(void * data, size_t n) {
+#if !defined(_WIN32)
+    const size_t    pg  = (size_t) sysconf(_SC_PAGESIZE);
+    const uintptr_t beg = ((uintptr_t) data + pg - 1) & ~(uintptr_t) (pg - 1);
+    const uintptr_t end = ((uintptr_t) data + n) & ~(uintptr_t) (pg - 1);
+    if (end > beg) {
+#if defined(MADV_PAGEOUT)
+        if (madvise((void *) beg, end - beg, MADV_PAGEOUT) != 0) {
+            madvise((void *) beg, end - beg, MADV_DONTNEED);
+        }
+#else
+        madvise((void *) beg, end - beg, MADV_DONTNEED);
+#endif
+    }
+#else
+    (void) data;
+    (void) n;
+#endif
+}
+
+static void g4o_apply(const llama_model & model) {
+    if (g4o_done) {
+        return;
+    }
+    g4o_done          = true;
+    const char * path = getenv("G4_OVERLAY");
+    if (!path || !*path) {
+        return;
+    }
+    ggml_context *   meta = nullptr;
+    gguf_init_params ip   = { /*.no_alloc =*/ true, /*.ctx =*/ &meta };
+    gguf_context *   g    = gguf_init_from_file(path, ip);
+    GGML_ASSERT(g != nullptr && meta != nullptr && "G4_OVERLAY: cannot read the overlay file");
+    size_t          len  = 0;
+    const uint8_t * base = g4s_map(path, &len);
+    GGML_ASSERT(base != nullptr && "G4_OVERLAY: cannot map the overlay file");
+    const size_t d0 = gguf_get_data_offset(g);
+    long long    n = 0, b_old = 0, b_new = 0;
+    auto swap = [&](ggml_tensor * t) {
+        if (!t) {
+            return;
+        }
+        const int64_t id = gguf_find_tensor(g, ggml_get_name(t));
+        if (id < 0) {
+            return;
+        }
+        const ggml_tensor * m = ggml_get_tensor(meta, ggml_get_name(t));
+        GGML_ASSERT(m != nullptr);
+        for (int i = 0; i < GGML_MAX_DIMS; ++i) {
+            GGML_ASSERT(t->ne[i] == m->ne[i] && "G4_OVERLAY: shape mismatch");
+        }
+        void *       old_data  = t->data;
+        const size_t old_bytes = ggml_nbytes(t);
+        t->type                = m->type;
+        for (int i = 0; i < GGML_MAX_DIMS; ++i) {
+            t->nb[i] = m->nb[i];
+        }
+        t->data = (void *) (base + d0 + gguf_get_tensor_offset(g, id));
+        GGML_ASSERT(d0 + gguf_get_tensor_offset(g, id) + ggml_nbytes(t) <= len);
+        g4o_release(old_data, old_bytes);
+        n += 1;
+        b_old += (long long) old_bytes;
+        b_new += (long long) ggml_nbytes(t);
+    };
+    for (size_t il = 0; il < model.layers.size(); ++il) {
+        const auto & L = model.layers[il];
+        swap(L.ffn_down);
+        swap(L.ffn_gate);
+        swap(L.ffn_up);
+        swap(L.wq);
+        swap(L.wk);
+        swap(L.wv);
+        swap(L.wo);
+        swap(L.per_layer_inp_gate);
+        swap(L.per_layer_proj);
+    }
+    swap(model.per_layer_model_proj);
+    fprintf(stderr, "G4_OVERLAY: %lld tensors replaced from %s, %.1f MiB -> %.1f MiB\n", n, path, b_old / 1048576.0, b_new / 1048576.0);
+}
