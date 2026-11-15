@@ -205,6 +205,8 @@ else:
                 ("T016_nobyp", None, PR["T016"], "the T016 profile WITHOUT the bypass", {"G4_NOBYP": "1"}),
                 ("c50", None, "c:0:42:0.5", "gate-cal + bypass, 50 % in every layer", None),
                 ("top25", None, "c:24:42:0.25", "gate-cal + bypass, 25 % in the stateless layers 24-41 only", None)]
+    if a.armset == "lean":
+        ARMS = []  # only the full pass and the --extra files
     if a.limit and a.armset == "e0":
         ARMS.append(("f_ctrl", None, "k:0:42:1.0", "control: sparse code path with every neuron kept (must equal full)", None))
     for name, spec, ffn, desc, xenv in ARMS:
