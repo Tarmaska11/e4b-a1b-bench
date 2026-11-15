@@ -48,9 +48,10 @@ def fetch_wiki(lang, title, clip, say=print):
     return ""
 
 
-def build_corpus(bench, cal, nmmlu, nwiki, say=print):
+def build_corpus(bench, cal, nmmlu, nwiki, say=print, chunks=1):
     """list of dicts: kind ('mmlu' | 'wiki'), lang, text. MMLU prompts end at the start of the model turn;
-    Wikipedia extracts sit INSIDE the model turn, so their positions are assistant-side prose."""
+    Wikipedia extracts sit INSIDE the model turn, so their positions are assistant-side prose.
+    chunks > 1: each article gives that many consecutive pieces, one record each."""
     rows = []
     if cal and os.path.exists(cal):
         rows += [json.loads(l) for l in open(cal, encoding="utf-8") if l.strip()]
@@ -64,10 +65,12 @@ def build_corpus(bench, cal, nmmlu, nwiki, say=print):
     for lang, ask, clip in (("en", "Tell me about %s.", 3000), ("ru", "Расскажи про «%s».", 2200)):
         got = 0
         for title in WIKI[lang][:per]:
-            txt = fetch_wiki(lang, title, clip, say)
-            if len(txt) > 400:
-                out.append(dict(kind="wiki", lang=lang, text=PRE + (ask % title) + SUF + txt))
-                got += 1
+            full = fetch_wiki(lang, title, clip * chunks, say)
+            for c in range(chunks):
+                txt = full[c * clip:(c + 1) * clip]
+                if len(txt) > 400:
+                    out.append(dict(kind="wiki", lang=lang, text=PRE + (ask % title) + SUF + txt))
+                    got += 1
         say("wiki", lang, got, "extracts")
     random.Random(1).shuffle(out)
     return out
@@ -131,3 +134,14 @@ def dedup_keep(tok, rec, pos, skip=4):
             seen.add(h)
             keep[i] = pos[i] >= skip
     return keep
+
+
+def build_corpus_e2b(bench, chat):
+    """the exact population of E2b: 200 benchmark prompts + the chat prompts, every one ending at the model turn"""
+    rows = [json.loads(l) for l in open(bench, encoding="utf-8") if l.strip()]
+    rows = random.Random(0).sample(rows, min(200, len(rows)))
+    out = [dict(kind="mmlu", lang=r.get("lang", "?"), text=PRE + r["prompt"] + SUF) for r in rows]
+    out += [dict(kind="chat", lang=json.loads(l).get("lang", "?"), text=PRE + json.loads(l)["prompt"] + SUF)
+            for l in open(chat, encoding="utf-8") if l.strip()]
+    random.Random(1).shuffle(out)
+    return out

@@ -1,0 +1,99 @@
+name: g4exit-e8
+# E8: small gradient pilot of one rebuilt E4B FFN block per job (CPU, PyTorch). Starts when g4exit/RUN_E8 changes
+# on a fable/** branch. First waits for the run named in g4exit/RUN_E8 (if any) to finish, so that the account
+# never carries more than 8 of these jobs at once; then 7 parallel jobs.
+on:
+  push:
+    branches: ['fable/**']
+    paths: ['g4exit/RUN_E8']
+permissions:
+  contents: write
+  actions: read
+env:
+  LLAMA_TAG: b11235
+  E4B_URL: https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/gemma-4-E4B-it-Q4_K_M.gguf
+jobs:
+  wait:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - name: wait for the earlier run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RID=$(grep -o 'wait-for=[0-9]*' g4exit/RUN_E8 | cut -d= -f2 || true)
+          if [ -z "$RID" ]; then echo "nothing to wait for"; exit 0; fi
+          for i in $(seq 1 160); do
+            S=$(gh api repos/${{ github.repository }}/actions/runs/$RID --jq .status || echo unknown)
+            echo "$(date -u +%H:%M) run $RID: $S"
+            if [ "$S" = completed ]; then exit 0; fi
+            sleep 120
+          done
+          echo "gave up waiting; starting anyway"
+  e8:
+    needs: wait
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 7
+      matrix:
+        include:
+          - { layer: 16, arms: 'control:0.45,topk125:2.5', aug: '0.5' }
+          - { layer: 16, arms: 'moe25:3.0', aug: '0.5' }
+          - { layer: 16, arms: 'moe50:3.0', aug: '0.5' }
+          - { layer: 16, arms: 'static25:3.0', aug: '0.5' }
+          - { layer: 16, arms: 'topk25:3.0', aug: '0.5' }
+          - { layer: 34, arms: 'moe25:3.0', aug: '0.5' }
+          - { layer: 34, arms: 'topk25:3.0', aug: '0.5' }
+    steps:
+      - uses: actions/checkout@v4
+      - name: build g4dump
+        run: |
+          set -e
+          git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
+          python3 g4exit/patch_gemma4.py src
+          mkdir src/examples/g4dump && cp g4exit/g4dump.cpp src/examples/g4dump/
+          sed -e 's/llama-eval-callback/g4dump/' -e 's/eval-callback.cpp/g4dump.cpp/' -e '/LLAMA_BUILD_TESTS/,$d' \
+              src/examples/eval-callback/CMakeLists.txt > src/examples/g4dump/CMakeLists.txt
+          echo 'add_subdirectory(g4dump)' >> src/examples/CMakeLists.txt
+          cmake -S src -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF \
+                -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TOOLS=OFF -DLLAMA_BUILD_EXAMPLES=ON \
+                -DGGML_NATIVE=OFF -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON
+          cmake --build build --target g4dump -j 4
+          mkdir bin && cp "$(find build -name g4dump -type f | head -1)" bin/g4dump
+      - name: model + python
+        run: |
+          curl -sSL -o model.gguf "$E4B_URL" && ls -la model.gguf
+          pip install -q numpy gguf
+          pip install -q torch --index-url https://download.pytorch.org/whl/cpu
+          free -g && nproc
+      - name: E8
+        run: |
+          python3 g4exit/e8_block.py --g4dump bin/g4dump --model model.gguf --layer ${{ matrix.layer }} \
+            --arms "${{ matrix.arms }}" --aug ${{ matrix.aug }} --chunks 2 --total-min 322 --out e8_out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g4exit-e8-L${{ matrix.layer }}-${{ strategy.job-index }}
+          path: |
+            e8_out/report_e8_*.md
+            e8_out/results_e8_*.json
+            e8_out/dump_*.log
+          retention-days: 30
+      - name: commit the report
+        if: always()
+        run: |
+          set -e
+          D=g4exit/results/e8-${{ github.run_id }}
+          mkdir -p $D
+          cp e8_out/report_e8_*.md e8_out/results_e8_*.json $D/ || true
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add g4exit/results
+          git commit -m "E8 results (L${{ matrix.layer }} ${{ matrix.arms }} aug ${{ matrix.aug }}), run ${{ github.run_id }}" || exit 0
+          for i in 1 2 3 4 5 6 7 8; do
+            git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break
+            sleep $((5 + RANDOM % 20))
+          done

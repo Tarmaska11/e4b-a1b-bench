@@ -35,11 +35,15 @@ ap.add_argument("--nmmlu", type=int, default=400)
 ap.add_argument("--nwiki", type=int, default=80)
 ap.add_argument("--out", default="e7_out")
 ap.add_argument("--selftest", action="store_true", help="tiny synthetic model and dump: checks the code end to end")
+ap.add_argument("--pop", default="e7", help="e7 = MMLU + Wikipedia prose, de-duplicated; e2b = the exact E2b population")
+ap.add_argument("--chat", default="g4exit/chat_prompts.jsonl")
+ap.add_argument("--quick", action="store_true", help="stop after the oracle arms and the by-kind breakdown")
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 T0 = time.time()
 L = a.layer
 REPORT, RES = [], {"layer": L}
+SFX = "" if a.pop == "e7" else "_" + a.pop
 
 def say(*x):
     print("[%5.0fs]" % (time.time() - T0), *x, flush=True)
@@ -48,8 +52,8 @@ def say(*x):
 def rep(s=""):
     REPORT.append(s)
     print(s, flush=True)
-    open(os.path.join(a.out, "report_e7_L%d.md" % L), "w", encoding="utf-8").write("\n".join(REPORT) + "\n")
-    json.dump(RES, open(os.path.join(a.out, "results_e7_L%d.json" % L), "w"), indent=1)
+    open(os.path.join(a.out, "report_e7_L%d%s.md" % (L, SFX)), "w", encoding="utf-8").write("\n".join(REPORT) + "\n")
+    json.dump(RES, open(os.path.join(a.out, "results_e7_L%d%s.json" % (L, SFX)), "w"), indent=1)
 
 
 def gelu(g):
@@ -88,7 +92,7 @@ if a.selftest:
     CS = (4, 8, 16)
     NSUB, SVDN = 3000, 1500
 else:
-    texts = e7c.build_corpus(a.bench, a.cal, a.nmmlu, a.nwiki, say)
+    texts = e7c.build_corpus_e2b(a.bench, a.chat) if a.pop == "e2b" else e7c.build_corpus(a.bench, a.cal, a.nmmlu, a.nwiki, say)
     say("records", len(texts))
     path = e7c.run_dump(a.g4dump, a.model, texts, str(L), "ffn_norm,ffn_out", a.out, "L%d" % L, say)
     import gguf  # noqa: E402
@@ -117,7 +121,7 @@ WdT = np.ascontiguousarray(Wd.T)       # [n, d]
 dn = np.linalg.norm(Wd, axis=0)        # [n]
 dn2 = (dn * dn).astype(np.float32)
 
-keep = e7c.dedup_keep(tok, rec, pos)
+keep = (pos > 0) if a.pop == "e2b" else e7c.dedup_keep(tok, rec, pos)   # E2b dropped only the first token
 X, Yd, tok, rec, pos = X[keep], Yd[keep], tok[keep], rec[keep], pos[keep]
 prev = np.zeros_like(tok)
 N = len(tok)
@@ -185,10 +189,14 @@ def bypass(E):
     return best[1]
 
 
+LAST = {}
+
+
 def score(Yk):
     """Yk = the block's output without bypass on the evaluation set -> (with bypass, dir with bypass, no bypass)"""
     W = bypass(Yev - Yk)
     Yh = Yk[e_te] + Xev[e_te] @ W
+    LAST["Yh"] = Yh
     return fvu(Yh, Yev[e_te]), dirv(Yh, Yev[e_te]), fvu(Yk[e_te], Yev[e_te])
 
 
@@ -411,7 +419,19 @@ def arm(name, maskfn):
 
 
 rep("| linear map alone | 0 | %.4f | %.4f | |" % (lin, lin_dir))
-ORA = {}
+ORA, BYK = {}, {}
+kind_te = np.array(["%s_%s" % (texts[r]["kind"], texts[r]["lang"]) for r in rec[iev][e_te]])
+
+
+def by_kind(Yh):
+    out = {}
+    for k in sorted(set(kind_te)):
+        m = kind_te == k
+        if m.sum() >= 200:
+            out[k] = (fvu(Yh[m], Yev[e_te][m]), int(m.sum()))
+    return out
+
+
 for b in (0.0625, 0.125, 0.25, 0.5):
     k = int(b * n)
 
@@ -420,6 +440,25 @@ for b in (0.0625, 0.125, 0.25, 0.5):
         thr = -np.partition(-sc, k - 1, axis=1)[:, k - 1:k]
         return sc >= thr
     ORA[b] = arm("dynamic oracle %.4g %%" % (100 * b), mf)
+    BYK[b] = by_kind(LAST["Yh"])
+rep("")
+rep("the same arms by kind of position (held-out; bypass fitted on all kinds):")
+rep("")
+bl = by_kind(Xev[e_te] @ Wl)
+ks = sorted(bl)
+rep("| arm | " + " | ".join("%s (n=%d)" % (k, bl[k][1]) for k in ks) + " |")
+rep("|---|" + "---:|" * len(ks))
+rep("| linear map alone | " + " | ".join("%.4f" % bl[k][0] for k in ks) + " |")
+for b in sorted(BYK):
+    rep("| dynamic oracle %.4g %% + bypass | " % (100 * b) + " | ".join("%.4f" % BYK[b][k][0] for k in ks) + " |")
+RES["by_kind"] = dict(linear={k: bl[k][0] for k in ks}, oracle={str(b): {k: BYK[b][k][0] for k in ks} for b in BYK})
+if a.quick:
+    rep("")
+    rep("quick run: stopped here, %.0f s" % (time.time() - T0))
+    raise SystemExit(0)
+rep("")
+rep("| arm | active neurons | error with bypass | dir | error without bypass |")
+rep("|---|---:|---:|---:|---:|")
 STA = {}
 for b in (0.125, 0.25, 0.5):
     v = static_mask(gorder[:int(b * n)])
