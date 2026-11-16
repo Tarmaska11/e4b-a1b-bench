@@ -36,6 +36,15 @@ assert "use_extra_bufts" in (src / "include" / "llama.h").read_text(encoding="ut
 edit(app / "app" / "build.gradle.kts", r'applicationId = "[^"]+"', 'applicationId = "com.tarmaska11.e4bcpu"')
 edit(app / "lib" / "build.gradle.kts", r'abiFilters \+= listOf\("arm64-v8a", "x86_64"\)', 'abiFilters += listOf("arm64-v8a")')
 
+# One CPU build for the A54 (armv8.2 + dotprod + fp16, the flags of the command-line engine) instead of seven
+# libraries picked at run time: the research engine patch calls CPU-backend functions from libllama, which cannot
+# link against a library that is chosen by dlopen.
+edit(app / "lib" / "build.gradle.kts", r'arguments \+= "-DGGML_BACKEND_DL=ON"', 'arguments += "-DGGML_BACKEND_DL=OFF"')
+edit(app / "lib" / "build.gradle.kts", r'arguments \+= "-DGGML_CPU_ALL_VARIANTS=ON"',
+     'arguments += "-DGGML_CPU_ALL_VARIANTS=OFF"\n'
+     '                arguments += "-DCMAKE_C_FLAGS=-march=armv8.2-a+dotprod+fp16"\n'
+     '                arguments += "-DCMAKE_CXX_FLAGS=-march=armv8.2-a+dotprod+fp16"')
+
 strings = app / "app" / "src" / "main" / "res" / "values" / "strings.xml"
 edit(strings, r'<string name="app_name">[^<]*</string>', '<string name="app_name">E4B CPU test</string>')
 
