@@ -1,3 +1,4 @@
 Fri Nov 13 18:25:34     2026
 lean app 20261116T043252Z: engine patch (G4H head kernel, G4_OVERLAY), lean mode switches
 lean app 20261116T043812Z: link libllama against the CPU backend library
+lean app 20261116T043832Z: patch script fixed

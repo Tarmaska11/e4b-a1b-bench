@@ -84,12 +84,7 @@ cm = pathlib.Path(sys.argv[1]) / "src" / "CMakeLists.txt"
 if cm.exists():
     ct = cm.read_text(encoding="utf-8")
     if "TARGET ggml-cpu" not in ct:
-        ct += "
-# G4S / G4H / G4PROF: symbols of the CPU backend used by src/models/gemma4.cpp
-if (TARGET ggml-cpu)
-    target_link_libraries(llama PRIVATE ggml-cpu)
-endif()
-"
-        cm.write_text(ct, encoding="utf-8", newline="
-")
+        ct += "\n".join(["", "# G4S / G4H / G4PROF: symbols of the CPU backend used by src/models/gemma4.cpp",
+                         "if (TARGET ggml-cpu)", "    target_link_libraries(llama PRIVATE ggml-cpu)", "endif()", ""])
+        cm.write_text(ct, encoding="utf-8", newline="\n")
         print("CMake patched", cm)
