@@ -4,3 +4,4 @@ v3b 20261115T231616Z + release of the dense down matrices, G4TICK per-token cloc
 v3c 20261115T232554Z + G4_OVERLAY (lean-A), lean_pack on the runner
 v3d 20261115T233543Z overlay applied to the real model (not the memory-fit copy), G4H head kernel
 v3e 20261116T001823Z G4PROF per-operation profiler, faster head scan, sampled cut
+v3f 20261116T043252Z head scan handed out in chunks

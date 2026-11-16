@@ -22,6 +22,8 @@ jobs:
           set -e
           git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
           python3 e4bapp/patch_app.py src
+          python3 g4exit/patch_gemma4.py src
+          python3 g4exit/patch_g4s.py src
           cd src && git diff --stat
       - name: SDK components
         run: |

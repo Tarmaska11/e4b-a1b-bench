@@ -150,11 +150,12 @@ extern "C"
 JNIEXPORT jstring JNICALL
 Java_com_arm_aichat_internal_InferenceEngineImpl_statsNative(JNIEnv *env, jobject /*unused*/) {
     // prompt tokens | prefill s | generated tokens | s inside the engine | s first..last token (wall) | position | context
+    // | lean tensors (0/1) | head kernel rows (0 = dense head)
     const int gen_n = g_st_gen_n.load();
     const double wall_s = gen_n > 1 ? (double) (g_st_last_us.load() - g_st_first_us.load()) / 1e6 : 0.0;
-    char buf[200];
-    snprintf(buf, sizeof(buf), "%d|%.3f|%d|%.3f|%.3f|%d|%d", g_st_prompt_n.load(), (double) g_st_prompt_us.load() / 1e6,
-             gen_n, (double) g_st_gen_us.load() / 1e6, wall_s, g_st_pos.load(), DEFAULT_CONTEXT_SIZE);
+    char buf[240];
+    snprintf(buf, sizeof(buf), "%d|%.3f|%d|%.3f|%.3f|%d|%d|%d|%d", g_st_prompt_n.load(), (double) g_st_prompt_us.load() / 1e6,
+             gen_n, (double) g_st_gen_us.load() / 1e6, wall_s, g_st_pos.load(), DEFAULT_CONTEXT_SIZE, g_lean.load(), g_head.load());
     return env->NewStringUTF(buf);
 }
 '''
@@ -177,7 +178,44 @@ assert dst.exists(), dst
 shutil.copyfile(here / "MainActivity.kt", dst)
 print("ok   MainActivity.kt replaced")
 
+# ---- lean mode (journal 2026-11-16): replacement tensors + the 1-bit head scan, both from the research engine patch --------
+# (the workflow applies g4exit/patch_gemma4.py and g4exit/patch_g4s.py to the same checkout after this script)
+edit(cpp, r'// E4B test app: knobs settable from adb without a rebuild',
+     '// E4B test app, lean mode: state shown in the stats line; a flag that can be set to 0 from adb\n'
+     'static std::atomic<int> g_lean{0}, g_head{0};\n'
+     'static int prop_flag(const char *name, int def) {\n'
+     '    char buf[PROP_VALUE_MAX] = {0};\n'
+     '    if (__system_property_get(name, buf) > 0) { return atoi(buf); }\n'
+     '    return def;\n'
+     '}\n\n'
+     '// E4B test app: knobs settable from adb without a rebuild')
+edit(cpp, r'auto \*model = llama_model_load_from_file\(model_path, model_params\);',
+     '// E4B test app, lean mode: the same model with fewer bytes read per token.\n'
+     '    //   <model folder>/e4b_leanA_overlay.g4o  replacement tensors (tools/lean_pack.py); used when present\n'
+     '    //   the LM head as a 1-bit scan + exact logits for the best 8192 rows (its 85 MB sketch is built once, next to the model)\n'
+     '    // Off switches, read at model load: `setprop debug.e4bcpu.lean 0`, `setprop debug.e4bcpu.head 0`.\n'
+     '    {\n'
+     '        std::string dir(model_path);\n'
+     '        const size_t sl = dir.find_last_of(\'/\');\n'
+     '        dir = sl == std::string::npos ? std::string(".") : dir.substr(0, sl);\n'
+     '        const std::string ovl = dir + "/e4b_leanA_overlay.g4o";\n'
+     '        const bool have_ovl = access(ovl.c_str(), R_OK) == 0;\n'
+     '        g_lean = (have_ovl && prop_flag("debug.e4bcpu.lean", 1) != 0) ? 1 : 0;\n'
+     '        g_head = prop_flag("debug.e4bcpu.head", 8192);\n'
+     '        if (g_lean.load()) { setenv("G4_OVERLAY", ovl.c_str(), 1); } else { unsetenv("G4_OVERLAY"); }\n'
+     '        if (g_head.load() > 0) {\n'
+     '            char nb[16];\n'
+     '            snprintf(nb, sizeof(nb), "%d", g_head.load());\n'
+     '            setenv("G4H", nb, 1);\n'
+     '            setenv("G4H_CACHE", dir.c_str(), 1);\n'
+     '        } else {\n'
+     '            unsetenv("G4H");\n'
+     '        }\n'
+     '        LOGi("%s: lean tensors %s, head kernel N=%d", __func__, g_lean.load() ? "ON" : "off", g_head.load());\n'
+     '    }\n'
+     '    auto *model = llama_model_load_from_file(model_path, model_params);')
+
 # show what the engine file looks like around the edits (for the build log)
-for key in ("use_extra_bufts", "debug.e4bcpu.tb", "first_turn", "t_g0", "statsNative"):
+for key in ("use_extra_bufts", "debug.e4bcpu.tb", "first_turn", "t_g0", "statsNative", "e4b_leanA_overlay.g4o", "G4H_CACHE"):
     assert key in cpp.read_text(encoding="utf-8"), key
 print("patch_app: done")

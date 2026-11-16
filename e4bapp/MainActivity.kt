@@ -240,6 +240,11 @@ class MainActivity : AppCompatActivity() {
             val genS = parts[3].toDoubleOrNull() ?: 0.0
             val wallS = parts[4].toDoubleOrNull() ?: 0.0
             sb.append("context ").append(parts[5]).append(" / ").append(parts[6]).append(" tokens\n")
+            if (parts.size >= 9) {
+                val headN = parts[8].trim().toIntOrNull() ?: 0
+                sb.append("engine: ").append(if (parts[7].trim() == "1") "lean tensors" else "stock tensors").append(", ")
+                    .append(if (headN > 0) "1-bit head scan + $headN exact rows" else "dense head").append('\n')
+            }
             if (pn > 0) {
                 sb.append(String.format(Locale.US, "last turn: read %d tok in %.1f s (%.1f tok/s)", pn, pfS,
                     if (pfS > 0) pn / pfS else 0.0))

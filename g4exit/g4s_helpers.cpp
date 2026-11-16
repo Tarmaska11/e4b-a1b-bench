@@ -554,6 +554,7 @@ static void g4s_op(ggml_tensor * dst, const ggml_tensor * a, const ggml_tensor *
 // The op sits right before the LM head and copies its input through.
 // ====================================================================================================================
 extern "C" void g4prof_mark(void); // ggml-cpu.c (G4PROF): one call per decoded token
+static std::atomic<int> g4h_scan_next{ 0 }; // G4H: next unclaimed row of the head scan; reset by the tick op, once per token
 static std::vector<int64_t>   g4tick_t;
 static std::vector<long long> g4tick_min, g4tick_maj;
 
@@ -583,6 +584,7 @@ static void g4tick_op(ggml_tensor * dst, const ggml_tensor * a, int ith, int nth
     long long f[2];
     g4s_faults(&f[0], &f[1]);
     g4prof_mark();
+    g4h_scan_next.store(0);
     g4tick_t.push_back(ggml_time_us());
     g4tick_min.push_back(f[0]);
     g4tick_maj.push_back(f[1]);
@@ -881,12 +883,19 @@ static void g4h_scan(ggml_tensor * dst, int ith, int nth, void * ud) {
             }
         }
     }
-    float *   out = (float *) dst->data;
-    const int j0 = (int) ((int64_t) V * ith / nth), j1 = (int) ((int64_t) V * (ith + 1) / nth);
+    float *     out   = (float *) dst->data;
     const float halfd = 0.5f * (float) d;
-    for (int j = j0; j < j1; ++j) {
-        const long long m = (long long) g4h_masked(g4h.bits + (size_t) j * nb, planes.data(), nb);
-        out[j]            = g4h.alpha[j] * ((float) (2 * m - 255LL * g4h.pc[j] - Q) - halfd);
+    (void) nth;
+    for (;;) { // rows are handed out in chunks, so the threads finish together (a fixed split left 5 ms of waiting)
+        const int j0 = g4h_scan_next.fetch_add(4096);
+        if (j0 >= V) {
+            break;
+        }
+        const int j1 = std::min(V, j0 + 4096);
+        for (int j = j0; j < j1; ++j) {
+            const long long m = (long long) g4h_masked(g4h.bits + (size_t) j * nb, planes.data(), nb);
+            out[j]            = g4h.alpha[j] * ((float) (2 * m - 255LL * g4h.pc[j] - Q) - halfd);
+        }
     }
     if (ith == 0) {
         g4h.us_scan += (double) (ggml_time_us() - t0);
