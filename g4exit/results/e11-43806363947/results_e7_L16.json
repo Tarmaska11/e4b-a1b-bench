@@ -1,0 +1,460 @@
+{
+ "layer": 16,
+ "check": 0.00020746093650814146,
+ "linear": [
+  0.2730483114719391,
+  0.3984144330024719
+ ],
+ "linear_rank": [
+  [
+   64,
+   0.3745092451572418
+  ],
+  [
+   256,
+   0.3103518784046173
+  ],
+  [
+   512,
+   0.2871518135070801
+  ],
+  [
+   1024,
+   0.27527275681495667
+  ]
+ ],
+ "token_share": {
+  "FFN input x": [
+   0.1029615631997488,
+   0.5612989323843416,
+   0.06461525342858487,
+   0.5552491103202847
+  ],
+  "FFN output y": [
+   0.10525311462447073,
+   0.5612989323843416,
+   0.06533985281581,
+   0.5552491103202847
+  ],
+  "nonlinear residual y - Lx": [
+   -0.013621781002002287,
+   0.5612989323843416,
+   -0.017784478778427593,
+   0.5552491103202847
+  ]
+ },
+ "resid_out_rank": [
+  [
+   256,
+   0.31646013259887695
+  ],
+  [
+   512,
+   0.4954669177532196
+  ],
+  [
+   1024,
+   0.7320603132247925
+  ]
+ ],
+ "region_sizes": {
+  "x16": [
+   2089,
+   3350,
+   4378
+  ],
+  "x64": [
+   339,
+   773,
+   1387
+  ],
+  "x256": [
+   42,
+   195,
+   539
+  ],
+  "tok256": [
+   7,
+   101,
+   4944
+  ]
+ },
+ "arms": [
+  {
+   "arm": "dynamic oracle 6.25 %",
+   "active": 0.06250001413259769,
+   "err": 0.10857370495796204,
+   "dir": 0.1525004804134369,
+   "err_nobypass": 0.24713914096355438
+  },
+  {
+   "arm": "dynamic oracle 12.5 %",
+   "active": 0.12500001177716474,
+   "err": 0.0735420435667038,
+   "dir": 0.10277342796325684,
+   "err_nobypass": 0.12433384358882904
+  },
+  {
+   "arm": "dynamic oracle 25 %",
+   "active": 0.2500000070662988,
+   "err": 0.03517819568514824,
+   "dir": 0.04890142008662224,
+   "err_nobypass": 0.04238172248005867
+  },
+  {
+   "arm": "dynamic oracle 50 %",
+   "active": 0.5000000188434636,
+   "err": 0.006227878853678703,
+   "dir": 0.008633886463940144,
+   "err_nobypass": 0.00584347965195775
+  }
+ ],
+ "by_kind": {
+  "linear": {
+   "mmlu_en": 0.2680371403694153,
+   "mmlu_ru": 0.2713644206523895,
+   "wiki_en": 0.3007543385028839,
+   "wiki_ru": 0.26027342677116394
+  },
+  "oracle": {
+   "0.0625": {
+    "mmlu_en": 0.10611327737569809,
+    "mmlu_ru": 0.10785325616598129,
+    "wiki_en": 0.1178082674741745,
+    "wiki_ru": 0.10486678034067154
+   },
+   "0.125": {
+    "mmlu_en": 0.0719936341047287,
+    "mmlu_ru": 0.07293221354484558,
+    "wiki_en": 0.07968539744615555,
+    "wiki_ru": 0.07114966213703156
+   },
+   "0.25": {
+    "mmlu_en": 0.03470954671502113,
+    "mmlu_ru": 0.0348207913339138,
+    "wiki_en": 0.03779837489128113,
+    "wiki_ru": 0.03414813056588173
+   },
+   "0.5": {
+    "mmlu_en": 0.006272291298955679,
+    "mmlu_ru": 0.006166337989270687,
+    "wiki_en": 0.00661764619871974,
+    "wiki_ru": 0.006023689638823271
+   }
+  }
+ },
+ "cascade": [
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.125,
+   "m": 1.5,
+   "active": 0.125,
+   "bytes": 0.24074074074074073,
+   "recall": 0.5416655737457791,
+   "err": 0.12694062292575836,
+   "dir": 0.17894217371940613,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.125,
+   "m": 1.5,
+   "active": 0.12500000942173178,
+   "bytes": 0.21990740740740738,
+   "recall": 0.5416655737457791,
+   "err": 0.13318417966365814,
+   "dir": 0.1883406788110733,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.125,
+   "m": 2.0,
+   "active": 0.1250000047108659,
+   "bytes": 0.2824074074074074,
+   "recall": 0.6218773177460203,
+   "err": 0.11693697422742844,
+   "dir": 0.1640043705701828,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.125,
+   "m": 2.0,
+   "active": 0.12500001884346357,
+   "bytes": 0.2407407407407407,
+   "recall": 0.6218773177460203,
+   "err": 0.12629762291908264,
+   "dir": 0.17861711978912354,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.125,
+   "m": 3.0,
+   "active": 0.12500000942173178,
+   "bytes": 0.36574074074074076,
+   "recall": 0.7410684997588036,
+   "err": 0.1034979373216629,
+   "dir": 0.1442265510559082,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.125,
+   "m": 3.0,
+   "active": 0.12500001177716474,
+   "bytes": 0.2824074074074074,
+   "recall": 0.7410684997588036,
+   "err": 0.11722095310688019,
+   "dir": 0.1658092588186264,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.25,
+   "m": 1.5,
+   "active": 0.25000000235543296,
+   "bytes": 0.4074074074074074,
+   "recall": 0.6363279271436324,
+   "err": 0.08715754002332687,
+   "dir": 0.1210881695151329,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.25,
+   "m": 1.5,
+   "active": 0.2500000070662988,
+   "bytes": 0.3657407407407407,
+   "recall": 0.6363279271436324,
+   "err": 0.09790658205747604,
+   "dir": 0.136765256524086,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.25,
+   "m": 2.0,
+   "active": 0.2500000094217318,
+   "bytes": 0.4907407407407407,
+   "recall": 0.7463427852146647,
+   "err": 0.07006003707647324,
+   "dir": 0.09677813202142715,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.25,
+   "m": 2.0,
+   "active": 0.25000001177716474,
+   "bytes": 0.4074074074074074,
+   "recall": 0.7463427852146647,
+   "err": 0.08893918991088867,
+   "dir": 0.12450937926769257,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.25,
+   "m": 3.0,
+   "active": 0.2500000070662988,
+   "bytes": 0.6574074074074074,
+   "recall": 0.8977053843312832,
+   "err": 0.049050454050302505,
+   "dir": 0.06755000352859497,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate only, x calibrated |u|",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.25,
+   "m": 3.0,
+   "active": 0.25000002590976245,
+   "bytes": 0.4907407407407407,
+   "recall": 0.8977053843312832,
+   "err": 0.07679403573274612,
+   "dir": 0.1082029938697815,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate and up",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.125,
+   "m": 1.5,
+   "active": 0.12500000235543296,
+   "bytes": 0.3148148148148148,
+   "recall": 0.6243179231488182,
+   "err": 0.12095404416322708,
+   "dir": 0.1670156866312027,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate and up",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.125,
+   "m": 1.5,
+   "active": 0.12500000235543296,
+   "bytes": 0.29398148148148145,
+   "recall": 0.6243179231488182,
+   "err": 0.12832815945148468,
+   "dir": 0.17826057970523834,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate and up",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.125,
+   "m": 2.0,
+   "active": 0.125,
+   "bytes": 0.35648148148148145,
+   "recall": 0.7047782501205981,
+   "err": 0.1104578748345375,
+   "dir": 0.15219222009181976,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate and up",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.125,
+   "m": 2.0,
+   "active": 0.1250000047108659,
+   "bytes": 0.31481481481481477,
+   "recall": 0.7047782501205981,
+   "err": 0.1223452091217041,
+   "dir": 0.170694500207901,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate and up",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.125,
+   "m": 3.0,
+   "active": 0.12500000942173178,
+   "bytes": 0.4398148148148148,
+   "recall": 0.8105139177821997,
+   "err": 0.09763586521148682,
+   "dir": 0.1345125436782837,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate and up",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.125,
+   "m": 3.0,
+   "active": 0.12500000706629885,
+   "bytes": 0.35648148148148145,
+   "recall": 0.8105139177821997,
+   "err": 0.11401143670082092,
+   "dir": 0.16007009148597717,
+   "oracle": 0.0735420435667038,
+   "gate": 0.09946295619010925
+  },
+  {
+   "scan": "gate and up",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.25,
+   "m": 1.5,
+   "active": 0.2500000047108659,
+   "bytes": 0.48148148148148145,
+   "recall": 0.7023644966534008,
+   "err": 0.07569791376590729,
+   "dir": 0.10335581004619598,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate and up",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.25,
+   "m": 1.5,
+   "active": 0.2500000047108659,
+   "bytes": 0.43981481481481477,
+   "recall": 0.7023644966534008,
+   "err": 0.08589599281549454,
+   "dir": 0.11806529760360718,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate and up",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.25,
+   "m": 2.0,
+   "active": 0.2500000094217318,
+   "bytes": 0.5648148148148148,
+   "recall": 0.7991427919983116,
+   "err": 0.06167995184659958,
+   "dir": 0.08407080918550491,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate and up",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.25,
+   "m": 2.0,
+   "active": 0.2500000141325977,
+   "bytes": 0.4814814814814814,
+   "recall": 0.7991427919983116,
+   "err": 0.08136938512325287,
+   "dir": 0.11264535784721375,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate and up",
+   "final": "oracle score (exact gate and up rows of the shortlist)",
+   "frac": 0.25,
+   "m": 3.0,
+   "active": 0.25000001177716474,
+   "bytes": 0.7314814814814815,
+   "recall": 0.9255138424083454,
+   "err": 0.04486050829291344,
+   "dir": 0.061549171805381775,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  },
+  {
+   "scan": "gate and up",
+   "final": "exact gate x calibrated |u| (exact gate rows of the shortlist)",
+   "frac": 0.25,
+   "m": 3.0,
+   "active": 0.2500000141325977,
+   "bytes": 0.5648148148148148,
+   "recall": 0.9255138424083454,
+   "err": 0.073761485517025,
+   "dir": 0.10367132723331451,
+   "oracle": 0.03517819568514824,
+   "gate": 0.0683944821357727
+  }
+ ]
+}
