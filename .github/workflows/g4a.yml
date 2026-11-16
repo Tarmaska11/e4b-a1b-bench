@@ -39,7 +39,7 @@ jobs:
               -no-cnv --no-display-prompt -b 512 -ub 128 --prompt-cache cache_$P.bin -f p_$P.txt > out_$L.txt 2> log_$L.txt || echo "RUN $L FAILED"
             echo "== $L [$*]"; cat out_$L.txt; echo
             grep -E "prompt eval time|       eval time" log_$L.txt | sed 's/^.*perf_print: *//'
-            grep -E "G4PROF.*FLASH_ATTN_EXT|^G4A " log_$L.txt | head -4
+            grep -E "G4PROF.*FLASH_ATTN_EXT|^G4A " log_$L.txt | head -5
           }
           for P in en ru; do
             run ${P}_g0 $P G4A=0
@@ -51,9 +51,13 @@ jobs:
             run ${P}_g3e18 $P G4A=3 G4A_EPS=18
             run ${P}_g3e12 $P G4A=3 G4A_EPS=12
             run ${P}_g3b8 $P G4A=3 G4A_BLK=8
+            run ${P}_g4 $P G4A=4
+            run ${P}_g4d3 $P G4A=4 G4A_DELTA=1e-3
+            run ${P}_g4d2 $P G4A=4 G4A_DELTA=1e-2
+            run ${P}_g4d0 $P G4A=4 G4A_DELTA=0
             echo "---- $P: expected answer: $(cat answer_$P.txt)"
             cmp -s out_${P}_g0.txt out_${P}_g0b.txt && echo "$P upstream rerun: IDENTICAL" || echo "$P upstream rerun: DIFFERS (the reference itself is not repeatable)"
-            for m in g1 g2 g3 g3e18 g3e12 g3b8; do
+            for m in g1 g2 g3 g3e18 g3e12 g3b8 g4 g4d3 g4d2 g4d0; do
               cmp -s out_${P}_g0.txt out_${P}_$m.txt && echo "$P upstream vs $m: IDENTICAL" || echo "$P upstream vs $m: DIFFERS"
             done
           done

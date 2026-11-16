@@ -86,10 +86,17 @@ assert os_.count(b0) == 1, "ops.cpp include anchor"
 os_ = os_.replace(b0, b0 + "#include <atomic>\n#include <cstdio>\n#include <cstdlib>\n#include <vector>\n")
 b1 = "static void ggml_compute_forward_flash_attn_ext_f16(\n"
 assert os_.count(b1) == 1, "flash attention anchor"
-os_ = os_.replace(b1, (here / "g4a.cpp.inc").read_text(encoding="utf-8").replace("\r\n", "\n") + b1)
+os_ = os_.replace(b1, (here / "g4a.cpp.inc").read_text(encoding="utf-8").replace("\r\n", "\n")
+                      + (here / "g4a_mass.cpp.inc").read_text(encoding="utf-8").replace("\r\n", "\n") + b1)
 b2 = "    if (use_split_kv_path) {\n"
 assert os_.count(b2) == 1, "split path anchor"
-os_ = os_.replace(b2, b2 + "        if (g4a_mode() > 0) {\n            g4a_decode(params, dst);\n            return;\n        }\n")
+os_ = os_.replace(b2, b2 + "        if (g4a_mode() > 0) {\n"
+                           "            if (g4a_mode() >= 4 && g4a_mass_ok(params, dst)) {\n"
+                           "                g4a_decode_mass(params, dst);\n"
+                           "            } else {\n"
+                           "                g4a_decode(params, dst);\n"
+                           "            }\n"
+                           "            return;\n        }\n")
 o.write_text(os_, encoding="utf-8", newline="\n")
 print("G4A patched", o)
 
