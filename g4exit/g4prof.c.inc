@@ -45,6 +45,9 @@ static void g4prof_report(void) {
     }
 }
 
+#if defined(__GNUC__) || defined(__clang__)
+__attribute__((visibility("default")))
+#endif
 void g4prof_mark(void) {
     if (g4prof_enabled() != 1) {
         return;

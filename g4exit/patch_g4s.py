@@ -77,3 +77,19 @@ assert cs.count(a2) == 1, "barrier anchor"
 cs = cs.replace(a2, a2 + "        if (g4p_t0) {\n            g4prof_add(g4p_node, ggml_time_us() - g4p_t0);\n        }\n")
 c.write_text(cs, encoding="utf-8", newline="\n")
 print("G4PROF patched", c)
+
+# shared-library builds (the Android app): gemma4.cpp now calls into the CPU backend library (type traits, G4PROF),
+# which libllama does not link by default
+cm = pathlib.Path(sys.argv[1]) / "src" / "CMakeLists.txt"
+if cm.exists():
+    ct = cm.read_text(encoding="utf-8")
+    if "TARGET ggml-cpu" not in ct:
+        ct += "
+# G4S / G4H / G4PROF: symbols of the CPU backend used by src/models/gemma4.cpp
+if (TARGET ggml-cpu)
+    target_link_libraries(llama PRIVATE ggml-cpu)
+endif()
+"
+        cm.write_text(ct, encoding="utf-8", newline="
+")
+        print("CMake patched", cm)
