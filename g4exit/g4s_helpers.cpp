@@ -553,6 +553,7 @@ static void g4s_op(ggml_tensor * dst, const ggml_tensor * a, const ggml_tensor *
 // both arms of a comparison are timed by the same clock and the first token (cache preparation) is left out.
 // The op sits right before the LM head and copies its input through.
 // ====================================================================================================================
+extern "C" void g4prof_mark(void); // ggml-cpu.c (G4PROF): one call per decoded token
 static std::vector<int64_t>   g4tick_t;
 static std::vector<long long> g4tick_min, g4tick_maj;
 
@@ -581,6 +582,7 @@ static void g4tick_op(ggml_tensor * dst, const ggml_tensor * a, int ith, int nth
     }
     long long f[2];
     g4s_faults(&f[0], &f[1]);
+    g4prof_mark();
     g4tick_t.push_back(ggml_time_us());
     g4tick_min.push_back(f[0]);
     g4tick_maj.push_back(f[1]);
@@ -810,19 +812,24 @@ static void g4h_prepare() {
 // sum over b of 2^b * popcount(bits & plane_b): the sum of u_i over the dimensions whose sign bit is set
 static inline uint32_t g4h_masked(const uint8_t * bits, const uint8_t * planes, int nb) {
 #if defined(__ARM_NEON)
-    uint16x8_t acc[8];
-    for (int b = 0; b < 8; ++b) {
-        acc[b] = vdupq_n_u16(0);
-    }
-    for (int o = 0; o < nb; o += 16) {
-        const uint8x16_t w = vld1q_u8(bits + o);
-        for (int b = 0; b < 8; ++b) {
-            acc[b] = vpadalq_u8(acc[b], vcntq_u8(vandq_u8(w, vld1q_u8(planes + (size_t) b * nb + o))));
-        }
-    }
+    // per plane: AND, per-byte popcount, byte-wise add. A byte lane gains at most 8 per step, so 31 steps fit in
+    // u8 (nb = 320 is 20 steps); widening happens once per row instead of once per step.
     uint32_t s = 0;
-    for (int b = 0; b < 8; ++b) {
-        s += (uint32_t) vaddlvq_u16(acc[b]) << b;
+    for (int o0 = 0; o0 < nb; o0 += 16 * 31) {
+        const int  o1 = std::min(nb, o0 + 16 * 31);
+        uint8x16_t acc[8];
+        for (int b = 0; b < 8; ++b) {
+            acc[b] = vdupq_n_u8(0);
+        }
+        for (int o = o0; o < o1; o += 16) {
+            const uint8x16_t w = vld1q_u8(bits + o);
+            for (int b = 0; b < 8; ++b) {
+                acc[b] = vaddq_u8(acc[b], vcntq_u8(vandq_u8(w, vld1q_u8(planes + (size_t) b * nb + o))));
+            }
+        }
+        for (int b = 0; b < 8; ++b) {
+            s += (uint32_t) vaddlvq_u8(acc[b]) << b;
+        }
     }
     return s;
 #else
@@ -845,7 +852,6 @@ static inline uint32_t g4h_masked(const uint8_t * bits, const uint8_t * planes, 
 // dst = scores [V]; src[0] = the hidden state [d, 1]
 static void g4h_scan(ggml_tensor * dst, int ith, int nth, void * ud) {
     (void) ud;
-    const int64_t t0 = ith == 0 ? ggml_time_us() : 0;
     {
         std::lock_guard<std::mutex> lk(g4h.mtx);
         if (!g4h.ready) {
@@ -853,6 +859,7 @@ static void g4h_scan(ggml_tensor * dst, int ith, int nth, void * ud) {
             g4h.ready = true;
         }
     }
+    const int64_t t0 = ith == 0 ? ggml_time_us() : 0; // after the one-time sketch preparation
     const int     V = g4h.V, d = g4h.d, nb = g4h.nb;
     const float * h = (const float *) dst->src[0]->data;
     GGML_ASSERT(dst->src[0]->ne[0] == d && dst->ne[0] == V && nb % 16 == 0);
@@ -896,10 +903,15 @@ static void g4h_select(ggml_tensor * dst, int ith, int nth, void * ud) {
     const int64_t t0 = ggml_time_us();
     const int     V  = g4h.V, N = g4h.N;
     const float * sc = (const float *) dst->src[0]->data;
+    // the cut is taken from every 8th score (the shortlist then holds N within a few per cent, which is all it needs)
     static std::vector<float> tmp;
-    tmp.assign(sc, sc + V);
-    std::nth_element(tmp.begin(), tmp.begin() + (N - 1), tmp.end(), [](float p, float q) { return p > q; });
-    const float cut = tmp[N - 1];
+    const int                 ST = 8, ns = V / ST, kth = std::max(1, std::min(ns, (int) (1.05 * N / ST))); // 5 % more than N
+    tmp.resize(ns);
+    for (int j = 0; j < ns; ++j) {
+        tmp[j] = sc[(size_t) j * ST];
+    }
+    std::nth_element(tmp.begin(), tmp.begin() + (kth - 1), tmp.end(), [](float p, float q) { return p > q; });
+    const float cut = tmp[kth - 1];
     float *     fl  = (float *) dst->data;
     long long   n   = 0;
     for (int j = 0; j < V; ++j) {

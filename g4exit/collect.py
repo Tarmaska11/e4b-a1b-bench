@@ -30,6 +30,7 @@ ap.add_argument("--out", required=True)
 ap.add_argument("--limit", type=int, default=0, help="smoke: keep only this many records of each kind")
 ap.add_argument("--armset", default="e0")
 ap.add_argument("--extra", default="", help="other model files as arms: name=URL,name=URL (downloaded, dumped, deleted)")
+ap.add_argument("--extra-profiles", default="", help="profiles from profiles.json to run ON TOP of every --extra file, e.g. T004")
 a = ap.parse_args()
 
 os.makedirs(a.out, exist_ok=True)
@@ -220,6 +221,11 @@ for spec_ in [x for x in a.extra.split(",") if x]:
     d_ = "ANOTHER FILE of the same model as an arm: %s" % url_.rsplit("/", 1)[-1]
     arms.append(dump("chat_" + nm_, chat_recs, [41], False, None, None, d_, None, mp_))
     arms.append(dump("bench_" + nm_, bench_recs, [41], True, None, None, d_, None, mp_))
+    for pf_ in [x for x in a.extra_profiles.split(",") if x]:   # the same file with a sparse-FFN profile on top (needs G4_CAL)
+        PRX = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "profiles.json")))
+        dp_ = d_ + " + profile %s (gate-cal selector + rank-256 bypass)" % pf_
+        arms.append(dump("chat_%s_%s" % (nm_, pf_), chat_recs, [41], False, None, PRX[pf_], dp_, None, mp_))
+        arms.append(dump("bench_%s_%s" % (nm_, pf_), bench_recs, [41], True, None, PRX[pf_], dp_, None, mp_))
     if os.path.exists(mp_):
         os.remove(mp_)
 meta["arms"] = arms

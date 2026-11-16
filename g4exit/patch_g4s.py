@@ -61,3 +61,19 @@ s = s.replace(h, """    // lm_head
 """)
 p.write_text(s, encoding="utf-8", newline="\n")
 print("G4S patched", p)
+
+# G4PROF: a per-kind-of-node wall-clock table in ggml's compute loop
+c = pathlib.Path(sys.argv[1]) / "ggml" / "src" / "ggml-cpu" / "ggml-cpu.c"
+cs = c.read_text(encoding="utf-8").replace("\r\n", "\n")
+a0 = "static thread_ret_t ggml_graph_compute_thread(void * data) {\n"
+assert cs.count(a0) == 1, "compute thread anchor"
+cs = cs.replace(a0, (here / "g4prof.c.inc").read_text(encoding="utf-8").replace("\r\n", "\n") + a0)
+a1 = "        const int n_fused = ggml_cpu_try_fuse_ops(cgraph, node_n, &params, cplan);\n"
+assert cs.count(a1) == 1, "fuse anchor"
+cs = cs.replace(a1, "        const int64_t g4p_t0 = (state->ith == 0 && g4prof_enabled() == 1) ? ggml_time_us() : 0;\n"
+                    "        const struct ggml_tensor * g4p_node = node;\n" + a1)
+a2 = "        if (node_n + 1 < cgraph->n_nodes) {\n            ggml_barrier(state->threadpool);\n        }\n"
+assert cs.count(a2) == 1, "barrier anchor"
+cs = cs.replace(a2, a2 + "        if (g4p_t0) {\n            g4prof_add(g4p_node, ggml_time_us() - g4p_t0);\n        }\n")
+c.write_text(cs, encoding="utf-8", newline="\n")
+print("G4PROF patched", c)
