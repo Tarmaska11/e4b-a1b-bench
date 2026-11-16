@@ -29,6 +29,8 @@ ap.add_argument("--nmmlu", type=int, default=160)
 ap.add_argument("--nwiki", type=int, default=40)
 ap.add_argument("--out", default="e7_out")
 ap.add_argument("--selftest", action="store_true")
+ap.add_argument("--twostage", action="store_true",
+                help="E12: a first pass over a random subset of the dimensions keeps M rows; the full 1-bit score ranks only those")
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 T0 = time.time()
@@ -161,6 +163,10 @@ def mm(Hb, M, scale=None, off=0.0):
 
 
 SK = ("s1", "s1q8", "s1q4", "s2")
+D1S, M1S, N2S = (d // 10, d // 5, 2 * d // 5), (V // 16, V // 8, V // 4), (V // 64, V // 32)   # 256/512/1024, 16k/32k/65k, 4096/8192
+PERM = np.random.default_rng(12).permutation(d)
+S1P = {D1: np.ascontiguousarray(S1[:, PERM[:D1]]) for D1 in D1S} if a.twostage else {}
+acc2 = {}
 acc = {k: {sk: {} for sk in SK} for k in sorted(set(kind))}
 top1_ok = {k: [] for k in acc}
 BS = 192
@@ -197,6 +203,25 @@ for b0 in range(0, P, BS):
                 A.setdefault("miss%d" % nn, []).append(float((p64[i] * ~inside).sum() / p64[i].sum()))
                 A.setdefault("all%d" % nn, []).append(float(inside.all()))
                 A.setdefault("mass%d" % nn, []).append(float(1.0 - pr[i][S[i] >= thr[i, j]].sum()))
+    if a.twostage:                       # E12: stage 1 on D1 random dimensions keeps M1 rows; stage 2 = the full s1q8 score on those
+        Sf = sk_scores["s1q8"]
+        Hq = q8(Hb)
+        for D1 in D1S:
+            Pp = mm(np.ascontiguousarray(Hq[:, PERM[:D1]]), S1P[D1], alpha1)
+            for M1 in M1S:
+                t1 = -np.partition(-Pp, M1 - 1, axis=1)[:, M1 - 1:M1]
+                S2_ = np.where(Pp >= t1, Sf, -np.inf)
+                for nn in N2S:
+                    t2 = -np.partition(-S2_, nn - 1, axis=1)[:, nn - 1:nn]
+                    for i, k in enumerate(kb):
+                        ins = S2_[i] >= t2[i]
+                        A2 = acc2.setdefault(k, {}).setdefault((D1, M1, nn), dict(top1=[], allin=[], miss=[]))
+                        in64 = ins[part[i]]
+                        A2["top1"].append(float(ins[top1[i]]))
+                        A2["allin"].append(float(in64.all()))
+                        A2["miss"].append(float((p64[i] * ~in64).sum() / p64[i].sum()))
+                del S2_
+            del Pp
     del sk_scores, Lx, pr
     if b0 % (BS * 5) == 0:
         say("positions", b0 + len(Hb), "of", P)
@@ -235,5 +260,22 @@ for sk in SK:
         RES["tables"]["%s/%s" % (sk, k)] = tab
         rep("| %s | %d / %d / %d | %d / %d | %s |" % (k, np.median(r1), np.percentile(r1, 99.9), r1.max(),
                                                    np.percentile(rk, 99), rk.max(), " | ".join(cells)))
+if a.twostage:
+    rep("")
+    rep("## E12. two-stage scan: stage 1 scores every row on D1 random dimensions (of %d) and keeps M rows; stage 2 = the full 1-bit, 8-bit-state score on those; N go to the exact head" % d)
+    rep("")
+    rep("scan work relative to the one-stage scan = D1/d + (M/V)*(1 - D1/d)")
+    rep("")
+    rep("| positions | D1 | M kept | scan work | N | exact top-1 inside | top-%d all inside | missed top-%d mass (mean / max) |" % (TOPK, TOPK))
+    rep("|---|---:|---:|---:|---:|---:|---:|---|")
+    RES["twostage"] = {}
+    for k in sorted(acc2):
+        for (D1, M1, nn), A2 in sorted(acc2[k].items()):
+            work = D1 / d + (M1 / V) * (1 - D1 / d)
+            t1_, al_, ms_ = np.array(A2["top1"]), np.array(A2["allin"]), np.array(A2["miss"])
+            RES["twostage"]["%s/%d/%d/%d" % (k, D1, M1, nn)] = dict(work=work, top1_in=float(t1_.mean()), all_in=float(al_.mean()),
+                                                                 miss_mean=float(ms_.mean()), miss_max=float(ms_.max()), n=int(len(t1_)))
+            rep("| %s | %d | %d | %.0f %% | %d | %.3f %% | %.1f %% | %.1e / %.1e |" % (k, D1, M1, 100 * work, nn, 100 * t1_.mean(), 100 * al_.mean(),
+                                                                              ms_.mean(), ms_.max()))
 rep("")
 rep("done in %.0f s" % (time.time() - T0))
