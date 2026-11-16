@@ -1,0 +1,900 @@
+{
+ "mode": "e4b",
+ "shard": 5,
+ "nshards": 8,
+ "model": "model.gguf",
+ "template_source": "server",
+ "template_raw": [
+  "<|turn>user\n",
+  "<turn|>\n<|turn>model\n"
+ ],
+ "prefix": "<|turn>user\n",
+ "suffix": "<turn|>\n<|turn>model\n",
+ "letters": {
+  "A": [
+   236776
+  ],
+  "B": [
+   236799
+  ],
+  "C": [
+   236780
+  ],
+  "D": [
+   236796
+  ]
+ },
+ "suffix_tokens": [
+  106,
+  107,
+  105,
+  4368,
+  107
+ ],
+ "chat": [
+  {
+   "id": "en06",
+   "lang": "en",
+   "prompt": "Why is the sky blue during the day but red at sunset?",
+   "reply": "This is a fantastic question that gets to the heart of how light interacts with our atmosphere. The difference in the sky's color during the day versus at sunset is all due to a phenomenon called **Rayleigh Scattering**.\n\nHere is a detailed breakdown of why this happens:\n\n---\n\n## ☀️ Why the Sky is Blue During the Day\n\nThe color of the sky is determined by the way the Earth's atmosphere scatters sunlight.\n\n### 1. Sunlight is White Light (A Mixture of Colors)\nThe light from the Sun appears white to us, but it is actually composed of all the colors of the rainbow (the visible spectrum: Red, Orange, Yellow, Green, Blue, Indigo, Violet).\n\n### 2. Rayleigh Scattering\nThe Earth's atmosphere is",
+   "gen_tokens": 160,
+   "gen_s": 19.6,
+   "n_prompt": 22
+  },
+  {
+   "id": "en14",
+   "lang": "en",
+   "prompt": "I want to start running but I get out of breath after two minutes. How do I begin?",
+   "reply": "It is **extremely common** to feel breathless when you first start running. Your body is adapting to a new kind of stress, and it takes time for your cardiovascular system and lungs to catch up. The most important thing is to **start slower than you think you should** and focus on consistency over speed.\n\nHere is a comprehensive, step-by-step plan to help you build your endurance without getting discouraged or injured.\n\n---\n\n## Phase 1: The Foundation (Weeks 1–3) – Focus on Walking/Running Intervals\n\n**DO NOT** try to run for two minutes straight right now. You need to teach your body that running is possible for longer periods. The best way to do this is using **run/walk intervals**.\n\n### 🏃‍♀️ The Strategy",
+   "gen_tokens": 160,
+   "gen_s": 20.2,
+   "n_prompt": 29
+  },
+  {
+   "id": "en22",
+   "lang": "en",
+   "prompt": "Give me three ideas for a cheap but thoughtful gift for my mother.",
+   "reply": "Here are three ideas for a cheap but thoughtful gift for your mother, catering to different types of personalities:\n\n**1. The \"Memory Lane\" Jar/Box:**\n\n* **What it is:** A jar (you can decorate a mason jar cheaply) or a small decorated box filled with handwritten memories, compliments, or reasons why you love her.\n* **Why it's thoughtful:** This gift requires *time and thought*, which is often more valuable than money. You can write things like: \"I loved that time we...\", \"I admire your ability to...\", or simply \"Thank you for always making me laugh.\"\n* **Cost:** Very low—a jar/box, paper, and pens.\n* **Tip for extra thought:** Include a few small, printed photos",
+   "gen_tokens": 160,
+   "gen_s": 19.8,
+   "n_prompt": 23
+  },
+  {
+   "id": "en30",
+   "lang": "en",
+   "prompt": "Teach me five useful phrases in Spanish for ordering food.",
+   "reply": "Here are five very useful and practical Spanish phrases for ordering food, depending on the situation. I've included the Spanish, the pronunciation guide, and the English translation, along with a brief tip for context!\n\n---\n\n### 1. To Start the Order (The Polite Opener)\n\n**Spanish:** ***Quisiera...*** (or ***Me gustaría...***)\n**Pronunciation:** *kee-see-AIR-ah* (or *meh goos-tah-REE-ah*)\n**English:** I would like...\n\n**💡 Context Tip:** This is the most polite way to start any order. It's much nicer than just pointing or saying \"I want.\"\n*   **Example:** *Quisiera una cerveza, por favor.*",
+   "gen_tokens": 160,
+   "gen_s": 19.5,
+   "n_prompt": 20
+  },
+  {
+   "id": "ru06",
+   "lang": "ru",
+   "prompt": "Почему небо днём голубое, а на закате красное?",
+   "reply": "Это очень интересный и классический вопрос, который объясняется **физикой рассеяния света**, а именно – **Рэлеевским рассеянием**.\n\nВот подробное объяснение, как это работает днём и на закате.\n\n---\n\n## ☀️ Почему небо голубое днём? (Рассеяние света)\n\nОсновная причина голубого цвета — это **Рэлеевское рассеяние**.\n\n1. **Состав света:** Солнечный свет, который кажется нам белым или желтоватым, на самом деле является смесью всех цветов радуги (длин волн).\n2. **Воздух и молекулы:** Наша атмосфера состоит из огромного количества мельчайших молекул газов (в основном азо",
+   "gen_tokens": 160,
+   "gen_s": 19.6,
+   "n_prompt": 23
+  },
+  {
+   "id": "ru14",
+   "lang": "ru",
+   "prompt": "Хочу начать бегать, но задыхаюсь уже через две минуты. С чего начать?",
+   "reply": "Это абсолютно нормально! Почти все, кто начинает бегать, сталкиваются с этим. Ваше тело нужно время, чтобы адаптироваться к нагрузке. Главное — не пытаться сразу бежать марафон.\n\nВот пошаговый, научно обоснованный и очень мягкий план, с которого вам нужно начать.\n\n---\n\n## 🏃‍♀️ Фаза 0: Подготовка (Неделя 1)\n\nПрежде чем бежать, нужно подготовить тело, чтобы оно не травмировалось.\n\n**1. Обязательная разминка (5 минут):**\nНикогда не начинайте с бега \"на холодную\". Разминка повышает температуру тела и подготавливает мышцы.\n* **Что",
+   "gen_tokens": 160,
+   "gen_s": 20.1,
+   "n_prompt": 29
+  },
+  {
+   "id": "ru22",
+   "lang": "ru",
+   "prompt": "Предложи три идеи недорогого, но душевного подарка маме.",
+   "reply": "Вот три идеи недорогого, но очень душевного подарка для мамы, с акцентом на эмоции и внимание:\n\n---\n\n### 1. \"Банка Воспоминаний\" (Самый личный и трогательный)\n\n**Что это:** Вы берете красивую банку (можно украсить её лентами или красками) и на протяжении некоторого времени (или в течение дня) собираете в неё маленькие записки.\n\n**Как это сделать:**\n* **Записки:** На каждой записке пишите что-то, что вы цените в маме, воспоминание, которое у вас с ней было, или просто комплимент.\n    * *Примеры фраз:* \"Спасибо, что всегда слушаешь\",",
+   "gen_tokens": 160,
+   "gen_s": 19.6,
+   "n_prompt": 26
+  },
+  {
+   "id": "ru30",
+   "lang": "ru",
+   "prompt": "Научи меня пяти полезным фразам на английском, чтобы заказать еду в кафе.",
+   "reply": "Вот 5 полезных фраз на английском, которые помогут вам заказать еду в кафе, а также объяснения, как и когда их использовать!\n\n---\n\n### 🍔 1. \"I would like to order...\" (Я бы хотел(а) заказать...)\n\n**Когда использовать:** Это самая вежливая и универсальная фраза, когда вы готовы сделать свой заказ.\n\n**Пример:**\n> \"I would like to order the cheeseburger and a side of fries, please.\"\n> *(Я бы хотел(а) заказать чизбургер и порцию картошки фри, пожалуйста.)*\n\n**💡 Совет:** Использование \"I would like\" (Я бы хотел) всегда звучит более вежливо, чем просто \"I want",
+   "gen_tokens": 160,
+   "gen_s": 19.6,
+   "n_prompt": 29
+  }
+ ],
+ "bench": [
+  {
+   "id": "abstract_algebra/test/76",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "anatomy/test/101",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "astronomy/test/124",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "astronomy/test/113",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "business_ethics/test/73",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "clinical_knowledge/test/190",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_biology/test/79",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_chemistry/test/73",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "college_chemistry/test/86",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_computer_science/test/4",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_mathematics/test/53",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_medicine/test/108",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_physics/test/20",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_physics/test/63",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "computer_security/test/9",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "conceptual_physics/test/53",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "econometrics/test/41",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "electrical_engineering/test/118",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "electrical_engineering/test/144",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "elementary_mathematics/test/264",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "formal_logic/test/52",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "global_facts/test/66",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_biology/test/174",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_biology/test/138",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_chemistry/test/86",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_computer_science/test/43",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_european_history/test/158",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_geography/test/82",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_geography/test/11",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_government_and_politics/test/0",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_macroeconomics/test/184",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_mathematics/test/193",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_microeconomics/test/69",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_microeconomics/test/13",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_physics/test/30",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_psychology/test/406",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_statistics/test/39",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_us_history/test/104",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_us_history/test/34",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_world_history/test/169",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "human_aging/test/117",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "human_sexuality/test/91",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "international_law/test/48",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "international_law/test/112",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "jurisprudence/test/102",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "logical_fallacies/test/114",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "machine_learning/test/87",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "management/test/4",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "management/test/33",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "marketing/test/184",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "medical_genetics/test/31",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "miscellaneous/test/72",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "moral_disputes/test/63",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "moral_disputes/test/101",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "moral_scenarios/test/90",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "nutrition/test/246",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "philosophy/test/7",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "prehistory/test/78",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "prehistory/test/302",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "professional_accounting/test/7",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "professional_law/test/1128",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "professional_medicine/test/185",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_psychology/test/525",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_psychology/test/349",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "public_relations/test/7",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "security_studies/test/172",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "sociology/test/75",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "us_foreign_policy/test/41",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "us_foreign_policy/test/79",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "virology/test/4",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "world_religions/test/135",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "abstract_algebra/test/0",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "anatomy/test/59",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "anatomy/test/119",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "astronomy/test/87",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "business_ethics/test/13",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "clinical_knowledge/test/220",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_biology/test/46",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "college_biology/test/135",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "college_chemistry/test/21",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_computer_science/test/85",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_mathematics/test/13",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "college_medicine/test/50",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_medicine/test/166",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "college_physics/test/68",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "computer_security/test/49",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "conceptual_physics/test/83",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "econometrics/test/106",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "econometrics/test/21",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "electrical_engineering/test/114",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "elementary_mathematics/test/329",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "formal_logic/test/118",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "global_facts/test/70",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "global_facts/test/23",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_biology/test/0",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_chemistry/test/198",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_computer_science/test/70",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_european_history/test/73",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_european_history/test/71",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_geography/test/56",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_government_and_politics/test/186",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_macroeconomics/test/62",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_mathematics/test/269",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_mathematics/test/71",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_microeconomics/test/112",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_physics/test/98",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_psychology/test/410",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_statistics/test/25",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_statistics/test/184",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_us_history/test/133",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_world_history/test/80",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "human_aging/test/179",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "human_sexuality/test/33",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "human_sexuality/test/19",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "international_law/test/87",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "jurisprudence/test/70",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "logical_fallacies/test/91",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "machine_learning/test/58",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "machine_learning/test/5",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "management/test/93",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "marketing/test/180",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "medical_genetics/test/33",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "miscellaneous/test/560",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "miscellaneous/test/53",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "moral_disputes/test/205",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/651",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "nutrition/test/71",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "philosophy/test/176",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "philosophy/test/179",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "prehistory/test/319",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "professional_accounting/test/147",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "professional_law/test/1438",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "professional_medicine/test/261",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_medicine/test/148",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "professional_psychology/test/257",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "public_relations/test/76",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "security_studies/test/158",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "sociology/test/82",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "sociology/test/55",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "us_foreign_policy/test/30",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "virology/test/16",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "world_religions/test/164",
+   "lang": "ru",
+   "gold": "A"
+  }
+ ],
+ "arms": [
+  {
+   "name": "chat_full",
+   "rc": 0,
+   "s": 75,
+   "recs": 8,
+   "tokens": 1481,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": false
+  },
+  {
+   "name": "bench_full",
+   "rc": 0,
+   "s": 922,
+   "recs": 142,
+   "tokens": 21215,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": true
+  },
+  {
+   "name": "chat_leanA",
+   "rc": 0,
+   "s": 74,
+   "recs": 8,
+   "tokens": 1481,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: leanA_full.gguf",
+   "last": false
+  },
+  {
+   "name": "bench_leanA",
+   "rc": 0,
+   "s": 907,
+   "recs": 142,
+   "tokens": 21215,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: leanA_full.gguf",
+   "last": true
+  }
+ ]
+}

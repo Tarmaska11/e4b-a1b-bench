@@ -1,0 +1,905 @@
+{
+ "mode": "e4b",
+ "shard": 1,
+ "nshards": 8,
+ "model": "model.gguf",
+ "template_source": "server",
+ "template_raw": [
+  "<|turn>user\n",
+  "<turn|>\n<|turn>model\n"
+ ],
+ "prefix": "<|turn>user\n",
+ "suffix": "<turn|>\n<|turn>model\n",
+ "letters": {
+  "A": [
+   236776
+  ],
+  "B": [
+   236799
+  ],
+  "C": [
+   236780
+  ],
+  "D": [
+   236796
+  ]
+ },
+ "suffix_tokens": [
+  106,
+  107,
+  105,
+  4368,
+  107
+ ],
+ "chat": [
+  {
+   "id": "en02",
+   "lang": "en",
+   "prompt": "Can you explain how a refrigerator actually keeps things cold? Keep it simple.",
+   "reply": "Imagine a refrigerator as a machine that **moves heat** from the inside (where you want it cold) to the outside (where it's warmer). It doesn't *create* cold; it just kicks heat *out*.\n\nHere’s the super simple breakdown:\n\n1. **The Magic Fluid (Refrigerant):** The fridge uses a special chemical called refrigerant.\n2. **Evaporation (Making it Cold):** This fluid is made to be very easy to turn into a gas (boil) when it's inside the coils in the fridge. When a liquid turns into a gas, it needs energy, and it steals that energy (heat) from its surroundings—the inside of your fridge! This is what makes things cold.\n3. **Compression",
+   "gen_tokens": 160,
+   "gen_s": 25.5,
+   "n_prompt": 24
+  },
+  {
+   "id": "en10",
+   "lang": "en",
+   "prompt": "I'm visiting Rome for three days. What should I not miss, and what is overrated?",
+   "reply": "Rome is an incredible city, and three days is a good amount of time to hit the major highlights without feeling totally rushed. However, \"overrated\" is subjective, so I'll give you some balanced takes.\n\nHere is a comprehensive guide for your three-day trip, broken down into \"Must-See,\" \"Worth Considering,\" and \"Potentially Overrated.\"\n\n---\n\n## 🏛️ The Absolute Must-Sees (Don't Skip These)\n\nThese are the foundational, world-changing sites of Rome. If you only do one thing, do these.\n\n**1. The Colosseum & Roman Forum/Palatine Hill:**\n*   **Why:** This is the iconic heart of Ancient Rome. Standing in the Colosseum is breathtaking, and wandering through",
+   "gen_tokens": 160,
+   "gen_s": 25.5,
+   "n_prompt": 29
+  },
+  {
+   "id": "en18",
+   "lang": "en",
+   "prompt": "Summarise the plot of Romeo and Juliet in five sentences.",
+   "reply": "Two young lovers from feuding families, the Montagues and Capulets, fall instantly in love despite the ancient hatred between their houses. Secretly married with the help of Friar Laurence, Romeo and Juliet's forbidden romance blossoms amidst the city's violence. Their happiness is tragically cut short when Romeo kills Juliet's cousin, Tybalt, leading to Romeo's banishment. To avoid marrying Paris, Juliet fakes her death, prompting Romeo to return and commit suicide beside her tomb. In a desperate final act, Juliet awakens to find Romeo dead, leading her to take her own life, and their deaths finally end the Capulet-Montague feud.",
+   "gen_tokens": 137,
+   "gen_s": 21.5,
+   "n_prompt": 21
+  },
+  {
+   "id": "en26",
+   "lang": "en",
+   "prompt": "What happens to my body if I stop drinking coffee for a month?",
+   "reply": "Stopping coffee for a month can lead to a variety of changes in your body, both short-term and longer-term. Since caffeine is a stimulant, withdrawing from it can cause some initial adjustments, which often resolve over several weeks.\n\nHere is a detailed breakdown of what you might experience, broken down by different bodily systems.\n\n***\n\n## ☕️ Phase 1: The Initial Withdrawal (Days 1–7)\n\nThis is often the most challenging phase. Caffeine withdrawal symptoms are essentially your brain adjusting to the sudden lack of its usual stimulant.\n\n### 🧠 Nervous System Effects\n* **Headaches:** This is the most common symptom. Caffeine keeps your blood vessels slightly constricted; when you stop, they expand, causing throbbing headaches.\n* **Fatigue and D",
+   "gen_tokens": 160,
+   "gen_s": 25.4,
+   "n_prompt": 23
+  },
+  {
+   "id": "ru02",
+   "lang": "ru",
+   "prompt": "Объясни простыми словами, как работает холодильник.",
+   "reply": "Представь, что холодильник – это такой **маленький, умный \"холодильщик\"**, который умеет забирать тепло изнутри и выкидывать его наружу.\n\nЧтобы понять, как это работает, нужно знать одну простую вещь: **тепло всегда хочет двигаться от горячего к холодному.** Холодильник заставляет его двигаться в обратную сторону – от холодного к горячему!\n\nВот как это происходит, шаг за шагом, очень просто:\n\n### 🧊 Основная идея: Смена \"волшебной\" жидкости\n\nВнутри холодильника есть специальная жидкость, которую называют **хладагент** (это как специальный \"охладитель\"). Эта жидкость очень умная,",
+   "gen_tokens": 160,
+   "gen_s": 25.1,
+   "n_prompt": 22
+  },
+  {
+   "id": "ru10",
+   "lang": "ru",
+   "prompt": "Еду в Санкт-Петербург на три дня. Что обязательно посмотреть, а что переоценено?",
+   "reply": "Санкт-Петербург – это город, который требует времени, но за три дня можно увидеть самое главное, при этом избегая ловушек \"туристических клише\".\n\nВот сбалансированный гайд: **Что обязательно посмотреть (Must-See)** и **Что можно пропустить или переоценить (Overrated/Skip)**.\n\n---\n\n## 👑 ✨ Обязательно посмотреть (The Essentials)\n\nЭто те места, которые определяют дух города и должны быть в вашем маршруте.\n\n**1. Эрмитаж и Дворцовая площадь (The Grand Icon):**\n* **Почему:** Это сердце имперской мощи и культурный символ. Вы не можете уехать из Питера, не увидев Зимний дворец",
+   "gen_tokens": 160,
+   "gen_s": 26.1,
+   "n_prompt": 30
+  },
+  {
+   "id": "ru18",
+   "lang": "ru",
+   "prompt": "Перескажи сюжет «Евгения Онегина» в пяти предложениях.",
+   "reply": "Вот краткий пересказ сюжета \"Евгения Онегина\" в пяти предложениях:\n\nОнегин, разочарованный светскими условностями и жизнью, влюбляется в искреннюю и чистую Татьяну Ларину. Их связь, несмотря на общественное осуждение, развивается, но затем Онегин, увлечённый другой дамой, теряет интерес к ней. Татьяна, сохранив свою верность и честь, отвергает его ухаживания. Впоследствии, после пережитых потрясений, Онегин возвращается к ней, признаваясь в любви. Однако Татьяна, став светской леди, твёрдо отказывает ему, выбрав свой долг и достоинство.",
+   "gen_tokens": 154,
+   "gen_s": 24.4,
+   "n_prompt": 27
+  },
+  {
+   "id": "ru26",
+   "lang": "ru",
+   "prompt": "Что произойдёт с организмом, если месяц не пить кофе?",
+   "reply": "Если вы решите **полностью отказаться от кофе на один месяц**, ваш организм, скорее всего, пройдет через определенные этапы адаптации. Реакция будет зависеть от того, **насколько вы употребляли кофе** (количество чашек в день) и **насколько вы чувствительны к кофеину**.\n\nВот подробный обзор того, что вы, скорее всего, почувствуете и что произойдет в организме.\n\n---\n\n## Фаза 1: Отмена (Первые 3–7 дней)\n\nЭто самая сложная фаза, поскольку организм привык к регулярному поступлению кофеина.\n\n### Симптомы отмены (Абстинентный синдром)\n1. **Головные боли:** Это самый ча",
+   "gen_tokens": 160,
+   "gen_s": 25.2,
+   "n_prompt": 24
+  }
+ ],
+ "bench": [
+  {
+   "id": "abstract_algebra/test/6",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "abstract_algebra/test/18",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "anatomy/test/84",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "astronomy/test/19",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "business_ethics/test/68",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "clinical_knowledge/test/82",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "clinical_knowledge/test/130",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "college_biology/test/115",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_chemistry/test/49",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_computer_science/test/57",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "college_mathematics/test/99",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "college_mathematics/test/48",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_medicine/test/44",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "college_physics/test/57",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "computer_security/test/83",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "conceptual_physics/test/16",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "conceptual_physics/test/200",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "econometrics/test/89",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "electrical_engineering/test/112",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "elementary_mathematics/test/83",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "formal_logic/test/66",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "formal_logic/test/8",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "global_facts/test/47",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_biology/test/248",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_chemistry/test/148",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_computer_science/test/52",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_computer_science/test/75",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_european_history/test/80",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_geography/test/167",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_government_and_politics/test/38",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_macroeconomics/test/235",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_macroeconomics/test/170",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_mathematics/test/74",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_microeconomics/test/68",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_physics/test/3",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_psychology/test/165",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_psychology/test/176",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_statistics/test/154",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_us_history/test/108",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_world_history/test/216",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "human_aging/test/31",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "human_aging/test/55",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "human_sexuality/test/14",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "international_law/test/35",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "jurisprudence/test/63",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "logical_fallacies/test/46",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "logical_fallacies/test/143",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "machine_learning/test/103",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "management/test/62",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "marketing/test/88",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "medical_genetics/test/82",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "medical_genetics/test/93",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "miscellaneous/test/143",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "moral_disputes/test/286",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/209",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "nutrition/test/97",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "nutrition/test/18",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "philosophy/test/302",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "prehistory/test/83",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_accounting/test/3",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "professional_law/test/1240",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "professional_law/test/93",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "professional_medicine/test/58",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "professional_psychology/test/260",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "public_relations/test/100",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "security_studies/test/64",
+   "lang": "en",
+   "gold": "D"
+  },
+  {
+   "id": "security_studies/test/92",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "sociology/test/10",
+   "lang": "en",
+   "gold": "B"
+  },
+  {
+   "id": "us_foreign_policy/test/37",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "virology/test/27",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "world_religions/test/170",
+   "lang": "en",
+   "gold": "A"
+  },
+  {
+   "id": "world_religions/test/78",
+   "lang": "en",
+   "gold": "C"
+  },
+  {
+   "id": "abstract_algebra/test/86",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "anatomy/test/57",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "astronomy/test/78",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "business_ethics/test/87",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "business_ethics/test/83",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "clinical_knowledge/test/106",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_biology/test/136",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "college_chemistry/test/25",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "college_computer_science/test/61",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "college_computer_science/test/43",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_mathematics/test/49",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_medicine/test/80",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "college_physics/test/28",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "computer_security/test/85",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "computer_security/test/76",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "conceptual_physics/test/70",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "econometrics/test/103",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "electrical_engineering/test/39",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "elementary_mathematics/test/281",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "elementary_mathematics/test/335",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "formal_logic/test/2",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "global_facts/test/72",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_biology/test/71",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_chemistry/test/99",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_chemistry/test/146",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_computer_science/test/45",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_european_history/test/45",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_geography/test/161",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_government_and_politics/test/26",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "high_school_government_and_politics/test/35",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_macroeconomics/test/388",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "high_school_mathematics/test/95",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_microeconomics/test/103",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_physics/test/39",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "high_school_physics/test/80",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_psychology/test/520",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_statistics/test/125",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_us_history/test/106",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_world_history/test/199",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "high_school_world_history/test/46",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "human_aging/test/85",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "human_sexuality/test/13",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "international_law/test/7",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "jurisprudence/test/66",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "jurisprudence/test/105",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "logical_fallacies/test/150",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "machine_learning/test/66",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "management/test/45",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "marketing/test/71",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "marketing/test/138",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "medical_genetics/test/80",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "miscellaneous/test/699",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "moral_disputes/test/230",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/636",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "moral_scenarios/test/590",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "nutrition/test/265",
+   "lang": "ru",
+   "gold": "D"
+  },
+  {
+   "id": "philosophy/test/208",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "prehistory/test/51",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "professional_accounting/test/145",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "professional_accounting/test/97",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "professional_law/test/340",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "professional_medicine/test/69",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "professional_psychology/test/168",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "public_relations/test/22",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "public_relations/test/102",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "security_studies/test/169",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "sociology/test/185",
+   "lang": "ru",
+   "gold": "A"
+  },
+  {
+   "id": "us_foreign_policy/test/45",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "virology/test/45",
+   "lang": "ru",
+   "gold": "B"
+  },
+  {
+   "id": "virology/test/82",
+   "lang": "ru",
+   "gold": "C"
+  },
+  {
+   "id": "world_religions/test/105",
+   "lang": "ru",
+   "gold": "A"
+  }
+ ],
+ "arms": [
+  {
+   "name": "chat_full",
+   "rc": 0,
+   "s": 91,
+   "recs": 8,
+   "tokens": 1449,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": false
+  },
+  {
+   "name": "bench_full",
+   "rc": 0,
+   "s": 1108,
+   "recs": 143,
+   "tokens": 20600,
+   "skipped": [],
+   "layers": [
+    23,
+    26,
+    29,
+    32,
+    35,
+    38,
+    40,
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "",
+   "last": true
+  },
+  {
+   "name": "chat_leanA",
+   "rc": 0,
+   "s": 91,
+   "recs": 8,
+   "tokens": 1449,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: leanA_full.gguf",
+   "last": false
+  },
+  {
+   "name": "bench_leanA",
+   "rc": 0,
+   "s": 1114,
+   "recs": 143,
+   "tokens": 20600,
+   "skipped": [],
+   "layers": [
+    41
+   ],
+   "skip": null,
+   "ffn": null,
+   "ffn_kept": {},
+   "desc": "ANOTHER FILE of the same model as an arm: leanA_full.gguf",
+   "last": true
+  }
+ ]
+}
