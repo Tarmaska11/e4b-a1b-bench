@@ -1,0 +1,100 @@
+name: g4a
+# G4A: decode attention that reads the key cache once (g4exit/g4a.cpp.inc).
+# x86: a ~5k-token context read once into a prompt cache, then the same 48 greedy tokens under every mode;
+# mode 1 must give the same text as upstream (G4A=0). arm64: the phone binary.
+# Starts when g4exit/RUN_G4A changes.
+on:
+  push:
+    branches: ['fable/**']
+    paths: ['g4exit/RUN_G4A']
+env:
+  LLAMA_TAG: b12317
+  E4B_URL: https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/gemma-4-E4B-it-Q4_K_M.gguf
+jobs:
+  x86test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: source + patch + build (x86)
+        run: |
+          set -e
+          git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
+          python3 g4exit/patch_gemma4.py src
+          python3 g4exit/patch_g4s.py src
+          cmake -S src -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF \
+                -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=ON -DGGML_OPENMP=OFF \
+                -DGGML_NATIVE=OFF -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON
+          cmake --build build --target llama-completion -j 4
+      - name: model
+        run: curl -sSL -o model.gguf "$E4B_URL" && ls -la model.gguf
+      - name: long prompts (a synthetic ledger, the question is about a record in the first third)
+        run: python3 g4exit/g4a_prompt.py
+      - name: long-context decode under every mode
+        run: |
+          B=$(find build -name llama-completion -type f | head -1)
+          run() { # label, prompt tag, extra env as VAR=VAL words
+            L=$1; P=$2; shift 2
+            env "$@" G4PROF=1 G4A_STAT=1 $B -m model.gguf -ngl 0 -t 4 -n 48 -c 10240 --no-warmup --no-repack --temp 0 --seed 1 \
+              -no-cnv --no-display-prompt -b 512 -ub 128 --prompt-cache cache_$P.bin -f p_$P.txt > out_$L.txt 2> log_$L.txt || echo "RUN $L FAILED"
+            echo "== $L [$*]"; cat out_$L.txt; echo
+            grep -E "prompt eval time|       eval time" log_$L.txt | sed 's/^.*perf_print: *//'
+            grep -E "G4PROF.*FLASH_ATTN_EXT|^G4A " log_$L.txt | head -4
+          }
+          for P in en ru; do
+            run ${P}_g0 $P G4A=0
+            ls -la cache_$P.bin
+            run ${P}_g0b $P G4A=0
+            run ${P}_g1 $P G4A=1
+            run ${P}_g2 $P G4A=2
+            run ${P}_g3 $P G4A=3
+            run ${P}_g3e18 $P G4A=3 G4A_EPS=18
+            run ${P}_g3e12 $P G4A=3 G4A_EPS=12
+            run ${P}_g3b8 $P G4A=3 G4A_BLK=8
+            echo "---- $P: expected answer: $(cat answer_$P.txt)"
+            cmp -s out_${P}_g0.txt out_${P}_g0b.txt && echo "$P upstream rerun: IDENTICAL" || echo "$P upstream rerun: DIFFERS (the reference itself is not repeatable)"
+            for m in g1 g2 g3 g3e18 g3e12 g3b8; do
+              cmp -s out_${P}_g0.txt out_${P}_$m.txt && echo "$P upstream vs $m: IDENTICAL" || echo "$P upstream vs $m: DIFFERS"
+            done
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g4a-x86test
+          path: |
+            out_*.txt
+            log_*.txt
+            p_*.txt
+          retention-days: 14
+
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: source + patch
+        run: |
+          set -e
+          git clone --depth 1 --branch $LLAMA_TAG https://github.com/ggml-org/llama.cpp src
+          python3 g4exit/patch_gemma4.py src
+          python3 g4exit/patch_g4s.py src
+      - name: build (NDK)
+        run: |
+          set -e
+          NDK=${ANDROID_NDK_LATEST_HOME:-$ANDROID_NDK}
+          cmake -S src -B build -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake \
+                -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-29 -DCMAKE_BUILD_TYPE=Release \
+                -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_SERVER=OFF \
+                -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=ON -DGGML_OPENMP=OFF -DGGML_NATIVE=OFF \
+                -DCMAKE_C_FLAGS="-march=armv8.2-a+dotprod+fp16" -DCMAKE_CXX_FLAGS="-march=armv8.2-a+dotprod+fp16"
+          cmake --build build --target llama-completion -j 4
+          mkdir out
+          cp "$(find build -name llama-completion -type f | head -1)" out/
+          $NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip out/llama-completion
+          ls -la out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: g4a-android-completion
+          path: out
+          compression-level: 9
+          retention-days: 30
